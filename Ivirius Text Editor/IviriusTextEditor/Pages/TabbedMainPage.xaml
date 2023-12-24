@@ -7611,14 +7611,6 @@
                                             <FontIcon FontFamily="{StaticResource CustomFont}" Glyph="&#xE115;"/>
                                         </MenuFlyoutItem.Icon>
                                     </MenuFlyoutItem>
-                                    <MenuFlyoutItem x:Name="ConsoleItem" Text="{x:Bind Strings:StringTable.Console}" Click="MenuFlyoutItem_Click_18">
-                                        <MenuFlyoutItem.KeyboardAccelerators>
-                                            <KeyboardAccelerator Key="F3" IsEnabled="True"/>
-                                        </MenuFlyoutItem.KeyboardAccelerators>
-                                        <MenuFlyoutItem.Icon>
-                                            <FontIcon FontFamily="{StaticResource CustomFont}" Glyph="&#xE756;"/>
-                                        </MenuFlyoutItem.Icon>
-                                    </MenuFlyoutItem>
                                     <MenuFlyoutItem Text="{x:Bind Strings:StringTable.Restart}" Click="MenuFlyoutItem_Click_25">
                                         <MenuFlyoutItem.Icon>
                                             <FontIcon FontFamily="{StaticResource CustomFont}" Glyph="&#xE149;"/>
@@ -8460,43 +8452,6 @@
                                                             <PathIcon Data="M 3 5 M 16.5 13 A 1 1 0 0 0 16.5 20 A 1 1 0 0 0 16.5 13 M 16.5 14 A 1 1 0 0 1 16.5 19 A 1 1 0 0 1 16.5 14 M 17 17 C 16 17 16 17 16 16 L 16 15.5 C 16 14.5 17 14.5 17 15.5 L 17 16 L 17.5 16 C 18.5 16 18.5 17 17.5 17 L 17 17" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="#FF5AFF00" />
                                                         </Grid>
                                                     </Button>
-                                                    <Button x:Name="TableInsert" FontFamily="{StaticResource CustomFont}" Width="40" Height="53" FontSize="22" ToolTipService.ToolTip="Insert table" CornerRadius="4,4,4,4" Style="{StaticResource CrimsonToolbarButton}" Background="{x:Null}" BorderBrush="{x:Null}">
-                                                        <Grid Width="30" Height="45" Margin="-7,-4,-7,-7">
-                                                            <TextBlock FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" Margin="0,20,0,0" Width="32"><Run Text="Insert"/><LineBreak/><Run Text="Table"/></TextBlock>
-                                                            <PathIcon Data="M 3 5 C 3 4 4 3 5 3 L 15 3 C 16 3 17 4 17 5 L 17 15 C 17 16 16 17 15 17 L 5 17 C 4 17 3 16 3 15 M 5 4 C 4.5 4 4 4.5 4 5 L 4 15 C 4 15.5 4.5 16 5 16 L 15 16 C 15.5 16 16 15.5 16 15 L 16 5 C 16 4.5 15.5 4 15 4 M 7 5 L 7 7 L 5 7 L 5 8 L 7 8 L 7 15 L 8 15 L 8 8 L 15 8 L 15 7 L 8 7 L 8 5" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="-3,0,0,0" />
-                                                            <PathIcon Data="M 3 5 M 7 5 L 7 7 L 5 7 L 5 8 L 7 8 L 7 15 L 8 15 L 8 8 L 15 8 L 15 7 L 8 7 L 8 5" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="#FFFFEA00" Margin="-5,0,0,0" />
-                                                        </Grid>
-                                                        <Button.Flyout>
-                                                            <Flyout FlyoutPresenterStyle="{StaticResource WideFlyout}">
-                                                                <Grid Height="135">
-                                                                    <Grid HorizontalAlignment="Center" VerticalAlignment="Top">
-                                                                        <TextBlock TextWrapping="Wrap" Text="Rows" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="160,5,0,0"/>
-                                                                        <TextBlock TextWrapping="Wrap" Text="Columns" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="160,47,0,0"/>
-                                                                        <Custom:NumberBox x:Name="Rows" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" SpinButtonPlacementMode="Inline" Value="1" Minimum="1" Maximum="100" Style="{StaticResource NumberBoxStyle2}"/>
-                                                                        <Custom:NumberBox x:Name="Columns" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" SpinButtonPlacementMode="Inline" Value="1" Minimum="1" Maximum="100" Margin="0,40,0,0" Style="{StaticResource NumberBoxStyle2}"/>
-                                                                        <Custom:NumberBox x:Name="Width" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" SpinButtonPlacementMode="Inline" Value="10" Minimum="1" Margin="225,0,0,0" Style="{StaticResource NumberBoxStyle2}"/>
-                                                                        <Custom:NumberBox x:Name="Height" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" SpinButtonPlacementMode="Inline" Minimum="1" Maximum="100" Margin="225,40,0,0" Text="Auto" IsEnabled="False" ToolTipService.ToolTip="Because of how RTF works, the height of an empty table will always sync with its font size" Style="{StaticResource NumberBoxStyle2}"/>
-                                                                        <TextBlock TextWrapping="Wrap" Text="Auto" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="237,45,0,0"/>
-                                                                        <TextBlock TextWrapping="Wrap" Text="Width" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="385,5,0,0"/>
-                                                                        <TextBlock TextWrapping="Wrap" Text="Height" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="385,47,0,0"/>
-                                                                    </Grid>
-                                                                    <Border BorderThickness="0,1,0,0" Background="{ThemeResource SystemControlBackgroundAltMediumLowBrush}" BorderBrush="#338A8A8A" Margin="-20,0,-20,-22" VerticalAlignment="Bottom" Height="70"/>
-                                                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Bottom" Spacing="10">
-                                                                        <Button Content="Insert" Width="135" Click="TableInsertBox_FirstButtonClick" Style="{StaticResource CrimsonHighlightButton}"/>
-                                                                        <Button Content="Insert stretched" Width="135" Click="TableInsertBox_SecondButtonClick" Style="{StaticResource CrimsonButton}"/>
-                                                                        <Button Content="Cancel" Width="135" Click="TableInsertBox_CloseButtonClick" Style="{StaticResource CrimsonButton}"/>
-                                                                    </StackPanel>
-                                                                </Grid>
-                                                            </Flyout>
-                                                        </Button.Flyout>
-                                                    </Button>
-                                                    <Button x:Name="ScreenshotButton" FontFamily="{StaticResource CustomFont}" Width="55" Height="53" FontSize="22" ToolTipService.ToolTip="Insert date and time" Padding="0,0,0,0" CornerRadius="4,4,4,4" Style="{StaticResource CrimsonToolbarButton}" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalContentAlignment="Stretch" Click="ScreenshotButton_Click">
-                                                        <Grid Height="45" Margin="0,1,0,-1">
-                                                            <TextBlock FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" Margin="0,20,0,0"><Run Text="Take a"/><LineBreak/><Run Text="Screenshot"/></TextBlock>
-                                                            <PathIcon Data="M 3 5 C 3 4 4 3 5 3 L 15 3 C 16 3 17 4 17 5 L 17 12 L 16 12 L 16 5 C 16 4.5 15.5 4 15 4 L 5 4 C 4.5 4 4 4.5 4 5 L 4 15 C 4 15.5 4.5 16 5 16 L 12 16 L 12 17 L 5 17 C 4 17 3 16 3 15 M 16 13 L 17 13 L 17 16 L 20 16 L 20 17 L 17 17 L 17 20 L 16 20 L 16 17 L 13 17 L 13 16 L 16 16" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Top" />
-                                                            <PathIcon Data="M 16 13 L 17 13 L 17 16 L 20 16 L 20 17 L 17 17 L 17 20 L 16 20 L 16 17 L 13 17 L 13 16 L 16 16" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="#FF5AFF00" />
-                                                        </Grid>
-                                                    </Button>
                                                 </StackPanel>
                                             </Grid>
                                         </RelativePanel>
@@ -9093,16 +9048,6 @@
             </Border>
         </Border>
         <IviriusWindowingToolkit:ChildAppWindowContainer>
-            <IviriusWindowingToolkit:ChildAppWindow x:Name="ConsoleMSGBox" AppWindowWidth="700" AppWindowHeight="500" FirstButtonText="Run command" SecondButtonText="Clear output" CancelButtonText="Close" CloseButtonStyle="UWP" Title="Ivirius Text Editor Plus Console" FirstButtonClick="Button_Click_31" SecondButtonClick="Button_Click_29" HasIcon="True" Icon="/Assets/Glyphs/Console.png" MinimizeButtonClick="ConsoleMSGBox_MinimizeButtonClick" Backdrop="MicaAlt" d:IsHidden="True">
-                <Grid Background="Black">
-                    <TextBox Style="{StaticResource ConsoleBoxStyle}" TextWrapping="Wrap" Margin="14,14,14,0" VerticalAlignment="Top" Height="50" FontFamily="Cascadia Mono" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFFFE87C" FontSize="16" PlaceholderText="Ivirius Text Editor Plus&gt;" PlaceholderForeground="#FF00E2FF" IsEnabled="False"/>
-                    <TextBox Style="{StaticResource ConsoleBoxStyle}" x:Name="ConsoleBox" TextWrapping="Wrap" KeyUp="ConsoleBox_KeyUp" Margin="275,14,14,0" VerticalAlignment="Top" FontFamily="Cascadia Mono" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFFFE87C" FontSize="16" PlaceholderForeground="#FF00E2FF" Height="50"/>
-                    <TextBox TextWrapping="Wrap" IsEnabled="False" FontFamily="Cascadia Mono" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Style="{StaticResource ConsoleBoxStyle}" FontSize="16" Margin="15,75,15,0" Text="============================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================" VerticalAlignment="Top" Height="30"/>
-                    <ScrollViewer Margin="25,120,25,20">
-                        <TextBlock x:Name="OutputBox" TextWrapping="Wrap" IsTextSelectionEnabled="True" FontFamily="Cascadia Mono" Foreground="White" FontSize="16"/>
-                    </ScrollViewer>
-                </Grid>
-            </IviriusWindowingToolkit:ChildAppWindow>
             <IviriusWindowingToolkit:ChildAppWindow Backdrop="MicaAlt" CanMinimize="False" CanMaximize="False" x:Name="AboutBox" Title="About" RememberPosition="False" AppWindowHeight="520" AppWindowWidth="400" CloseButtonStyle="Win32" MaximizeButtonVisibility="Collapsed" MinimizeButtonVisibility="Collapsed" IsMaximizeRestoreButtonEnabled="False" TitleBarStyle="Transparent" d:IsHidden="True">
                 <Grid Margin="10,-115,10,0">
                     <Image HorizontalAlignment="Left" Height="100" Margin="5,125,0,0" VerticalAlignment="Top" Width="100" Source="/Assets/AppIcons/AppIcon.png"/>

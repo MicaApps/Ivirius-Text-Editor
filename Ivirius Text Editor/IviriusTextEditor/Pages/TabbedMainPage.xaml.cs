@@ -92,7 +92,6 @@ namespace IviriusTextEditor.Pages
 
             //Settings
             RequestedTheme = ElementTheme.Light;
-            OutputBox.Text = "Ivirius Text Editor Plus> ";
             DTSave.Interval = new TimeSpan(0, 0, (int)1.5);
             DTSave.Tick += DTSave_Tick;
             AppCenter.Start("Debugging", typeof(Crashes));
@@ -280,42 +279,21 @@ namespace IviriusTextEditor.Pages
                 AutoSaveSwitch.IsOn = true;
             }
 
-            //Console settings
-            if (!(LocalSettings.Values["ConsoleBoot"] == null))
-            {
-                if ((string)LocalSettings.Values["ConsoleBoot"] == "On")
-                {
-                    try
-                    {
-                        DT.Interval = TimeSpan.FromSeconds(1.0);
-                        DT.Start();
-                        DT.Tick += ConsoleBootDT_Tick;
-                    }
-                    catch { }
-                }
-                if ((string)LocalSettings.Values["ConsoleBoot"] == "Off") { }
-            }
-            else { LocalSettings.Values["ConsoleBoot"] = "Off"; }
-
             //Dev settings
             if (!(LocalSettings.Values["DEV"] == null))
             {
                 if ((string)LocalSettings.Values["DEV"] == "On")
                 {
-                    ConsoleItem.IsEnabled = true;
-                    ConsoleItem.Visibility = Visibility.Visible;
+
                 }
                 if ((string)LocalSettings.Values["DEV"] == "Off")
                 {
-                    ConsoleItem.IsEnabled = false;
-                    ConsoleItem.Visibility = Visibility.Collapsed;
+
                 }
             }
             else
             {
                 LocalSettings.Values["DEV"] = "Off";
-                ConsoleItem.IsEnabled = false;
-                ConsoleItem.Visibility = Visibility.Collapsed;
             }
 
             //Changelog settings
@@ -867,12 +845,12 @@ namespace IviriusTextEditor.Pages
 
         private void Button_Click_31(object sender, RoutedEventArgs e)
         {
-            TriggerConsoleEvent();
+
         }
 
         private void Button_Click_29(object sender, RoutedEventArgs e)
         {
-            OutputBox.Text = "> Output \n";
+
         }
 
         private async void HyperlinkButton_Click(object sender, RoutedEventArgs e)
@@ -3416,344 +3394,6 @@ namespace IviriusTextEditor.Pages
 
         #endregion Settings
 
-        #region Developer
-
-        private void ConsoleBootDT_Tick(object Sender, object Args)
-        {
-            OpenConsole();
-            DT.Stop();
-        }
-
-        private void ConsoleBox_KeyUp(object sender, KeyRoutedEventArgs e)
-        {
-            if (e.Key == VirtualKey.Enter) TriggerConsoleEvent();
-        }
-
-        private List<string> ValidCommands = new List<string>()
-        {
-            "decrypt",
-            "encrypt",
-            "file -unlink",
-            "help",
-            "output -clear",
-            "restart",
-            "velocityid",
-            "velocityid #r6js3-8gh1x-9fk2s"
-        };
-
-        public async void TriggerConsoleEvent()
-        {
-            if (ConsoleBox.Text.StartsWith("decrypt") == true)
-            {
-                try
-                {
-                    //Convert a string to byte array
-                    byte[] data = Convert.FromBase64String(REB.Document.Selection.Text);
-                    using (MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider())
-                    {
-                        byte[] keys = md5.ComputeHash(UTF8Encoding.UTF8.GetBytes(ConsoleBox.Text.Substring(7)));//Get hash key
-                                                                                                                //Decrypt data by hash key
-                        using (TripleDESCryptoServiceProvider tripDes = new TripleDESCryptoServiceProvider() { Key = keys, Mode = CipherMode.ECB, Padding = PaddingMode.PKCS7 })
-                        {
-                            ICryptoTransform transform = tripDes.CreateDecryptor();
-                            byte[] results = transform.TransformFinalBlock(data, 0, data.Length);
-                            REB.Document.Selection.Text = UTF8Encoding.UTF8.GetString(results);
-                        }
-                    }
-                    OutputBox.Inlines.Add(new Run()
-                    {
-                        Text = ConsoleBox.Text,
-                        Foreground = new SolidColorBrush(Color.FromArgb(255, 255, 232, 124))
-                    });
-                    OutputBox.Inlines.Add(new LineBreak());
-                    OutputBox.Inlines.Add(new Run()
-                    {
-                        Text = $"Selection decrypted successfully",
-                        Foreground = new SolidColorBrush(Colors.White)
-                    });
-                    OutputBox.Inlines.Add(new LineBreak());
-                    OutputBox.Inlines.Add(new Run()
-                    {
-                        Text = $"Ivirius Text Editor Plus> ",
-                        Foreground = new SolidColorBrush(Colors.White)
-                    });
-                    ConsoleBox.Text = ConsoleBox.Text.Remove(7);
-                }
-                catch
-                {
-                    OutputBox.Inlines.Add(new Run()
-                    {
-                        Text = ConsoleBox.Text,
-                        Foreground = new SolidColorBrush(Color.FromArgb(255, 255, 232, 124))
-                    });
-                    OutputBox.Inlines.Add(new LineBreak());
-                    OutputBox.Inlines.Add(new Run()
-                    {
-                        Text = $"Selection couldn't be decrypted :: invalid decryption key",
-                        Foreground = new SolidColorBrush(Colors.Red)
-                    });
-                    OutputBox.Inlines.Add(new LineBreak());
-                    OutputBox.Inlines.Add(new Run()
-                    {
-                        Text = $"Ivirius Text Editor Plus> ",
-                        Foreground = new SolidColorBrush(Colors.White)
-                    });
-                    ConsoleBox.Text = ConsoleBox.Text.Remove(7);
-                }
-            }
-            if (ConsoleBox.Text.StartsWith("encrypt") == true)
-            {
-                byte[] data = UTF8Encoding.UTF8.GetBytes(REB.Document.Selection.Text);
-                using (MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider())
-                {
-                    byte[] keys = md5.ComputeHash(UTF8Encoding.UTF8.GetBytes(ConsoleBox.Text.Substring(7)));//Get hash key
-                    //Encrypt data by hash key
-                    using (TripleDESCryptoServiceProvider tripDes = new TripleDESCryptoServiceProvider() { Key = keys, Mode = CipherMode.ECB, Padding = PaddingMode.PKCS7 })
-                    {
-                        ICryptoTransform transform = tripDes.CreateEncryptor();
-                        byte[] results = transform.TransformFinalBlock(data, 0, data.Length);
-                        REB.Document.Selection.Text = Convert.ToBase64String(results, 0, results.Length);
-                    }
-                }
-                OutputBox.Inlines.Add(new Run()
-                {
-                    Text = ConsoleBox.Text,
-                    Foreground = new SolidColorBrush(Color.FromArgb(255, 255, 232, 124))
-                });
-                OutputBox.Inlines.Add(new LineBreak());
-                OutputBox.Inlines.Add(new Run()
-                {
-                    Text = $"Selection encrypted successfully",
-                    Foreground = new SolidColorBrush(Colors.White)
-                });
-                OutputBox.Inlines.Add(new LineBreak());
-                OutputBox.Inlines.Add(new Run()
-                {
-                    Text = $"Ivirius Text Editor Plus> ",
-                    Foreground = new SolidColorBrush(Colors.White)
-                });
-                ConsoleBox.Text = ConsoleBox.Text.Remove(7);
-            }
-            if (ConsoleBox.Text == "file -unlink")
-            {
-                TXTFile = null;
-                CheckForSaving();
-                OutputBox.Inlines.Add(new Run()
-                {
-                    Text = ConsoleBox.Text,
-                    Foreground = new SolidColorBrush(Color.FromArgb(255, 255, 232, 124))
-                });
-                OutputBox.Inlines.Add(new LineBreak());
-                OutputBox.Inlines.Add(new Run()
-                {
-                    Text = $"Command executed successfully",
-                    Foreground = new SolidColorBrush(Colors.White)
-                });
-                OutputBox.Inlines.Add(new LineBreak());
-                OutputBox.Inlines.Add(new Run()
-                {
-                    Text = $"Ivirius Text Editor Plus> ",
-                    Foreground = new SolidColorBrush(Colors.White)
-                });
-            }
-            if (ConsoleBox.Text == "output -clear")
-            {
-                OutputBox.Inlines.Clear();
-                OutputBox.Inlines.Add(new Run()
-                {
-                    Text = $"Ivirius Text Editor Plus> ",
-                    Foreground = new SolidColorBrush(Colors.White)
-                });
-            }
-            if (ConsoleBox.Text == "restart")
-            {
-                RestartArgs = "console.Restart";
-                _ = await CoreApplication.RequestRestartAsync(RestartArgs);
-                OutputBox.Inlines.Add(new Run()
-                {
-                    Text = $"Command executed successfully",
-                    Foreground = new SolidColorBrush(Colors.White)
-                });
-                OutputBox.Inlines.Add(new LineBreak());
-            }
-            if (ConsoleBox.Text == "velocityid")
-            {
-                OutputBox.Inlines.Add(new Run()
-                {
-                    Text = ConsoleBox.Text,
-                    Foreground = new SolidColorBrush(Color.FromArgb(255, 255, 232, 124))
-                });
-                OutputBox.Inlines.Add(new LineBreak());
-                OutputBox.Inlines.Add(new Run()
-                {
-                    Text = $"Loading VelocityID...",
-                    Foreground = new SolidColorBrush(Colors.White)
-                });
-                OutputBox.Inlines.Add(new LineBreak());
-                var DT = new DispatcherTimer();
-                DT.Interval = new TimeSpan(0, 0, 1);
-                DT.Tick += DT_Tick;
-                DT.Start();
-                void DT_Tick(object sender, object e)
-                {
-                    OutputBox.Inlines.Add(new LineBreak());
-                    OutputBox.Inlines.Add(new Run()
-                    {
-                        Text = $"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
-                        Foreground = new SolidColorBrush(Colors.White)
-                    });
-                    OutputBox.Inlines.Add(new LineBreak());
-                    OutputBox.Inlines.Add(new Run()
-                    {
-                        Text = $"VelocityIDs for Ivirius Text Editor Plus",
-                        Foreground = new SolidColorBrush(Colors.White)
-                    });
-                    OutputBox.Inlines.Add(new LineBreak());
-                    OutputBox.Inlines.Add(new Run()
-                    {
-                        Text = $"Welcome to ",
-                        Foreground = new SolidColorBrush(Colors.White)
-                    });
-                    OutputBox.Inlines.Add(new Run()
-                    {
-                        Text = $"VelocityIDs!",
-                        Foreground = new SolidColorBrush(Colors.LightSkyBlue)
-                    });
-                    OutputBox.Inlines.Add(new LineBreak());
-                    OutputBox.Inlines.Add(new Run()
-                    {
-                        Text = $"Available IDs:",
-                        Foreground = new SolidColorBrush(Colors.OrangeRed)
-                    });
-                    OutputBox.Inlines.Add(new LineBreak());
-                    OutputBox.Inlines.Add(new Run()
-                    {
-                        Text = $"r6js3-8gh1x-9fk2s",
-                        Foreground = new SolidColorBrush(Colors.LawnGreen)
-                    });
-                    OutputBox.Inlines.Add(new Run()
-                    {
-                        Text = $" - enable app language option in the Settings",
-                        Foreground = new SolidColorBrush(Colors.White)
-                    });
-                    OutputBox.Inlines.Add(new LineBreak());
-                    OutputBox.Inlines.Add(new Run()
-                    {
-                        Text = $"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
-                        Foreground = new SolidColorBrush(Colors.White)
-                    });
-                    OutputBox.Inlines.Add(new LineBreak());
-                    OutputBox.Inlines.Add(new LineBreak());
-                    OutputBox.Inlines.Add(new Run()
-                    {
-                        Text = $"Ivirius Text Editor Plus> ",
-                        Foreground = new SolidColorBrush(Colors.White)
-                    });
-                    DT.Stop();
-                }
-            }
-            if (ConsoleBox.Text == "velocityid #r6js3-8gh1x-9fk2s")
-            {
-                if (SettingsHelper.GetSettingString("#r6js3-8gh1x-9fk2s") == "On") SettingsHelper.SetSetting("#r6js3-8gh1x-9fk2s", "Off");
-                else SettingsHelper.SetSetting("#r6js3-8gh1x-9fk2s", "On");
-                OutputBox.Inlines.Add(new Run()
-                {
-                    Text = ConsoleBox.Text,
-                    Foreground = new SolidColorBrush(Color.FromArgb(255, 255, 232, 124))
-                });
-                OutputBox.Inlines.Add(new LineBreak());
-                OutputBox.Inlines.Add(new Run()
-                {
-                    Text = $"Command executed successfully",
-                    Foreground = new SolidColorBrush(Colors.White)
-                });
-                OutputBox.Inlines.Add(new LineBreak());
-                OutputBox.Inlines.Add(new Run()
-                {
-                    Text = $"Ivirius Text Editor Plus> ",
-                    Foreground = new SolidColorBrush(Colors.White)
-                });
-            }
-
-            //Last command
-            if (ConsoleBox.Text == "help")
-            {
-                OutputBox.Inlines.Add(new Run()
-                {
-                    Text = ConsoleBox.Text,
-                    Foreground = new SolidColorBrush(Color.FromArgb(255, 255, 232, 124))
-                });
-                OutputBox.Inlines.Add(new LineBreak());
-                OutputBox.Inlines.Add(new Run()
-                {
-                    Text = "List of commands: \n"
-                    + "> decrypt [encryption key] - decrypt document selection \n"
-                    + "> encrypt [encryption key] - encrypt document selection \n"
-                    + "> file -unlink - unlink the file from the current document \n"
-                    + "> help - get list of all commands \n"
-                    + "> output -clear - clear the output \n"
-                    + "> restart - restart app \n"
-                    + "> velocityid - view information about the VelocityID feature \n"
-                    + "> velocityid #[ID] - toggles a VelocityID on or off. Run the \"velocityid\" command for more information",
-                    Foreground = new SolidColorBrush(Colors.White)
-                });
-                OutputBox.Inlines.Add(new LineBreak());
-                OutputBox.Inlines.Add(new Run()
-                {
-                    Text = $"Ivirius Text Editor Plus> ",
-                    Foreground = new SolidColorBrush(Colors.White)
-                });
-            }
-
-            bool isPassed = false;
-
-            foreach (var item in ValidCommands)
-            {
-                if (ConsoleBox.Text == item)
-                {
-                    isPassed = true;
-                    break;
-                }
-            }
-
-            if (isPassed != true)
-            {
-                OutputBox.Inlines.Add(new Run()
-                {
-                    Text = ConsoleBox.Text,
-                    Foreground = new SolidColorBrush(Color.FromArgb(255, 255, 232, 124))
-                });
-                OutputBox.Inlines.Add(new LineBreak());
-                OutputBox.Inlines.Add(new Run()
-                {
-                    Text = $"The term \"{ConsoleBox.Text}\" is not recognized as a valid command.",
-                    Foreground = new SolidColorBrush(Colors.Red)
-                });
-                OutputBox.Inlines.Add(new LineBreak());
-                OutputBox.Inlines.Add(new Run()
-                {
-                    Text = $"Ivirius Text Editor Plus> ",
-                    Foreground = new SolidColorBrush(Colors.White)
-                });
-            }
-
-            ConsoleBox.Text = "";
-        }
-
-        public void OpenConsole()
-        {
-            try
-            {
-                ConsoleMSGBox.Open();
-            }
-            catch
-            {
-
-            }
-        }
-
-        #endregion Developer
-
         #region Layout
 
         #endregion Layout
@@ -3807,12 +3447,6 @@ namespace IviriusTextEditor.Pages
         }
 
         private void MenuFlyoutItem_Click_2(object Sender, RoutedEventArgs EvArgs) => HomePage.Visibility = Visibility.Visible;
-
-        private void MenuFlyoutItem_Click_18(object Sender, RoutedEventArgs EvArgs)
-        {
-            ConsoleMSGBox.Open();
-            ConsoleBox.Focus(FocusState.Pointer);
-        }
 
         #endregion Tools
 
@@ -4577,14 +4211,9 @@ namespace IviriusTextEditor.Pages
             _ = await Launcher.LaunchUriAsync(new Uri("https://mit-license.org/"));
         }
 
-        private void ConsoleMSGBox_MinimizeButtonClick(object sender, RoutedEventArgs e)
-        {
-            ConsoleMSGBox.Close();
-        }
-
         private void ConsoleTBBTN_Click(object sender, RoutedEventArgs e)
         {
-            ConsoleMSGBox.Open();
+
         }
 
         private void ConsoleMSGBox_Loaded(object sender, RoutedEventArgs e)
@@ -4599,92 +4228,12 @@ namespace IviriusTextEditor.Pages
 
         private void TableInsertBox_FirstButtonClick(object sender, RoutedEventArgs e)
         {
-            REB.Document.Selection.SetText(TextSetOptions.FormatRtf, CreateTableString((int)Rows.Value, (int)Columns.Value, (int)Width.Value));
-            TableInsert.Flyout.Hide();
-        }
-
-        public string CreateTableString(int row, int column)
-        {
-
-            //Since too much string appending go for string builder
-            StringBuilder sringTableRtf = new StringBuilder();
-
-            //beginning of rich text format,dont customize this begining line
-            sringTableRtf.Append(@"{\rtf1\ansi\deff0");
-
-            //Loop to populate the table cell data from DataTable
-            for (int i = 0; i < row; i++)
-            {
-                //Start the Row
-                sringTableRtf.Append(@"\trowd");
-                //set cell width and position
-                for (int j = 0; j < column; j++)
-                {
-                    int cellWidth = (j + 1) * ((((int)REB.ActualWidth - 90) / column) * 15);
-                    //A cell with width 1000.
-                    sringTableRtf.Append(@"\cellx" + cellWidth.ToString() + " ");
-                }
-                //set cell content
-                for (int j = 0; j < column; j++)
-                {
-                    //give cell a default value as j+1
-                    sringTableRtf.Append("" + @"\intbl\cell ");
-                }
-
-                //Insert data row
-                sringTableRtf.Append(@"\row");
-            }
-
-            sringTableRtf.Append(@"}");
-
-            //convert the string builder to string
-            return sringTableRtf.ToString();
-
-        }
-
-        public string CreateTableString(int row, int column, int width)
-        {
-
-            //Since too much string appending go for string builder
-            StringBuilder sringTableRtf = new StringBuilder();
-
-            //beginning of rich text format,dont customize this begining line
-            sringTableRtf.Append(@"{\rtf1\ansi\deff0");
-
-            //Loop to populate the table cell data from DataTable
-            for (int i = 0; i < row; i++)
-            {
-                //Start the Row
-                sringTableRtf.Append(@"\trowd");
-                //set cell width and position
-                for (int j = 0; j < column; j++)
-                {
-                    int cellWidth = (j + 1) * width * 100;
-                    //A cell with width 1000.
-                    sringTableRtf.Append(@"\cellx" + cellWidth.ToString() + " ");
-                }
-                //set cell content
-                for (int j = 0; j < column; j++)
-                {
-                    //give cell a default value as j+1
-                    sringTableRtf.Append("" + @"\intbl\cell ");
-                }
-
-                //Insert data row
-                sringTableRtf.Append(@"\row");
-            }
-
-            sringTableRtf.Append(@"}");
-
-            //convert the string builder to string
-            return sringTableRtf.ToString();
 
         }
 
         private void TableInsertBox_SecondButtonClick(object sender, RoutedEventArgs e)
         {
-            REB.Document.Selection.SetText(TextSetOptions.FormatRtf, CreateTableString((int)Rows.Value, (int)Columns.Value));
-            TableInsert.Flyout.Hide();
+
         }
 
         private void SCR3_ViewChanged(object sender, ScrollViewerViewChangedEventArgs e)
@@ -4922,7 +4471,7 @@ namespace IviriusTextEditor.Pages
 
         private void TableInsertBox_CloseButtonClick(object sender, RoutedEventArgs e)
         {
-            TableInsert.Flyout.Hide();
+
         }
 
         private void FindREB_TextChanged(object sender, RoutedEventArgs e)
