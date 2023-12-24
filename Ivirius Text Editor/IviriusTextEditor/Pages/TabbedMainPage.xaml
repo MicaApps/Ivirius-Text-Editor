@@ -9113,7 +9113,7 @@
                 <Grid Margin="10,-115,10,0">
                     <Image HorizontalAlignment="Left" Height="100" Margin="5,125,0,0" VerticalAlignment="Top" Width="100" Source="/Assets/AppIcons/AppIcon.png"/>
                     <TextBlock HorizontalAlignment="Left" Margin="120,140,0,0" TextWrapping="Wrap" Text="Ivirius Text Editor" VerticalAlignment="Top" FontSize="16"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="120,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="11"><Run Text="Version 2.5.0.0 - Full release"/><LineBreak/><Run Text="Copyright © Ivirius Text Editor 2021 - 2023 "/><LineBreak/><Run Text="GitHub release - UWP"/><LineBreak/><Run/></TextBlock>
+                    <TextBlock HorizontalAlignment="Left" Margin="120,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="11"><Run Text="Version 3.0.0.0 - Full release"/><LineBreak/><Run Text="Copyright © Ivirius Text Editor 2021 - 2023 "/><LineBreak/><Run Text="GitHub release - UWP"/><LineBreak/><Run/></TextBlock>
                     <StackPanel Margin="0,235,0,0">
                         <HyperlinkButton Content="WinUI 2" Click="HyperlinkButton_Click_4" Padding="11,6,11,7"/>
                         <HyperlinkButton Content="Windows Community Toolkit" Click="HyperlinkButton_Click_4" Padding="11,6,11,7"/>
@@ -9349,7 +9349,7 @@
         <ContentDialog x:Name="ChangelogWindow" Title="Changelog - Version 3.0.0.0" PrimaryButtonText="Close" PrimaryButtonStyle="{StaticResource CrimsonButton}" Background="{StaticResource AppTitleBarBrush}" d:IsHidden="True">
             <Grid Margin="-24,-63,-24,-105" Background="{StaticResource AppTitleBarBrush}">
                 <Grid Background="{StaticResource AppBackgroundBrush}"/>
-                <TextBlock TextWrapping="Wrap" Text="Changelog - Version 2.5.0.0" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{ThemeResource SubtitleTextBlockStyle}" Margin="25,24,0,0"/>
+                <TextBlock TextWrapping="Wrap" Text="Changelog - Version 3.0.0.0" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{ThemeResource SubtitleTextBlockStyle}" Margin="25,24,0,0"/>
                 <StackPanel Margin="24,63,24,105">
                     <TextBlock TextWrapping="Wrap"><Run Text="New features:"/><LineBreak/><Run Text="- Find and Replace now uses a preview to highlight all matches"/><LineBreak/><Run Text="- New option to take a screenshot of the screen behind the app in the &quot;Insert&quot; menu"/><LineBreak/><Run Text="- Added the CrimsonUI styles library"/><LineBreak/><Run/><LineBreak/><Run Text="Tweaks:"/><LineBreak/><Run Text="- The app now requires less resources to run"/><LineBreak/><Run/><LineBreak/><Run Text="Fixes:"/><LineBreak/><Run Text="- Fixed autosave not working properly"/><LineBreak/><Run Text="- Fixed an issue causing the save dialog to appear even if a file was already saved"/><LineBreak/><Run Text="- Fixed layout issues"/><LineBreak/><Run Text="- Fixed theme issues"/><LineBreak/><Run Text="- Fixed various crashes"/><LineBreak/><Run Text="- Fixed title bar drag not working"/><LineBreak/><Run Text="- Fixed font box not displaying the selected font"/><LineBreak/><Run Text="- Fixed RAM and CPU clog"/><LineBreak/><Run/><LineBreak/><Run Text="Removed features:"/><LineBreak/><Run Text="- Removed the legacy semi-dark theme"/><LineBreak/><Run Text="- Removed login"/><LineBreak/><Run Text="- Removed the settings cleanup applet"/><LineBreak/><Run Text="- Removed custom themes"/></TextBlock>
                 </StackPanel>
