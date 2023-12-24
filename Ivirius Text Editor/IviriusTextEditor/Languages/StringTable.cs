@@ -61,7 +61,7 @@ namespace IviriusTextEditor.Languages
             }
             if (SettingsHelper.GetSettingString("Language") == "en-us")
             {
-                AppTitle = "Ivirius Text Editor Plus";
+                AppTitle = "Ivirius Text Editor";
                 RibbonFile = "File";
                 RibbonEdit = "Edit";
                 RibbonInsert = "Insert";
@@ -107,7 +107,7 @@ namespace IviriusTextEditor.Languages
             }
             if (SettingsHelper.GetSettingString("Language") == "ro-ro")
             {
-                AppTitle = "Ivirius Text Editor Plus";
+                AppTitle = "Ivirius Text Editor";
                 RibbonFile = "Fișier";
                 RibbonEdit = "Editare";
                 RibbonInsert = "Inserare";
