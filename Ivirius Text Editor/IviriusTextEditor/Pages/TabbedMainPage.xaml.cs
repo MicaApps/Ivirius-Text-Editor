@@ -4500,5 +4500,10 @@ namespace IviriusTextEditor.Pages
                 await SaveFile(true, false, true, false);
             }
         }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            URIHelper.LaunchURI("https://apps.microsoft.com/detail/9N4T9H9182J5?hl=en-US&gl=US");
+        }
     }
 }
