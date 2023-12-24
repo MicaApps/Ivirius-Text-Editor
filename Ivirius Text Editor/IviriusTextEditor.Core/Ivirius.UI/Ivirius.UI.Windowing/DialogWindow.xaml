@@ -9,100 +9,6 @@
     d:DesignHeight="300"
     d:DesignWidth="400" LayoutUpdated="UserControl_LayoutUpdated" Loaded="UserControl_Loaded" PointerPressed="FullBox_PointerPressed">
     <UserControl.Resources>
-        <Style x:Key="CrimsonHighlightButton" TargetType="Button">
-            <Setter Property="HorizontalAlignment" Value="Left" />
-            <Setter Property="VerticalAlignment" Value="Center" />
-            <Setter Property="FontFamily" Value="{ThemeResource ContentControlThemeFontFamily}" />
-            <Setter Property="FontWeight" Value="Normal" />
-            <Setter Property="FontSize" Value="{ThemeResource ControlContentThemeFontSize}" />
-            <Setter Property="FocusVisualMargin" Value="-3" />
-            <Setter Property="CornerRadius" Value="4"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Grid x:Name="RootGrid" Background="Transparent">
-
-                            <VisualStateManager.VisualStateGroups>
-                                <VisualStateGroup x:Name="CommonStates">
-                                    <VisualState x:Name="Normal">
-                                        <Storyboard>
-                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Pipe" Storyboard.TargetProperty="BorderThickness" EnableDependentAnimation="True" Duration="0:0:0.25">
-                                                <DiscreteObjectKeyFrame KeyTime="0" Value="1.5"/>
-                                            </ObjectAnimationUsingKeyFrames>
-                                            <DoubleAnimation Storyboard.TargetName="Glow" Storyboard.TargetProperty="BlurRadius" EnableDependentAnimation="True" Duration="0:0:20" To="8"/>
-                                            <DoubleAnimation Storyboard.TargetName="Glow" Storyboard.TargetProperty="Opacity" EnableDependentAnimation="True" Duration="0:0:20" To="0.7"/>
-                                            <DoubleAnimation Storyboard.TargetName="Pipe" Storyboard.TargetProperty="Opacity" EnableDependentAnimation="True" Duration="0:0:0.30" To="0.8"/>
-                                        </Storyboard>
-                                        <VisualState.Setters>
-                                            <Setter Target="contentPresenter.Background" Value="{ThemeResource ControlFillColorDefaultBrush}"/>
-                                            <Setter Target="contentPresenter.BorderBrush" Value="{ThemeResource ControlStrokeColorDefaultBrush}"/>
-                                        </VisualState.Setters>
-                                    </VisualState>
-                                    <VisualState x:Name="PointerOver">
-                                        <Storyboard>
-                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Pipe" Storyboard.TargetProperty="BorderThickness" EnableDependentAnimation="True" Duration="0:0:0.12">
-                                                <DiscreteObjectKeyFrame KeyTime="0" Value="2"/>
-                                            </ObjectAnimationUsingKeyFrames>
-                                            <DoubleAnimation Storyboard.TargetName="Glow" Storyboard.TargetProperty="BlurRadius" EnableDependentAnimation="True" Duration="0:0:0.35" To="10"/>
-                                            <DoubleAnimation Storyboard.TargetName="Glow" Storyboard.TargetProperty="Opacity" EnableDependentAnimation="True" Duration="0:0:0.35" To="1"/>
-                                            <DoubleAnimation Storyboard.TargetName="Pipe" Storyboard.TargetProperty="Opacity" EnableDependentAnimation="True" Duration="0:0:0.20" To="1"/>
-                                        </Storyboard>
-                                        <VisualState.Setters>
-                                            <Setter Target="contentPresenter.Background" Value="{ThemeResource ControlFillColorSecondaryBrush}"/>
-                                            <Setter Target="contentPresenter.BorderBrush" Value="{ThemeResource ControlStrokeColorDefaultBrush}"/>
-                                        </VisualState.Setters>
-                                    </VisualState>
-                                    <VisualState x:Name="Pressed">
-                                        <Storyboard>
-                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Pipe" Storyboard.TargetProperty="BorderThickness" EnableDependentAnimation="True" Duration="0:0:0.12">
-                                                <DiscreteObjectKeyFrame KeyTime="0" Value="1.5"/>
-                                            </ObjectAnimationUsingKeyFrames>
-                                            <DoubleAnimation Storyboard.TargetName="Glow" Storyboard.TargetProperty="BlurRadius" EnableDependentAnimation="True" Duration="0:0:0.35" To="5"/>
-                                            <DoubleAnimation Storyboard.TargetName="Glow" Storyboard.TargetProperty="Opacity" EnableDependentAnimation="True" Duration="0:0:0.35" To="1"/>
-                                            <DoubleAnimation Storyboard.TargetName="Pipe" Storyboard.TargetProperty="Opacity" EnableDependentAnimation="True" Duration="0:0:0.20" To="0.7"/>
-                                        </Storyboard>
-                                        <VisualState.Setters>
-                                            <Setter Target="contentPresenter.Background" Value="{ThemeResource ControlFillColorTertiaryBrush}"/>
-                                            <Setter Target="contentPresenter.BorderBrush" Value="{ThemeResource ControlStrokeColorDefaultBrush}"/>
-                                        </VisualState.Setters>
-                                    </VisualState>
-                                    <VisualState x:Name="Disabled">
-                                        <VisualState.Setters>
-                                            <Setter Target="contentPresenter.Background" Value="{ThemeResource ControlFillColorDisabledBrush}"/>
-                                            <Setter Target="contentPresenter.BorderBrush" Value="{ThemeResource ControlStrokeColorDefaultBrush}"/>
-                                        </VisualState.Setters>
-                                    </VisualState>
-                                </VisualStateGroup>
-                            </VisualStateManager.VisualStateGroups>
-
-                            <Grid x:Name="Pipe" CornerRadius="4" BorderThickness="0">
-                                <Grid.Background>
-                                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0" Opacity="0.2">
-                                        <GradientStop Color="{ThemeResource SystemAccentColorLight3}" Offset="0.0"/>
-                                        <GradientStop Color="{ThemeResource SystemAccentColorLight2}" Offset="1.0"/>
-                                    </LinearGradientBrush>
-                                </Grid.Background>
-                                <Grid.BorderBrush>
-                                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                                        <GradientStop Color="{ThemeResource SystemAccentColorLight3}" Offset="0.0"/>
-                                        <GradientStop Color="{ThemeResource SystemAccentColorLight2}" Offset="1.0"/>
-                                    </LinearGradientBrush>
-                                </Grid.BorderBrush>
-                            </Grid>
-
-                            <ToolkitControls:DropShadowPanel CornerRadius="4" x:Name="Glow" Color="{ThemeResource SystemAccentColorLight2}" ShadowOpacity="1" Grid.Row="0" HorizontalContentAlignment="Stretch" VerticalAlignment="Bottom" Height="7" Opacity="0.7">
-                                <Border BorderThickness="1"/>
-                            </ToolkitControls:DropShadowPanel>
-
-                            <ContentPresenter x:Name="contentPresenter" BorderThickness="{TemplateBinding BorderThickness}" Content="{TemplateBinding Content}"
-                            ContentTransitions="{TemplateBinding ContentTransitions}" ContentTemplate="{TemplateBinding ContentTemplate}" Padding="{TemplateBinding Padding}"
-                            CornerRadius="4" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                            AutomationProperties.AccessibilityView="Raw"/>
-                        </Grid>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
         <Style x:Key="CloseButtonStyle" TargetType="Button">
             <Setter Property="Background" Value="{ThemeResource ButtonBackground}"/>
             <Setter Property="BackgroundSizing" Value="OuterBorderEdge"/>
@@ -234,7 +140,7 @@
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Margin="16,0,16,20" FlowDirection="RightToLeft">
                         <Button x:Name="BTN3" Content="{Binding CancelButtonText, RelativeSource={Binding DataContext}}" HorizontalAlignment="Right" Width="80" Click="CancelButton_Click" Margin="0,0,10,0"/>
                         <Button x:Name="BTN2" Content="{Binding SecondButtonText, RelativeSource={Binding DataContext}}" HorizontalAlignment="Right" Width="80" Click="SecondButton_Click" Margin="0,0,10,0"/>
-                        <Button x:Name="BTN1" Content="{Binding FirstButtonText, RelativeSource={Binding DataContext}}" HorizontalAlignment="Left" Width="80" Style="{StaticResource CrimsonHighlightButton}" Click="FirstButton_Click"/>
+                        <Button x:Name="BTN1" Content="{Binding FirstButtonText, RelativeSource={Binding DataContext}}" HorizontalAlignment="Left" Width="80" Style="{ThemeResource AccentButtonStyle}" Click="FirstButton_Click"/>
                     </StackPanel>
                 </Grid>
                 <Button x:Name="CloseButton" IsEnabled="{Binding IsCloseButtonEnabled, RelativeSource={Binding DataContext}}" HorizontalAlignment="Right" VerticalAlignment="Top" Width="35" Height="35" Padding="0,0,0,0" BorderThickness="0,0,0,0" BorderBrush="{x:Null}" Background="#00000000" ToolTipService.ToolTip="Close" Style="{StaticResource CloseButtonStyle}" Click="CloseButton_Click" CornerRadius="0,6,0,0">

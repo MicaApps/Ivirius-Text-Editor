@@ -120,6 +120,40 @@ namespace IviriusTextEditor.Pages
                     SettingsHelper.SetSetting("Theme", "Mica Light");
                 }
 
+                //Light theme
+                if ((string)LocalSettings.Values["Theme"] == "Light")
+                {
+                    SettingsHelper.SetSetting("Theme", "Mica Light");
+                }
+
+                //Dark theme
+                if ((string)LocalSettings.Values["Theme"] == "Dark")
+                {
+                    SettingsHelper.SetSetting("Theme", "Mica Dark");
+                }
+
+                //Acrylic theme
+                if ((string)LocalSettings.Values["Theme"] == "Nostalgic Windows")
+                {
+                    SettingsHelper.SetSetting("Theme", "Mica Light");
+                }
+                if ((string)LocalSettings.Values["Theme"] == "Acrylic")
+                {
+                    SettingsHelper.SetSetting("Theme", "Mica Light");
+                }
+                if ((string)LocalSettings.Values["Theme"] == "Luna")
+                {
+                    SettingsHelper.SetSetting("Theme", "Mica Light");
+                }
+                if ((string)LocalSettings.Values["Theme"] == "Old")
+                {
+                    SettingsHelper.SetSetting("Theme", "Mica Light");
+                }
+                if ((string)LocalSettings.Values["Theme"] == "Full Dark")
+                {
+                    SettingsHelper.SetSetting("Theme", "Mica Dark");
+                }
+
                 //Mica Light theme
                 if ((string)LocalSettings.Values["Theme"] == "Mica Light")
                 {
@@ -176,86 +210,19 @@ namespace IviriusTextEditor.Pages
                         LocalSettings.Values["FlatUI"] = "Off";
                     }
                 }
-
-                //Light theme
-                if ((string)LocalSettings.Values["Theme"] == "Light")
-                {
-                    //Text colors
-
-                    //Final settings
-                    RequestedTheme = ElementTheme.Light;
-                    AeroBlue.Visibility = Visibility.Collapsed;
-                }
-
-                //Dark theme
-                if ((string)LocalSettings.Values["Theme"] == "Dark")
-                {
-                    LocalSettings.Values["Theme"] = "Full Dark";
-
-                    RequestedTheme = ElementTheme.Dark;
-                    AeroBlue.Visibility = Visibility.Collapsed;
-                    var MB2 = new BackdropMicaBrush()
-                    {
-                        LuminosityOpacity = 0.2F,
-                        TintOpacity = 0.8F,
-                        Opacity = 1,
-                        TintColor = Color.FromArgb(255, 50, 50, 50),
-                        FallbackColor = Color.FromArgb(255, 50, 50, 50)
-                    };
-                    PageTitleBar.Background = MB2;
-                }
-
-                //Acrylic theme
-                if ((string)LocalSettings.Values["Theme"] == "Nostalgic Windows")
-                {
-                    //Text colors
-
-                    //Final settings
-                    RequestedTheme = ElementTheme.Light;
-                    AeroBlue.Visibility = Visibility.Collapsed;
-                }
-                if ((string)LocalSettings.Values["Theme"] == "Acrylic")
-                {
-                    RequestedTheme = ElementTheme.Light;
-                    AeroBlue.Visibility = Visibility.Collapsed;
-                }
-                if ((string)LocalSettings.Values["Theme"] == "Luna")
-                {
-                    RequestedTheme = ElementTheme.Light;
-                    AeroBlue.Visibility = Visibility.Collapsed;
-                }
-                if ((string)LocalSettings.Values["Theme"] == "Old")
-                {
-                    RequestedTheme = ElementTheme.Light;
-                    AeroBlue.Visibility = Visibility.Collapsed;
-                }
-                if ((string)LocalSettings.Values["Theme"] == "Full Dark")
-                {
-                    RequestedTheme = ElementTheme.Dark;
-                    AeroBlue.Visibility = Visibility.Collapsed;
-                    var MB2 = new BackdropMicaBrush()
-                    {
-                        LuminosityOpacity = 0.2F,
-                        TintOpacity = 0.8F,
-                        Opacity = 1,
-                        TintColor = Color.FromArgb(255, 50, 50, 50),
-                        FallbackColor = Color.FromArgb(255, 50, 50, 50)
-                    };
-                    PageTitleBar.Background = MB2;
-                }
             }
             else
             {
                 var TL = new ThemeListener();
                 if (TL.CurrentTheme == ApplicationTheme.Light)
                 {
-                    LocalSettings.Values["Theme"] = "Light";
+                    LocalSettings.Values["Theme"] = "Mica Light";
                     RequestedTheme = ElementTheme.Light;
                     AeroBlue.Visibility = Visibility.Collapsed;
                 }
                 else
                 {
-                    LocalSettings.Values["Theme"] = "Full Dark";
+                    LocalSettings.Values["Theme"] = "Mica Dark";
                     RequestedTheme = ElementTheme.Dark;
                     AeroBlue.Visibility = Visibility.Collapsed;
                 }

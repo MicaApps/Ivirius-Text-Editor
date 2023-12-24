@@ -25,14 +25,8 @@ namespace IviriusTextEditor.Pages
             this.InitializeComponent();
             ElementThemeBox.Items.Add("Light");
             ElementThemeBox.Items.Add("Dark");
-            ThemeBox.Items.Add("Legacy Light");
-            ThemeBox.Items.Add("Legacy Dark");
             ThemeBox.Items.Add("Light");
             ThemeBox.Items.Add("Dark");
-            ThemeBox.Items.Add("Acrylic");
-            ThemeBox.Items.Add("Acrylic Glass");
-            ThemeBox.Items.Add("Luna");
-            ThemeBox.Items.Add("Old");
 
             LangBox.Items.Add("English (en-us)");
             LangBox.Items.Add("Română (ro-ro)");
@@ -72,39 +66,6 @@ namespace IviriusTextEditor.Pages
             {
                 ElementThemeBox.SelectedItem = "Light";
                 SettingsHelper.SetSetting("ElemTheme", "Light");
-            }
-            if (!(LocalSettings.Values["ToolbarColor"] == null))
-            {
-                ToolbarColor.Color = ColorHelper.ToColor((string)LocalSettings.Values["ToolbarColor"]);
-                TColorSliderO.Value = (double)LocalSettings.Values["ToolbarColorOpacity"];
-                TColorSliderLO.Value = (double)LocalSettings.Values["ToolbarColorLumOpacity"];
-            }
-            else
-            {
-                ToolbarColor.Color = Colors.White;
-                LocalSettings.Values["ToolbarColor"] = ToolbarColor.Color.ToString();
-            }
-            if (LocalSettings.Values["BKGColor"] != null)
-            {
-                BKGColor.Color = ColorHelper.ToColor((string)LocalSettings.Values["BKGColor"]);
-                BKGColorSliderO.Value = (double)LocalSettings.Values["BKGColorOpacity"];
-                BKGColorSliderLO.Value = (double)LocalSettings.Values["BKGColorLumOpacity"];
-            }
-            else
-            {
-                BKGColor.Color = Colors.White;
-                LocalSettings.Values["BKGColor"] = BKGColor.Color.ToString();
-            }
-            if (LocalSettings.Values["BKGColorTB"] != null)
-            {
-                TBColor.Color = ColorHelper.ToColor((string)LocalSettings.Values["BKGColorTB"]);
-                TBColorSliderO.Value = (double)LocalSettings.Values["BKGColorTBOpacity"];
-                TBColorSliderLO.Value = (double)LocalSettings.Values["BKGColorTBLumOpacity"];
-            }
-            else
-            {
-                BKGColor.Color = Colors.White;
-                LocalSettings.Values["BKGColorTB"] = BKGColor.Color.ToString();
             }
 
             //Theme settings

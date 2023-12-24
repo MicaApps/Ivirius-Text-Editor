@@ -88,6 +88,30 @@ namespace IviriusTextEditor.Pages
             {
                 SettingsHelper.SetSetting("Theme", "Mica Dark");
             }
+            if (SettingsHelper.GetSettingString("Theme") == "Light")
+            {
+                SettingsHelper.SetSetting("Theme", "Mica Light");
+            }
+            if (SettingsHelper.GetSettingString("Theme") == "Full Dark")
+            {
+                SettingsHelper.SetSetting("Theme", "Mica Dark");
+            }
+            if (SettingsHelper.GetSettingString("Theme") == "Nostalgic Windows")
+            {
+                SettingsHelper.SetSetting("Theme", "Mica Light");
+            }
+            if (SettingsHelper.GetSettingString("Theme") == "Acrylic")
+            {
+                SettingsHelper.SetSetting("Theme", "Mica Light");
+            }
+            if (SettingsHelper.GetSettingString("Theme") == "Luna")
+            {
+                SettingsHelper.SetSetting("Theme", "Mica Light");
+            }
+            if (SettingsHelper.GetSettingString("Theme") == "Old")
+            {
+                SettingsHelper.SetSetting("Theme", "Mica Light");
+            }
 
             //Mica light theme
             if (SettingsHelper.GetSettingString("Theme") == "Mica Light")
@@ -123,47 +147,6 @@ namespace IviriusTextEditor.Pages
                     Opacity = 1,
                     TintColor = Color.FromArgb(255, 255, 255, 255),
                     FallbackColor = Color.FromArgb(255, 255, 255, 255)
-                };
-
-                Application.Current.Resources["TabViewItemHeaderBackgroundSelected"] = Application.Current.Resources["AppBackgroundBrush"];
-
-                //Final settings
-                RequestedTheme = ElementTheme.Light;
-            }
-
-            //Light theme
-            if (SettingsHelper.GetSettingString("Theme") == "Light")
-            {
-                //Text colors
-                Application.Current.Resources["AppTextBrush"] = Application.Current.Resources["TextFillColorPrimaryBrush"];
-
-                //TitleBar buttons
-                AppTB.ButtonForegroundColor = Colors.Black;
-                AppTB.ButtonHoverBackgroundColor = Color.FromArgb(25, 0, 0, 0);
-                AppTB.ButtonPressedBackgroundColor = Color.FromArgb(65, 0, 0, 0);
-                AppTB.ButtonHoverForegroundColor = Colors.Black;
-                AppTB.ButtonPressedForegroundColor = Colors.Black;
-
-                //TitleBar color
-                Application.Current.Resources["AppTitleBarBrush"] = new BackdropMicaBrush()
-                {
-                    LuminosityOpacity = 0.8F,
-                    TintOpacity = 0,
-                    BackgroundSource = BackgroundSource.WallpaperBackdrop,
-                    Opacity = 1,
-                    TintColor = Color.FromArgb(255, 200, 200, 200),
-                    FallbackColor = Colors.White
-                };
-                MainPageComponent.Background = (Brush)Application.Current.Resources["AppTitleBarBrush"];
-
-                //Tab color
-                Application.Current.Resources["AppBackgroundBrush"] = new BackdropMicaBrush()
-                {
-                    LuminosityOpacity = 0.7F,
-                    TintOpacity = 0,
-                    Opacity = 1,
-                    TintColor = Colors.White,
-                    FallbackColor = Colors.White
                 };
 
                 Application.Current.Resources["TabViewItemHeaderBackgroundSelected"] = Application.Current.Resources["AppBackgroundBrush"];
@@ -212,248 +195,6 @@ namespace IviriusTextEditor.Pages
 
                 //Final settings
                 RequestedTheme = ElementTheme.Dark;
-            }
-
-            //Full Dark theme
-            if (SettingsHelper.GetSettingString("Theme") == "Full Dark")
-            {
-                //Text colors
-                Application.Current.Resources["AppTextBrush"] = Application.Current.Resources["TextFillColorPrimaryBrush"];
-
-                //TitleBar buttons
-                AppTB.ButtonForegroundColor = Colors.White;
-                AppTB.ButtonHoverForegroundColor = Colors.White;
-                AppTB.ButtonPressedForegroundColor = Colors.White;
-                AppTB.ButtonHoverBackgroundColor = Color.FromArgb(100, 79, 146, 255);
-                AppTB.ButtonPressedBackgroundColor = Color.FromArgb(100, 81, 117, 176);
-
-                //TitleBar color
-                Application.Current.Resources["AppTitleBarBrush"] = new BackdropMicaBrush()
-                {
-                    LuminosityOpacity = 0,
-                    TintOpacity = 1,
-                    BackgroundSource = BackgroundSource.WallpaperBackdrop,
-                    Opacity = 1,
-                    TintColor = (Color)Application.Current.Resources["SystemAccentColor"],
-                    FallbackColor = (Color)Application.Current.Resources["SystemAccentColor"]
-                };
-                MainPageComponent.Background = (Brush)Application.Current.Resources["AppTitleBarBrush"];
-
-                //Tab color
-                Application.Current.Resources["AppBackgroundBrush"] = new BackdropMicaBrush()
-                {
-                    LuminosityOpacity = 0.2F,
-                    TintOpacity = 0.8F,
-                    Opacity = 1,
-                    TintColor = Color.FromArgb(255, 50, 50, 50),
-                    FallbackColor = Color.FromArgb(255, 50, 50, 50)
-                };
-
-                Application.Current.Resources["TabViewItemHeaderBackgroundSelected"] = Application.Current.Resources["AppBackgroundBrush"];
-
-                //Final settings
-                RequestedTheme = ElementTheme.Dark;
-            }
-
-            //Acrylic theme
-            if (SettingsHelper.GetSettingString("Theme") == "Nostalgic Windows")
-            {
-                //Text colors
-                Application.Current.Resources["AppTextBrush"] = Application.Current.Resources["TextFillColorPrimaryBrush"];
-
-                //TitleBar buttons
-                AppTB.ButtonForegroundColor = Colors.Black;
-                AppTB.ButtonHoverBackgroundColor = Color.FromArgb(25, 0, 0, 0);
-                AppTB.ButtonPressedBackgroundColor = Color.FromArgb(65, 0, 0, 0);
-                AppTB.ButtonHoverForegroundColor = Colors.Black;
-                AppTB.ButtonPressedForegroundColor = Colors.Black;
-
-                //TitleBar color
-                Application.Current.Resources["AppTitleBarBrush"] = new AcrylicBrush
-                {
-                    TintColor = Colors.GhostWhite,
-                    BackgroundSource = AcrylicBackgroundSource.HostBackdrop,
-                    TintOpacity = 0.1,
-                    FallbackColor = Colors.GhostWhite
-                };
-                MainPageComponent.Background = (Brush)Application.Current.Resources["AppTitleBarBrush"];
-
-                //Tab color
-                Application.Current.Resources["AppBackgroundBrush"] = new AcrylicBrush
-                {
-                    TintColor = Colors.GhostWhite,
-                    BackgroundSource = AcrylicBackgroundSource.HostBackdrop,
-                    TintOpacity = 0.3,
-                    FallbackColor = Colors.GhostWhite
-                };
-
-                Application.Current.Resources["TabViewItemHeaderBackgroundSelected"] = Application.Current.Resources["AppBackgroundBrush"];
-
-                //Final settings
-                RequestedTheme = ElementTheme.Light;
-            }
-
-            //Acrylig glass theme
-            if (SettingsHelper.GetSettingString("Theme") == "Acrylic")
-            {
-                Application.Current.Resources["TextFillColorPrimaryBrush"] = new SolidColorBrush(Colors.Black);
-
-                //Text colors
-                Application.Current.Resources["AppTextBrush"] = Application.Current.Resources["TextFillColorPrimaryBrush"];
-
-                //titleBar buttons
-                AppTB.ButtonForegroundColor = Colors.White;
-                AppTB.ButtonHoverForegroundColor = Colors.White;
-                AppTB.ButtonPressedForegroundColor = Colors.White;
-                AppTB.ButtonHoverBackgroundColor = Color.FromArgb(100, 79, 146, 255);
-                AppTB.ButtonPressedBackgroundColor = Color.FromArgb(100, 81, 117, 176);
-
-                //TitleBar color
-                Application.Current.Resources["AppTitleBarBrush"] = new AcrylicBrush
-                {
-                    TintLuminosityOpacity = 0,
-                    TintOpacity = 0,
-                    BackgroundSource = AcrylicBackgroundSource.HostBackdrop,
-                    Opacity = 1,
-                    TintColor = Colors.White
-                };
-                MainPageComponent.Background = (Brush)Application.Current.Resources["AppTitleBarBrush"];
-
-                var GeneralBrush = new SolidColorBrush(Colors.Black);
-                var GeneralBrush2 = new SolidColorBrush(Colors.White);
-
-                //Text colors
-                Application.Current.Resources["TabViewItemHeaderCloseButtonForegroundPointerOver"] = GeneralBrush2;
-                Application.Current.Resources["TabViewItemHeaderCloseButtonForegroundPressed"] = GeneralBrush2;
-                Application.Current.Resources["TabViewButtonForeground"] = GeneralBrush2;
-                Application.Current.Resources["TabViewButtonForegroundPointerOver"] = GeneralBrush2;
-                Application.Current.Resources["TabViewButtonForegroundPressed"] = GeneralBrush2;
-                Application.Current.Resources["TabViewItemHeaderForeground"] = GeneralBrush2;
-                Application.Current.Resources["TabViewItemForeground"] = GeneralBrush2;
-                Application.Current.Resources["TabViewItemHeaderForegroundPointerOver"] = GeneralBrush2;
-                Application.Current.Resources["TabViewItemHeaderForegroundPressed"] = GeneralBrush2;
-                Application.Current.Resources["TabViewItemIconForeground"] = GeneralBrush2;
-                Application.Current.Resources["TabViewItemIconForegroundPointerOver"] = GeneralBrush2;
-                Application.Current.Resources["TabViewItemIconForegroundPressed"] = GeneralBrush2;
-                Application.Current.Resources["TabViewItemHeaderCloseButtonForeground"] = GeneralBrush2;
-                Application.Current.Resources["TabViewItemHeaderPointerOverCloseButtonForeground"] = GeneralBrush2;
-                Application.Current.Resources["TabViewItemHeaderPressedCloseButtonForeground"] = GeneralBrush2;
-                Application.Current.Resources["TabViewItemIconForegroundSelected"] = GeneralBrush;
-                Application.Current.Resources["TabViewItemHeaderSelectedCloseButtonForeground"] = GeneralBrush;
-                Application.Current.Resources["TabViewItemHeaderForegroundSelected"] = GeneralBrush;
-                Application.Current.Resources["TabViewItemHeaderPressedCloseButtonBackground"] = Color.FromArgb(25, 50, 50, 50);
-                Application.Current.Resources["TabViewItemHeaderBackgroundPressed"] = Color.FromArgb(25, 50, 50, 50);
-
-                //Tab color
-                Application.Current.Resources["AppBackgroundBrush"] = new AcrylicBrush
-                {
-                    TintColor = Colors.White,
-                    FallbackColor = Colors.White,
-                    TintOpacity = 0.6,
-                    BackgroundSource = AcrylicBackgroundSource.HostBackdrop
-                };
-
-                Application.Current.Resources["TabViewItemHeaderBackgroundSelected"] = Application.Current.Resources["AppBackgroundBrush"];
-
-                //Final settings
-                RequestedTheme = ElementTheme.Light;
-                TabbedView.Margin = new Thickness(7, 0, 7, 7);
-                AeroShine.Visibility = Visibility.Visible;
-                AeroButtons.Visibility = Visibility.Visible;
-                AeroCorners.Visibility = Visibility.Visible;
-                AeroBlue.Visibility = Visibility.Visible;
-            }
-
-            //Luna theme
-            if (SettingsHelper.GetSettingString("Theme") == "Luna")
-            {
-                //Text colors
-                Application.Current.Resources["AppTextBrush"] = Application.Current.Resources["TextFillColorPrimaryBrush"];
-
-                //TitleBar buttons
-                AppTB.ButtonForegroundColor = Colors.White;
-                AppTB.ButtonHoverForegroundColor = Colors.White;
-                AppTB.ButtonPressedForegroundColor = Colors.White;
-                AppTB.ButtonHoverBackgroundColor = Color.FromArgb(100, 79, 146, 255);
-                AppTB.ButtonPressedBackgroundColor = Color.FromArgb(100, 81, 117, 176);
-
-                //TitleBar color
-                Application.Current.Resources["AppTitleBarBrush"] = new SolidColorBrush(Colors.White);
-                MainPageComponent.Background = (Brush)Application.Current.Resources["AppTitleBarBrush"];
-
-                var GeneralBrush = new SolidColorBrush(Colors.Black);
-                var GeneralBrush2 = new SolidColorBrush(Colors.White);
-
-                //Text colors
-                Application.Current.Resources["TabViewItemHeaderCloseButtonForegroundPointerOver"] = GeneralBrush2;
-                Application.Current.Resources["TabViewItemHeaderCloseButtonForegroundPressed"] = GeneralBrush2;
-                Application.Current.Resources["TabViewButtonForeground"] = GeneralBrush2;
-                Application.Current.Resources["TabViewButtonForegroundPointerOver"] = GeneralBrush2;
-                Application.Current.Resources["TabViewButtonForegroundPressed"] = GeneralBrush2;
-                Application.Current.Resources["TabViewItemHeaderForeground"] = GeneralBrush2;
-                Application.Current.Resources["TabViewItemForeground"] = GeneralBrush2;
-                Application.Current.Resources["TabViewItemHeaderForegroundPointerOver"] = GeneralBrush2;
-                Application.Current.Resources["TabViewItemHeaderForegroundPressed"] = GeneralBrush2;
-                Application.Current.Resources["TabViewItemIconForeground"] = GeneralBrush2;
-                Application.Current.Resources["TabViewItemIconForegroundPointerOver"] = GeneralBrush2;
-                Application.Current.Resources["TabViewItemIconForegroundPressed"] = GeneralBrush2;
-                Application.Current.Resources["TabViewItemHeaderCloseButtonForeground"] = GeneralBrush2;
-                Application.Current.Resources["TabViewItemHeaderPointerOverCloseButtonForeground"] = GeneralBrush2;
-                Application.Current.Resources["TabViewItemHeaderPressedCloseButtonForeground"] = GeneralBrush2;
-                Application.Current.Resources["TabViewItemIconForegroundSelected"] = GeneralBrush;
-                Application.Current.Resources["TabViewItemHeaderSelectedCloseButtonForeground"] = GeneralBrush;
-                Application.Current.Resources["TabViewItemHeaderForegroundSelected"] = GeneralBrush;
-                Application.Current.Resources["TabViewItemHeaderPressedCloseButtonBackground"] = Color.FromArgb(25, 50, 50, 50);
-                Application.Current.Resources["TabViewItemHeaderBackgroundPressed"] = Color.FromArgb(25, 50, 50, 50);
-
-                //Tab color
-                Application.Current.Resources["AppBackgroundBrush"] = new AcrylicBrush
-                {
-                    TintColor = Color.FromArgb(255, 255, 254, 217),
-                    FallbackColor = Color.FromArgb(255, 255, 254, 217),
-                    TintOpacity = 1,
-                    BackgroundSource = AcrylicBackgroundSource.HostBackdrop
-                };
-
-                Application.Current.Resources["TabViewItemHeaderBackgroundSelected"] = Application.Current.Resources["AppBackgroundBrush"];
-
-                //Final settings
-                TabbedView.Margin = new Thickness(7, 0, 7, 7);
-                RequestedTheme = ElementTheme.Light;
-                LunaTheme.Visibility = Visibility.Visible;
-            }
-
-            //Old theme
-            if (SettingsHelper.GetSettingString("Theme") == "Old")
-            {
-                //Text colors
-                Application.Current.Resources["AppTextBrush"] = new SolidColorBrush(Colors.Black);
-
-                //TitleBar buttons
-                AppTB.ButtonForegroundColor = Colors.Black;
-                AppTB.ButtonHoverBackgroundColor = Color.FromArgb(25, 0, 0, 0);
-                AppTB.ButtonPressedBackgroundColor = Color.FromArgb(65, 0, 0, 0);
-                AppTB.ButtonHoverForegroundColor = Colors.Black;
-                AppTB.ButtonPressedForegroundColor = Colors.Black;
-
-                //TitleBar color
-                Application.Current.Resources["AppTitleBarBrush"] = new AcrylicBrush
-                {
-                    TintColor = Colors.LightBlue,
-                    BackgroundSource = AcrylicBackgroundSource.HostBackdrop,
-                    TintOpacity = 0.8,
-                    FallbackColor = Colors.LightBlue
-                };
-                MainPageComponent.Background = (Brush)Application.Current.Resources["AppTitleBarBrush"];
-
-                //Tab color
-                Application.Current.Resources["AppBackgroundBrush"] = Application.Current.Resources["AppTitleBarBrush"];
-
-                Application.Current.Resources["TabViewItemHeaderBackgroundSelected"] = Application.Current.Resources["AppBackgroundBrush"];
-
-                //Final settings
-                RequestedTheme = ElementTheme.Light;
-                AeroBlue.Visibility = Visibility.Collapsed;
             }
         }
 
@@ -859,13 +600,7 @@ namespace IviriusTextEditor.Pages
 
         private void Grid_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            ApplicationDataContainer LS = ApplicationData.Current.LocalSettings;
-            if ((string)LS.Values["SetupFinish"] != "Yes")
-            {
-                var TBView = ApplicationView.GetForCurrentView();
-                _ = TBView.TryEnterFullScreenMode();
-            }
-            else { }
+
         }
     }
 }
