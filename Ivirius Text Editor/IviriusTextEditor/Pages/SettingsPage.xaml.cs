@@ -39,9 +39,6 @@ namespace IviriusTextEditor.Pages
 
             #region SettingsComponents
 
-            if (SettingsHelper.GetSettingString("#r6js3-8gh1x-9fk2s") == "On") LanguageSection.Visibility = Visibility.Visible;
-            else LanguageSection.Visibility = Visibility.Collapsed;
-
             if (SettingsHelper.GetSettingString("Language") == null)
             {
                 SettingsHelper.SetSetting("Language", "en-us");
