@@ -13,4 +13,5 @@ Features:
 - Multitasking with tabs
 
 And more!
+
 **To contribute**, please send us an email on our [website](https://ivirius.webnode.page/) or notify us on our [discord server](https://discord.com/invite/uasSwW5U2B).
