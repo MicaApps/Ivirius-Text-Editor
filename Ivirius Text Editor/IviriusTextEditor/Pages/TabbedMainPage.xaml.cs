@@ -605,25 +605,25 @@ namespace IviriusTextEditor.Pages
                     {
                         new ToastContentBuilder()
                         .SetToastScenario(ToastScenario.Reminder)
-                        .AddText("It seems like Ivirius Text Editor + has crashed.")
+                        .AddText("It seems like Ivirius Text Editor has crashed.")
                         .AddText("These are the details:")
                         .AddText($"{Report.StackTrace}")
                         .AddButton(new ToastButton()
                             .SetDismissActivation().SetContent("Close"))
                         .AddButton(new ToastButton()
-                        .SetProtocolActivation(new Uri("https://ivirius.webnode.page/contact/")).SetContent("Send bug report"))
+                        .SetProtocolActivation(new Uri("https://ivirius.vercel.app/contact/")).SetContent("Send bug report"))
                         .Show();
                     }
                     else
                     {
                         new ToastContentBuilder()
                         .SetToastScenario(ToastScenario.Reminder)
-                        .AddText("It seems like Ivirius Text Editor + has crashed.")
+                        .AddText("It seems like Ivirius Text Editor has crashed.")
                         .AddText("We can't show any information right now")
                         .AddButton(new ToastButton()
                             .SetDismissActivation().SetContent("Close"))
                         .AddButton(new ToastButton()
-                        .SetProtocolActivation(new Uri("https://ivirius.webnode.page/contact/")).SetContent("Send bug report"))
+                        .SetProtocolActivation(new Uri("https://ivirius.vercel.app/contact/")).SetContent("Send bug report"))
                         .Show();
                     }
                 }
@@ -633,12 +633,12 @@ namespace IviriusTextEditor.Pages
                     {
                         new ToastContentBuilder()
                         .SetToastScenario(ToastScenario.Reminder)
-                        .AddText("It seems like Ivirius Text Editor + has crashed.")
+                        .AddText("It seems like Ivirius Text Editor has crashed.")
                         .AddText("We can't show any information right now")
                         .AddButton(new ToastButton()
                             .SetDismissActivation().SetContent("Close"))
                         .AddButton(new ToastButton()
-                        .SetProtocolActivation(new Uri("https://ivirius.webnode.page/contact/")).SetContent("Send bug report"))
+                        .SetProtocolActivation(new Uri("https://ivirius.vercel.app/contact/")).SetContent("Send bug report"))
                         .Show();
                     }
                     catch
@@ -920,13 +920,13 @@ namespace IviriusTextEditor.Pages
                         {
                             new ToastContentBuilder()
                             .SetToastScenario(ToastScenario.Reminder)
-                            .AddText("It seems like Ivirius Text Editor + has a bug.")
+                            .AddText("It seems like Ivirius Text Editor has a bug.")
                             .AddText("These are the details:")
                             .AddText($"{Ex.Message}")
                             .AddButton(new ToastButton()
                                 .SetDismissActivation().SetContent("Close"))
                             .AddButton(new ToastButton()
-                            .SetProtocolActivation(new Uri("https://ivirius.webnode.page/contact/")).SetContent("Send bug report"))
+                            .SetProtocolActivation(new Uri("https://ivirius.vercel.app/contact/")).SetContent("Send bug report"))
                             .Show();
                             CheckForSaving();
                             ActionWarningBox.FirstButtonClick -= ED2_PrimaryButtonClick;
@@ -1172,7 +1172,7 @@ namespace IviriusTextEditor.Pages
                     .AddButton(new ToastButton()
                         .SetDismissActivation().SetContent("Close"))
                     .AddButton(new ToastButton()
-                    .SetProtocolActivation(new Uri("https://ivirius.webnode.page/contact/")).SetContent("Send bug report"))
+                    .SetProtocolActivation(new Uri("https://ivirius.vercel.app/contact/")).SetContent("Send bug report"))
                     .Show();
                 }
             }
@@ -3417,7 +3417,7 @@ namespace IviriusTextEditor.Pages
 
         private async void MenuFlyoutItem_Click_7(object Sender, RoutedEventArgs EvArgs)
         {
-            _ = await Launcher.LaunchUriAsync(new Uri("https://ivirius.webnode.page/news/"));
+            _ = await Launcher.LaunchUriAsync(new Uri("https://errortek-news.vercel.app"));
         }
 
         private async void MenuFlyoutItem_Click_8(object Sender, RoutedEventArgs EvArgs)
@@ -3588,9 +3588,9 @@ namespace IviriusTextEditor.Pages
             }
         }
 
-        private async void Button_Click(object Sender, RoutedEventArgs EvArgs) => await Launcher.LaunchUriAsync(new Uri("https://ivirius.webnode.page"));
+        private async void Button_Click(object Sender, RoutedEventArgs EvArgs) => await Launcher.LaunchUriAsync(new Uri("https://ivirius.vercel.app"));
 
-        private async void Button_Click_1(object sender, RoutedEventArgs EvArgs) => await Launcher.LaunchUriAsync(new Uri("https://ivirius.webnode.page/contact/"));
+        private async void Button_Click_1(object sender, RoutedEventArgs EvArgs) => await Launcher.LaunchUriAsync(new Uri("https://ivirius.vercel.app/contact/"));
 
         private async void Button_Click_2(object Sender, RoutedEventArgs EvArgs) => await Launcher.LaunchUriAsync(new Uri("https://ivirius.webnode.page/ivirius-text-editor-privacy-policy2/"));
 

@@ -4764,7 +4764,7 @@
                         <Image Height="100" Width="100" Source="/Assets/AppIcons/AppIcon.png" HorizontalAlignment="Left"/>
                         <TextBlock TextWrapping="Wrap" Text="Ivirius Text Editor" Margin="120,0,0,40" VerticalAlignment="Center" FontSize="18"/>
                         <TextBlock TextWrapping="Wrap" Text="Create and edit rich text files - © Ivirius Text Editor 2021 - 2023 - made by Ivirius" Margin="120,10,0,0" VerticalAlignment="Center" FontSize="12"/>
-                        <HyperlinkButton x:Name="hyperlinkButton" Content="https://ivirius.webnode.page/" Margin="120,50,0,0" NavigateUri="https://ivirius.webnode.page/" Padding="0,0,0,0" FontSize="11"/>
+                        <HyperlinkButton x:Name="hyperlinkButton" Content="https://ivirius.vercel.app/" Margin="120,50,0,0" NavigateUri="https://ivirius.vercel.app/" Padding="0,0,0,0" FontSize="11"/>
                     </Grid>
                     <Border Width="50" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top" CornerRadius="4,4,4,4" Margin="15,64,0,0" Background="#268E8E8E"/>
                     <Border Background="{Binding Foreground, ElementName=LeftInd}" Height="24" CornerRadius="1.5,1.5,1.5,1.5" Width="3" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,77,0,0"/>
@@ -5133,7 +5133,7 @@
             <IviriusWindowingToolkit:DialogWindow x:Name="NewFileBox" DialogAppWindowWidth="350" Title="Ivirius Text Editor" PlaySound="True" RememberPosition="False" HasIcon="True" Icon="/Assets/AppIcons/AppIcon.png" Backdrop="MicaAlt" WindowBackground="{StaticResource AppBackgroundBrush}" d:IsHidden="True" FirstButtonClick="NewFileBox_FirstButtonClick">
                 <Grid MaxWidth="320">
                     <Image HorizontalAlignment="Left" Height="60" Margin="5,0,0,15" VerticalAlignment="Center" Width="60" Source="/Assets/Glyphs/Warning.png"/>
-                    <TextBlock x:Name="ActionWarningMessage1" TextWrapping="Wrap" FontSize="18" Text="Do you want to save your current file vefore creating a new one?" Margin="85,20,25,0" VerticalAlignment="Top"/>
+                    <TextBlock x:Name="ActionWarningMessage1" TextWrapping="Wrap" FontSize="18" Text="Do you want to save your current file before creating a new one?" Margin="85,20,25,0" VerticalAlignment="Top"/>
                 </Grid>
             </IviriusWindowingToolkit:DialogWindow>
         </IviriusWindowingToolkit:DialogWindowContainer>
