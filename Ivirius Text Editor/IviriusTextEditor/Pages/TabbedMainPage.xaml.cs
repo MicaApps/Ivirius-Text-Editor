@@ -21,9 +21,6 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
-//Whetstone
-using Whetstone.ChatGPT;
-using Whetstone.ChatGPT.Models;
 //Windows components usings
 using Windows.ApplicationModel.Activation;
 using Windows.ApplicationModel.Core;
@@ -61,7 +58,6 @@ namespace IviriusTextEditor.Pages
         readonly DispatcherTimer DTSave = new();
         public bool IsCloseRequestComplete = false;
         string RestartArgs;
-        ChatGPTClient Client = new(SettingsHelper.GetSettingString("ZippyAPIKey"));
 
         #region Page
 
