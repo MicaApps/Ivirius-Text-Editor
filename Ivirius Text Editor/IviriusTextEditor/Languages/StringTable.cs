@@ -1,4 +1,9 @@
-﻿using IviriusTextEditor.Core.Helpers;
+﻿using Humanizer;
+using IviriusTextEditor.Core.Helpers;
+using Microsoft.AppCenter;
+using Microsoft.Toolkit.Uwp.UI.Controls.TextToolbarSymbols;
+using Windows.UI.Input;
+using Windows.UI.Xaml.Automation;
 
 namespace IviriusTextEditor.Languages
 {
@@ -51,6 +56,11 @@ namespace IviriusTextEditor.Languages
         public static string PasteSimple;
         public static string Clipboard;
         public static string Font;
+        public static string Document;
+        public static string Paragraph;
+        public static string ImageInsert;
+        public static string LinkInsert;
+        public static string DateInsert;
         public static string Default;
         public static string Bold;
         public static string Italic;
@@ -88,6 +98,27 @@ namespace IviriusTextEditor.Languages
         public static string StrongTextStyle;
         public static string QuoteTextStyle;
         public static string ShowAll;
+        public static string List;
+        public static string Bullet;
+        public static string Numbers;
+        public static string UppercaseList;
+        public static string LowercaseList;
+        public static string Roman;
+        public static string ParagraphOptions;
+        public static string ParagraphSpacing;
+        public static string s1pt;
+        public static string s115pt;
+        public static string s150pt;
+        public static string s2pt;
+        public static string Left;
+        public static string Right;
+        public static string Center;
+        public static string Justify;
+        public static string SelectAll;
+        public static string SelectAllTooltip;
+        public static string DefaultTimeFormat;
+        public static string Link;
+        public static string Detete;
 
         public StringTable()
         {
@@ -188,6 +219,29 @@ namespace IviriusTextEditor.Languages
                 StrongTextStyle = "Strong";
                 QuoteTextStyle = "Quote";
                 ShowAll = "Show all";
+                List = "List";
+                Bullet = "Bullets";
+                Numbers = "Numbers";
+                UppercaseList = "Uppercase letters";
+                LowercaseList = "Lowercase letters";
+                Roman = "Roman numerals";
+                ParagraphOptions = "Paragraph options";
+                ParagraphSpacing = "Paragraph spacing\nDefault: 1.00";
+                s1pt = "1 point";
+                s115pt = "1.15 points";
+                s150pt = "1.5 points";
+                s2pt = "2 points";
+                Left = "Left (Ctrl+L)";
+                Right = "Right (Ctrl+R)";
+                Center = "Center (Ctrl+E)";
+                Justify = "Justify (Ctrl+J)";
+                SelectAll = "Select All";
+                SelectAllTooltip = "Select All (Ctrl+A)";
+                ImageInsert = "Insert\nImage";
+                LinkInsert = "Insert\nLink";
+                DateInsert = "Date &\nTime";
+                DefaultTimeFormat = "This PC's default time format";
+                Delete = "Delete";
             }
             if (SettingsHelper.GetSettingString("Language") == "ro-ro")
             {
