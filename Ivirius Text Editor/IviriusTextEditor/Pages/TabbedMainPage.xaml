@@ -4696,7 +4696,7 @@
                                 </Grid>
                             </StackPanel>
                             <StackPanel x:Name="RightStatusBar" Orientation="Horizontal" Spacing="11" Margin="0,0,10,0" HorizontalAlignment="Right">
-                                <Button Content="Get Ivirius Text Editor Plus" Style="{ThemeResource AccentButtonStyle}" Click="Button_Click_4"/>
+                                <Button Content="Get Ivirius Text Editor Plus" x:Name="PlusButton"  Style="{ThemeResource AccentButtonStyle}" Click="Button_Click_4"/>
                                 <Custom:NumberBox Style="{StaticResource NumberBoxStyle3}" x:Name="ZoomBox" Value="{Binding Value, ElementName=ZoomSlider, Mode=TwoWay}" VerticalAlignment="Center" Margin="0,0,-10,0" Width="100" LargeChange="0.5" SmallChange="0.1">
                                     <Custom:NumberBox.NumberFormatter>
                                         <Custom1:PercentFormatter FractionDigits="0" IsDecimalPointAlwaysDisplayed="False"/>

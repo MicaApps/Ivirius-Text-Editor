@@ -26,6 +26,7 @@ using Windows.ApplicationModel.Activation;
 using Windows.ApplicationModel.Core;
 using Windows.Devices.Input;
 using Windows.Media.SpeechSynthesis;
+using Windows.Security.Cryptography.Core;
 using Windows.Storage;
 using Windows.Storage.Pickers;
 using Windows.Storage.Provider;
@@ -104,6 +105,8 @@ namespace IviriusTextEditor.Pages
             CoreApplicationViewTitleBar AppCoreTitleBar = CoreApplication.GetCurrentView().TitleBar;
 
             #endregion Miscellaneous
+
+            this.SizeChanged += WindowSizeChanged;
 
             #region Settings
 
@@ -589,6 +592,17 @@ namespace IviriusTextEditor.Pages
             SizeBox.SelectedItem = "A4";
 
             #endregion Components
+        }
+
+        private void WindowSizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            if (((Frame)Window.Current.Content).ActualWidth < 900)
+            {
+                PlusButton.Visibility = Visibility.Collapsed;
+            } else
+            {
+                PlusButton.Visibility = Visibility.Visible;
+            }
         }
 
         #region Crashes
