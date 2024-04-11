@@ -2,6 +2,7 @@
 using IviriusTextEditor.Core.Helpers;
 using Microsoft.AppCenter;
 using Microsoft.Toolkit.Uwp.UI.Controls.TextToolbarSymbols;
+using Microsoft.Toolkit.Uwp.UI.Triggers;
 using Windows.UI.Input;
 using Windows.UI.Xaml.Automation;
 
@@ -119,6 +120,16 @@ namespace IviriusTextEditor.Languages
         public static string DefaultTimeFormat;
         public static string Link;
         public static string Detete;
+        public static string NewFile;
+        public static string OpenFile;
+        public static string OpenMultiple;
+        public static string SaveMenu;
+        public static string SaveAsMenu;
+        public static string Changelog;
+        public static string ViewModes;
+        public static string TabletMode;
+        public static string FullScreen;
+        public static string NewTab;
 
         public StringTable()
         {
@@ -242,6 +253,18 @@ namespace IviriusTextEditor.Languages
                 DateInsert = "Date &\nTime";
                 DefaultTimeFormat = "This PC's default time format";
                 Delete = "Delete";
+                NewFile = "New file";
+                OpenFile = "Open file";
+                OpenMultiple = "Open multiple files";
+                SaveMenu = "Save";
+                SaveAsMenu = "Save As";
+                Changelog = "Changelog";
+                ViewModes = "View modes";
+                TabletMode = "Tablet writing mode";
+                FullScreen = "Toggle full screen (F11)";
+                NewTab = "New tab";
+                // Settings
+                // Contains all the strings used in the Settings page
             }
             if (SettingsHelper.GetSettingString("Language") == "ro-ro")
             {
@@ -288,6 +311,82 @@ namespace IviriusTextEditor.Languages
                 PrivacyPolicy = "Poliță de confidențialitate";
                 Discord = "Discord";
                 Twitter = "Twitter";
+                // New strings. They may still have to be localized.
+                // (remove this once the strings below have been localized into all languages)
+                PasteRTF = "Paste rich text";
+                PasteSimple = "Paste simple";
+                Clipboard = "Clipboard";
+                Font = "Font";
+                Default = "Default";
+                Bold = "Bold (Ctrl+B)";
+                Italic = "Italic (Ctrl+I)";
+                UnderlineDefault = "Underline (Ctrl+U)";
+                UnderlineNone = "None";
+                UnderlineSingle = "Single";
+                UnderlineDash = "Dash";
+                UnderlineDotted = "Dotted";
+                UnderlineDouble = "Double";
+                UnderlineThick = "Thick";
+                UnderlineWave = "Wave";
+                Strikethrough = "Strikethrough (Ctrl+T)";
+                Subscript = "Subscript";
+                Superscript = "Superscript";
+                FontColor = "Font color";
+                Advanced = "Advanced";
+                Highlight = "Text highlight";
+                HighlightColor = "Highlight color";
+                Casing = "Casing/Caps";
+                Lowercase = "lower case";
+                Uppercase = "UPPER CASE";
+                Sentencecase = "Sentence case";
+                Titlecase = "Title Case";
+                EraseFormatting = "Erase formatting";
+                NormalTextStyle = "Normal\ncontent";
+                TitleTextStyle = "Title";
+                ContentTextStyle = "Content";
+                HeaderTextStyle = "Header";
+                Title2TextStyle = "Title 2";
+                MediumTextStyle = "Medium";
+                FinishedTextStyle = "Finished";
+                SubtitleTextStyle = "Subtitle";
+                UnfinishedTextStyle = "Unfinished";
+                BookTitleTextStyle = "Book\nTitle";
+                StrongTextStyle = "Strong";
+                QuoteTextStyle = "Quote";
+                ShowAll = "Show all";
+                List = "List";
+                Bullet = "Bullets";
+                Numbers = "Numbers";
+                UppercaseList = "Uppercase letters";
+                LowercaseList = "Lowercase letters";
+                Roman = "Roman numerals";
+                ParagraphOptions = "Paragraph options";
+                ParagraphSpacing = "Paragraph spacing\nDefault: 1.00";
+                s1pt = "1 point";
+                s115pt = "1.15 points";
+                s150pt = "1.5 points";
+                s2pt = "2 points";
+                Left = "Left (Ctrl+L)";
+                Right = "Right (Ctrl+R)";
+                Center = "Center (Ctrl+E)";
+                Justify = "Justify (Ctrl+J)";
+                SelectAll = "Select All";
+                SelectAllTooltip = "Select All (Ctrl+A)";
+                ImageInsert = "Insert\nImage";
+                LinkInsert = "Insert\nLink";
+                DateInsert = "Date &\nTime";
+                DefaultTimeFormat = "This PC's default time format";
+                Delete = "Delete";
+                NewFile = "New file";
+                OpenFile = "Open file";
+                OpenMultiple = "Open multiple files";
+                SaveMenu = "Save";
+                SaveAsMenu = "Save As";
+                Changelog = "Changelog";
+                ViewModes = "View modes";
+                TabletMode = "Tablet writing mode";
+                FullScreen = "Toggle full screen (F11)";
+                NewTab = "New tab";
             }
         }
     }
