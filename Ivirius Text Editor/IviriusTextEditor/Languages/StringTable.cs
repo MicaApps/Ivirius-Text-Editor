@@ -47,6 +47,47 @@ namespace IviriusTextEditor.Languages
         public static string PrivacyPolicy;
         public static string Discord;
         public static string Twitter;
+        public static string PasteRTF;
+        public static string PasteSimple;
+        public static string Clipboard;
+        public static string Font;
+        public static string Default;
+        public static string Bold;
+        public static string Italic;
+        public static string UnderlineDefault;
+        public static string UnderlineNone;
+        public static string UnderlineSingle;
+        public static string UnderlineDash;
+        public static string UnderlineDotted;
+        public static string UnderlineDouble;
+        public static string UnderlineThick;
+        public static string UnderlineWave;
+        public static string Strikethrough;
+        public static string Subscript;
+        public static string Superscript;
+        public static string FontColor;
+        public static string Advanced;
+        public static string Highlight;
+        public static string HighlightColor;
+        public static string Casing;
+        public static string Lowercase;
+        public static string Uppercase;
+        public static string Sentencecase;
+        public static string Titlecase;
+        public static string EraseFormatting;
+        public static string NormalTextStyle;
+        public static string TitleTextStyle;
+        public static string ContentTextStyle;
+        public static string HeaderTextStyle;
+        public static string Title2TextStyle;
+        public static string MediumTextStyle;
+        public static string FinishedTextStyle;
+        public static string SubtitleTextStyle;
+        public static string UnfinishedTextStyle;
+        public static string BookTitleTextStyle;
+        public static string StrongTextStyle;
+        public static string QuoteTextStyle;
+        public static string ShowAll;
 
         public StringTable()
         {
@@ -104,6 +145,49 @@ namespace IviriusTextEditor.Languages
                 PrivacyPolicy = "Privacy Policy";
                 Discord = "Discord";
                 Twitter = "Twitter";
+                // New strings. They may still have to be localized.
+                // (remove this once the strings below have been localized into all languages)
+                PasteRTF = "Paste rich text";
+                PasteSimple = "Paste simple";
+                Clipboard = "Clipboard";
+                Font = "Font";
+                Default = "Default";
+                Bold = "Bold (Ctrl+B)";
+                Italic = "Italic (Ctrl+I)";
+                UnderlineDefault = "Underline (Ctrl+U)";
+                UnderlineNone = "None";
+                UnderlineSingle = "Single";
+                UnderlineDash = "Dash";
+                UnderlineDotted = "Dotted";
+                UnderlineDouble = "Double";
+                UnderlineThick = "Thick";
+                UnderlineWave = "Wave";
+                Strikethrough = "Strikethrough (Ctrl+T)";
+                Subscript = "Subscript";
+                Superscript = "Superscript";
+                FontColor = "Font color";
+                Advanced = "Advanced";
+                Highlight = "Text highlight";
+                HighlightColor = "Highlight color";
+                Casing = "Casing/Caps";
+                Lowercase = "lower case";
+                Uppercase = "UPPER CASE";
+                Sentencecase = "Sentence case";
+                Titlecase = "Title Case";
+                EraseFormatting = "Erase formatting";
+                NormalTextStyle = "Normal\ncontent";
+                TitleTextStyle = "Title";
+                ContentTextStyle = "Content";
+                HeaderTextStyle = "Header";
+                Title2TextStyle = "Title 2";
+                MediumTextStyle = "Medium";
+                FinishedTextStyle = "Finished";
+                SubtitleTextStyle = "Subtitle";
+                UnfinishedTextStyle = "Unfinished";
+                BookTitleTextStyle = "Book\nTitle";
+                StrongTextStyle = "Strong";
+                QuoteTextStyle = "Quote";
+                ShowAll = "Show all";
             }
             if (SettingsHelper.GetSettingString("Language") == "ro-ro")
             {
