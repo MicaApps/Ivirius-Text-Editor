@@ -1,9 +1,13 @@
-﻿using Humanizer;
+﻿using CommunityToolkit.WinUI.Helpers;
+using Humanizer;
 using IviriusTextEditor.Core.Helpers;
 using Microsoft.AppCenter;
 using Microsoft.Toolkit.Uwp.UI.Controls.TextToolbarSymbols;
 using Microsoft.Toolkit.Uwp.UI.Triggers;
+using Windows.Devices.Custom;
+using Windows.Perception.Spatial;
 using Windows.UI.Input;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml.Automation;
 
 namespace IviriusTextEditor.Languages
@@ -130,6 +134,33 @@ namespace IviriusTextEditor.Languages
         public static string TabletMode;
         public static string FullScreen;
         public static string NewTab;
+        public static string Language;
+        public static string LanguageDesc;
+        public static string Theme;
+        public static string ThemeDesc;
+        public static string AccentOnTitleBar;
+        public static string AccentOnTitleBarDesc;
+        public static string win32background;
+        public static string win32backDesc;
+        public static string QuickAccess;
+        public static string QuickAccessDesc;
+        public static string CutSettings;
+        public static string CopySettings;
+        public static string PasteSettings;
+        public static string DeleteSettings;
+        public static string Accessibility;
+        public static string AccessibilityDesc;
+        public static string ShowStatusBar;
+        public static string HomePageStartup;
+        public static string ShowRuler;
+        public static string PrivacyandTools;
+        public static string PrivacyandToolsDesc;
+        public static string DevMode;
+        public static string ShowNews;
+        public static string ResetSettings;
+        public static string SaveRestart;
+        public static string InsiderTitle;
+        public static string InsiderContent;
 
         public StringTable()
         {
@@ -263,8 +294,35 @@ namespace IviriusTextEditor.Languages
                 TabletMode = "Tablet writing mode";
                 FullScreen = "Toggle full screen (F11)";
                 NewTab = "New tab";
+                InsiderTitle = "Dev Channel";
+                InsiderContent = "The Dev Channel is the Insider CHannel that receives builds with the latest features and may contain features that may not get released to the public. Beware, as these builds may be buggy or crash!";
                 // Settings
                 // Contains all the strings used in the Settings page
+                Language = "Language";
+                LanguageDesc = "Preferred language of the app";
+                Theme = "Theme";
+                ThemeDesc = "Set the desired theme for the app";
+                AccentOnTitleBar = "Show accent color on the title bar";
+                AccentOnTitleBarDesc = "Toggle the accent color on the title bar";
+                win32background = "Solid color as the document's background";
+                win32backDesc = "Get a legacy Win32 feel with a solid background on the workspace";
+                QuickAccess = "Quick access pins";
+                QuickAccessDesc = "Choose your favorite items to be shown in the quick access toolbar";
+                CutSettings = "Cut";
+                CopySettings = "Copy";
+                PasteSettings = "Paste";
+                DeleteSettings = "Delete";
+                Accessibility = "Accessibility";
+                AccessibilityDesc = "All means of accessibility";
+                ShowStatusBar = "Show status bar";
+                HomePageStartup = "Enable home page on startup";
+                ShowRuler = "Show ruler";
+                PrivacyandTools = "Privacy and Tools";
+                PrivacyandToolsDesc = "Settings related to general privacy and experiments";
+                DevMode = "Developer Mode";
+                ShowNews = "Show news";
+                ResetSettings = "Reset app settings";
+                SaveRestart = "Save and Restart";
             }
             if (SettingsHelper.GetSettingString("Language") == "ro-ro")
             {
