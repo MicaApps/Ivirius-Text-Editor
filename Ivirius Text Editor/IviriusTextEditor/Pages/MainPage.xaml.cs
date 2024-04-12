@@ -1,4 +1,5 @@
 ﻿using IviriusTextEditor.Core.Helpers;
+using IviriusTextEditor.Languages;
 using MicaForUWP.Media;
 using Microsoft.UI.Xaml.Controls;
 using System;
@@ -28,6 +29,8 @@ namespace IviriusTextEditor.Pages
 
         public MainPage()
         {
+            StringTable.ReadLanguage();
+
             InitializeComponent();
 
             //Variables
