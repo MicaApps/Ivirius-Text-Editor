@@ -30,6 +30,7 @@ namespace IviriusTextEditor.Pages
 
             LangBox.Items.Add("English (en-us)");
             LangBox.Items.Add("Română (ro-ro)");
+            LangBox.Items.Add("Polski (pl-pl)");
 
             #region SettingsComponents
 
@@ -48,6 +49,11 @@ namespace IviriusTextEditor.Pages
             {
                 StringTable.ReadLanguage();
                 LangBox.SelectedItem = "Română (ro-ro)";
+            }
+            if (SettingsHelper.GetSettingString("Language") == "pl-pl")
+            {
+                StringTable.ReadLanguage();
+                LangBox.SelectedItem = "Polski (pl-pl)";
             }
 
             ApplicationDataContainer LocalSettings = ApplicationData.Current.LocalSettings;
@@ -399,6 +405,10 @@ namespace IviriusTextEditor.Pages
             if ((string)LangBox.SelectedItem == "Română (ro-ro)")
             {
                 SettingsHelper.SetSetting("Language", "ro-ro");
+            }
+            if ((string)LangBox.SelectedItem == "Polski (pl-pl)")
+            {
+                SettingsHelper.SetSetting("Language", "pl-pl");
             }
             ApplicationDataContainer LS = ApplicationData.Current.LocalSettings;
             if (ThemeBox != null)
