@@ -701,7 +701,24 @@
 
                 <Custom:TabView.TabStripHeader>
                     <Grid x:Name="ShellTitlebarInset" Background="Transparent">
-                        <Image Source="/Assets/AppIcons/AppIcon.png" Width="18" Height="18" Margin="12,0,8,0"/>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Assets/AppIcons/AppIcon.png" Width="18" Height="18" Margin="12,0,8,0"/>
+                        <Grid x:Name="InsiderGrid">
+                            <Button Background="#FFFFC225" Width="50" Height="25" Padding="0" CornerRadius="8" Click="showinsiderinfo">
+                                <Grid>
+                                    <TextBlock Text="DEV" TextAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"></TextBlock>
+                                </Grid>
+                            </Button>
+                            <Custom:TeachingTip x:Name="ToggleThemeTeachingTip1"
+Target="{x:Bind InsiderGrid}"
+Title="Dev Channel"
+Subtitle="The Dev Channel is the Insider Channel that receives builds with the latest features and may contain features that may not get released to the public. Beware, as these builds may be buggy or crash!">
+                                <Custom:TeachingTip.IconSource>
+                                    <Custom:FontIconSource  Glyph="&#xF1AD;"/>
+                                </Custom:TeachingTip.IconSource>
+                            </Custom:TeachingTip>
+                        </Grid>
+                        </StackPanel>
                     </Grid>
                 </Custom:TabView.TabStripHeader>
                 <Custom:TabView.TabStripFooter>

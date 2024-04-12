@@ -602,5 +602,10 @@ namespace IviriusTextEditor.Pages
         {
 
         }
+
+        private void showinsiderinfo(object sender, RoutedEventArgs e)
+        {
+            ToggleThemeTeachingTip1.IsOpen = true;
+        }
     }
 }
