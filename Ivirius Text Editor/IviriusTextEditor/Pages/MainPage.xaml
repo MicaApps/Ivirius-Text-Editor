@@ -11,7 +11,7 @@
     x:Class="IviriusTextEditor.Pages.MainPage"
     mc:Ignorable="d"
     SizeChanged="MainPageComponent_SizeChanged"
-    xmlns:primitiveContract7Present="using:Microsoft.UI.Xaml.Controls.Primitives?IsApiContractPresent(Windows.Foundation.UniversalApiContract,7)">
+    xmlns:primitiveContract7Present="using:Microsoft.UI.Xaml.Controls.Primitives?IsApiContractPresent(Windows.Foundation.UniversalApiContract,7)" xmlns:Strings="using:IviriusTextEditor.Languages">
     <Page.Resources>
         <Style x:Key="CaptionButtonStyle" TargetType="Button">
             <Setter Property="Background" Value="{ThemeResource ButtonBackground}"/>
@@ -711,8 +711,8 @@
                             </Button>
                             <Custom:TeachingTip x:Name="ToggleThemeTeachingTip1"
 Target="{x:Bind InsiderGrid}"
-Title="Dev Channel"
-Subtitle="The Dev Channel is the Insider Channel that receives builds with the latest features and may contain features that may not get released to the public. Beware, as these builds may be buggy or crash!">
+Title="{x:Bind Strings:StringTable.InsiderTitle}"
+Subtitle="{x:Bind Strings:StringTable.InsiderContent}">
                                 <Custom:TeachingTip.IconSource>
                                     <Custom:FontIconSource  Glyph="&#xF1AD;"/>
                                 </Custom:TeachingTip.IconSource>

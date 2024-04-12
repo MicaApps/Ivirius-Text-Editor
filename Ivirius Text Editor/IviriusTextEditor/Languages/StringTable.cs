@@ -474,6 +474,8 @@ namespace IviriusTextEditor.Languages
                 ShowNews = "Show news";
                 ResetSettings = "Reset app settings";
                 SaveRestart = "Save and Restart";
+                Document = "Document";
+                Paragraph = "Paragraph";
             }
             if (SettingsHelper.GetSettingString("Language") == "pl-pl")
             {
@@ -624,6 +626,8 @@ namespace IviriusTextEditor.Languages
                 ShowNews = "Pokaż informacje";
                 ResetSettings = "Zresetuj ustawienia aplikacji";
                 SaveRestart = "Zapisz i zrestartuj";
+                Document = "Dokument";
+                Paragraph = "Akapit";
             }
         }
     }
