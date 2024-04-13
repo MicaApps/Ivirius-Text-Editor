@@ -4737,12 +4737,6 @@
             </Button>
         </Grid>
         <RichEditBox x:Name="RTB" Style="{StaticResource RichEditBoxStyle1}" x:FieldModifier="public" HorizontalAlignment="Center" VerticalAlignment="Center" Width="0" Height="0" RequestedTheme="Light"/>
-        <IviriusWindowingToolkit:DialogWindow x:Name="ZippyKeyWindow" FirstButtonText="Apply" SecondButtonText="Get key" DialogAppWindowWidth="450" Title="Zippy API key" HasIcon="True" Icon="/Assets/AppIcons/AppIcon.png" FirstButtonClick="DialogWindow_FirstButtonClick" SecondButtonClick="DialogWindow_SecondButtonClick" d:IsHidden="True">
-            <Grid>
-                <TextBlock TextWrapping="Wrap" Text="Enter a valid OpenAI API key" Margin="15,15,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                <PasswordBox x:Name="ZippyAPIKey" VerticalAlignment="Bottom" Margin="15,0,15,30" PlaceholderText="Current key is hidden for security reasons"/>
-            </Grid>
-        </IviriusWindowingToolkit:DialogWindow>
         <Grid x:Name="LoadingScreen" Background="{StaticResource AppBackgroundBrush}" d:IsHidden="True">
             <Image Height="100" Width="100" Margin="0,0,0,50" Source="/Assets/AppIcons/AppIcon.png"/>
             <Custom:ProgressRing IsActive="True" Width="25" Height="25" Margin="0,175,0,0"/>
