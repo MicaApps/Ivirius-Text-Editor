@@ -136,6 +136,15 @@
     <Compile Include="IviriusTextEditor.Core\Helpers\ToastBuilder.cs" />
     <Compile Include="IviriusTextEditor.Core\Helpers\URIHelper.cs" />
     <Compile Include="IviriusTextEditor\Languages\StringTable.cs" />
+    <Compile Include="IviriusTextEditor\Pages\About.xaml.cs">
+      <DependentUpon>About.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="IviriusTextEditor\Pages\FontColor.xaml.cs">
+      <DependentUpon>FontColor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="IviriusTextEditor\Pages\HighlightColor.xaml.cs">
+      <DependentUpon>HighlightColor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="IviriusTextEditor\Pages\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -268,6 +277,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="IviriusTextEditor\Pages\About.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="IviriusTextEditor\Pages\FontColor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="IviriusTextEditor\Pages\HighlightColor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="IviriusTextEditor\Pages\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

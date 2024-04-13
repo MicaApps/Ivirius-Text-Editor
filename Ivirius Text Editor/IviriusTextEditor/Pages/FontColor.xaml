@@ -1,0 +1,84 @@
+﻿<Page
+    x:Class="Ivirius_Text_Editor.IviriusTextEditor.Pages.FontColor"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Ivirius_Text_Editor.IviriusTextEditor.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:Custom="using:Microsoft.UI.Xaml.Controls"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+        <Grid Margin="10,0,0,0">
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top">
+                <StackPanel Orientation="Horizontal">
+                    <Button Foreground="DarkRed" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0"  Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                    <Button Foreground="Red" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0"  Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                    <Button Foreground="OrangeRed" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0"  Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                    <Button Foreground="IndianRed" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0"  Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Button Foreground="DarkGreen" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0"  Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                    <Button Foreground="DarkOliveGreen" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0"  Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                    <Button Foreground="Green" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0"  Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                    <Button Foreground="ForestGreen" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0"  Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Button Foreground="PaleVioletRed" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0"  Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                    <Button Foreground="HotPink" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0"  Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                    <Button Foreground="Pink" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0"  Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                    <Button Foreground="LightPink" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0"  Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Button Foreground="LimeGreen" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0"  Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                    <Button Foreground="Lime" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0"  Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                    <Button Foreground="SpringGreen" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0"  Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                    <Button Foreground="GreenYellow" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0"  Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Button Foreground="DarkBlue" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0"  Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                    <Button Foreground="DarkSlateBlue" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0"  Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                    <Button Foreground="Blue" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0"  Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                    <Button Foreground="CornflowerBlue" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0"  Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Button Foreground="DodgerBlue" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0"  Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                    <Button Foreground="DeepSkyBlue" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0"  Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                    <Button Foreground="LightSkyBlue" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0"  Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                    <Button Foreground="LightBlue" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0"  Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Button Foreground="DarkOrange" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0"  Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                    <Button Foreground="Orange" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0"  Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                    <Button Foreground="Yellow" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0"  Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                    <Button Foreground="AntiqueWhite" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0"  Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Button Foreground="LightGoldenrodYellow" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0"  Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                    <Button Foreground="LightYellow" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0"  Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                    <Button Foreground="WhiteSmoke" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0"  Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                    <Button Foreground="FloralWhite" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0"  Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Button Foreground="Black" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0"  Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                    <Button Foreground="DimGray" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0"  Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                    <Button Foreground="DarkGray" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0"  Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                    <Button Foreground="Gray" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0"  Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Button Foreground="LightSlateGray" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0"  Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                    <Button Foreground="LightGray" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0"  Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                    <Button Foreground="White" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0"  Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                    <Button Foreground="Transparent" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Click="NullForegroundButton_Click" BorderBrush="{x:Null}" Background="#00000000">
+                        <Border BorderBrush="Red" BorderThickness="1" Width="39" RenderTransformOrigin="0.5,0.5">
+                            <Border.RenderTransform>
+                                <CompositeTransform Rotation="46.118"/>
+                            </Border.RenderTransform>
+                        </Border>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+        <Custom:ColorPicker x:Name="ColPicker" ColorChanged="ColorPicker_ColorChanged" Margin="20,0,0,0"/>
+    </StackPanel>
+</Page>
