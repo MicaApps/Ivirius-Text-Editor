@@ -817,7 +817,7 @@
         <Border x:Name="GetSysThemeBorder" BorderBrush="Black" Visibility="Collapsed" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
         <IviriusWindowingToolkit:DialogWindowContainer>
-            <IviriusWindowingToolkit:DialogWindow x:Name="SetupCloseBox" Title="Ivirius Text Editor" CloseButtonStyle="Win32" FirstButtonClick="SetupCloseBox_FirstButtonClick" RememberPosition="False" Backdrop="MicaAlt" HasIcon="True" Icon="/Assets/AppIcons/AppIcon.png" d:IsHidden="True">
+            <IviriusWindowingToolkit:DialogWindow x:Name="SetupCloseBox" Title="Vanilla Text Editor" CloseButtonStyle="Win32" FirstButtonClick="SetupCloseBox_FirstButtonClick" RememberPosition="False" Backdrop="MicaAlt" HasIcon="True" Icon="/Assets/AppIcons/AppIcon.png" d:IsHidden="True">
                 <Grid>
                     <Image Height="75" Width="75" Source="/Assets/Glyphs/Warning.png" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,20,0,0"/>
                     <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" Margin="108,35,0,0" Text="Are you sure you want&#xA;to close?"/>

@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Ivirius Text Editor")]
+[assembly: AssemblyTitle("Vanilla Text Editor")]
 [assembly: AssemblyDescription("Text editor tool")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Ivirius")]
-[assembly: AssemblyProduct("Ivirius Text Editor")]
+[assembly: AssemblyProduct("Vanilla Text Editor")]
 [assembly: AssemblyCopyright("Copyright ©  2021-2024")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

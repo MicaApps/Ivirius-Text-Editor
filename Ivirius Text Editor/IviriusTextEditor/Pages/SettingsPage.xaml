@@ -192,7 +192,7 @@
                 </Grid>
             </Border>
             <IviriusWindowingToolkit:DialogWindowContainer>
-                <IviriusWindowingToolkit:DialogWindow x:Name="ActionWarningBox" DialogAppWindowWidth="350" Title="Ivirius Text Editor" PlaySound="True" RememberPosition="False" HasIcon="True" Icon="/Assets/AppIcons/AppIcon.png" Backdrop="MicaAlt" FirstButtonClick="ActionWarningBox_FirstButtonClick" d:IsHidden="True">
+                <IviriusWindowingToolkit:DialogWindow x:Name="ActionWarningBox" DialogAppWindowWidth="350" Title="Vanilla Text Editor" PlaySound="True" RememberPosition="False" HasIcon="True" Icon="/Assets/AppIcons/AppIcon.png" Backdrop="MicaAlt" FirstButtonClick="ActionWarningBox_FirstButtonClick" d:IsHidden="True">
                     <Grid MaxWidth="320">
                         <Image HorizontalAlignment="Left" Height="60" Margin="5,0,0,15" VerticalAlignment="Center" Width="60" Source="/Assets/Glyphs/Warning.png"/>
                         <TextBlock x:Name="ActionWarningMessage" TextWrapping="Wrap" FontSize="18" Text="Are you SURE you want to delete every setting of the app?" Margin="85,20,25,0" VerticalAlignment="Top"/>

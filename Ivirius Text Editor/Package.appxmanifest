@@ -8,15 +8,15 @@
   IgnorableNamespaces="uap mp rescap">
 
   <Identity
-    Name="464IviriusCompany.IviriusTextEditor"
+    Name="Ivirius.VTE"
     Publisher="CN=jpb"
     Version="3.0.3.0" />
 
   <mp:PhoneIdentity PhoneProductId="94651bc2-109e-4f61-9638-a2fa71523094" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>Ivirius Text Editor</DisplayName>
-    <PublisherDisplayName>Ivirius Company</PublisherDisplayName>
+    <DisplayName>Vanilla Text Editor</DisplayName>
+    <PublisherDisplayName>Ivirius</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
@@ -33,7 +33,7 @@
       Executable="$targetnametoken$.exe"
       EntryPoint="Ivirius_Text_Editor.App">
       <uap:VisualElements
-        DisplayName="Ivirius Text Editor"
+        DisplayName="Vanilla Text Editor"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png"
         Description="Rich text editing tool similar to WordPad"

@@ -175,7 +175,7 @@ namespace IviriusTextEditor.Languages
             }
             if (SettingsHelper.GetSettingString("Language") == "en-us")
             {
-                AppTitle = "Ivirius Text Editor";
+                AppTitle = "Vanilla Text Editor";
                 RibbonFile = "File";
                 RibbonEdit = "Edit";
                 RibbonInsert = "Insert";
@@ -326,7 +326,7 @@ namespace IviriusTextEditor.Languages
             }
             if (SettingsHelper.GetSettingString("Language") == "ro-ro")
             {
-                AppTitle = "Ivirius Text Editor";
+                AppTitle = "Vanilla Text Editor";
                 RibbonFile = "Fișier";
                 RibbonEdit = "Editare";
                 RibbonInsert = "Inserare";
@@ -479,7 +479,7 @@ namespace IviriusTextEditor.Languages
             }
             if (SettingsHelper.GetSettingString("Language") == "pl-pl")
             {
-                AppTitle = "Ivirius Text Editor";
+                AppTitle = "Vanilla Text Editor";
                 RibbonFile = "Plik";
                 RibbonEdit = "Edytuj";
                 RibbonInsert = "Wstaw";

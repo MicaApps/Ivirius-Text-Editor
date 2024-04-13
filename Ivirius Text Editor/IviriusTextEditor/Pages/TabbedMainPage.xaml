@@ -3657,7 +3657,7 @@
                             </StackPanel>
                         </StackPanel>
                         <StackPanel x:Name="RightToolbar" HorizontalAlignment="Right" Orientation="Horizontal" Margin="0,7,7,0" VerticalAlignment="Top" Spacing="4">
-                            <TextBlock TextWrapping="Wrap" FontFamily="{StaticResource CustomFont}" FontSize="20" Text="&#xEB95;" VerticalAlignment="Center" Margin="0,0,10,0" ToolTipService.ToolTip="You have an authentic version of Ivirius Text Editor installed. Enjoy your premium experience!" Visibility="Collapsed">
+                            <TextBlock TextWrapping="Wrap" FontFamily="{StaticResource CustomFont}" FontSize="20" Text="&#xEB95;" VerticalAlignment="Center" Margin="0,0,10,0" ToolTipService.ToolTip="You have an authentic version of Vanilla Text Editor installed. Enjoy your premium experience!" Visibility="Collapsed">
                                 <TextBlock.Foreground>
                                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0,0">
                                         <GradientStop Color="#FFFFDE00"/>
@@ -4696,7 +4696,7 @@
                                 </Grid>
                             </StackPanel>
                             <StackPanel x:Name="RightStatusBar" Orientation="Horizontal" Spacing="11" Margin="0,0,10,0" HorizontalAlignment="Right">
-                                <Button Content="Get Ivirius Text Editor Plus" x:Name="PlusButton"  Style="{ThemeResource AccentButtonStyle}" Click="Button_Click_4"/>
+                                <Button Content="Get Vanilla Text Editor Plus" x:Name="PlusButton"  Style="{ThemeResource AccentButtonStyle}" Click="Button_Click_4"/>
                                 <Custom:NumberBox Style="{StaticResource NumberBoxStyle3}" x:Name="ZoomBox" Value="{Binding Value, ElementName=ZoomSlider, Mode=TwoWay}" VerticalAlignment="Center" Margin="0,0,-10,0" Width="100" LargeChange="0.5" SmallChange="0.1">
                                     <Custom:NumberBox.NumberFormatter>
                                         <Custom1:PercentFormatter FractionDigits="0" IsDecimalPointAlwaysDisplayed="False"/>
@@ -4762,8 +4762,8 @@
                     <StackPanel Spacing="0" Margin="0,400,0,0"/>
                     <Grid Margin="25,0,0,20" VerticalAlignment="Bottom">
                         <Image Height="100" Width="100" Source="/Assets/AppIcons/AppIcon.png" HorizontalAlignment="Left"/>
-                        <TextBlock TextWrapping="Wrap" Text="Ivirius Text Editor" Margin="120,0,0,40" VerticalAlignment="Center" FontSize="18"/>
-                        <TextBlock TextWrapping="Wrap" Text="Create and edit rich text files - © Ivirius Text Editor 2021 - 2023 - made by Ivirius" Margin="120,10,0,0" VerticalAlignment="Center" FontSize="12"/>
+                        <TextBlock TextWrapping="Wrap" Text="Vanilla Text Editor" Margin="120,0,0,40" VerticalAlignment="Center" FontSize="18"/>
+                        <TextBlock TextWrapping="Wrap" Text="Create and edit rich text files - © Vanilla Text Editor 2021 - 2023 - made by Ivirius" Margin="120,10,0,0" VerticalAlignment="Center" FontSize="12"/>
                         <HyperlinkButton x:Name="hyperlinkButton" Content="https://ivirius.vercel.app/" Margin="120,50,0,0" NavigateUri="https://ivirius.vercel.app/" Padding="0,0,0,0" FontSize="11"/>
                     </Grid>
                     <Border Width="50" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top" CornerRadius="4,4,4,4" Margin="15,64,0,0" Background="#268E8E8E"/>
@@ -4908,8 +4908,8 @@
             <IviriusWindowingToolkit:ChildAppWindow Backdrop="MicaAlt" CanMinimize="False" CanMaximize="False" x:Name="AboutBox" Title="About" RememberPosition="False" AppWindowHeight="520" AppWindowWidth="400" CloseButtonStyle="Win32" MaximizeButtonVisibility="Collapsed" MinimizeButtonVisibility="Collapsed" IsMaximizeRestoreButtonEnabled="False" TitleBarStyle="Transparent" d:IsHidden="True">
                 <Grid Margin="10,-115,10,0">
                     <Image HorizontalAlignment="Left" Height="100" Margin="5,125,0,0" VerticalAlignment="Top" Width="100" Source="/Assets/AppIcons/AppIcon.png"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="120,140,0,0" TextWrapping="Wrap" Text="Ivirius Text Editor" VerticalAlignment="Top" FontSize="16"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="120,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="11"><Run Text="Version 3.0.3.0 (2312R3.1300) - Full release"/><LineBreak/><Run Text="Copyright © Ivirius Text Editor 2021 - 2024 "/><LineBreak/><Run Text="Compiled April 13, 2024"/><LineBreak/><Run Text="GitHub release - UWP"/><LineBreak/><Run/></TextBlock>
+                    <TextBlock HorizontalAlignment="Left" Margin="120,140,0,0" TextWrapping="Wrap" Text="Vanilla Text Editor" VerticalAlignment="Top" FontSize="16"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="120,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="11"><Run Text="Version 3.0.3.0 (2312R3.1300) - Full release"/><LineBreak/><Run Text="Copyright © Vanilla Text Editor 2021 - 2024 "/><LineBreak/><Run Text="Compiled April 13, 2024"/><LineBreak/><Run Text="GitHub release - UWP"/><LineBreak/><Run/></TextBlock>
                     <StackPanel Margin="0,235,0,0">
                         <HyperlinkButton Content="WinUI 2" Click="HyperlinkButton_Click_4" Padding="11,6,11,7"/>
                         <HyperlinkButton Content="Windows Community Toolkit" Click="HyperlinkButton_Click_4" Padding="11,6,11,7"/>
@@ -5093,44 +5093,44 @@
             </IviriusWindowingToolkit:DialogWindow>
         </IviriusWindowingToolkit:ChildAppWindowContainer>
         <IviriusWindowingToolkit:DialogWindowContainer>
-            <IviriusWindowingToolkit:DialogWindow x:Name="ActionErrorBox" IsSingleButton="True" Title="Ivirius Text Editor" FirstButtonText="OK" DialogAppWindowWidth="400" RememberPosition="False" PlaySound="True" HasIcon="True" Icon="/Assets/AppIcons/AppIcon.png" Backdrop="MicaAlt" WindowBackground="{StaticResource AppBackgroundBrush}" d:IsHidden="True">
+            <IviriusWindowingToolkit:DialogWindow x:Name="ActionErrorBox" IsSingleButton="True" Title="Vanilla Text Editor" FirstButtonText="OK" DialogAppWindowWidth="400" RememberPosition="False" PlaySound="True" HasIcon="True" Icon="/Assets/AppIcons/AppIcon.png" Backdrop="MicaAlt" WindowBackground="{StaticResource AppBackgroundBrush}" d:IsHidden="True">
                 <Grid>
                     <Image HorizontalAlignment="Left" Height="50" Margin="20,25,0,0" VerticalAlignment="Top" Width="50" Source="/Assets/Glyphs/Error.png"/>
                     <TextBlock x:Name="ActionErrorMessage" TextWrapping="Wrap" FontSize="16" Margin="100,20,25,30"><Run Text="Error code: Unavailable"/><LineBreak/><Run Text="Empty error"/></TextBlock>
                 </Grid>
             </IviriusWindowingToolkit:DialogWindow>
-            <IviriusWindowingToolkit:DialogWindow x:Name="FileSaveBox" DialogAppWindowHeight="200" DialogAppWindowWidth="420" PlaySound="True" Title="Ivirius Text Editor" RememberPosition="False" HasIcon="True" Icon="/Assets/AppIcons/AppIcon.png" Backdrop="MicaAlt" WindowBackground="{StaticResource AppBackgroundBrush}" d:IsHidden="True">
+            <IviriusWindowingToolkit:DialogWindow x:Name="FileSaveBox" DialogAppWindowHeight="200" DialogAppWindowWidth="420" PlaySound="True" Title="Vanilla Text Editor" RememberPosition="False" HasIcon="True" Icon="/Assets/AppIcons/AppIcon.png" Backdrop="MicaAlt" WindowBackground="{StaticResource AppBackgroundBrush}" d:IsHidden="True">
                 <Grid HorizontalAlignment="Left" VerticalAlignment="Top">
                     <Image HorizontalAlignment="Left" Height="75" Margin="15,15,0,0" VerticalAlignment="Top" Width="75" Source="/Assets/Glyphs/Warning.png"/>
                     <TextBlock HorizontalAlignment="Left" Margin="115,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" Text="Do you want to save your file?"/>
                     <TextBlock HorizontalAlignment="Left" Margin="115,50,20,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14"><Run Text="Any changes you made to this file might be "/><LineBreak/><Run Text="lost if you don't save it"/></TextBlock>
                 </Grid>
             </IviriusWindowingToolkit:DialogWindow>
-            <IviriusWindowingToolkit:DialogWindow x:Name="ActionWarningBox" DialogAppWindowWidth="350" Title="Ivirius Text Editor" PlaySound="True" RememberPosition="False" HasIcon="True" Icon="/Assets/AppIcons/AppIcon.png" Backdrop="MicaAlt" WindowBackground="{StaticResource AppBackgroundBrush}" d:IsHidden="True">
+            <IviriusWindowingToolkit:DialogWindow x:Name="ActionWarningBox" DialogAppWindowWidth="350" Title="Vanilla Text Editor" PlaySound="True" RememberPosition="False" HasIcon="True" Icon="/Assets/AppIcons/AppIcon.png" Backdrop="MicaAlt" WindowBackground="{StaticResource AppBackgroundBrush}" d:IsHidden="True">
                 <Grid MaxWidth="320">
                     <Image HorizontalAlignment="Left" Height="60" Margin="5,0,0,15" VerticalAlignment="Center" Width="60" Source="/Assets/Glyphs/Warning.png"/>
                     <TextBlock x:Name="ActionWarningMessage" TextWrapping="Wrap" FontSize="18" Text="Warning" Margin="85,20,25,0" VerticalAlignment="Top"/>
                 </Grid>
             </IviriusWindowingToolkit:DialogWindow>
-            <IviriusWindowingToolkit:DialogWindow x:Name="ActionCompleteBox" IsSingleButton="True" Title="Ivirius Text Editor" FirstButtonText="OK" DialogAppWindowWidth="400" RememberPosition="False" PlaySound="True" HasIcon="True" Icon="/Assets/AppIcons/AppIcon.png" Backdrop="MicaAlt" WindowBackground="{StaticResource AppBackgroundBrush}" d:IsHidden="True">
+            <IviriusWindowingToolkit:DialogWindow x:Name="ActionCompleteBox" IsSingleButton="True" Title="Vanilla Text Editor" FirstButtonText="OK" DialogAppWindowWidth="400" RememberPosition="False" PlaySound="True" HasIcon="True" Icon="/Assets/AppIcons/AppIcon.png" Backdrop="MicaAlt" WindowBackground="{StaticResource AppBackgroundBrush}" d:IsHidden="True">
                 <Grid>
                     <Image HorizontalAlignment="Left" Height="50" Margin="20,25,0,0" VerticalAlignment="Top" Width="50" Source="/Assets/Glyphs/Check.png"/>
                     <TextBlock x:Name="ActionCompleteMessage" TextWrapping="Wrap" FontSize="16" Margin="100,20,25,30"><Run Text="Error code: Unavailable"/><LineBreak/><Run Text="Empty error"/></TextBlock>
                 </Grid>
             </IviriusWindowingToolkit:DialogWindow>
-            <IviriusWindowingToolkit:DialogWindow x:Name="FatalExceptionBox" IsSingleButton="True" Title="Ivirius Text Editor" FirstButtonText="OK" DialogAppWindowWidth="400" RememberPosition="False" PlaySound="True" Backdrop="MicaAlt" d:IsHidden="True">
+            <IviriusWindowingToolkit:DialogWindow x:Name="FatalExceptionBox" IsSingleButton="True" Title="Vanilla Text Editor" FirstButtonText="OK" DialogAppWindowWidth="400" RememberPosition="False" PlaySound="True" Backdrop="MicaAlt" d:IsHidden="True">
                 <Grid>
                     <Image HorizontalAlignment="Left" Height="50" Margin="20,25,0,0" VerticalAlignment="Top" Width="50" Source="/Assets/Glyphs/Error.png"/>
                     <TextBlock x:Name="FatalExceptionMessage" TextWrapping="Wrap" FontSize="16" Margin="100,20,25,30"><Run Text="Error code: Unavailable"/><LineBreak/><Run Text="Empty error"/></TextBlock>
                 </Grid>
             </IviriusWindowingToolkit:DialogWindow>
-            <IviriusWindowingToolkit:DialogWindow x:Name="PrintingInfoBox" DialogAppWindowWidth="700" Title="Ivirius Text Editor" PlaySound="True" RememberPosition="False" HasIcon="True" Icon="/Assets/Glyphs/Warning.png" Backdrop="MicaAlt" HorizontalContentAlignment="Left" DialogAppWindowHeight="270" IsSingleButton="True" FirstButtonText="Proceed" FirstButtonClick="PrintingInfoBox_FirstButtonClick" d:IsHidden="True">
+            <IviriusWindowingToolkit:DialogWindow x:Name="PrintingInfoBox" DialogAppWindowWidth="700" Title="Vanilla Text Editor" PlaySound="True" RememberPosition="False" HasIcon="True" Icon="/Assets/Glyphs/Warning.png" Backdrop="MicaAlt" HorizontalContentAlignment="Left" DialogAppWindowHeight="270" IsSingleButton="True" FirstButtonText="Proceed" FirstButtonClick="PrintingInfoBox_FirstButtonClick" d:IsHidden="True">
                 <Grid Margin="15,0,15,0">
                     <Image HorizontalAlignment="Left" Height="60" Margin="5,30,0,15" VerticalAlignment="Top" Width="60" Source="/Assets/Glyphs/Warning.png"/>
-                    <TextBlock TextWrapping="Wrap" FontSize="18" Text="In order for printing to proceed, you must allow Ivirius Text Editor access to your desktop for creating a temporary bridge file between the app and the printing service. Please press the &quot;Save&quot; and &quot;Select folder&quot; (Please select your desktop on the 2nd dialog) buttons when the file creation dialog appears to allow printing in the future." Margin="85,20,25,0" VerticalAlignment="Top"/>
+                    <TextBlock TextWrapping="Wrap" FontSize="18" Text="In order for printing to proceed, you must allow Vanilla Text Editor access to your desktop for creating a temporary bridge file between the app and the printing service. Please press the &quot;Save&quot; and &quot;Select folder&quot; (Please select your desktop on the 2nd dialog) buttons when the file creation dialog appears to allow printing in the future." Margin="85,20,25,0" VerticalAlignment="Top"/>
                 </Grid>
             </IviriusWindowingToolkit:DialogWindow>
-            <IviriusWindowingToolkit:DialogWindow x:Name="NewFileBox" DialogAppWindowWidth="350" Title="Ivirius Text Editor" PlaySound="True" RememberPosition="False" HasIcon="True" Icon="/Assets/AppIcons/AppIcon.png" Backdrop="MicaAlt" WindowBackground="{StaticResource AppBackgroundBrush}" d:IsHidden="True" FirstButtonClick="NewFileBox_FirstButtonClick">
+            <IviriusWindowingToolkit:DialogWindow x:Name="NewFileBox" DialogAppWindowWidth="350" Title="Vanilla Text Editor" PlaySound="True" RememberPosition="False" HasIcon="True" Icon="/Assets/AppIcons/AppIcon.png" Backdrop="MicaAlt" WindowBackground="{StaticResource AppBackgroundBrush}" d:IsHidden="True" FirstButtonClick="NewFileBox_FirstButtonClick">
                 <Grid MaxWidth="320">
                     <Image HorizontalAlignment="Left" Height="60" Margin="5,0,0,15" VerticalAlignment="Center" Width="60" Source="/Assets/Glyphs/Warning.png"/>
                     <TextBlock x:Name="ActionWarningMessage1" TextWrapping="Wrap" FontSize="18" Text="Do you want to save your current file before creating a new one?" Margin="85,20,25,0" VerticalAlignment="Top"/>

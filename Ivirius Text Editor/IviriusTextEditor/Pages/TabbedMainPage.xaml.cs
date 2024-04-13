@@ -619,7 +619,7 @@ namespace IviriusTextEditor.Pages
                     {
                         new ToastContentBuilder()
                         .SetToastScenario(ToastScenario.Reminder)
-                        .AddText("It seems like Ivirius Text Editor has crashed.")
+                        .AddText("It seems like Vanilla Text Editor has crashed.")
                         .AddText("These are the details:")
                         .AddText($"{Report.StackTrace}")
                         .AddButton(new ToastButton()
@@ -632,7 +632,7 @@ namespace IviriusTextEditor.Pages
                     {
                         new ToastContentBuilder()
                         .SetToastScenario(ToastScenario.Reminder)
-                        .AddText("It seems like Ivirius Text Editor has crashed.")
+                        .AddText("It seems like Vanilla Text Editor has crashed.")
                         .AddText("We can't show any information right now")
                         .AddButton(new ToastButton()
                             .SetDismissActivation().SetContent("Close"))
@@ -647,7 +647,7 @@ namespace IviriusTextEditor.Pages
                     {
                         new ToastContentBuilder()
                         .SetToastScenario(ToastScenario.Reminder)
-                        .AddText("It seems like Ivirius Text Editor has crashed.")
+                        .AddText("It seems like Vanilla Text Editor has crashed.")
                         .AddText("We can't show any information right now")
                         .AddButton(new ToastButton()
                             .SetDismissActivation().SetContent("Close"))
@@ -934,7 +934,7 @@ namespace IviriusTextEditor.Pages
                         {
                             new ToastContentBuilder()
                             .SetToastScenario(ToastScenario.Reminder)
-                            .AddText("It seems like Ivirius Text Editor has a bug.")
+                            .AddText("It seems like Vanilla Text Editor has a bug.")
                             .AddText("These are the details:")
                             .AddText($"{Ex.Message}")
                             .AddButton(new ToastButton()
@@ -1177,7 +1177,7 @@ namespace IviriusTextEditor.Pages
                 {
                     new ToastContentBuilder()
                     .SetToastScenario(ToastScenario.Reminder)
-                    .AddText($"Ivirius Text Editor has a bug. These are the details:")
+                    .AddText($"Vanilla Text Editor has a bug. These are the details:")
                     .AddText($"Debugger Output:")
                     .AddText($"Message:")
                     .AddText($"{EX.Message}")
