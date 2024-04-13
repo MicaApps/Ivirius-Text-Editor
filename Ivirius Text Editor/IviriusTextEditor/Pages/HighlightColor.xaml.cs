@@ -26,5 +26,20 @@ namespace Ivirius_Text_Editor.IviriusTextEditor.Pages
         {
             this.InitializeComponent();
         }
+
+        private void BackPicker_ColorChanged(Microsoft.UI.Xaml.Controls.ColorPicker sender, Microsoft.UI.Xaml.Controls.ColorChangedEventArgs args)
+        {
+
+        }
+
+        private void NullHighlightButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void HighlightButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -26,5 +26,10 @@ namespace Ivirius_Text_Editor.IviriusTextEditor.Pages
         {
             this.InitializeComponent();
         }
+
+        private void HyperlinkButton_Click_4(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

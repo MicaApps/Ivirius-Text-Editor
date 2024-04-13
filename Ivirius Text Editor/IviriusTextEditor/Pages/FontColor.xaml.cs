@@ -26,5 +26,20 @@ namespace Ivirius_Text_Editor.IviriusTextEditor.Pages
         {
             this.InitializeComponent();
         }
+
+        private void ForegroundButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void NullForegroundButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ColorPicker_ColorChanged(Microsoft.UI.Xaml.Controls.ColorPicker sender, Microsoft.UI.Xaml.Controls.ColorChangedEventArgs args)
+        {
+
+        }
     }
 }

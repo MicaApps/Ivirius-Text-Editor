@@ -553,7 +553,6 @@ namespace IviriusTextEditor.Pages
             //Document config
             REB.Document.Selection.CharacterFormat.Size = (float)10.5;
             RTB.Document.Selection.CharacterFormat.Size = (float)10.5;
-            BackPicker.Color = Color.FromArgb(0, 255, 255, 255);
 
             //Title bar config
             AppCoreTitleBar.ExtendViewIntoTitleBar = true;
@@ -696,7 +695,11 @@ namespace IviriusTextEditor.Pages
             }
             else
             {
-                ActionErrorMessage.Text = "There is no file associated with this document";
+                ContentDialog box = new ContentDialog();
+                box.Content = "There is no file associated with this document";
+                box.CloseButtonText = "Close";
+                box.DefaultButton = ContentDialogButton.Close;
+                await box.ShowAsync();
             }
         }
 
@@ -824,7 +827,7 @@ namespace IviriusTextEditor.Pages
             {
                 if (FileNotSaved.Visibility == Visibility.Visible)
                 {
-                    NewFileBox.Open();
+                    //NewFileBox.Open();
                 }
                 else
                 {
@@ -835,7 +838,7 @@ namespace IviriusTextEditor.Pages
             {
                 if (FileNotSaved.Visibility == Visibility.Visible)
                 {
-                    NewFileBox.Open();
+                    //NewFileBox.Open();
                 }
                 else
                 {
@@ -858,7 +861,7 @@ namespace IviriusTextEditor.Pages
             await NewFile();
         }
 
-        private void DelB_Click(object sender, RoutedEventArgs e)
+        private async void DelB_Click(object sender, RoutedEventArgs e)
         {
             if (TXTFile != null)
             {
@@ -868,10 +871,11 @@ namespace IviriusTextEditor.Pages
                     FileNotSavedInfoBar.IsOpen = true;
                     CheckForSaving();
                 }
-                ActionWarningBox.Open();
-                ActionWarningMessage.Text = "Are you sure you want to delete this file?";
-                ActionWarningBox.FirstButtonClick += ED2_PrimaryButtonClick;
-                void ED2_PrimaryButtonClick(object Sender, RoutedEventArgs EvArgs)
+                ContentDialog ActionWarningBox = new ContentDialog();
+                ActionWarningBox.Content = "Are you sure you want to delete this file?";
+                ActionWarningBox.CloseButtonClick += ED2_PrimaryButtonClick2;
+                await ActionWarningBox.ShowAsync();
+                void ED2_PrimaryButtonClick2(ContentDialog sender, ContentDialogButtonClickEventArgs args)
                 {
                     try
                     {
@@ -880,7 +884,7 @@ namespace IviriusTextEditor.Pages
                             _ = TXTFile.DeleteAsync();
                             TXTFile = null;
                             CheckForSaving();
-                            ActionWarningBox.FirstButtonClick -= ED2_PrimaryButtonClick;
+                            ActionWarningBox.CloseButtonClick -= ED2_PrimaryButtonClick2;
                         }
                         else
                         {
@@ -891,7 +895,7 @@ namespace IviriusTextEditor.Pages
                             .AddButton(new ToastButton()
                                 .SetDismissActivation().SetContent("Close"))
                             .Show();
-                            ActionWarningBox.FirstButtonClick -= ED2_PrimaryButtonClick;
+                            ActionWarningBox.CloseButtonClick -= ED2_PrimaryButtonClick2;
                         }
                     }
                     catch (Exception Ex)
@@ -909,13 +913,14 @@ namespace IviriusTextEditor.Pages
                             .SetProtocolActivation(new Uri("https://ivirius.vercel.app/contact/")).SetContent("Send bug report"))
                             .Show();
                             CheckForSaving();
-                            ActionWarningBox.FirstButtonClick -= ED2_PrimaryButtonClick;
+                            ActionWarningBox.CloseButtonClick -= ED2_PrimaryButtonClick2;
                         }
                         catch
                         {
-                            ActionWarningBox.FirstButtonClick -= ED2_PrimaryButtonClick;
+                            ActionWarningBox.CloseButtonClick -= ED2_PrimaryButtonClick2;
                         }
                         return;
+
                     }
                 }
             }
@@ -938,32 +943,32 @@ namespace IviriusTextEditor.Pages
             else
             {
                 //Remember the user to save the file
-                FileSaveBox.FirstButtonClick += ED2_PrimaryButtonClick;
-                FileSaveBox.SecondButtonClick += ED2_SecondaryButtonClick;
-                FileSaveBox.CancelButtonClick += ED2_CloseButtonClick;
-                try { FileSaveBox.Open(); } catch { }
+                //FileSaveBox.FirstButtonClick += ED2_PrimaryButtonClick;
+                //FileSaveBox.SecondButtonClick += ED2_SecondaryButtonClick;
+                //FileSaveBox.CancelButtonClick += ED2_CloseButtonClick;
+                //try { FileSaveBox.Open(); } catch { }
                 async void ED2_PrimaryButtonClick(object SenderSec, RoutedEventArgs DialogEvArgs)
                 {
                     if (TXTFile != null) await SaveFile(true, false, false, false); else await SaveFile(false, false, false, false);
-                    FileSaveBox.Close();
-                    FileSaveBox.FirstButtonClick -= ED2_PrimaryButtonClick;
-                    FileSaveBox.SecondButtonClick -= ED2_SecondaryButtonClick;
-                    FileSaveBox.CancelButtonClick -= ED2_CloseButtonClick;
+                    //FileSaveBox.Close();
+                    //FileSaveBox.FirstButtonClick -= ED2_PrimaryButtonClick;
+                    //FileSaveBox.SecondButtonClick -= ED2_SecondaryButtonClick;
+                    //FileSaveBox.CancelButtonClick -= ED2_CloseButtonClick;
                 }
                 async void ED2_SecondaryButtonClick(object SenderSec, RoutedEventArgs DialogEvArgs)
                 {
                     await Open();
-                    FileSaveBox.Close();
-                    FileSaveBox.FirstButtonClick -= ED2_PrimaryButtonClick;
-                    FileSaveBox.SecondButtonClick -= ED2_SecondaryButtonClick;
-                    FileSaveBox.CancelButtonClick -= ED2_CloseButtonClick;
+                    //FileSaveBox.Close();
+                    //FileSaveBox.FirstButtonClick -= ED2_PrimaryButtonClick;
+                    //FileSaveBox.SecondButtonClick -= ED2_SecondaryButtonClick;
+                    //FileSaveBox.CancelButtonClick -= ED2_CloseButtonClick;
                 }
                 void ED2_CloseButtonClick(object SenderSec, RoutedEventArgs DialogEvArgs)
                 {
-                    FileSaveBox.Close();
-                    FileSaveBox.FirstButtonClick -= ED2_PrimaryButtonClick;
-                    FileSaveBox.SecondButtonClick -= ED2_SecondaryButtonClick;
-                    FileSaveBox.CancelButtonClick -= ED2_CloseButtonClick;
+                    //FileSaveBox.Close();
+                    //FileSaveBox.FirstButtonClick -= ED2_PrimaryButtonClick;
+                    //FileSaveBox.SecondButtonClick -= ED2_SecondaryButtonClick;
+                    //FileSaveBox.CancelButtonClick -= ED2_CloseButtonClick;
                 }
             }
         }
@@ -1045,14 +1050,15 @@ namespace IviriusTextEditor.Pages
                     }
                     catch
                     {
-                        ActionWarningMessage.Text = "The printing file cannot be deleted. Please manually delete it from yuor desktop and try again.";
-                        ActionWarningBox.Open();
+                        ContentDialog ActionWarningBox = new ContentDialog();
+                        ActionWarningBox.Content = "The printing file cannot be deleted. Please manually delete it from yuor desktop and try again.";
+                        await ActionWarningBox.ShowAsync();
                     }
                 }
             }
             catch
             {
-                PrintingInfoBox.Open();
+                //PrintingInfoBox.Open();
                 CheckForSaving();
             }
 
@@ -1063,7 +1069,7 @@ namespace IviriusTextEditor.Pages
 
             else
             {
-                PrintingInfoBox.Open();
+                //PrintingInfoBox.Open();
             }
         }
 
@@ -1088,7 +1094,7 @@ namespace IviriusTextEditor.Pages
         {
             try
             {
-                FileSaveBox.Close();
+                //FileSaveBox.Close();
                 var RAS = await TXTFile.OpenAsync(FileAccessMode.ReadWrite);
                 REB.Document.SaveToStream(TextGetOptions.FormatRtf, RAS);
                 try
@@ -1097,8 +1103,9 @@ namespace IviriusTextEditor.Pages
                 }
                 catch (AccessViolationException)
                 {
-                    ActionErrorMessage.Text = "The file you are trying to edit cannot be checked for saving";
-                    ActionErrorBox.Open();
+                    ContentDialog ActionErrorBox = new ContentDialog();
+                    ActionErrorBox.Content = "The file you are trying to edit cannot be checked for saving";
+                    await ActionErrorBox.ShowAsync();
                     isFileLinked = false;
                 }
                 RAS.Dispose();
@@ -1220,33 +1227,33 @@ namespace IviriusTextEditor.Pages
             else
             {
                 //Remember the user to save the file
-                FileSaveBox.FirstButtonClick += ED2_PrimaryButtonClick;
-                FileSaveBox.SecondButtonClick += ED2_SecondaryButtonClick;
-                FileSaveBox.CancelButtonClick += ED2_CloseButtonClick;
-                try { FileSaveBox.Open(); } catch { }
+                //FileSaveBox.FirstButtonClick += ED2_PrimaryButtonClick;
+                //FileSaveBox.SecondButtonClick += ED2_SecondaryButtonClick;
+                //FileSaveBox.CancelButtonClick += ED2_CloseButtonClick;
+                //try { FileSaveBox.Open(); } catch { }
                 async void ED2_PrimaryButtonClick(object SenderSec, RoutedEventArgs DialogEvArgs)
                 {
                     if (TXTFile != null) await SaveFile(true, true, false, false);
                     else await SaveFile(false, true, false, false);
-                    FileSaveBox.Close();
-                    FileSaveBox.FirstButtonClick -= ED2_PrimaryButtonClick;
-                    FileSaveBox.SecondButtonClick -= ED2_SecondaryButtonClick;
-                    FileSaveBox.CancelButtonClick -= ED2_CloseButtonClick;
+                    //FileSaveBox.Close();
+                    //FileSaveBox.FirstButtonClick -= ED2_PrimaryButtonClick;
+                    //FileSaveBox.SecondButtonClick -= ED2_SecondaryButtonClick;
+                    //FileSaveBox.CancelButtonClick -= ED2_CloseButtonClick;
                 }
                 void ED2_SecondaryButtonClick(object SenderSec, RoutedEventArgs DialogEvArgs)
                 {
                     IsCloseRequestComplete = true;
-                    FileSaveBox.Close();
-                    FileSaveBox.FirstButtonClick -= ED2_PrimaryButtonClick;
-                    FileSaveBox.SecondButtonClick -= ED2_SecondaryButtonClick;
-                    FileSaveBox.CancelButtonClick -= ED2_CloseButtonClick;
+                    //FileSaveBox.Close();
+                    //FileSaveBox.FirstButtonClick -= ED2_PrimaryButtonClick;
+                    //FileSaveBox.SecondButtonClick -= ED2_SecondaryButtonClick;
+                    //FileSaveBox.CancelButtonClick -= ED2_CloseButtonClick;
                 }
                 void ED2_CloseButtonClick(object SenderSec, RoutedEventArgs DialogEvArgs)
                 {
-                    FileSaveBox.Close();
-                    FileSaveBox.FirstButtonClick -= ED2_PrimaryButtonClick;
-                    FileSaveBox.SecondButtonClick -= ED2_SecondaryButtonClick;
-                    FileSaveBox.CancelButtonClick -= ED2_CloseButtonClick;
+                    //FileSaveBox.Close();
+                    //FileSaveBox.FirstButtonClick -= ED2_PrimaryButtonClick;
+                    //FileSaveBox.SecondButtonClick -= ED2_SecondaryButtonClick;
+                    //FileSaveBox.CancelButtonClick -= ED2_CloseButtonClick;
                 }
             }
             return;
@@ -2292,10 +2299,10 @@ namespace IviriusTextEditor.Pages
             if (!(ST == null))
             {
                 _ = ST.CharacterFormat.ForegroundColor;
-                var Br = new SolidColorBrush(ColPicker.Color);
-                Color CF = ColPicker.Color;
-                FontAccent.Foreground = Br;
-                ST.CharacterFormat.ForegroundColor = CF;
+                //var Br = new SolidColorBrush(ColPicker.Color);
+                //Color CF = ColPicker.Color;
+                //FontAccent.Foreground = Br;
+                //ST.CharacterFormat.ForegroundColor = CF;
             }
         }
 
@@ -2308,10 +2315,10 @@ namespace IviriusTextEditor.Pages
                 if (!(ST == null))
                 {
                     _ = ST.CharacterFormat;
-                    var Br = new SolidColorBrush(BackPicker.Color);
-                    Color CF = BackPicker.Color;
-                    if (BackAccent != null) BackAccent.Foreground = Br;
-                    ST.CharacterFormat.BackgroundColor = CF;
+                    //var Br = new SolidColorBrush(BackPicker.Color);
+                    //Color CF = BackPicker.Color;
+                    //if (BackAccent != null) BackAccent.Foreground = Br;
+                    //ST.CharacterFormat.BackgroundColor = CF;
                 }
             }
         }
@@ -2545,8 +2552,9 @@ namespace IviriusTextEditor.Pages
                 }
                 catch (Exception Ex)
                 {
-                    FatalExceptionMessage.Text = $"{Ex.HResult} ===== {Ex.Message}";
-                    FatalExceptionBox.Open();
+                    ContentDialog FatalExceptionBox = new ContentDialog();
+                    FatalExceptionBox.Content = $"{Ex.HResult} ===== {Ex.Message}";
+                    await FatalExceptionBox.ShowAsync();
                 }
             }
         }
@@ -2609,8 +2617,8 @@ namespace IviriusTextEditor.Pages
             var CF = ST.CharacterFormat;
 
             //Colors
-            if (BackPicker != null) BackPicker.Color = CF.BackgroundColor;
-            if (ColPicker != null) ColPicker.Color = CF.ForegroundColor;
+            //if (BackPicker != null) BackPicker.Color = CF.BackgroundColor;
+            //if (ColPicker != null) ColPicker.Color = CF.ForegroundColor;
             if (CF.BackgroundColor == Colors.White || CF.BackgroundColor == Colors.Transparent)
             {
                 BackAccent.Foreground = new SolidColorBrush(Colors.Transparent);
@@ -3154,22 +3162,25 @@ namespace IviriusTextEditor.Pages
 
         #region Find and Replace
 
-        private void RepAllBTN_Click(object Sender, RoutedEventArgs EvArgs)
+        private async void RepAllBTN_Click(object Sender, RoutedEventArgs EvArgs)
         {
             if (ReplaceBox.Text == FindTextBox.Text)
             {
-                ActionErrorBox.Open();
-                ActionErrorMessage.Text = "Usage of identical characters for Find and Replace is not allowed";
+                ContentDialog ActionErrorBox = new ContentDialog();
+                ActionErrorBox.Content = "Usage of identical characters for Find and Replace is not allowed";
+                await ActionErrorBox.ShowAsync();
             }
             else if (ReplaceBox.Text.ToLower() == FindTextBox.Text.ToLower() && CaseSensBox.IsChecked == true && FullWordsBox.IsChecked == true)
             {
-                ActionErrorBox.Open();
-                ActionErrorMessage.Text = "Usage of too similar characters for Find and Replace. Please uncheck the \"Match words\" box to proceed";
+                ContentDialog ActionErrorBox = new ContentDialog();
+                ActionErrorBox.Content = "Usage of too similar characters for Find and Replace. Please uncheck the \"Match words\" box to proceed";
+                await ActionErrorBox.ShowAsync();
             }
             else if (ReplaceBox.Text.ToLower() == FindTextBox.Text.ToLower() && CaseSensBox.IsChecked != true)
             {
-                ActionErrorBox.Open();
-                ActionErrorMessage.Text = "Usage of too similar characters for Find and Replace. Please check the \"Case Sensitive\" box to proceed";
+                ContentDialog ActionErrorBox = new ContentDialog();
+                ActionErrorBox.Content = "Usage of too similar characters for Find and Replace. Please check the \"Case Sensitive\" box to proceed";
+                await ActionErrorBox.ShowAsync();
             }
             else
             {
@@ -3366,22 +3377,6 @@ namespace IviriusTextEditor.Pages
         private async void MenuFlyoutItem_Click_20(object Sender, RoutedEventArgs EvArgs)
         {
             ApplicationDataContainer LS = ApplicationData.Current.LocalSettings;
-            if (LS.Values["Password"] == null || (string)LS.Values["Password"] == "" || (string)LS.Values["Password"] == "args:passwordNullOrEmpty" || LS != null)
-            {
-                ActionErrorMessage.Text = "The current user doesn't have a password and can't be logged out";
-                ActionErrorBox.Open();
-            }
-            if (LS.Values["Password"] != null || (string)LS.Values["Password"] != "" || LS != null)
-            {
-                RestartArgs = "";
-                LS.Values["Remember_me"] = "false";
-                _ = await CoreApplication.RequestRestartAsync(RestartArgs);
-            }
-            else
-            {
-                ActionErrorMessage.Text = "The current user doesn't have a password and can't be logged out";
-                ActionErrorBox.Open();
-            }
         }
 
         #endregion Tools
@@ -3400,7 +3395,7 @@ namespace IviriusTextEditor.Pages
 
         private void AboutItem_Click(object Sender, RoutedEventArgs EvArgs)
         {
-            AboutBox.Open();
+            //ABOUT
         }
 
         #endregion About
@@ -3579,7 +3574,7 @@ namespace IviriusTextEditor.Pages
 
         private void Button_Click_8(object Sender, RoutedEventArgs EvArgs)
         {
-            AboutBox.Open();
+            //ABOUT
         }
 
         private void SNFCancel_Click(object Sender, RoutedEventArgs EvArgs)
@@ -4096,7 +4091,7 @@ namespace IviriusTextEditor.Pages
 
         private void Button_Click_32(object sender, RoutedEventArgs e)
         {
-            FontColorBox.Open();
+            //FontColorBox.Open();
             CPDDB.Flyout.Hide();
         }
 
@@ -4107,16 +4102,16 @@ namespace IviriusTextEditor.Pages
             if (!(ST == null))
             {
                 _ = ST.CharacterFormat.ForegroundColor;
-                var Br = new SolidColorBrush(ColPicker.Color);
-                var CF = ColPicker.Color;
-                FontAccent.Foreground = Br;
-                ST.CharacterFormat.ForegroundColor = CF;
+                //var Br = new SolidColorBrush(ColPicker.Color);
+                //var CF = ColPicker.Color;
+                //FontAccent.Foreground = Br;
+                //ST.CharacterFormat.ForegroundColor = CF;
             }
         }
 
         private void Button_Click_30(object sender, RoutedEventArgs e)
         {
-            AboutBox.Close();
+            //AboutBox.Close();
         }
 
         private async void HyperlinkButton_Click_4(object sender, RoutedEventArgs e)
@@ -4327,7 +4322,7 @@ namespace IviriusTextEditor.Pages
 
             Windows.Storage.AccessCache.StorageApplicationPermissions.FutureAccessList.Add(TempFile);
 
-            PrintingInfoBox.Close();
+            //PrintingInfoBox.Close();
         }
 
         private async void Button_Click_36(object sender, RoutedEventArgs e)
@@ -4371,7 +4366,7 @@ namespace IviriusTextEditor.Pages
 
         private void Button_Click_37(object sender, RoutedEventArgs e)
         {
-            BackColorBox.Open();
+            //BackColorBox.Open();
         }
 
         private async void ScreenshotButton_Click(object sender, RoutedEventArgs e)
@@ -4406,23 +4401,6 @@ namespace IviriusTextEditor.Pages
         private void Flyout_Closing(FlyoutBase sender, FlyoutBaseClosingEventArgs args)
         {
             FindREB.IsReadOnly = false;
-        }
-
-        private void DialogWindow_FirstButtonClick(object sender, RoutedEventArgs e)
-        {
-            SettingsHelper.SetSetting("ZippyAPIKey", ZippyAPIKey.Password.ToString());
-            ZippyKeyWindow.Close();
-        }
-
-        private void DialogWindow_SecondButtonClick(object sender, RoutedEventArgs e)
-        {
-            URIHelper.LaunchURI("https://platform.openai.com/api-keys");
-            ZippyKeyWindow.Close();
-        }
-
-        private void APIButton_Click(object sender, RoutedEventArgs e)
-        {
-            ZippyKeyWindow.Open();
         }
 
         private void DiscordItem_Click(object sender, RoutedEventArgs e)

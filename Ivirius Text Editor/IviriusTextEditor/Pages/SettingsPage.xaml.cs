@@ -373,7 +373,7 @@ namespace IviriusTextEditor.Pages
 
         private void SSButton_Click_1(object Sender, RoutedEventArgs EvArgs)
         {
-            ActionWarningBox.Open();
+            //ActionWarningBox.Open();
         }
 
         string RestartArgs;

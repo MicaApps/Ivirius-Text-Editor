@@ -228,9 +228,9 @@ namespace IviriusTextEditor.Pages
 
             if (TabbedView.TabItems.Count > 1)
             {
-                CloseWarningBox1.Open();
-                CloseWarningBox1.Title = "Vanilla Text Editor";
-                CWFContent1.Text = "Are you sure you want to close?";
+                //CloseWarningBox1.Open();
+                //CloseWarningBox1.Title = "Vanilla Text Editor";
+                //CWFContent1.Text = "Are you sure you want to close?";
             }
             if (TabbedView.TabItems.Count == 1)
             {
@@ -240,9 +240,9 @@ namespace IviriusTextEditor.Pages
                 {
                     if (((TabItem.Content as Frame).Content as TabbedMainPage).isWorkSaved == false)
                     {
-                        CloseWarningBox2.Open();
-                        CloseWarningBox2.Title = "Vanilla Text Editor";
-                        CWFContent2.Text = "Do you want to save your file?";
+                        //CloseWarningBox2.Open();
+                        //CloseWarningBox2.Title = "Vanilla Text Editor";
+                        //CWFContent2.Text = "Do you want to save your file?";
                     }
                     else
                     {
@@ -263,9 +263,9 @@ namespace IviriusTextEditor.Pages
             {
                 if (((SysArgs.Tab.Content as Frame).Content as TabbedMainPage).isWorkSaved == false)
                 {
-                    CloseWarningBox3.Open();
-                    CloseWarningBox3.Title = "Vanilla Text Editor";
-                    CWFContent3.Text = "Do you want to save your file?";
+                    //CloseWarningBox3.Open();
+                    //CloseWarningBox3.Title = "Vanilla Text Editor";
+                    //CWFContent3.Text = "Do you want to save your file?";
                 }
                 else
                 {
@@ -282,9 +282,9 @@ namespace IviriusTextEditor.Pages
 
         private void Button_Click_19(object sender, RoutedEventArgs e)
         {
-            CloseWarningBox1.Close();
-            CloseWarningBox2.Close();
-            CloseWarningBox3.Close();
+            //CloseWarningBox1.Close();
+            //CloseWarningBox2.Close();
+            //CloseWarningBox3.Close();
         }
 
         private void CoreTitleBar_LayoutMetricsChanged(CoreApplicationViewTitleBar sender, object args)
@@ -556,7 +556,7 @@ namespace IviriusTextEditor.Pages
 
         private void Button_Click_20(object sender, RoutedEventArgs e)
         {
-            SetupCloseBox.Open();
+            //SetupCloseBox.Open();
         }
 
         private async void SetupCloseBox_FirstButtonClick(object sender, RoutedEventArgs e)
@@ -568,32 +568,32 @@ namespace IviriusTextEditor.Pages
         private async void CloseWarningBox1_FirstButtonClick(object sender, RoutedEventArgs e)
         {
             _ = await ApplicationView.GetForCurrentView().TryConsolidateAsync();
-            CloseWarningBox1.Close();
+            //CloseWarningBox1.Close();
         }
 
         private async void CloseWarningBox2_FirstButtonClick(object sender, RoutedEventArgs e)
         {
             await (((TabbedView.SelectedItem as TabViewItem).Content as Frame).Content as TabbedMainPage).SaveFile(false, false, false, false);
-            CloseWarningBox2.Close();
+            //CloseWarningBox2.Close();
         }
 
         private async void CloseWarningBox2_SecondButtonClick(object sender, RoutedEventArgs e)
         {
             _ = await ApplicationView.GetForCurrentView().TryConsolidateAsync();
-            CloseWarningBox2.Close();
+            //CloseWarningBox2.Close();
         }
 
         private async void CloseWarningBox3_FirstButtonClick(object sender, RoutedEventArgs e)
         {
             await ((SysArgs.Tab.Content as Frame).Content as TabbedMainPage).SaveFile(false, false, false, false);
-            CloseWarningBox3.Close();
+            //CloseWarningBox3.Close();
         }
 
         private async void CloseWarningBox3_SecondButtonClick(object sender, RoutedEventArgs e)
         {
             _ = SysSender.TabItems.Remove(SysArgs.Tab);
             if (TabbedView.TabItems.Count == 0) _ = await ApplicationView.GetForCurrentView().TryConsolidateAsync();
-            CloseWarningBox3.Close();
+            //CloseWarningBox3.Close();
         }
 
         private void MainPageComponent_SizeChanged(object sender, SizeChangedEventArgs e)
