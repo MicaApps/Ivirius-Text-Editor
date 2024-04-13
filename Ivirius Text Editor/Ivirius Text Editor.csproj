@@ -135,10 +135,6 @@
     <Compile Include="IviriusTextEditor.Core\Helpers\SettingsHelper.cs" />
     <Compile Include="IviriusTextEditor.Core\Helpers\ToastBuilder.cs" />
     <Compile Include="IviriusTextEditor.Core\Helpers\URIHelper.cs" />
-    <Compile Include="IviriusTextEditor.Core\Ivirius.UI\Ivirius.UI.Windowing\ChildAppWindow.cs" />
-    <Compile Include="IviriusTextEditor.Core\Ivirius.UI\Ivirius.UI.Windowing\ChildAppWindowContainer.cs" />
-    <Compile Include="IviriusTextEditor.Core\Ivirius.UI\Ivirius.UI.Windowing\DialogWindow.cs" />
-    <Compile Include="IviriusTextEditor.Core\Ivirius.UI\Ivirius.UI.Windowing\DialogWindowContainer.cs" />
     <Compile Include="IviriusTextEditor\Languages\StringTable.cs" />
     <Compile Include="IviriusTextEditor\Pages\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -284,14 +280,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="IviriusTextEditor.Core\Ivirius.UI\Ivirius.UI.Windowing\ChildAppWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="IviriusTextEditor.Core\Ivirius.UI\Ivirius.UI.Windowing\DialogWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="IviriusTextEditor\Pages\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
