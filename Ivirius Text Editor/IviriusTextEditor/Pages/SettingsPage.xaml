@@ -176,9 +176,6 @@
                                     <Toolkit:SettingsCard Header="{x:Bind Strings:StringTable.DevMode}" BorderThickness="1" CornerRadius="4,4,4,4">
                                         <CheckBox x:Name="DevToggle" MinWidth="0" VerticalAlignment="Center"/>
                                     </Toolkit:SettingsCard>
-                                    <Toolkit:SettingsCard Header="{x:Bind Strings:StringTable.ShowNews}" BorderThickness="1" CornerRadius="4,4,4,4">
-                                        <CheckBox MinWidth="0" VerticalAlignment="Center" IsEnabled="False"/>
-                                    </Toolkit:SettingsCard>
                                 </Toolkit:SettingsExpander.Items>
                             </Toolkit:SettingsExpander>
                             <Toolkit:SettingsCard BorderThickness="1" CornerRadius="4,4,4,4" Margin="0,0,0,25">
