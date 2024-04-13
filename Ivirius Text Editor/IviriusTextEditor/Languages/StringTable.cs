@@ -630,8 +630,8 @@ namespace IviriusTextEditor.Languages
                 PrivacyandToolsDesc = "Ustawienia dopasowane do generalnej prywatnośći i eksperymentów";
                 DevMode = "Tryb programisty/dewelopera";
                 ShowNews = "Pokaż informacje";
-                DisablePromo = "Wylacz promocje Ivirius Text Editor+";
-                DisablePromoDesc = "Jak znajdujesz ze promocja ci przeszkada albo jej nie chcesz, wylacz ja tutaj";
+                DisablePromo = "Wyłącz promocje Ivirius Text Editor+";
+                DisablePromoDesc = "Jak znajdujesz że promocja ci przeszkada albo jej nie chcesz, wyłącz ja tutaj";
                 ResetSettings = "Zresetuj ustawienia aplikacji";
                 SaveRestart = "Zapisz i zrestartuj";
                 Document = "Dokument";
