@@ -302,24 +302,6 @@ namespace IviriusTextEditor.Pages
                 DeleteToggle.IsOn = true;
             }
 
-            //Home page settings
-            if (!(LocalSettings.Values["HomePage"] == null))
-            {
-                if ((string)LocalSettings.Values["HomePage"] == "On")
-                {
-                    HomeToggle.IsChecked = true;
-                }
-                if ((string)LocalSettings.Values["HomePage"] == "Off")
-                {
-                    HomeToggle.IsChecked = false;
-                }
-            }
-            else
-            {
-                LocalSettings.Values["HomePage"] = "Off";
-                HomeToggle.IsChecked = false;
-            }
-
             //Ruler settings
             if (!(LocalSettings.Values["Ruler"] == null))
             {
@@ -591,21 +573,6 @@ namespace IviriusTextEditor.Pages
             else
             {
                 LS.Values["Print"] = "Off";
-            }
-            if (HomeToggle != null)
-            {
-                if (HomeToggle.IsChecked == true)
-                {
-                    LS.Values["HomePage"] = "On";
-                }
-                if (HomeToggle.IsChecked == false)
-                {
-                    LS.Values["HomePage"] = "Off";
-                }
-            }
-            else
-            {
-                LS.Values["HomePage"] = "Off";
             }
             if (RulerToggle != null)
             {

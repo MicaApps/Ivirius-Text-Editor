@@ -160,9 +160,6 @@
                                     <Toolkit:SettingsCard Header="{x:Bind Strings:StringTable.ShowStatusBar}">
                                         <CheckBox x:Name="StatusBarToggle" MinWidth="0" VerticalAlignment="Center"/>
                                     </Toolkit:SettingsCard>
-                                    <Toolkit:SettingsCard Header="{x:Bind Strings:StringTable.HomePageStartup}">
-                                        <CheckBox x:Name="HomeToggle" MinWidth="0" VerticalAlignment="Center"/>
-                                    </Toolkit:SettingsCard>
                                     <Toolkit:SettingsCard Header="{x:Bind Strings:StringTable.ShowRuler}">
                                         <CheckBox x:Name="RulerToggle" MinWidth="0"/>
                                     </Toolkit:SettingsCard>

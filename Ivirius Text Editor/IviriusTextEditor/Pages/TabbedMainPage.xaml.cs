@@ -404,24 +404,6 @@ namespace IviriusTextEditor.Pages
                 DelBBar.Visibility = Visibility.Visible;
             }
 
-            //Home page settings
-            if (!(LocalSettings.Values["HomePage"] == null))
-            {
-                if ((string)LocalSettings.Values["HomePage"] == "On")
-                {
-                    HomePage.Visibility = Visibility.Visible;
-                }
-                if ((string)LocalSettings.Values["HomePage"] == "Off")
-                {
-                    HomePage.Visibility = Visibility.Collapsed;
-                }
-            }
-            else
-            {
-                LocalSettings.Values["HomePage"] = "Off";
-                HomePage.Visibility = Visibility.Collapsed;
-            }
-
             //Ruler settings
             if (!(LocalSettings.Values["Ruler"] == null))
             {
@@ -482,7 +464,6 @@ namespace IviriusTextEditor.Pages
                 if ((string)LocalSettings.Values["News"] == "On")
                 {
                     NewsItem.Visibility = Visibility.Visible;
-                    StoreItem.Visibility = Visibility.Visible;
                     WebsiteItem.Visibility = Visibility.Visible;
                     BugItem.Visibility = Visibility.Visible;
                     YoutubeItem.Visibility = Visibility.Visible;
@@ -490,7 +471,6 @@ namespace IviriusTextEditor.Pages
                 if ((string)LocalSettings.Values["News"] == "Off")
                 {
                     NewsItem.Visibility = Visibility.Collapsed;
-                    StoreItem.Visibility = Visibility.Collapsed;
                     WebsiteItem.Visibility = Visibility.Collapsed;
                     BugItem.Visibility = Visibility.Collapsed;
                     YoutubeItem.Visibility = Visibility.Collapsed;
@@ -500,7 +480,6 @@ namespace IviriusTextEditor.Pages
             {
                 LocalSettings.Values["News"] = "On";
                 NewsItem.Visibility = Visibility.Visible;
-                StoreItem.Visibility = Visibility.Visible;
                 WebsiteItem.Visibility = Visibility.Visible;
                 BugItem.Visibility = Visibility.Visible;
                 YoutubeItem.Visibility = Visibility.Visible;
@@ -1249,7 +1228,6 @@ namespace IviriusTextEditor.Pages
                 {
                     if (TXTFile != null) await SaveFile(true, true, false, false);
                     else await SaveFile(false, true, false, false);
-                    HomePage.Visibility = Visibility.Collapsed;
                     FileSaveBox.Close();
                     FileSaveBox.FirstButtonClick -= ED2_PrimaryButtonClick;
                     FileSaveBox.SecondButtonClick -= ED2_SecondaryButtonClick;
@@ -1751,7 +1729,6 @@ namespace IviriusTextEditor.Pages
                             FileIntactBlock.Visibility = Visibility.Collapsed;
                         }
                     }
-                    HomePage.Visibility = Visibility.Collapsed;
                     CheckForSaving();
                     _ = REB.Focus(FocusState.Programmatic);
                 }
@@ -1806,7 +1783,6 @@ namespace IviriusTextEditor.Pages
                         REB.Document.LoadFromStream(TextSetOptions.FormatRtf, RAS);
                         RTB.Document.LoadFromStream(TextSetOptions.FormatRtf, RAS);
                     }
-                    HomePage.Visibility = Visibility.Collapsed;
                     CheckForSaving();
                     _ = REB.Focus(FocusState.Programmatic);
                 }
@@ -1850,7 +1826,6 @@ namespace IviriusTextEditor.Pages
                         REB.Document.LoadFromStream(TextSetOptions.FormatRtf, RAS);
                         RTB.Document.LoadFromStream(TextSetOptions.FormatRtf, RAS);
                     }
-                    HomePage.Visibility = Visibility.Collapsed;
                     CheckForSaving();
                     _ = REB.Focus(FocusState.Programmatic);
                 }
@@ -1952,7 +1927,6 @@ namespace IviriusTextEditor.Pages
                         FileIntactBlock.Visibility = Visibility.Collapsed;
                     }
                     Str.Dispose();
-                    HomePage.Visibility = Visibility.Collapsed;
                     CheckForSaving();
                 }
                 else
@@ -3410,8 +3384,6 @@ namespace IviriusTextEditor.Pages
             }
         }
 
-        private void MenuFlyoutItem_Click_2(object Sender, RoutedEventArgs EvArgs) => HomePage.Visibility = Visibility.Visible;
-
         #endregion Tools
 
         #region About
@@ -3622,27 +3594,6 @@ namespace IviriusTextEditor.Pages
 
         #endregion Other Actions
 
-        #region Home Page
-
-        private void HideHome_Click(object Sender, RoutedEventArgs EvArgs) => HomePage.Visibility = Visibility.Collapsed;
-
-        private async void Button_Click_9(object Sender, RoutedEventArgs EvArgs)
-        {
-            _ = await Launcher.LaunchUriAsync(new Uri("https://ivirius.webnode.page/new-setup-for-ivirius-text-editor/"));
-        }
-
-        private async void Button_Click_10(object Sender, RoutedEventArgs EvArgs)
-        {
-            _ = await Launcher.LaunchUriAsync(new Uri("https://ivirius.webnode.page/tabs-are-coming-for-ivirius-text-editor/"));
-        }
-
-        private async void Button_Click_16(object Sender, RoutedEventArgs EvArgs)
-        {
-            _ = await Launcher.LaunchUriAsync(new Uri("https://ivirius.webnode.page/ivirius-text-editor-2-0-is-out/"));
-        }
-
-        private async void Button_Click_3(object Sender, RoutedEventArgs EvArgs) => await Launcher.LaunchUriAsync(new Uri("https://ivirius.webnode.page/ivirius-text-editor2/"));
-
         #region Templates
 
         private void Button_Click_222(object sender, RoutedEventArgs e)
@@ -3687,8 +3638,6 @@ namespace IviriusTextEditor.Pages
         }
 
         #endregion Templates
-
-        #endregion Home Page
 
         #region View modes
 
