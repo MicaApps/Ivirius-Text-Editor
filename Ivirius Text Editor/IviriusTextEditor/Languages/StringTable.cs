@@ -161,6 +161,8 @@ namespace IviriusTextEditor.Languages
         public static string SaveRestart;
         public static string InsiderTitle;
         public static string InsiderContent;
+        public static string DisablePromo;
+        public static string DisablePromoDesc;
 
         public StringTable()
         {
@@ -321,6 +323,8 @@ namespace IviriusTextEditor.Languages
                 PrivacyandToolsDesc = "Settings related to general privacy and experiments";
                 DevMode = "Developer Mode";
                 ShowNews = "Show news";
+                DisablePromo = "Disable Ivirius Text Editor+ promotion";
+                DisablePromoDesc = "If you find the promotion intrusive or unwanted, disable it here";
                 ResetSettings = "Reset app settings";
                 SaveRestart = "Save and Restart";
             }
@@ -472,6 +476,8 @@ namespace IviriusTextEditor.Languages
                 PrivacyandToolsDesc = "Settings related to general privacy and experiments";
                 DevMode = "Developer Mode";
                 ShowNews = "Show news";
+                DisablePromo = "Disable Ivirius Text Editor+ promotion";
+                DisablePromoDesc = "If you find the promotion intrusive or unwanted, disable it here";
                 ResetSettings = "Reset app settings";
                 SaveRestart = "Save and Restart";
                 Document = "Document";
@@ -624,6 +630,8 @@ namespace IviriusTextEditor.Languages
                 PrivacyandToolsDesc = "Ustawienia dopasowane do generalnej prywatnośći i eksperymentów";
                 DevMode = "Tryb programisty/dewelopera";
                 ShowNews = "Pokaż informacje";
+                DisablePromo = "Wylacz promocje Ivirius Text Editor+";
+                DisablePromoDesc = "Jak znajdujesz ze promocja ci przeszkada albo jej nie chcesz, wylacz ja tutaj";
                 ResetSettings = "Zresetuj ustawienia aplikacji";
                 SaveRestart = "Zapisz i zrestartuj";
                 Document = "Dokument";

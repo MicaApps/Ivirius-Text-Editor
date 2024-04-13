@@ -32,6 +32,24 @@ namespace IviriusTextEditor.Pages
             LangBox.Items.Add("Română (ro-ro)");
             LangBox.Items.Add("Polski (pl-pl)");
 
+            ApplicationDataContainer LS = ApplicationData.Current.LocalSettings;
+
+            if (PromoToggle != null)
+            {
+                if ((string)LS.Values["Promo"] == "On")
+                {
+                    PromoToggle.IsChecked = true;
+                }
+                if ((string)LS.Values["Promo"] == "Off")
+                {
+                    PromoToggle.IsChecked = false;
+                }
+            }
+            else
+            {
+                LS.Values["Promo"] = "Off";
+            }
+
             #region SettingsComponents
 
             if (SettingsHelper.GetSettingString("Language") == null)
@@ -411,6 +429,21 @@ namespace IviriusTextEditor.Pages
                 SettingsHelper.SetSetting("Language", "pl-pl");
             }
             ApplicationDataContainer LS = ApplicationData.Current.LocalSettings;
+            if (PromoToggle != null)
+            {
+                if (PromoToggle.IsChecked == true)
+                {
+                    LS.Values["Promo"] = "On";
+                }
+                if (PromoToggle.IsChecked == false)
+                {
+                    LS.Values["Promo"] = "Off";
+                }
+            }
+            else
+            {
+                LS.Values["Promo"] = "Off";
+            }
             if (ThemeBox != null)
             {
                 if ((string)ThemeBox.SelectedItem == "Legacy Light")

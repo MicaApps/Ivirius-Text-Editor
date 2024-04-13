@@ -106,7 +106,21 @@ namespace IviriusTextEditor.Pages
 
             #endregion Miscellaneous
 
-            this.SizeChanged += WindowSizeChanged;
+            if (SettingsHelper.GetSettingString("Promo") == null)
+            {
+                SettingsHelper.SetSetting("Promo", "Off");
+                AccentBorder.Visibility = Visibility.Collapsed;
+                this.SizeChanged += WindowSizeChanged;
+            }
+            if (SettingsHelper.GetSettingString("Promo") == "On")
+            {
+                PlusButton.Visibility = Visibility.Collapsed;
+            }
+            if (SettingsHelper.GetSettingString("Promo") == "Off")
+            {
+                PlusButton.Visibility = Visibility.Visible;
+                this.SizeChanged += WindowSizeChanged;
+            }
 
             #region Settings
 
