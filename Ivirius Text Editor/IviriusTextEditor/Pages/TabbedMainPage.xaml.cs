@@ -106,8 +106,6 @@ namespace IviriusTextEditor.Pages
 
             #endregion Miscellaneous
 
-            this.SizeChanged += WindowSizeChanged;
-
             #region Settings
 
             //Theme settings
@@ -592,17 +590,6 @@ namespace IviriusTextEditor.Pages
             SizeBox.SelectedItem = "A4";
 
             #endregion Components
-        }
-
-        private void WindowSizeChanged(object sender, SizeChangedEventArgs e)
-        {
-            if (((Frame)Window.Current.Content).ActualWidth < 900)
-            {
-                PlusButton.Visibility = Visibility.Collapsed;
-            } else
-            {
-                PlusButton.Visibility = Visibility.Visible;
-            }
         }
 
         #region Crashes
@@ -4509,11 +4496,6 @@ namespace IviriusTextEditor.Pages
             {
                 await SaveFile(true, false, true, false);
             }
-        }
-
-        private void Button_Click_4(object sender, RoutedEventArgs e)
-        {
-            URIHelper.LaunchURI("https://apps.microsoft.com/detail/9N4T9H9182J5?hl=en-US&gl=US");
         }
     }
 }
