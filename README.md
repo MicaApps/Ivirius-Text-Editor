@@ -14,4 +14,31 @@ Features:
 
 And more!
 
-**To contribute**, please create a pull request in this repository (preferably targeting the dev branch, whivch is where active development takes place), or send us an email on our [website](https://ivirius.webnode.page/) or notify us on our [Discord server](https://discord.com/invite/uasSwW5U2B).
+## 🛠️ Open source code
+
+You may fork this repository to create your own text editor based on this. However, **please** change the branding beforehand! If you just want to contribute, go ahead and make a PR/Pull Request targeting the dev branch!<br>If you want to, you can join our Discord server to ask questions about the app and its code, as well as show some of the Pull Requests you have submitted for discussion!
+
+## 💬 Social links
+
+`YouTube`: https://www.youtube.com/channel/UC-wq6vlXEW3FBj2jMNVMOkg
+
+`Twitter`: https://twitter.com/IviriusOfficial
+
+`Bluesky`: https://bsky.app/profile/ivirius-official.bsky.social
+
+`Discord`: 
+
+- `Ivirius Official Server`: https://discord.com/invite/uasSwW5U2B
+
+- `Developer Sanctuary`: https://discord.com/invite/3WYcKat
+
+`WhatsApp`: https://whatsapp.com/channel/0029VaHfWsBJ93wPmDfZKy1X
+
+`Email`: iviriuscompany.main@gmail.com
+
+## 🧑‍💻 Contributors
+Here are the contributors to the project so far! If you contribute to the repository, your GitHub account's profile picture will be shown here!<br><a href="https://github.com/IviriusMain/Ivirius-Text-Editor/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=IviriusMain/Ivirius-Text-Editor" />
+</a>
+
+Contributor profile picture image was made with [contrib.rocks](https://contrib.rocks).
