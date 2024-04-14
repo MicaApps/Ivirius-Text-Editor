@@ -5151,7 +5151,7 @@
                 <Grid Background="{StaticResource AppBackgroundBrush}"/>
                 <TextBlock TextWrapping="Wrap" Text="Changelog - Version 3.1.0.84" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{ThemeResource SubtitleTextBlockStyle}" Margin="25,24,0,0"/>
                 <StackPanel Margin="24,63,24,105">
-                    <TextBlock TextWrapping="Wrap"><Run Text="New features:"/><LineBreak/><Run Text="- Remove redundant &quot;News&quot; item from Settings"/><LineBreak/><Run Text="- Update the &quot;Accessiblilty&quot;-related strings in Settings"/><LineBreak/><Run Text="- Dependency updates"/><LineBreak/></TextBlock>
+                    <TextBlock TextWrapping="Wrap"><Run Text="New features:"/><LineBreak/><Run Text="- Add Template support"/><LineBreak/><Run Text="- Fix several bugs with opening templates in the Home Menu"/><LineBreak/><Run Text="- Add a Home Menu shortcut in the File menu"/><LineBreak/></TextBlock>
                 </StackPanel>
             </Grid>
         </ContentDialog>
