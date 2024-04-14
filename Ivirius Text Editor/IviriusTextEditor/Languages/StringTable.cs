@@ -295,7 +295,7 @@ namespace IviriusTextEditor.Languages
                 FullScreen = "Toggle full screen (F11)";
                 NewTab = "New tab";
                 InsiderTitle = "Dev Channel";
-                InsiderContent = "The Dev Channel is the Insider CHannel that receives builds with the latest features and may contain features that may not get released to the public. Beware, as these builds may be buggy or crash!";
+                InsiderContent = "The Dev Channel is the Insider Channel that receives builds with the latest features and may contain features that may not get released to the public. Beware, as these builds may be buggy or crash!";
                 // Settings
                 // Contains all the strings used in the Settings page
                 Language = "Language";
