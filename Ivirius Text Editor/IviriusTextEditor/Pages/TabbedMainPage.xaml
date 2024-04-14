@@ -5146,7 +5146,7 @@
                 <Grid Background="{StaticResource AppBackgroundBrush}"/>
                 <TextBlock TextWrapping="Wrap" Text="Changelog - Version 3.1.0.21" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{ThemeResource SubtitleTextBlockStyle}" Margin="25,24,0,0"/>
                 <StackPanel Margin="24,63,24,105">
-                    <TextBlock TextWrapping="Wrap"><Run Text="New features:"/><LineBreak/><Run Text="- Alomst all strings in the app have been added to the localization file!"/><LineBreak/><Run Text="- A Polish localization has been added! (It was used for testing and refining the localization file changes)"/><LineBreak/><Run Text="- Introducing the IVR Text Editor Dev Channel, inspired by the Insider Preview system in UltraTextEdit UWP and Windows!"/><LineBreak/><Run/><LineBreak/><Run Text="- Small UI adjustments to ensure a better experience on smaller displays"/><LineBreak/><Run Text="- Make the Settings page title Semibold"/><LineBreak/></TextBlock>
+                    <TextBlock TextWrapping="Wrap"><Run Text="New features:"/><LineBreak/><Run Text="- Remove redundant &quot;News&quot; item from Settings"/><LineBreak/><Run Text="- Update the &quot;Accessiblilty&quot;-related strings in Settings"/><LineBreak/><Run Text="- Dependency updates"/><LineBreak/></TextBlock>
                 </StackPanel>
             </Grid>
         </ContentDialog>
