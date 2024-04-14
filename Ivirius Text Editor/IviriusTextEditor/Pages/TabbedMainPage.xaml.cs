@@ -4515,5 +4515,22 @@ namespace IviriusTextEditor.Pages
         {
             URIHelper.LaunchURI("https://apps.microsoft.com/detail/9N4T9H9182J5?hl=en-US&gl=US");
         }
+
+        private async void BlankFIle(object sender, RoutedEventArgs e)
+        {
+            await SaveBoxLoad();
+
+        }
+
+        public async Task SaveBoxLoad()
+        {
+            MainPage mp = new MainPage();
+            await mp.showunsaveddialog();
+        }
+
+        public void CloseWarningBox2_SecondButtonTemplateClick(object sender, RoutedEventArgs e)
+        {
+            REB.TextDocument.SetText(TextSetOptions.FormatRtf, "");
+        }
     }
 }
