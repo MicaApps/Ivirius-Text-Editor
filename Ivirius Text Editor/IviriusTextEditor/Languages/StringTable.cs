@@ -295,7 +295,7 @@ namespace IviriusTextEditor.Languages
                 FullScreen = "Toggle full screen (F11)";
                 NewTab = "New tab";
                 InsiderTitle = "Dev Channel";
-                InsiderContent = "The Dev Channel is the Insider CHannel that receives builds with the latest features and may contain features that may not get released to the public. Beware, as these builds may be buggy or crash!";
+                InsiderContent = "The Dev Channel is the Insider Channel that receives builds with the latest features and may contain features that may not get released to the public. Beware, as these builds may be buggy or crash!";
                 // Settings
                 // Contains all the strings used in the Settings page
                 Language = "Language";
@@ -313,7 +313,7 @@ namespace IviriusTextEditor.Languages
                 PasteSettings = "Paste";
                 DeleteSettings = "Delete";
                 Accessibility = "Accessibility";
-                AccessibilityDesc = "All means of accessibility";
+                AccessibilityDesc = "Accessibility-related settings";
                 ShowStatusBar = "Show status bar";
                 HomePageStartup = "Enable home page on startup";
                 ShowRuler = "Show ruler";
@@ -446,7 +446,7 @@ namespace IviriusTextEditor.Languages
                 FullScreen = "Toggle full screen (F11)";
                 NewTab = "New tab";
                 InsiderTitle = "Dev Channel";
-                InsiderContent = "The Dev Channel is the Insider CHannel that receives builds with the latest features and may contain features that may not get released to the public. Beware, as these builds may be buggy or crash!";
+                InsiderContent = "The Dev Channel is the Insider Channel that receives builds with the latest features and may contain features that may not get released to the public. Beware, as these builds may be buggy or crash!";
                 // Settings
                 // Contains all the strings used in the Settings page
                 Language = "Language";
@@ -464,7 +464,7 @@ namespace IviriusTextEditor.Languages
                 PasteSettings = "Paste";
                 DeleteSettings = "Delete";
                 Accessibility = "Accessibility";
-                AccessibilityDesc = "All means of accessibility";
+                AccessibilityDesc = "Accessibility-related settings";
                 ShowStatusBar = "Show status bar";
                 HomePageStartup = "Enable home page on startup";
                 ShowRuler = "Show ruler";
@@ -615,8 +615,8 @@ namespace IviriusTextEditor.Languages
                 CopySettings = "Kopiuj";
                 PasteSettings = "Wklej";
                 DeleteSettings = "Usuń";
-                Accessibility = "Dostępność";
-                AccessibilityDesc = "Wszystkie formy dostępnośći";
+                Accessibility = "Ułatwienia dostępnośći";
+                AccessibilityDesc = "Ustawienia związane z ułatwieniami dostępnośći";
                 ShowStatusBar = "Pokaż pasek stanu";
                 HomePageStartup = "Pokaż stronę główną na starcie";
                 ShowRuler = "Pokaż linijkę";

@@ -353,7 +353,7 @@
       <Version>2.8.6</Version>
     </PackageReference>
     <PackageReference Include="System.Drawing.Common">
-      <Version>9.0.0-preview.2.24128.3</Version>
+      <Version>9.0.0-preview.3.24172.9</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
