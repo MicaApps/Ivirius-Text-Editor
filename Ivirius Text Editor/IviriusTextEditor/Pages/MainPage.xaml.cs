@@ -610,27 +610,5 @@ namespace IviriusTextEditor.Pages
         {
             ToggleThemeTeachingTip1.IsOpen = true;
         }
-
-        public async Task showunsaveddialog()
-        {
-            SysSender = TabbedView;
-            var TabItem = (TabViewItem)SysSender.TabItems[0];
-            if ((TabItem.Content as Frame).Content is TabbedMainPage)
-            {
-                if (((TabItem.Content as Frame).Content as TabbedMainPage).isWorkSaved == false)
-                {
-                    TabbedMainPage tmp = new TabbedMainPage();
-                    CloseWarningBox2.Open();
-                    CloseWarningBox2.Title = "Ivirius Text Editor";
-                    CloseWarningBox2.SecondButtonClick += tmp.CloseWarningBox2_SecondButtonTemplateClick;
-                    CWFContent2.Text = "Do you want to save your file?";
-                }
-                else
-                {
-                    TabbedView.TabItems.Clear();
-                    Shutdown();
-                }
-            }
-        }
     }
 }
