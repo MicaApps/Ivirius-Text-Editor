@@ -59,6 +59,8 @@ namespace IviriusTextEditor.Pages
         readonly DispatcherTimer DTSave = new();
         public bool IsCloseRequestComplete = false;
         string RestartArgs;
+        public bool TemplateBlankClicked = false;
+        public bool TemplateClicked = false;
 
         #region Page
 
@@ -881,9 +883,14 @@ namespace IviriusTextEditor.Pages
         public async Task EraseFile()
         {
             TXTFile = null;
-            var TempTXT = await StorageFile.GetFileFromApplicationUriAsync(new Uri(overrideFile));
-            var RAStream = await TempTXT.OpenAsync(FileAccessMode.Read);
-            REB.Document.LoadFromStream(TextSetOptions.FormatRtf, RAStream);
+            if (TemplateBlankClicked != true)
+            {
+                var TempTXT = await StorageFile.GetFileFromApplicationUriAsync(new Uri(overrideFile));
+                var RAStream = await TempTXT.OpenAsync(FileAccessMode.Read);
+                REB.Document.LoadFromStream(TextSetOptions.FormatRtf, RAStream);
+            } else {
+                REB.Document.SetText(TextSetOptions.FormatRtf, "");
+            }
         }
 
         private async void NewFile_Click(object Sender, RoutedEventArgs EvArgs)
@@ -4531,6 +4538,18 @@ namespace IviriusTextEditor.Pages
         public void CloseWarningBox2_SecondButtonTemplateClick(object sender, RoutedEventArgs e)
         {
             REB.TextDocument.SetText(TextSetOptions.FormatRtf, "");
+        }
+
+        private void HomeItem_Click(object sender, RoutedEventArgs e)
+        {
+            HomePage.Visibility = Visibility.Visible;
+        }
+
+        private async void InsertBlank(object sender, RoutedEventArgs e)
+        {
+            TemplateBlankClicked = true;
+            overrideFile = "";
+            await NewFile();
         }
     }
 }
