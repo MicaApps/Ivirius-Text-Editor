@@ -14,6 +14,10 @@ Features:
 
 And more!
 
+## 🔐 Privacy policy
+
+The privacy policy for Ivirius Text Editor Plus can be found in the setup window.
+
 ## 🛠️ Open source code
 
 You may fork this repository to create your own text editor based on this. However, **please** change the branding beforehand! If you just want to contribute, go ahead and make a PR/Pull Request targeting the dev branch!<br>If you want to, you can join our Discord server to ask questions about the app and its code, as well as show some of the Pull Requests you have submitted for discussion!
