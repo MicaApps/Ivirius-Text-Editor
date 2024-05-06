@@ -4774,7 +4774,7 @@
                     <NavigationView HorizontalAlignment="Left" Width="350" Height="Auto" SelectedItem="HomeNavItem" PaneDisplayMode="Left" x:Name="HomeNav" VerticalAlignment="Top" Margin="15,50,0,0" SelectionChanged="NavigationView_SelectionChanged" IsPaneToggleButtonVisible="False" IsBackButtonVisible="Collapsed">
                         <NavigationView.MenuItems>
                             <NavigationViewItem Icon="Home" Content="Home" Tag="HomeNavItem" x:Name="HomeNavItem"/>
-                            <NavigationViewItem Content="New" Icon="Document"/>
+                            <NavigationViewItem Content="New" Icon="Document" x:Name="NewNavItem"/>
                             <AppBarSeparator IsEnabled="False"/>
                             <NavigationViewItem Icon="OpenFile" Content="Open"/>
                             <NavigationViewItem Icon="Save" Content="Save"/>
@@ -4782,7 +4782,122 @@
                             <NavigationViewItem Icon="Delete" Content="Delete"/>
                         </NavigationView.MenuItems>
                     </NavigationView>
-                    <StackPanel Margin="400,60,25,160" Spacing="10" x:Name="Home">
+                    <StackPanel Margin="400,60,25,160" Spacing="10" x:Name="HomePanel">
+                        <TextBlock Text="Hey there!" FontSize="36" FontWeight="SemiBold"/>
+                        <TextBlock TextWrapping="Wrap" Text="New File" FontSize="24"/>
+                        <Button Height="135" Click="InsertBlank" Width="150" Padding="0,0,0,0">
+                            <Grid Width="148" Height="133">
+                                <Border CornerRadius="3,3,0,0" Margin="0,0,0,35" Height="NaN" Width="188" HorizontalAlignment="Center" Background="White"/>
+                                <Border VerticalAlignment="Bottom" CornerRadius="0,0,3,3" Height="35">
+                                    <Border.Background>
+                                        <LinearGradientBrush>
+                                            <GradientStop Color="#FF4B5BB3"/>
+                                            <GradientStop Color="#FF65A7FF" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+                                    <TextBlock TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="{StaticResource CustomFont}" Padding="0,0,0,0" FontSize="14" Margin="10,0,0,2" Text="Blank" Foreground="White"/>
+                                </Border>
+                            </Grid>
+                        </Button>
+                        <TextBlock TextWrapping="Wrap" Text="Templates" FontSize="24" Margin="0,15,0,0"/>
+                        <StackPanel Orientation="Horizontal">
+                            <Button Height="135" Click="Button_Click_21" Width="150" Padding="0,0,0,0" VerticalAlignment="Top">
+                                <Grid Width="148" Height="133">
+                                    <Image Source="/IviriusTextEditor/Templates/EssayTemp.png" Stretch="UniformToFill" VerticalAlignment="Top" Width="148" HorizontalAlignment="Left" Height="125"/>
+                                    <Border CornerRadius="3,3,0,0" Margin="0,0,0,35" Height="NaN" Width="188" HorizontalAlignment="Center"/>
+                                    <Border VerticalAlignment="Bottom" CornerRadius="0,0,3,3" Height="35">
+                                        <Border.Background>
+                                            <LinearGradientBrush>
+                                                <GradientStop Color="#FF4B5BB3"/>
+                                                <GradientStop Color="#FF65A7FF" Offset="1"/>
+                                            </LinearGradientBrush>
+                                        </Border.Background>
+                                        <TextBlock TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="{StaticResource CustomFont}" Padding="0,0,0,0" FontSize="14" Margin="10,0,0,2" Text="Essay" Foreground="White"/>
+                                    </Border>
+                                </Grid>
+                            </Button>
+                            <Button Height="135" Click="Button_Click_22" Width="150" Padding="0,0,0,0" VerticalAlignment="Top">
+                                <Grid Width="148" Height="133">
+                                    <Image Source="/IviriusTextEditor/Templates/ResumeTemp.png" Stretch="UniformToFill" VerticalAlignment="Top" Width="148" HorizontalAlignment="Left" Height="125"/>
+                                    <Border CornerRadius="3,3,0,0" Margin="0,0,0,35" Height="NaN" Width="188" HorizontalAlignment="Center"/>
+                                    <Border VerticalAlignment="Bottom" CornerRadius="0,0,3,3" Height="35">
+                                        <Border.Background>
+                                            <LinearGradientBrush>
+                                                <GradientStop Color="#FF4B5BB3"/>
+                                                <GradientStop Color="#FF65A7FF" Offset="1"/>
+                                            </LinearGradientBrush>
+                                        </Border.Background>
+                                        <TextBlock TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="{StaticResource CustomFont}" Padding="0,0,0,0" FontSize="14" Margin="10,0,0,2" Text="Resume" Foreground="White"/>
+                                    </Border>
+                                </Grid>
+                            </Button>
+                            <Button Height="135" Click="Button_Click_23" Width="150" Padding="0,0,0,0" VerticalAlignment="Top">
+                                <Grid Width="148" Height="133">
+                                    <Image Source="/IviriusTextEditor/Templates/CreditsTemp.png" Stretch="UniformToFill" VerticalAlignment="Top" Width="148" HorizontalAlignment="Left" Height="125"/>
+                                    <Border CornerRadius="3,3,0,0" Margin="0,0,0,35" Height="NaN" Width="188" HorizontalAlignment="Center"/>
+                                    <Border VerticalAlignment="Bottom" CornerRadius="0,0,3,3" Height="35">
+                                        <Border.Background>
+                                            <LinearGradientBrush>
+                                                <GradientStop Color="#FF4B5BB3"/>
+                                                <GradientStop Color="#FF65A7FF" Offset="1"/>
+                                            </LinearGradientBrush>
+                                        </Border.Background>
+                                        <TextBlock TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="{StaticResource CustomFont}" Padding="0,0,0,0" FontSize="14" Margin="10,0,0,2" Text="Credits" Foreground="White"/>
+                                    </Border>
+                                </Grid>
+                            </Button>
+                            <Button Height="135" Click="Button_Click_23" Width="150" Padding="0,0,0,0" VerticalAlignment="Top">
+                                <Grid Width="148" Height="133">
+                                    <Image Stretch="UniformToFill" VerticalAlignment="Top" Width="148" HorizontalAlignment="Left" Height="125" Source="/IviriusTextEditor/Templates/ImageEssayTemp.png"/>
+                                    <Border CornerRadius="3,3,0,0" Margin="0,0,0,35" Height="NaN" Width="188" HorizontalAlignment="Center"/>
+                                    <Border VerticalAlignment="Bottom" CornerRadius="0,0,3,3" Height="35">
+                                        <Border.Background>
+                                            <LinearGradientBrush>
+                                                <GradientStop Color="#FF4B5BB3"/>
+                                                <GradientStop Color="#FF65A7FF" Offset="1"/>
+                                            </LinearGradientBrush>
+                                        </Border.Background>
+                                        <TextBlock TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="{StaticResource CustomFont}" Padding="0,0,0,0" FontSize="14" Margin="10,0,0,2" Text="Image Essay" Foreground="White"/>
+                                    </Border>
+                                </Grid>
+                            </Button>
+                            <Button Height="135" Click="Button_Click_25" Width="150" Padding="0,0,0,0" VerticalAlignment="Top">
+                                <Grid Width="148" Height="133">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="111*"/>
+                                        <RowDefinition Height="22*"/>
+                                    </Grid.RowDefinitions>
+                                    <Image Stretch="UniformToFill" VerticalAlignment="Top" Width="148" HorizontalAlignment="Center" Height="125" Source="/IviriusTextEditor/Templates/ImageGalleryTemp.png" Grid.RowSpan="2"/>
+                                    <Border CornerRadius="3,3,0,0" Margin="0,0,0,13" Height="NaN" Width="188" HorizontalAlignment="Center"/>
+                                    <Border VerticalAlignment="Top" CornerRadius="0,0,3,3" Height="35" Margin="0,98,0,0" Grid.RowSpan="2">
+                                        <Border.Background>
+                                            <LinearGradientBrush>
+                                                <GradientStop Color="#FF4B5BB3"/>
+                                                <GradientStop Color="#FF65A7FF" Offset="1"/>
+                                            </LinearGradientBrush>
+                                        </Border.Background>
+                                        <TextBlock TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="{StaticResource CustomFont}" Padding="0,0,0,0" FontSize="14" Margin="10,0,0,2" Text="Image Gallery" Foreground="White"/>
+                                    </Border>
+                                </Grid>
+                            </Button>
+                            <Button Height="135" Click="Button_Click_26" Width="150" Padding="0,0,0,0" VerticalAlignment="Top">
+                                <Grid Width="148" Height="133">
+                                    <Image Stretch="UniformToFill" VerticalAlignment="Top" Width="148" HorizontalAlignment="Left" Height="125" Source="/IviriusTextEditor/Templates/NewspaperTemp.png"/>
+                                    <Border CornerRadius="3,3,0,0" Margin="0,0,0,35" Height="NaN" Width="188" HorizontalAlignment="Center"/>
+                                    <Border VerticalAlignment="Bottom" CornerRadius="0,0,3,3" Height="35">
+                                        <Border.Background>
+                                            <LinearGradientBrush>
+                                                <GradientStop Color="#FF4B5BB3"/>
+                                                <GradientStop Color="#FF65A7FF" Offset="1"/>
+                                            </LinearGradientBrush>
+                                        </Border.Background>
+                                        <TextBlock TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="{StaticResource CustomFont}" Padding="0,0,0,0" FontSize="14" Margin="10,0,0,2" Text="Newspaper" Foreground="White"/>
+                                    </Border>
+                                </Grid>
+                            </Button>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel Margin="400,60,25,160" Spacing="10" x:Name="NewPanel" Visibility="Collapsed">
                         <TextBlock TextWrapping="Wrap" Text="New File" FontSize="24"/>
                         <Button Height="135" Click="InsertBlank" Width="150" Padding="0,0,0,0">
                             <Grid Width="148" Height="133">
@@ -4892,6 +5007,7 @@
                             </Button>
                         </Grid>
                     </StackPanel>
+
                 </Grid>
             </Border>
         </Border>

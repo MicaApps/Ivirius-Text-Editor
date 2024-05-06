@@ -4554,14 +4554,40 @@ namespace IviriusTextEditor.Pages
 
         private void NavigationView_SelectionChanged(Windows.UI.Xaml.Controls.NavigationView sender, Windows.UI.Xaml.Controls.NavigationViewSelectionChangedEventArgs args)
         {
-            if (HomeNav.SelectedItem != null)
+            if (HomePage.Visibility == Visibility.Visible)
             {
-                if (HomeNav.SelectedItem == HomeNavItem)
+                if (HomeNav.SelectedItem != null)
                 {
-                    Home.Visibility = Visibility.Visible;
-                }
+                    if (HomeNav.SelectedItem == HomeNavItem)
+                    {
+                        HomePanel.Visibility = Visibility.Visible;
+                    }
+                    else
+                    {
+                        if (HomePanel != null) {
+                            HomePanel.Visibility = Visibility.Collapsed;
+                        }
+                       
+                    }
+                    if (HomeNav.SelectedItem == NewNavItem)
+                    {
+                        NewPanel.Visibility = Visibility.Visible;
+                    }
+                    else
+                    {
+                        if (NewPanel != null)
+                        {
+                            NewPanel.Visibility = Visibility.Collapsed;
+                        }
 
+                    }
+
+                } else
+                {
+                    HomeNav.SelectedItem = HomeNavItem;
+                }
             }
+            
         }
     }
 }
