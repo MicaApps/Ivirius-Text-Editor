@@ -4552,7 +4552,7 @@ namespace IviriusTextEditor.Pages
             await NewFile();
         }
 
-        private void NavigationView_SelectionChanged(Windows.UI.Xaml.Controls.NavigationView sender, Windows.UI.Xaml.Controls.NavigationViewSelectionChangedEventArgs args)
+        private void NavigationView_SelectionChanged(Microsoft.UI.Xaml.Controls.NavigationView sender, Microsoft.UI.Xaml.Controls.NavigationViewSelectionChangedEventArgs args)
         {
             if (HomePage.Visibility == Visibility.Visible)
             {

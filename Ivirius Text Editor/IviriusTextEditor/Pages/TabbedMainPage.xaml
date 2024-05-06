@@ -4771,18 +4771,21 @@
                         <TextBlock TextWrapping="Wrap" Text="Create and edit rich text files - © Ivirius Text Editor 2021 - 2023 - made by Ivirius" Margin="120,10,0,0" VerticalAlignment="Center" FontSize="12"/>
                         <HyperlinkButton x:Name="hyperlinkButton" Content="https://ivirius.vercel.app/" Margin="120,50,0,0" NavigateUri="https://ivirius.vercel.app/" Padding="0,0,0,0" FontSize="11"/>
                     </Grid>
-                    <NavigationView HorizontalAlignment="Left" Width="350" Height="Auto" SelectedItem="HomeNavItem" PaneDisplayMode="Left" x:Name="HomeNav" VerticalAlignment="Top" Margin="15,50,0,0" SelectionChanged="NavigationView_SelectionChanged" IsPaneToggleButtonVisible="False" IsBackButtonVisible="Collapsed">
-                        <NavigationView.MenuItems>
-                            <NavigationViewItem Icon="Home" Content="Home" Tag="HomeNavItem" x:Name="HomeNavItem"/>
-                            <NavigationViewItem Content="New" Icon="Document" x:Name="NewNavItem"/>
-                            <AppBarSeparator IsEnabled="False"/>
-                            <NavigationViewItem Icon="OpenFile" Content="Open"/>
-                            <NavigationViewItem Icon="Save" Content="Save"/>
-                            <NavigationViewItem Icon="Share" Content="Share"/>
-                            <NavigationViewItem Icon="Delete" Content="Delete"/>
-                        </NavigationView.MenuItems>
-                    </NavigationView>
-                    <StackPanel Margin="400,60,25,160" Spacing="10" x:Name="HomePanel">
+                    <Custom:NavigationView HorizontalAlignment="Left" Width="320" Height="Auto" SelectedItem="HomeNavItem" PaneDisplayMode="Left" x:Name="HomeNav" VerticalAlignment="Stretch" Margin="15,50,0,135" SelectionChanged="NavigationView_SelectionChanged" IsPaneToggleButtonVisible="False" IsBackButtonVisible="Collapsed">
+                        <Custom:NavigationView.MenuItems>
+                            <Custom:NavigationViewItem Icon="Home" Content="Home" Tag="HomeNavItem" x:Name="HomeNavItem"/>
+                            <Custom:NavigationViewItem Content="New" Icon="Document" x:Name="NewNavItem"/>
+                            <Custom:NavigationViewItemSeparator/>
+                            <Custom:NavigationViewItem Icon="OpenFile" Content="Open"/>
+                            <Custom:NavigationViewItem Icon="Save" Content="Save"/>
+                            <Custom:NavigationViewItem Icon="Share" Content="Share"/>
+                            <Custom:NavigationViewItem Icon="Delete" Content="Delete"/>
+                        </Custom:NavigationView.MenuItems>
+                        <Custom:NavigationView.FooterMenuItems>
+                            <Custom:NavigationViewItem Content="Account" Icon="Contact"/>
+                        </Custom:NavigationView.FooterMenuItems>
+                    </Custom:NavigationView>
+                    <StackPanel Margin="350,60,25,160" Spacing="10" x:Name="HomePanel">
                         <TextBlock Text="Hey there!" FontSize="36" FontWeight="SemiBold"/>
                         <TextBlock TextWrapping="Wrap" Text="New File" FontSize="24"/>
                         <Button Height="135" Click="InsertBlank" Width="150" Padding="0,0,0,0">
@@ -4897,7 +4900,7 @@
                             </Button>
                         </StackPanel>
                     </StackPanel>
-                    <StackPanel Margin="400,60,25,160" Spacing="10" x:Name="NewPanel" Visibility="Collapsed">
+                    <StackPanel Margin="350,60,25,160" Spacing="10" x:Name="NewPanel" Visibility="Collapsed">
                         <TextBlock TextWrapping="Wrap" Text="New File" FontSize="24"/>
                         <Button Height="135" Click="InsertBlank" Width="150" Padding="0,0,0,0">
                             <Grid Width="148" Height="133">
