@@ -4551,5 +4551,17 @@ namespace IviriusTextEditor.Pages
             overrideFile = "";
             await NewFile();
         }
+
+        private void NavigationView_SelectionChanged(Windows.UI.Xaml.Controls.NavigationView sender, Windows.UI.Xaml.Controls.NavigationViewSelectionChangedEventArgs args)
+        {
+            if (HomeNav.SelectedItem != null)
+            {
+                if (HomeNav.SelectedItem == HomeNavItem)
+                {
+                    Home.Visibility = Visibility.Visible;
+                }
+
+            }
+        }
     }
 }

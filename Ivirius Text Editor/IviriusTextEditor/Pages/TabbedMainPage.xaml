@@ -4749,8 +4749,8 @@
             </Button>
         </Grid>
         <RichEditBox x:Name="RTB" Style="{StaticResource RichEditBoxStyle1}" x:FieldModifier="public" HorizontalAlignment="Center" VerticalAlignment="Center" Width="0" Height="0" RequestedTheme="Light"/>
-        <Border x:Name="HomePage" Background="#59000000" d:IsHidden="True">
-            <Border BorderBrush="#FF777777" BorderThickness="1" CornerRadius="8,8,8,8" MaxWidth="825" MaxHeight="775" Margin="15,15,15,15" Background="{StaticResource AppBackgroundBrush}">
+        <Border x:Name="HomePage" Background="#59000000" d:IsHidden="False">
+            <Border BorderBrush="#FF777777" BorderThickness="1" CornerRadius="8,8,8,8" Margin="15,15,15,15" Background="{StaticResource AppBackgroundBrush}">
                 <Grid x:FieldModifier="public" Background="{Binding Background, ElementName=PageTitleBar}">
                     <Border x:Name="HomeAccentBackground" BorderThickness="0,0,0,0" Visibility="{Binding Visibility, ElementName=AccentBackground}">
                         <Border.Background>
@@ -4771,32 +4771,18 @@
                         <TextBlock TextWrapping="Wrap" Text="Create and edit rich text files - © Ivirius Text Editor 2021 - 2023 - made by Ivirius" Margin="120,10,0,0" VerticalAlignment="Center" FontSize="12"/>
                         <HyperlinkButton x:Name="hyperlinkButton" Content="https://ivirius.vercel.app/" Margin="120,50,0,0" NavigateUri="https://ivirius.vercel.app/" Padding="0,0,0,0" FontSize="11"/>
                     </Grid>
-                    <Border Width="50" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top" CornerRadius="4,4,4,4" Margin="15,64,0,0" Background="#268E8E8E"/>
-                    <Border Background="{Binding Foreground, ElementName=LeftInd}" Height="24" CornerRadius="1.5,1.5,1.5,1.5" Width="3" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,77,0,0"/>
-                    <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,120,0,0" Spacing="5">
-                        <Button Background="Transparent" BorderThickness="0,0,0,0" Width="50" Height="50" Click="OB_Click" ToolTipService.ToolTip="Open">
-                            <TextBlock Text="&#xE1A5;" FontFamily="{StaticResource CustomFont}" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Button>
-                        <Button Background="Transparent" BorderThickness="0,0,0,0" Width="50" Height="50" Click="MenuFlyoutItem_Click_35" ToolTipService.ToolTip="Open multiple files">
-                            <TextBlock Text="&#xE1A5;" FontFamily="{StaticResource CustomFont}" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{Binding Foreground, ElementName=LeftInd}"/>
-                        </Button>
-                        <Button Background="Transparent" BorderThickness="0,0,0,0" Width="50" Height="50" Click="SB_Click" ToolTipService.ToolTip="Save">
-                            <TextBlock Text="&#xE105;" FontFamily="{StaticResource CustomFont}" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Button>
-                        <Button Background="Transparent" BorderThickness="0,0,0,0" Width="50" Height="50" Click="SAsB_Click" ToolTipService.ToolTip="Save as">
-                            <TextBlock Text="&#xEA35;" FontFamily="{StaticResource CustomFont}" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Button>
-                        <Button Background="Transparent" BorderThickness="0,0,0,0" Width="50" Height="50" Click="DelB_Click" ToolTipService.ToolTip="Delete">
-                            <TextBlock Text="&#xE107;" FontFamily="{StaticResource CustomFont}" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Button>
-                        <Button Background="Transparent" BorderThickness="0,0,0,0" Width="50" Height="50" Click="PntB_Click" ToolTipService.ToolTip="Print (BETA)" Padding="0,0,0,0">
-                            <Grid>
-                                <TextBlock Text="&#xF56D;" FontFamily="{StaticResource CustomFont}" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FFDC5454" Margin="0,0,2,0"/>
-                            </Grid>
-                        </Button>
-                    </StackPanel>
-                    <TextBlock Text="&#xE130;" FontFamily="{StaticResource CustomFont}" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="28,75,0,0"/>
-                    <StackPanel Margin="100,60,25,160" Spacing="10">
+                    <NavigationView HorizontalAlignment="Left" Width="350" Height="Auto" SelectedItem="HomeNavItem" PaneDisplayMode="Left" x:Name="HomeNav" VerticalAlignment="Top" Margin="15,50,0,0" SelectionChanged="NavigationView_SelectionChanged" IsPaneToggleButtonVisible="False" IsBackButtonVisible="Collapsed">
+                        <NavigationView.MenuItems>
+                            <NavigationViewItem Icon="Home" Content="Home" Tag="HomeNavItem" x:Name="HomeNavItem"/>
+                            <NavigationViewItem Content="New" Icon="Document"/>
+                            <AppBarSeparator IsEnabled="False"/>
+                            <NavigationViewItem Icon="OpenFile" Content="Open"/>
+                            <NavigationViewItem Icon="Save" Content="Save"/>
+                            <NavigationViewItem Icon="Share" Content="Share"/>
+                            <NavigationViewItem Icon="Delete" Content="Delete"/>
+                        </NavigationView.MenuItems>
+                    </NavigationView>
+                    <StackPanel Margin="400,60,25,160" Spacing="10" x:Name="Home">
                         <TextBlock TextWrapping="Wrap" Text="New File" FontSize="24"/>
                         <Button Height="135" Click="InsertBlank" Width="150" Padding="0,0,0,0">
                             <Grid Width="148" Height="133">
