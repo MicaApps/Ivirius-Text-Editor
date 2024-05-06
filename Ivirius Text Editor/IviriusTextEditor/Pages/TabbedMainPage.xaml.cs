@@ -4581,6 +4581,18 @@ namespace IviriusTextEditor.Pages
                         }
 
                     }
+                    if (HomeNav.SelectedItem == AccountNavItem)
+                    {
+                        AccountsStackPanel.Visibility = Visibility.Visible;
+                    }
+                    else
+                    {
+                        if (AccountsStackPanel != null)
+                        {
+                            AccountsStackPanel.Visibility = Visibility.Collapsed;
+                        }
+
+                    }
 
                 } else
                 {
