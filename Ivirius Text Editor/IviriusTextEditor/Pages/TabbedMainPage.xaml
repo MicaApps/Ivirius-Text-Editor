@@ -5019,7 +5019,7 @@
                             <TextBlock Text="Account" Style="{ThemeResource BodyStrongTextBlockStyle}"/>
                             <StackPanel Orientation="Horizontal" Spacing="10">
                                 <Custom:PersonPicture/>
-                                <TextBlock Text="User" TextAlignment="Center" VerticalAlignment="Center" HorizontalTextAlignment="Center" FontSize="24" FontWeight="SemiBold"/>
+                                <TextBlock x:Name="UserText" Text="User" TextAlignment="Center" VerticalAlignment="Center" HorizontalTextAlignment="Center" FontSize="24" FontWeight="SemiBold"/>
                             </StackPanel>
                         </StackPanel>
                         <StackPanel Grid.Column="1" Orientation="Vertical" Width="Auto">

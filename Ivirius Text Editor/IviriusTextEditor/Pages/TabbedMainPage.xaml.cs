@@ -4583,6 +4583,7 @@ namespace IviriusTextEditor.Pages
                     }
                     if (HomeNav.SelectedItem == AccountNavItem)
                     {
+                        UserText.Text = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
                         AccountsStackPanel.Visibility = Visibility.Visible;
                     }
                     else
