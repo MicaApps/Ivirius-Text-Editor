@@ -4593,6 +4593,17 @@ namespace IviriusTextEditor.Pages
                         }
 
                     }
+                    if (args.IsSettingsSelected)
+                    {
+                        SettingsFrame.Navigate(typeof(SettingsPage));
+                        SettingsFrame.Visibility = Visibility.Visible;
+                    } else
+                    {
+                        if (SettingsFrame != null)
+                        {
+                            SettingsFrame.Visibility = Visibility.Collapsed;
+                        }
+                    }
 
                 } else
                 {

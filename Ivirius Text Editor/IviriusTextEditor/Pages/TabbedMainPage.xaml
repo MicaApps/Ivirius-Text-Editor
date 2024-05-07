@@ -5064,7 +5064,7 @@
                             </StackPanel>
                         </StackPanel>
                     </Grid>
-
+                    <Frame x:Name="SettingsFrame" Margin="350,60,25,160" Visibility="Collapsed"/>
                 </Grid>
             </Border>
         </Border>
