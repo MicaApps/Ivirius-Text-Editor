@@ -5010,15 +5010,19 @@
                             </Button>
                         </Grid>
                     </StackPanel>
-                    <StackPanel x:Name="AccountsStackPanel" Orientation="Horizontal" Margin="350,60,25,160" Spacing="10" Visibility="Collapsed">
-                        <StackPanel Orientation="Vertical" Width="Auto">
+                    <Grid x:Name="AccountsStackPanel" Margin="350,60,25,160" Visibility="Collapsed">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.5*"/>
+                            <ColumnDefinition Width="0.5*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="0" Orientation="Vertical" Width="Auto">
                             <TextBlock Text="Account" Style="{ThemeResource BodyStrongTextBlockStyle}"/>
                             <StackPanel Orientation="Horizontal" Spacing="10">
                                 <Custom:PersonPicture/>
                                 <TextBlock Text="User" TextAlignment="Center" VerticalAlignment="Center" HorizontalTextAlignment="Center" FontSize="24" FontWeight="SemiBold"/>
                             </StackPanel>
                         </StackPanel>
-                        <StackPanel Orientation="Vertical" Width="Auto">
+                        <StackPanel Grid.Column="1" Orientation="Vertical" Width="Auto">
                             <TextBlock Text="About Ivirius Text Editor" Style="{ThemeResource BodyStrongTextBlockStyle}"/>
                             <StackPanel Orientation="Horizontal" Spacing="10">
                                 <Image Height="150" Width="150" Source="/Assets/AppIcons/01.png"/>
@@ -5031,8 +5035,35 @@
                                     </TextBlock.Foreground>
                                 </TextBlock>
                             </StackPanel>
+                            <StackPanel Orientation="Horizontal" Spacing="10">
+                                <Button Click="AboutItem_Click">
+                                    <StackPanel Orientation="Vertical">
+                                        <IconSourceElement>
+                                            <SymbolIconSource Symbol="Help"/>
+                                        </IconSourceElement>
+                                        <TextBlock Text="About"/>
+                                    </StackPanel>
+                                </Button>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="Version 3.1.0.113"/>
+                                    <TextBlock Text="Dev Channel"/>
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Spacing="10">
+                                <Button Click="ChangelogButton_Click">
+                                    <StackPanel Orientation="Vertical">
+                                        <IconSourceElement>
+                                            <FontIconSource Glyph="&#xF0E3;"/>
+                                        </IconSourceElement>
+                                        <TextBlock Text="Changelog"/>
+                                    </StackPanel>
+                                </Button>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="Find out what's new in this update" TextWrapping="WrapWholeWords"/>
+                                </StackPanel>
+                            </StackPanel>
                         </StackPanel>
-                    </StackPanel>
+                    </Grid>
 
                 </Grid>
             </Border>
