@@ -591,6 +591,7 @@ namespace IviriusTextEditor.Pages
             SizeBox.Items.Add("A4");
             SizeBox.Items.Add("Letter");
             SizeBox.Items.Add("Tabloid");
+            SizeBox.Items.Add("Web");
             SizeBox.SelectedItem = "A4";
 
             #endregion Components
@@ -2789,6 +2790,13 @@ namespace IviriusTextEditor.Pages
                 REB.Width = 990;
                 REB.Height = 1530;
                 PP.MediaSize = Windows.Graphics.Printing.PrintMediaSize.NorthAmericaTabloid;
+            }
+
+            //Set Web size
+            if ((string)SizeBox.SelectedItem == "Web")
+            {
+                REB.Width = REBPanel.Width;
+                PP.MediaSize = Windows.Graphics.Printing.PrintMediaSize.Default;
             }
         }
 
