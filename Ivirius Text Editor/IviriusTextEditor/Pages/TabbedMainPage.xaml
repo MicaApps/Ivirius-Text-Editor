@@ -5310,7 +5310,7 @@
                 <Grid Background="{StaticResource AppBackgroundBrush}"/>
                 <TextBlock TextWrapping="Wrap" Text="Changelog - Version 3.1.0.145" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{ThemeResource SubtitleTextBlockStyle}" Margin="25,24,0,0"/>
                 <StackPanel Margin="24,63,24,105">
-                    <TextBlock TextWrapping="Wrap"><Run Text="New features:"/><LineBreak/><Run Text="- Add Template support"/><LineBreak/><Run Text="- Fix several bugs with opening templates in the Home Menu"/><LineBreak/><Run Text="- Add a Home Menu shortcut in the File menu"/><LineBreak/></TextBlock>
+                    <TextBlock TextWrapping="Wrap"><Run Text="New features:"/><LineBreak/><Run Text="- Add a 'Web' mode, which allows you to use the app with a full-width page"/><LineBreak/><Run Text="- Fix home menu button width bugs"/><LineBreak/></TextBlock>
                 </StackPanel>
             </Grid>
         </ContentDialog>
