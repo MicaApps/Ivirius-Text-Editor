@@ -5036,7 +5036,7 @@
                                 </TextBlock>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Spacing="10">
-                                <Button Click="AboutItem_Click">
+                                <Button Click="AboutItem_Click" Width="150">
                                     <StackPanel Orientation="Vertical">
                                         <IconSourceElement>
                                             <SymbolIconSource Symbol="Help"/>
@@ -5050,7 +5050,7 @@
                                 </StackPanel>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Spacing="10">
-                                <Button Click="ChangelogButton_Click">
+                                <Button Click="ChangelogButton_Click" Width="150">
                                     <StackPanel Orientation="Vertical">
                                         <IconSourceElement>
                                             <FontIconSource Glyph="&#xF0E3;"/>
