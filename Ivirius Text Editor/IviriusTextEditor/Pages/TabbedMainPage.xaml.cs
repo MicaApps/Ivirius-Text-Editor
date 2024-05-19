@@ -25,6 +25,7 @@ using System.Threading.Tasks;
 using Windows.ApplicationModel.Activation;
 using Windows.ApplicationModel.Core;
 using Windows.Devices.Input;
+using Windows.Graphics.Printing;
 using Windows.Media.SpeechSynthesis;
 using Windows.Security.Cryptography.Core;
 using Windows.Storage;
@@ -591,7 +592,6 @@ namespace IviriusTextEditor.Pages
             SizeBox.Items.Add("A4");
             SizeBox.Items.Add("Letter");
             SizeBox.Items.Add("Tabloid");
-            SizeBox.Items.Add("Web");
             SizeBox.SelectedItem = "A4";
 
             #endregion Components
@@ -2768,36 +2768,7 @@ namespace IviriusTextEditor.Pages
 
         private void SizeBox_SelectionChanged(object Sender, SelectionChangedEventArgs EvArgs)
         {
-            //Set A4 size
-            if ((string)SizeBox.SelectedItem == "A4")
-            {
-                REB.Width = 744;
-                REB.Height = 1052.4;
-                PP.MediaSize = Windows.Graphics.Printing.PrintMediaSize.IsoA4;
-            }
-
-            //Set Letter size
-            if ((string)SizeBox.SelectedItem == "Letter")
-            {
-                REB.Width = 765;
-                REB.Height = 990;
-                PP.MediaSize = Windows.Graphics.Printing.PrintMediaSize.NorthAmericaLetter;
-            }
-
-            //Set Tabloid size
-            if ((string)SizeBox.SelectedItem == "Tabloid")
-            {
-                REB.Width = 990;
-                REB.Height = 1530;
-                PP.MediaSize = Windows.Graphics.Printing.PrintMediaSize.NorthAmericaTabloid;
-            }
-
-            //Set Web size
-            if ((string)SizeBox.SelectedItem == "Web")
-            {
-                REB.Width = REBPanel.Width;
-                PP.MediaSize = Windows.Graphics.Printing.PrintMediaSize.Default;
-            }
+            CheckPageSize();
         }
 
         private void ZoomSlider_ValueChanged(object Sender, Windows.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventArgs EvArgs)
@@ -4274,16 +4245,20 @@ namespace IviriusTextEditor.Pages
         {
             TextCmdBar.Visibility = Visibility.Visible;
             InsertCmdBar.Visibility = Visibility.Collapsed;
+            ViewCmdBar.Visibility = Visibility.Collapsed;
             EditButton.IsChecked = true;
             InsertButton.IsChecked = false;
+            TextBoxViewButton.IsChecked = false;
         }
 
         private void Button_Click_34(object sender, RoutedEventArgs e)
         {
             TextCmdBar.Visibility = Visibility.Collapsed;
             InsertCmdBar.Visibility = Visibility.Visible;
+            ViewCmdBar.Visibility = Visibility.Collapsed;
             EditButton.IsChecked = false;
             InsertButton.IsChecked = true;
+            TextBoxViewButton.IsChecked = false;
         }
 
         private void FindAndRepButton_Click(object sender, RoutedEventArgs e)
@@ -4569,13 +4544,11 @@ namespace IviriusTextEditor.Pages
                     if (HomeNav.SelectedItem == HomeNavItem)
                     {
                         HomePanel.Visibility = Visibility.Visible;
-                    }
-                    else
-                    {
+                    } else {
                         if (HomePanel != null) {
                             HomePanel.Visibility = Visibility.Collapsed;
                         }
-                       
+
                     }
                     if (HomeNav.SelectedItem == NewNavItem)
                     {
@@ -4606,20 +4579,66 @@ namespace IviriusTextEditor.Pages
                     {
                         SettingsFrame.Navigate(typeof(SettingsPage));
                         SettingsFrame.Visibility = Visibility.Visible;
-                    } else
-                    {
+                    } else {
                         if (SettingsFrame != null)
                         {
                             SettingsFrame.Visibility = Visibility.Collapsed;
                         }
                     }
 
-                } else
-                {
+                } else {
                     HomeNav.SelectedItem = HomeNavItem;
                 }
             }
-            
+        }
+
+            private void ViewToggle_Click(object sender, RoutedEventArgs e)
+            {
+                TextCmdBar.Visibility = Visibility.Collapsed;
+                InsertCmdBar.Visibility = Visibility.Collapsed;
+                ViewCmdBar.Visibility = Visibility.Visible;
+                EditButton.IsChecked = false;
+                InsertButton.IsChecked = false;
+                TextBoxViewButton.IsChecked = true;
+            }
+
+            private void PrintMode_Click(object sender, RoutedEventArgs e)
+            {
+                SizeBox.IsEnabled = true;
+                CheckPageSize();
+            }
+
+            private void WebMode_Click(object sender, RoutedEventArgs e)
+            {
+                REB.Width = REBPanel.Width;
+                SizeBox.IsEnabled = false;
+            }
+
+            private void CheckPageSize()
+            {
+                //Set A4 size
+                if ((string)SizeBox.SelectedItem == "A4")
+                {
+                    REB.Width = 744;
+                    REB.Height = 1052.4;
+                    PP.MediaSize = PrintMediaSize.IsoA4;
+                }
+
+                //Set Letter size
+                if ((string)SizeBox.SelectedItem == "Letter")
+                {
+                    REB.Width = 765;
+                    REB.Height = 990;
+                    PP.MediaSize = PrintMediaSize.NorthAmericaLetter;
+                }
+
+                //Set Tabloid size
+                if ((string)SizeBox.SelectedItem == "Tabloid")
+                {
+                    REB.Width = 990;
+                    REB.Height = 1530;
+                    PP.MediaSize = PrintMediaSize.NorthAmericaTabloid;
+                }
+            }
         }
     }
-}
