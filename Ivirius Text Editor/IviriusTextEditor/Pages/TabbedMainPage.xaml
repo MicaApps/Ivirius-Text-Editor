@@ -4741,10 +4741,10 @@
             <Image Height="100" Width="100" Margin="0,0,0,50" Source="/Assets/AppIcons/AppIcon.png"/>
             <Custom:ProgressRing IsActive="True" Width="25" Height="25" Margin="0,175,0,0"/>
         </Grid>
-        <ContentDialog x:Name="ChangelogWindow" Title="Changelog - Version 3.0.3.0" PrimaryButtonText="Close" Background="{StaticResource AppTitleBarBrush}" d:IsHidden="True">
+        <ContentDialog x:Name="ChangelogWindow" Title="Changelog - Version 3.0.4.0" PrimaryButtonText="Close" Background="{StaticResource AppTitleBarBrush}" d:IsHidden="True">
             <Grid Margin="-24,-63,-24,-105" Background="{StaticResource AppTitleBarBrush}">
                 <Grid Background="{StaticResource AppBackgroundBrush}"/>
-                <TextBlock TextWrapping="Wrap" Text="Changelog - Version 3.0.3.0" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{ThemeResource SubtitleTextBlockStyle}" Margin="25,24,0,0"/>
+                <TextBlock TextWrapping="Wrap" Text="Changelog - Version 3.0.4.0" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{ThemeResource SubtitleTextBlockStyle}" Margin="25,24,0,0"/>
                 <StackPanel Margin="24,63,24,105">
                     <TextBlock TextWrapping="Wrap"><Run Text="First release of Vanilla Text Editor!"/></TextBlock>
                 </StackPanel>

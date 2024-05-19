@@ -10,7 +10,7 @@
   <Identity
     Name="Ivirius.VTE"
     Publisher="CN=jpb"
-    Version="3.0.3.0" />
+    Version="3.0.4.0" />
 
   <mp:PhoneIdentity PhoneProductId="94651bc2-109e-4f61-9638-a2fa71523094" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
