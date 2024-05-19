@@ -2814,14 +2814,6 @@ namespace IviriusTextEditor.Pages
             }
         }
 
-        public string GetText(RichEditBox RichEditor)
-        {
-            RichEditor.Document.GetText(TextGetOptions.FormatRtf, out string Text);
-            ITextRange Range = RichEditor.Document.GetRange(0, Text.Length);
-            Range.GetText(TextGetOptions.FormatRtf, out string Value);
-            return Value;
-        }
-
         private void LeftIndent_ValueChanged(object Sender, EventArgs EvArgs)
         {
 
@@ -3226,85 +3218,141 @@ namespace IviriusTextEditor.Pages
             }
             else
             {
-                Replace(REB, FindTextBox.Text, ReplaceBox.Text, true);
+                Replace(REB, FindTextBox.Text, ReplaceBox.Text, true, CaseSensBox.IsChecked, FullWordsBox.IsChecked, true, ReplaceBox);
             }
             FindFlyout.Hide();
         }
 
-        public void Replace(RichEditBox Sender, string TextToFind, string TextToReplace, bool ReplaceAll)
+        public static void Replace(RichEditBox RichEditBox, string TextToFind, string TextToReplace, bool ReplaceAll, bool? caseSensitive, bool? matchWords, bool? none, TextBox replaceBox)
         {
+            int i = 0;
+
             if (ReplaceAll == true)
             {
-                string Value = GetText(Sender);
+                string Value = GetText(RichEditBox);
                 if (!(string.IsNullOrWhiteSpace(Value) && string.IsNullOrWhiteSpace(TextToFind) && string.IsNullOrWhiteSpace(TextToReplace)))
                 {
-                    Sender.Document.Selection.SetRange(0, GetText(Sender).Length);
-                    if (CaseSensBox.IsChecked == true)
+                    RichEditBox.Document.Selection.SetRange(0, GetText(RichEditBox).Length);
+                    if (caseSensitive == true)
                     {
-                        _ = Sender.Document.Selection.FindText(TextToFind, GetText(Sender).Length, FindOptions.Case);
-                        if (Sender.Document.Selection.Length == 1)
+                        i = FindAsInt(TextToFind, FindOptions.Case, RichEditBox);
+                        _ = RichEditBox.Document.Selection.FindText(TextToFind, GetText(RichEditBox).Length, FindOptions.Case);
+                        if (i > j)
                         {
-                            Sender.Document.Selection.SetText(TextSetOptions.FormatRtf, ReplaceBox.Text);
-                            _ = Sender.Focus(FocusState.Pointer);
-                            Replace(Sender, TextToFind, TextToReplace, true);
+                            try
+                            {
+                                RichEditBox.Document.Selection.SetText(TextSetOptions.FormatRtf, replaceBox.Text);
+                            }
+                            catch (StackOverflowException)
+                            {
+                                return;
+                            }
+                            RichEditBox.Document.Selection.SetText(TextSetOptions.FormatRtf, replaceBox.Text);
+                            _ = RichEditBox.Focus(FocusState.Pointer);
+                            Replace(RichEditBox, TextToFind, TextToReplace, true, true, false, false, replaceBox);
+                        }
+                        else
+                        {
+                            j = 0;
+                            return;
                         }
                     }
-                    if (FullWordsBox.IsChecked == true)
+                    if (matchWords == true)
                     {
-                        _ = Sender.Document.Selection.FindText(TextToFind, GetText(Sender).Length, FindOptions.Word);
-                        if (Sender.Document.Selection.Length == 1)
+                        i = FindAsInt(TextToFind, FindOptions.Word, RichEditBox);
+                        _ = RichEditBox.Document.Selection.FindText(TextToFind, GetText(RichEditBox).Length, FindOptions.Word);
+                        if (i > j)
                         {
-                            Sender.Document.Selection.SetText(TextSetOptions.FormatRtf, ReplaceBox.Text);
-                            _ = Sender.Focus(FocusState.Pointer);
-                            Replace(Sender, TextToFind, TextToReplace, true);
+                            try
+                            {
+                                RichEditBox.Document.Selection.SetText(TextSetOptions.FormatRtf, replaceBox.Text);
+                            }
+                            catch (StackOverflowException)
+                            {
+                                return;
+                            }
+                            RichEditBox.Document.Selection.SetText(TextSetOptions.FormatRtf, replaceBox.Text);
+                            _ = RichEditBox.Focus(FocusState.Pointer);
+                            Replace(RichEditBox, TextToFind, TextToReplace, true, false, true, false, replaceBox);
+                        }
+                        else
+                        {
+                            j = 0;
+                            return;
                         }
                     }
-                    if (!CaseSensBox.IsChecked == true && !FullWordsBox.IsChecked == true)
+                    if (none == true)
                     {
-                        _ = Sender.Document.Selection.FindText(TextToFind, GetText(Sender).Length, FindOptions.None);
-                        if (Sender.Document.Selection.Length == 1)
+                        i = FindAsInt(TextToFind, FindOptions.None, RichEditBox);
+                        _ = RichEditBox.Document.Selection.FindText(TextToFind, GetText(RichEditBox).Length, FindOptions.None);
+                        if (i > j)
                         {
-                            Sender.Document.Selection.SetText(TextSetOptions.FormatRtf, ReplaceBox.Text);
-                            _ = Sender.Focus(FocusState.Pointer);
-                            Replace(Sender, TextToFind, TextToReplace, true);
+                            try
+                            {
+                                RichEditBox.Document.Selection.SetText(TextSetOptions.FormatRtf, replaceBox.Text);
+                            }
+                            catch (StackOverflowException)
+                            {
+                                return;
+                            }
+                            _ = RichEditBox.Focus(FocusState.Pointer);
+                            Replace(RichEditBox, TextToFind, TextToReplace, true, false, false, true, replaceBox);
+                        }
+                        else
+                        {
+                            j = 0;
+                            return;
                         }
                     }
-                    _ = Sender.Focus(FocusState.Pointer);
+                    _ = RichEditBox.Focus(FocusState.Pointer);
                 }
             }
             else
             {
-                Sender.Document.Selection.SetRange(0, GetText(Sender).Length);
-                if (CaseSensBox.IsChecked == true)
+                RichEditBox.Document.Selection.SetRange(0, GetText(RichEditBox).Length);
+                if (caseSensitive == true)
                 {
-                    _ = Sender.Document.Selection.FindText(TextToFind, GetText(Sender).Length, FindOptions.Case);
-                    if (Sender.Document.Selection.Length == 1)
-                    {
-                        Sender.Document.Selection.SetText(TextSetOptions.FormatRtf, ReplaceBox.Text);
-                        _ = Sender.Focus(FocusState.Pointer);
-                    }
+                    _ = RichEditBox.Document.Selection.FindText(TextToFind, GetText(RichEditBox).Length, FindOptions.Case);
+                    RichEditBox.Document.Selection.SetText(TextSetOptions.FormatRtf, replaceBox.Text);
+                    _ = RichEditBox.Focus(FocusState.Pointer);
                 }
-                if (FullWordsBox.IsChecked == true)
+                if (matchWords == true)
                 {
-                    _ = Sender.Document.Selection.FindText(TextToFind, GetText(Sender).Length, FindOptions.Word);
-                    if (Sender.Document.Selection.Length == 1)
-                    {
-                        Sender.Document.Selection.SetText(TextSetOptions.FormatRtf, ReplaceBox.Text);
-                        _ = Sender.Focus(FocusState.Pointer);
-                    }
+                    _ = RichEditBox.Document.Selection.FindText(TextToFind, GetText(RichEditBox).Length, FindOptions.Word);
+                    RichEditBox.Document.Selection.SetText(TextSetOptions.FormatRtf, replaceBox.Text);
+                    _ = RichEditBox.Focus(FocusState.Pointer);
                 }
-                if (!CaseSensBox.IsChecked == true && !FullWordsBox.IsChecked == true)
+                if (none == true)
                 {
-                    _ = Sender.Document.Selection.FindText(TextToFind, GetText(Sender).Length, FindOptions.None);
-                    if (Sender.Document.Selection.Length == 1)
-                    {
-                        Sender.Document.Selection.SetText(TextSetOptions.FormatRtf, ReplaceBox.Text);
-                        _ = Sender.Focus(FocusState.Pointer);
-                    }
+                    _ = RichEditBox.Document.Selection.FindText(TextToFind, GetText(RichEditBox).Length, FindOptions.None);
+                    RichEditBox.Document.Selection.SetText(TextSetOptions.FormatRtf, replaceBox.Text);
+                    _ = RichEditBox.Focus(FocusState.Pointer);
                 }
-                _ = Sender.Focus(FocusState.Pointer);
+                _ = RichEditBox.Focus(FocusState.Pointer);
             }
         }
+
+        public static int FindAsInt(string textToFind, FindOptions options, RichEditBox FindREB)
+        {
+            ITextRange searchRange = FindREB.Document.GetRange(0, 0);
+            int x = 0;
+            while (searchRange.FindText(textToFind, TextConstants.MaxUnitCount, options) > 0)
+            {
+                x++;
+            }
+            return x;
+        }
+
+        private static int j = 0;
+
+        public static string GetText(RichEditBox RichEditor)
+        {
+            RichEditor.Document.GetText(TextGetOptions.FormatRtf, out string Text);
+            ITextRange Range = RichEditor.Document.GetRange(0, Text.Length);
+            Range.GetText(TextGetOptions.FormatRtf, out string Value);
+            return Value;
+        }
+
 
         public Task Find(string textToFind, FindOptions options)
         {
@@ -3367,7 +3415,7 @@ namespace IviriusTextEditor.Pages
 
         private void RepBTN_Click(object Sender, RoutedEventArgs EvArgs)
         {
-            Replace(REB, FindTextBox.Text, ReplaceBox.Text, false);
+            Replace(REB, FindTextBox.Text, ReplaceBox.Text, false, false, false, false, ReplaceBox);
             FindFlyout.Hide();
         }
 

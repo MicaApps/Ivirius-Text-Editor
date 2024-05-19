@@ -265,6 +265,7 @@
     <None Include="IviriusTextEditor\Templates\ImageGalleryTemp.rtf" />
     <None Include="IviriusTextEditor\Templates\NewspaperTemp.rtf" />
     <None Include="IviriusTextEditor\Templates\ResumeTemp.rtf" />
+    <None Include="jpbAppCertificate-2024.pfx" />
     <None Include="Resources\Arrow.cur" />
     <None Include="Package.StoreAssociation.xml" />
     <Content Include="Assets\AppIcons\OpenIcon.png" />

@@ -4909,7 +4909,7 @@
                 <Grid Margin="10,-115,10,0">
                     <Image HorizontalAlignment="Left" Height="100" Margin="5,125,0,0" VerticalAlignment="Top" Width="100" Source="/Assets/AppIcons/AppIcon.png"/>
                     <TextBlock HorizontalAlignment="Left" Margin="120,140,0,0" TextWrapping="Wrap" Text="Ivirius Text Editor" VerticalAlignment="Top" FontSize="16"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="120,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="11"><Run Text="Version 3.0.3.0 (2312R3.1300) - Full release - LTSC"/><LineBreak/><Run Text="Copyright © Ivirius Text Editor 2021 - 2024 "/><LineBreak/><Run Text="Compiled April 13, 2024"/><LineBreak/><Run Text="GitHub release - Long Term Servicing Channel - UWP"/><LineBreak/><Run/></TextBlock>
+                    <TextBlock HorizontalAlignment="Left" Margin="120,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="11"><Run Text="Version 3.0.4.0 (2312R3.1400) - Full release - LTSC"/><LineBreak/><Run Text="Copyright © Ivirius Text Editor 2021 - 2024 "/><LineBreak/><Run Text="Compiled May 19, 2024"/><LineBreak/><Run Text="GitHub release - UWP"/><LineBreak/><Run/></TextBlock>
                     <StackPanel Margin="0,235,0,0">
                         <HyperlinkButton Content="WinUI 2" Click="HyperlinkButton_Click_4" Padding="11,6,11,7"/>
                         <HyperlinkButton Content="Windows Community Toolkit" Click="HyperlinkButton_Click_4" Padding="11,6,11,7"/>
@@ -5141,12 +5141,12 @@
             <Image Height="100" Width="100" Margin="0,0,0,50" Source="/Assets/AppIcons/AppIcon.png"/>
             <Custom:ProgressRing IsActive="True" Width="25" Height="25" Margin="0,175,0,0"/>
         </Grid>
-        <ContentDialog x:Name="ChangelogWindow" Title="Changelog - Version 3.0.3.0" PrimaryButtonText="Close" Background="{StaticResource AppTitleBarBrush}" d:IsHidden="True">
+        <ContentDialog x:Name="ChangelogWindow" Title="Changelog - Version 3.0.4.0" PrimaryButtonText="Close" Background="{StaticResource AppTitleBarBrush}" d:IsHidden="True">
             <Grid Margin="-24,-63,-24,-105" Background="{StaticResource AppTitleBarBrush}">
                 <Grid Background="{StaticResource AppBackgroundBrush}"/>
-                <TextBlock TextWrapping="Wrap" Text="Changelog - Version 3.0.3.0" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{ThemeResource SubtitleTextBlockStyle}" Margin="25,24,0,0"/>
+                <TextBlock TextWrapping="Wrap" Text="Changelog - Version 3.0.4.0" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{ThemeResource SubtitleTextBlockStyle}" Margin="25,24,0,0"/>
                 <StackPanel Margin="24,63,24,105">
-                    <TextBlock TextWrapping="Wrap"><Run Text="New features:"/><LineBreak/><Run Text="- Add more strings to the localization system"/><LineBreak/><Run Text="- Add a Polish localization"/><LineBreak/><Run Text="- Remove redundant &quot;News&quot; item from Settings"/><LineBreak/><Run/><LineBreak/><Run Text="LTSC-exclusive new features:"/><LineBreak/><Run Text="- Allow IVR+ promo to be disabled by the user"/><LineBreak/><Run Text="- First LTSC build of Ivirius Text Editor"/><LineBreak/></TextBlock>
+                    <TextBlock TextWrapping="Wrap"><Run Text="New features:"/><LineBreak/><Run Text="- Make Find/Replace work properly"/><LineBreak/></TextBlock>
                 </StackPanel>
             </Grid>
         </ContentDialog>
