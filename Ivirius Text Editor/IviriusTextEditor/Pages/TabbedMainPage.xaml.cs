@@ -3860,11 +3860,11 @@ namespace IviriusTextEditor.Pages
             }
             if ((string)args.SelectedItem == "View modes")
             {
-                _ = ToolbarOptionsButton.Focus(FocusState.Keyboard);
+                //_ = ToolbarOptionsButton.Focus(FocusState.Keyboard);
             }
             if ((string)args.SelectedItem == "Tablet writing")
             {
-                _ = HandButton.Focus(FocusState.Keyboard);
+                //_ = HandButton.Focus(FocusState.Keyboard);
             }
             if ((string)args.SelectedItem == "Undo")
             {
