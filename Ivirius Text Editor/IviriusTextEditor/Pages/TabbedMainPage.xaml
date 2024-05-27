@@ -5337,7 +5337,7 @@
                 <Grid Background="{StaticResource AppBackgroundBrush}"/>
                 <TextBlock TextWrapping="Wrap" Text="Changelog - Version 3.1.0.175" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{ThemeResource SubtitleTextBlockStyle}" Margin="25,24,0,0"/>
                 <StackPanel Margin="24,63,24,105">
-                    <TextBlock TextWrapping="Wrap"><Run Text="New features:"/><LineBreak/><Run Text="- Add a 'Web' mode, which allows you to use the app with a full-width page"/><LineBreak/><Run Text="- Fix home menu button width bugs"/><LineBreak/></TextBlock>
+                    <TextBlock TextWrapping="Wrap"><Run Text="New features:"/><LineBreak/><Run Text="- Move the Web mode to a new 'View' tab"/><LineBreak/><Run Text="- Add a Print mode, and the Web mode now disables the page size settings"/><LineBreak/></TextBlock>
                 </StackPanel>
             </Grid>
         </ContentDialog>
