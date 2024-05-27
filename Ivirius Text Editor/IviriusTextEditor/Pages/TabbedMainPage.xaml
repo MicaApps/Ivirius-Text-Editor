@@ -3672,39 +3672,11 @@
                                 </TextBlock.Foreground>
                             </TextBlock>
                             <TextBlock x:FieldModifier="public" x:Name="FileNameTextBlock" TextWrapping="Wrap" Text="Untitled" VerticalAlignment="Center" Margin="0,0,5,3" Visibility="Collapsed"/>
-                            <Button x:Name="ChangelogButton" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="35" Height="35" Click="ChangelogButton_Click" FontFamily="{StaticResource CustomFont}" FontSize="16" Padding="2,2,2,2" ToolTipService.ToolTip="{x:Bind Strings:StringTable.Changelog}" CornerRadius="4,4,4,4" Background="{x:Null}" BorderBrush="{x:Null}">
-                                <TextBlock HorizontalAlignment="Stretch" Margin="0,0,0,0" TextWrapping="Wrap" Text="&#xF0E3;" VerticalAlignment="Stretch"/>
-                            </Button>
-                            <Button x:Name="ToolbarOptionsButton" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="35" Height="35" FontFamily="{StaticResource CustomFont}" FontSize="16" Padding="2,2,2,2" ToolTipService.ToolTip="{x:Bind Strings:StringTable.ViewModes}" CornerRadius="4,4,4,4" Background="{x:Null}" BorderBrush="{x:Null}">
-                                <Button.Flyout>
-                                    <MenuFlyout>
-                                        <MenuFlyoutItem Text="View all" Click="MenuFlyoutItem_Click_6">
-                                            <MenuFlyoutItem.Icon>
-                                                <FontIcon FontFamily="{StaticResource CustomFont}" Glyph="&#xE75A;"/>
-                                            </MenuFlyoutItem.Icon>
-                                        </MenuFlyoutItem>
-                                        <MenuFlyoutItem Text="Hide toolbar" Click="MenuFlyoutItem_Click_19">
-                                            <MenuFlyoutItem.Icon>
-                                                <FontIcon FontFamily="{StaticResource CustomFont}" Glyph="&#xE75B;"/>
-                                            </MenuFlyoutItem.Icon>
-                                        </MenuFlyoutItem>
-                                        <MenuFlyoutItem Text="Show workspace only" Click="MenuFlyoutItem_Click_21">
-                                            <MenuFlyoutItem.Icon>
-                                                <FontIcon FontFamily="{StaticResource CustomFont}" Glyph="&#xE70A;"/>
-                                            </MenuFlyoutItem.Icon>
-                                        </MenuFlyoutItem>
-                                    </MenuFlyout>
-                                </Button.Flyout>
-                                <TextBlock HorizontalAlignment="Stretch" Margin="0,0,0,0" TextWrapping="Wrap" Text="&#xE161;" VerticalAlignment="Stretch"/>
-                            </Button>
-                            <Border BorderThickness="1" Width="3" Background="{StaticResource DividerStrokeColorDefaultBrush}" Height="27"/>
-                            <Button x:Name="HandButton" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="35" Height="35" FontFamily="{StaticResource CustomFont}" FontSize="16" Padding="2,2,2,2" ToolTipService.ToolTip="{x:Bind Strings:StringTable.TabletMode}" Click="HandButton_Click" CornerRadius="4,4,4,4" Background="{x:Null}" BorderBrush="{x:Null}">
-                                <Grid Width="24" Height="24" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,0">
-                                    <TextBlock TextWrapping="Wrap" FontFamily="{StaticResource CustomFont}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Width="16" RenderTransformOrigin="0.5,0.5" Text="&#xE70A;">
-                                        <TextBlock.RenderTransform>
-                                            <CompositeTransform ScaleX="1"/>
-                                        </TextBlock.RenderTransform></TextBlock>
-                                </Grid>
+                            <Button x:Name="ChangelogButton" Click="ChangelogButton_Click" ToolTipService.ToolTip="{x:Bind Strings:StringTable.Changelog}">
+                                <StackPanel Spacing="4" Orientation="Horizontal">
+                                    <TextBlock FontFamily="{ThemeResource CustomFont}" Text="&#xF0E3;" FontSize="12"/>
+                                    <TextBlock Text="{x:Bind Strings:StringTable.Changelog}"/>
+                                </StackPanel>
                             </Button>
                             <Button x:Name="ShareButton" Style="{StaticResource AccentButtonStyle}" Click="ShareButton_Click">
                                 <StackPanel Orientation="Horizontal" Spacing="4">
@@ -4346,6 +4318,37 @@
                                                         <Grid Width="30" Height="45" Margin="4,1,4,-1">
                                                             <TextBlock FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" Margin="0,20,0,0" Width="30"><Run Text="Web"/><LineBreak/><Run Text="Mode"/></TextBlock>
                                                         </Grid>
+                                                    </Button>
+                                                    <Button x:Name="TabletViewMode" FontFamily="{StaticResource CustomFont}" Height="53" FontSize="22" Click="HandButton_Click" ToolTipService.ToolTip="Tablet writing mode" Padding="0,0,0,0" Margin="0,1,0,0" Style="{StaticResource CrimsonToolbarButton}" Background="Transparent" BorderBrush="#00000000" CornerRadius="4,4,4,4">
+
+                                                        <Grid Height="45" Margin="4,1,4,-1">
+                                                            <TextBlock FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" Margin="0,20,0,0"><Run Text="Tablet"/><LineBreak/><Run Text="writing mode"/></TextBlock>
+                                                        </Grid>
+                                                    </Button>
+                                                    <Button x:Name="RibbonViewMode" FontFamily="{StaticResource CustomFont}" Height="53" FontSize="22" ToolTipService.ToolTip="Ribbon view modes" Padding="0,0,0,0" Margin="0,1,0,0" Style="{StaticResource CrimsonToolbarButton}" Background="Transparent" BorderBrush="#00000000" CornerRadius="4,4,4,4">
+
+                                                        <Grid Height="45" Margin="4,1,4,-1">
+                                                            <TextBlock FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" Margin="0,20,0,0"><Run Text="Ribbon"/><LineBreak/><Run Text="view modes"/></TextBlock>
+                                                        </Grid>
+                                                        <Button.Flyout>
+                                                            <MenuFlyout>
+                                                                <MenuFlyoutItem Text="View all" Click="MenuFlyoutItem_Click_6">
+                                                                    <MenuFlyoutItem.Icon>
+                                                                        <FontIcon FontFamily="{StaticResource CustomFont}" Glyph="&#xE75A;"/>
+                                                                    </MenuFlyoutItem.Icon>
+                                                                </MenuFlyoutItem>
+                                                                <MenuFlyoutItem Text="Hide toolbar" Click="MenuFlyoutItem_Click_19">
+                                                                    <MenuFlyoutItem.Icon>
+                                                                        <FontIcon FontFamily="{StaticResource CustomFont}" Glyph="&#xE75B;"/>
+                                                                    </MenuFlyoutItem.Icon>
+                                                                </MenuFlyoutItem>
+                                                                <MenuFlyoutItem Text="Show workspace only" Click="MenuFlyoutItem_Click_21">
+                                                                    <MenuFlyoutItem.Icon>
+                                                                        <FontIcon FontFamily="{StaticResource CustomFont}" Glyph="&#xE70A;"/>
+                                                                    </MenuFlyoutItem.Icon>
+                                                                </MenuFlyoutItem>
+                                                            </MenuFlyout>
+                                                        </Button.Flyout>
                                                     </Button>
                                                 </StackPanel>
                                             </Grid>
