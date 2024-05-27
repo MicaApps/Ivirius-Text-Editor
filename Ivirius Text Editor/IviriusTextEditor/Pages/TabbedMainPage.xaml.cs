@@ -24,7 +24,9 @@ using System.Threading.Tasks;
 //Windows components usings
 using Windows.ApplicationModel.Activation;
 using Windows.ApplicationModel.Core;
+using Windows.ApplicationModel.DataTransfer;
 using Windows.Devices.Input;
+using Windows.Foundation;
 using Windows.Graphics.Printing;
 using Windows.Media.SpeechSynthesis;
 using Windows.Security.Cryptography.Core;
@@ -79,6 +81,8 @@ namespace IviriusTextEditor.Pages
                 LoadingScreen.Visibility = Visibility.Collapsed;
                 REBOpenAnimation.Begin();
             }
+
+            ShareSourceLoad();
         }
 
         public TabbedMainPage()
@@ -4640,5 +4644,25 @@ namespace IviriusTextEditor.Pages
                     PP.MediaSize = PrintMediaSize.NorthAmericaTabloid;
                 }
             }
+
+        private void ShareButton_Click(object sender, RoutedEventArgs e)
+        {
+            ShareSourceLoad();
+            DataTransferManager.ShowShareUI();
         }
+
+        private void ShareSourceLoad()
+        {
+            DataTransferManager dataTransferManager = DataTransferManager.GetForCurrentView();
+            dataTransferManager.DataRequested += new TypedEventHandler<DataTransferManager, DataRequestedEventArgs>(this.DataRequested);
+        }
+
+        private void DataRequested(DataTransferManager sender, DataRequestedEventArgs e)
+        {
+            DataRequest request = e.Request;
+            request.Data.Properties.Title = "Ivirius Share Service";
+            request.Data.Properties.Description = "Text sharing for Ivirius Text Editor";
+            request.Data.SetText(REB.TextDocument.ToString());
+        }
+    }
     }

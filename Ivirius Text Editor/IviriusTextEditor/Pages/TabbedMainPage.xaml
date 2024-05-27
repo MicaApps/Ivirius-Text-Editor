@@ -3706,6 +3706,12 @@
                                         </TextBlock.RenderTransform></TextBlock>
                                 </Grid>
                             </Button>
+                            <Button x:Name="ShareButton" Style="{StaticResource AccentButtonStyle}" Click="ShareButton_Click">
+                                <StackPanel Orientation="Horizontal" Spacing="4">
+                                    <FontIcon Glyph="&#xE72D;" FontSize="12"/>
+                                    <TextBlock Text="Share"/>
+                                </StackPanel>
+                            </Button> 
                         </StackPanel>
                     </Grid>
                     <Grid x:Name="TopMid" RelativePanel.Above="RulerGrid" RelativePanel.AlignTopWithPanel="True">
