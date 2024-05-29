@@ -5346,7 +5346,7 @@
                 <Grid Background="{StaticResource AppBackgroundBrush}"/>
                 <TextBlock TextWrapping="Wrap" Text="Changelog - Version 3.1.0.239" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{ThemeResource SubtitleTextBlockStyle}" Margin="25,24,0,0"/>
                 <StackPanel Margin="24,63,24,105">
-                    <TextBlock TextWrapping="Wrap"><Run Text="New features:"/><LineBreak/><Run Text="- Allow Ivirius Text Editor to share text with compatible apps!"/><LineBreak/><Run Text="- Redesign the top pane to make functions more easily distinguishable"/><LineBreak/><Run Text="- Move view-related features to the Ribbon's 'View' tab"/><LineBreak/></TextBlock>
+                    <TextBlock TextWrapping="Wrap"><Run Text="New features:"/><LineBreak/><Run Text="- Fixes to the Home Menu"/><LineBreak/><Run Text="- Wrap text in all buttons on the Ribbon"/><LineBreak/><Run Text="- Fix alignment of the Changelog button's icon in the Ribbon"/><LineBreak/></TextBlock>
                 </StackPanel>
             </Grid>
         </ContentDialog>
