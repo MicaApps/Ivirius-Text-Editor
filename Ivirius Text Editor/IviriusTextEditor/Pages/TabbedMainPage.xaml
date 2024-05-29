@@ -3674,7 +3674,7 @@
                             <TextBlock x:FieldModifier="public" x:Name="FileNameTextBlock" TextWrapping="Wrap" Text="Untitled" VerticalAlignment="Center" Margin="0,0,5,3" Visibility="Collapsed"/>
                             <Button x:Name="ChangelogButton" Click="ChangelogButton_Click" ToolTipService.ToolTip="{x:Bind Strings:StringTable.Changelog}">
                                 <StackPanel Spacing="4" Orientation="Horizontal">
-                                    <TextBlock FontFamily="{ThemeResource CustomFont}" Text="&#xF0E3;" FontSize="12"/>
+                                    <TextBlock FontFamily="{ThemeResource CustomFont}" Text="&#xF0E3;" VerticalAlignment="Center"/>
                                     <TextBlock Text="{x:Bind Strings:StringTable.Changelog}"/>
                                 </StackPanel>
                             </Button>
