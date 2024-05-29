@@ -598,6 +598,8 @@ namespace IviriusTextEditor.Pages
             SizeBox.Items.Add("Tabloid");
             SizeBox.SelectedItem = "A4";
 
+            HomeNav.SelectedItem = HomeNavItem;
+
             #endregion Components
         }
 
