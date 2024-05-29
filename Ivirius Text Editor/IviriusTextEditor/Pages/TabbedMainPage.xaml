@@ -4219,7 +4219,7 @@
                                                     <Grid Width="30" Height="45" Margin="0,2,0,0">
                                                         <TextBlock TextWrapping="Wrap" Text="&#xE14E;" FontFamily="{StaticResource CustomFont}" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="16"/>
                                                         <TextBlock TextWrapping="Wrap" Text="&#xE79D;" FontFamily="{StaticResource CustomFont}" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="16" Foreground="#FFEDFF82"/>
-                                                        <TextBlock FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" Margin="0,20,0,0" Width="30" Text="{x:Bind Strings:StringTable.SelectAll}"/>
+                                                        <TextBlock FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" Margin="0,20,0,0" Width="30" Text="{x:Bind Strings:StringTable.SelectAll}" TextWrapping="WrapWholeWords"/>
                                                     </Grid>
                                                 </Button>
                                                 <Button x:Name="FindAndRepButton" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="40" Height="53" Click="FindAndRepButton_Click" FontFamily="{StaticResource CustomFont}" FontSize="10" Padding="2,2,2,2" ToolTipService.ToolTip="{x:Bind Strings:StringTable.FindAndReplace}" Margin="190,18,0,0" VerticalAlignment="Top" BorderBrush="#00000000" Background="Transparent" CornerRadius="4,4,4,4">
@@ -4230,7 +4230,7 @@
                                                                 <CompositeTransform TranslateX="1.9" ScaleX="1.55" ScaleY="1.55" TranslateY="1.6"/>
                                                             </Border.RenderTransform>
                                                         </Border>
-                                                        <TextBlock FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" Margin="0,20,0,0" Width="40" Text="{x:Bind Strings:StringTable.FindAndReplace}"/>
+                                                        <TextBlock FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" Margin="0,20,0,0" Width="40" Text="{x:Bind Strings:StringTable.FindAndReplace}" TextWrapping="WrapWholeWords"/>
                                                     </Grid>
                                                 </Button>
                                                 <TextBlock Text="{x:Bind Strings:StringTable.Document}" TextWrapping="Wrap" HorizontalAlignment="Center" FontSize="12" VerticalAlignment="Bottom" Opacity="0.8" Margin="0,0,0,12"/>
