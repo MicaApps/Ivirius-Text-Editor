@@ -491,7 +491,6 @@ namespace IviriusTextEditor.Pages
                 if ((string)LocalSettings.Values["News"] == "On")
                 {
                     NewsItem.Visibility = Visibility.Visible;
-                    StoreItem.Visibility = Visibility.Visible;
                     WebsiteItem.Visibility = Visibility.Visible;
                     BugItem.Visibility = Visibility.Visible;
                     YoutubeItem.Visibility = Visibility.Visible;
@@ -499,7 +498,6 @@ namespace IviriusTextEditor.Pages
                 if ((string)LocalSettings.Values["News"] == "Off")
                 {
                     NewsItem.Visibility = Visibility.Collapsed;
-                    StoreItem.Visibility = Visibility.Collapsed;
                     WebsiteItem.Visibility = Visibility.Collapsed;
                     BugItem.Visibility = Visibility.Collapsed;
                     YoutubeItem.Visibility = Visibility.Collapsed;
@@ -509,7 +507,6 @@ namespace IviriusTextEditor.Pages
             {
                 LocalSettings.Values["News"] = "On";
                 NewsItem.Visibility = Visibility.Visible;
-                StoreItem.Visibility = Visibility.Visible;
                 WebsiteItem.Visibility = Visibility.Visible;
                 BugItem.Visibility = Visibility.Visible;
                 YoutubeItem.Visibility = Visibility.Visible;
@@ -3423,7 +3420,7 @@ namespace IviriusTextEditor.Pages
 
         private async void MenuFlyoutItem_Click_7(object Sender, RoutedEventArgs EvArgs)
         {
-            _ = await Launcher.LaunchUriAsync(new Uri("https://errortek-news.vercel.app"));
+            _ = await Launcher.LaunchUriAsync(new Uri("https://rebound-news-fluent.vercel.app"));
         }
 
         private async void MenuFlyoutItem_Click_8(object Sender, RoutedEventArgs EvArgs)
