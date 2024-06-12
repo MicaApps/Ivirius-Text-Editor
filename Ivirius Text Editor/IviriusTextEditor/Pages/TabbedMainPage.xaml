@@ -4305,30 +4305,34 @@
                                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,27,0,0" Spacing="10">
                                                     <Button x:Name="PrintViewMode" FontFamily="{StaticResource CustomFont}" Width="40" Height="53" FontSize="22" Click="PrintMode_Click" ToolTipService.ToolTip="Insert image" CornerRadius="4,4,4,4" VerticalAlignment="Center" Padding="0,0,0,0" Style="{StaticResource CrimsonToolbarButton}" Background="Transparent" BorderBrush="{x:Null}">
                                                         <Grid Height="48" Margin="0,-6,0,0">
-                                                            <Grid Height="55" HorizontalAlignment="Center" VerticalAlignment="Top" Width="55" RenderTransformOrigin="0.5,0.5" Margin="0,-14,2,0">
+                                                            <Grid Height="55" HorizontalAlignment="Center" VerticalAlignment="Top" Width="55" RenderTransformOrigin="0.5,0.5">
                                                                 <Grid.RenderTransform>
                                                                     <CompositeTransform ScaleX="0.5" ScaleY="0.5"/>
                                                                 </Grid.RenderTransform>
                                                             </Grid>
                                                             <TextBlock FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Bottom" TextAlignment="Center" Margin="0,0,0,1"><Run Text="Print"/><LineBreak/><Run Text="Mode"/></TextBlock>
+                                                            <FontIcon FontSize="16" Glyph="&#xE7C3;" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Top" />
                                                         </Grid>
                                                     </Button>
                                                     <Button x:Name="WebViewMode" FontFamily="{StaticResource CustomFont}" Width="40" Height="53" FontSize="22" Click="WebMode_Click" ToolTipService.ToolTip="Web mode" Padding="0,0,0,0" Margin="0,1,0,0" Style="{StaticResource CrimsonToolbarButton}" Background="Transparent" BorderBrush="#00000000" CornerRadius="4,4,4,4">
 
                                                         <Grid Width="30" Height="45" Margin="4,1,4,-1">
                                                             <TextBlock FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" Margin="0,20,0,0" Width="30"><Run Text="Web"/><LineBreak/><Run Text="Mode"/></TextBlock>
+                                                            <FontIcon FontSize="16" Glyph="&#xE9A6;" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Top" />
                                                         </Grid>
                                                     </Button>
                                                     <Button x:Name="TabletViewMode" FontFamily="{StaticResource CustomFont}" Height="53" FontSize="22" Click="HandButton_Click" ToolTipService.ToolTip="Tablet writing mode" Padding="0,0,0,0" Margin="0,1,0,0" Style="{StaticResource CrimsonToolbarButton}" Background="Transparent" BorderBrush="#00000000" CornerRadius="4,4,4,4">
 
                                                         <Grid Height="45" Margin="4,1,4,-1">
                                                             <TextBlock FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" Margin="0,20,0,0"><Run Text="Tablet"/><LineBreak/><Run Text="writing mode"/></TextBlock>
+                                                            <FontIcon FontSize="16" Glyph="&#xE70A;" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Top" />
                                                         </Grid>
                                                     </Button>
                                                     <Button x:Name="RibbonViewMode" FontFamily="{StaticResource CustomFont}" Height="53" FontSize="22" ToolTipService.ToolTip="Ribbon view modes" Padding="0,0,0,0" Margin="0,1,0,0" Style="{StaticResource CrimsonToolbarButton}" Background="Transparent" BorderBrush="#00000000" CornerRadius="4,4,4,4">
 
                                                         <Grid Height="45" Margin="4,1,4,-1">
                                                             <TextBlock FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" Margin="0,20,0,0"><Run Text="Ribbon"/><LineBreak/><Run Text="view modes"/></TextBlock>
+                                                            <FontIcon FontSize="16" Glyph="&#xE70A;" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Top" />
                                                         </Grid>
                                                         <Button.Flyout>
                                                             <MenuFlyout>
