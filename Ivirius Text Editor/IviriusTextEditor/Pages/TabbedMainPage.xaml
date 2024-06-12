@@ -5345,7 +5345,7 @@
                 <Grid Background="{StaticResource AppBackgroundBrush}"/>
                 <TextBlock TextWrapping="Wrap" Text="Changelog - Version 3.1.0.263" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{ThemeResource SubtitleTextBlockStyle}" Margin="25,24,0,0"/>
                 <StackPanel Margin="24,63,24,105">
-                    <TextBlock TextWrapping="Wrap"><Run Text="New features:"/><LineBreak/><Run Text="- Fixes to the Home Menu"/><LineBreak/><Run Text="- Wrap text in all buttons on the Ribbon"/><LineBreak/><Run Text="- Fix alignment of the Changelog button's icon in the Ribbon"/><LineBreak/></TextBlock>
+                    <TextBlock TextWrapping="Wrap"><Run Text="New features:"/><LineBreak/><Run Text="- Add icons to the buttons in the View tab of the Ribbon"/><LineBreak/><Run Text="- Add links to Rebound News"/><LineBreak/></TextBlock>
                 </StackPanel>
             </Grid>
         </ContentDialog>
