@@ -3487,11 +3487,6 @@
                                             <FontIcon FontFamily="{StaticResource CustomFont}" Glyph="&#xF6FA;"/>
                                         </MenuFlyoutItem.Icon>
                                     </MenuFlyoutItem>
-                                    <MenuFlyoutItem x:Name="StoreItem" Text="{x:Bind Strings:StringTable.Store}" Click="Button_Click_3">
-                                        <MenuFlyoutItem.Icon>
-                                            <FontIcon FontFamily="{StaticResource CustomFont}" Glyph="&#xE14D;"/>
-                                        </MenuFlyoutItem.Icon>
-                                    </MenuFlyoutItem>
                                     <MenuFlyoutItem x:Name="BugItem" Text="{x:Bind Strings:StringTable.Bug}" Click="Button_Click_1">
                                         <MenuFlyoutItem.Icon>
                                             <FontIcon FontFamily="{StaticResource CustomFont}" Glyph="&#xEA39;"/>
