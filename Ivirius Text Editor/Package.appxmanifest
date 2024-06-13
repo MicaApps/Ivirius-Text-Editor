@@ -9,7 +9,7 @@
 
   <Identity
     Name="Ivirius.IviriusTextEditorPlusSE"
-    Publisher="CN=IVR"
+    Publisher="CN=jpb"
     Version="2.5.0.0" />
 
   <mp:PhoneIdentity PhoneProductId="94651bc2-109e-4f61-9638-a2fa71523094" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
