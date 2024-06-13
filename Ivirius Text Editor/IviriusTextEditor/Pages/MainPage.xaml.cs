@@ -863,7 +863,7 @@ namespace IviriusTextEditor.Pages
             if ((string)LS.Values["SetupFinish"] != "Yes")
             {
                 var TBView = ApplicationView.GetForCurrentView();
-                _ = TBView.TryEnterFullScreenMode();
+                //_ = TBView.TryEnterFullScreenMode();
             }
             else { }
         }
