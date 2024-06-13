@@ -1,6 +1,6 @@
 ﻿//MicaForUWP
 using IviriusTextEditor.Core.Helpers;
-using IviriusTextEditor.Core.Zippy.UserControls;
+//using IviriusTextEditor.Core.Zippy.UserControls;
 using IviriusTextEditor.Languages;
 using MicaForUWP.Media;
 //Microsoft toolkit usings
