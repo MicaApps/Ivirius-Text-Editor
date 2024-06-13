@@ -93,7 +93,7 @@ namespace IviriusTextEditor.Pages
 
             //Settings
             RequestedTheme = ElementTheme.Light;
-            OutputBox.Text = "Ivirius Text Editor Plus> ";
+            OutputBox.Text = "Ivirius Text Editor Plus Lite> ";
             DTSave.Interval = new TimeSpan(0, 0, (int)1.5);
             DTSave.Tick += DTSave_Tick;
             AppCenter.Start("Debugging", typeof(Crashes));
@@ -3475,7 +3475,7 @@ namespace IviriusTextEditor.Pages
                     OutputBox.Inlines.Add(new LineBreak());
                     OutputBox.Inlines.Add(new Run()
                     {
-                        Text = $"Ivirius Text Editor Plus> ",
+                        Text = $"Ivirius Text Editor Plus Lite> ",
                         Foreground = new SolidColorBrush(Colors.White)
                     });
                     ConsoleBox.Text = ConsoleBox.Text.Remove(7);
@@ -3496,7 +3496,7 @@ namespace IviriusTextEditor.Pages
                     OutputBox.Inlines.Add(new LineBreak());
                     OutputBox.Inlines.Add(new Run()
                     {
-                        Text = $"Ivirius Text Editor Plus> ",
+                        Text = $"Ivirius Text Editor Plus Lite> ",
                         Foreground = new SolidColorBrush(Colors.White)
                     });
                     ConsoleBox.Text = ConsoleBox.Text.Remove(7);
@@ -3530,7 +3530,7 @@ namespace IviriusTextEditor.Pages
                 OutputBox.Inlines.Add(new LineBreak());
                 OutputBox.Inlines.Add(new Run()
                 {
-                    Text = $"Ivirius Text Editor Plus> ",
+                    Text = $"Ivirius Text Editor Plus Lite> ",
                     Foreground = new SolidColorBrush(Colors.White)
                 });
                 ConsoleBox.Text = ConsoleBox.Text.Remove(7);
@@ -3553,7 +3553,7 @@ namespace IviriusTextEditor.Pages
                 OutputBox.Inlines.Add(new LineBreak());
                 OutputBox.Inlines.Add(new Run()
                 {
-                    Text = $"Ivirius Text Editor Plus> ",
+                    Text = $"Ivirius Text Editor Plus Lite> ",
                     Foreground = new SolidColorBrush(Colors.White)
                 });
             }
@@ -3562,7 +3562,7 @@ namespace IviriusTextEditor.Pages
                 OutputBox.Inlines.Clear();
                 OutputBox.Inlines.Add(new Run()
                 {
-                    Text = $"Ivirius Text Editor Plus> ",
+                    Text = $"Ivirius Text Editor Plus Lite> ",
                     Foreground = new SolidColorBrush(Colors.White)
                 });
             }
@@ -3606,7 +3606,7 @@ namespace IviriusTextEditor.Pages
                     OutputBox.Inlines.Add(new LineBreak());
                     OutputBox.Inlines.Add(new Run()
                     {
-                        Text = $"VelocityIDs for Ivirius Text Editor Plus",
+                        Text = $"VelocityIDs for Ivirius Text Editor Plus Lite",
                         Foreground = new SolidColorBrush(Colors.White)
                     });
                     OutputBox.Inlines.Add(new LineBreak());
@@ -3647,7 +3647,7 @@ namespace IviriusTextEditor.Pages
                     OutputBox.Inlines.Add(new LineBreak());
                     OutputBox.Inlines.Add(new Run()
                     {
-                        Text = $"Ivirius Text Editor Plus> ",
+                        Text = $"Ivirius Text Editor Plus Lite> ",
                         Foreground = new SolidColorBrush(Colors.White)
                     });
                     DT.Stop();
@@ -3671,7 +3671,7 @@ namespace IviriusTextEditor.Pages
                 OutputBox.Inlines.Add(new LineBreak());
                 OutputBox.Inlines.Add(new Run()
                 {
-                    Text = $"Ivirius Text Editor Plus> ",
+                    Text = $"Ivirius Text Editor Plus Lite> ",
                     Foreground = new SolidColorBrush(Colors.White)
                 });
             }
@@ -3701,7 +3701,7 @@ namespace IviriusTextEditor.Pages
                 OutputBox.Inlines.Add(new LineBreak());
                 OutputBox.Inlines.Add(new Run()
                 {
-                    Text = $"Ivirius Text Editor Plus> ",
+                    Text = $"Ivirius Text Editor Plus Lite> ",
                     Foreground = new SolidColorBrush(Colors.White)
                 });
             }
@@ -3733,7 +3733,7 @@ namespace IviriusTextEditor.Pages
                 OutputBox.Inlines.Add(new LineBreak());
                 OutputBox.Inlines.Add(new Run()
                 {
-                    Text = $"Ivirius Text Editor Plus> ",
+                    Text = $"Ivirius Text Editor Plus Lite> ",
                     Foreground = new SolidColorBrush(Colors.White)
                 });
             }

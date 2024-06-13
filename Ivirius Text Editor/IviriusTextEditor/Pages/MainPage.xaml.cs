@@ -485,7 +485,7 @@ namespace IviriusTextEditor.Pages
             if (TabbedView.TabItems.Count > 1)
             {
                 CloseWarningBox1.Open();
-                CloseWarningBox1.Title = "Ivirius Text Editor Plus";
+                CloseWarningBox1.Title = "Ivirius Text Editor Plus Lite";
                 CWFContent1.Text = "Are you sure you want to close?";
             }
             if (TabbedView.TabItems.Count == 1)
@@ -497,7 +497,7 @@ namespace IviriusTextEditor.Pages
                     if (((TabItem.Content as Frame).Content as TabbedMainPage).isWorkSaved == false)
                     {
                         CloseWarningBox2.Open();
-                        CloseWarningBox2.Title = "Ivirius Text Editor Plus";
+                        CloseWarningBox2.Title = "Ivirius Text Editor Plus Lite";
                         CWFContent2.Text = "Do you want to save your file?";
                     }
                     else
@@ -520,7 +520,7 @@ namespace IviriusTextEditor.Pages
                 if (((SysArgs.Tab.Content as Frame).Content as TabbedMainPage).isWorkSaved == false)
                 {
                     CloseWarningBox3.Open();
-                    CloseWarningBox3.Title = "Ivirius Text Editor Plus";
+                    CloseWarningBox3.Title = "Ivirius Text Editor Plus Lite";
                     CWFContent3.Text = "Do you want to save your file?";
                 }
                 else
