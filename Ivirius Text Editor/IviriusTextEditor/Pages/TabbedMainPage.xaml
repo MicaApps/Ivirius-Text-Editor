@@ -5080,7 +5080,7 @@
                                     </StackPanel>
                                 </Button>
                                 <StackPanel Orientation="Vertical">
-                                    <TextBlock Text="Version 3.1.0.263"/>
+                                    <TextBlock Text="Version 3.1.0.267"/>
                                     <TextBlock Text="Dev Channel"/>
                                 </StackPanel>
                             </StackPanel>
@@ -5108,7 +5108,7 @@
                 <Grid Margin="10,-115,10,0">
                     <Image HorizontalAlignment="Left" Height="100" Margin="5,125,0,0" VerticalAlignment="Top" Width="100" Source="/Assets/AppIcons/AppIcon.png"/>
                     <TextBlock HorizontalAlignment="Left" Margin="120,140,0,0" TextWrapping="Wrap" Text="Ivirius Text Editor" VerticalAlignment="Top" FontSize="16"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="120,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="11"><Run Text="Version 3.1.0.263 - Full release"/><LineBreak/><Run Text="Copyright © Ivirius Text Editor 2021 - 2024 "/><LineBreak/><Run Text="Compiled June 12, 2024"/><LineBreak/><Run Text="GitHub release - UWP"/><LineBreak/><Run/></TextBlock>
+                    <TextBlock HorizontalAlignment="Left" Margin="120,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="11"><Run Text="Version 3.1.0.267 - Full release"/><LineBreak/><Run Text="Copyright © Ivirius Text Editor 2021 - 2024 "/><LineBreak/><Run Text="Compiled June 19, 2024"/><LineBreak/><Run Text="GitHub release - UWP"/><LineBreak/><Run/></TextBlock>
                     <StackPanel Margin="0,235,0,0">
                         <HyperlinkButton Content="WinUI 2" Click="HyperlinkButton_Click_4" Padding="11,6,11,7"/>
                         <HyperlinkButton Content="Windows Community Toolkit" Click="HyperlinkButton_Click_4" Padding="11,6,11,7"/>
@@ -5340,10 +5340,10 @@
             <Image Height="100" Width="100" Margin="0,0,0,50" Source="/Assets/AppIcons/AppIcon.png"/>
             <Custom:ProgressRing IsActive="True" Width="25" Height="25" Margin="0,175,0,0"/>
         </Grid>
-        <ContentDialog x:Name="ChangelogWindow" Title="Changelog - Version 3.1.0.263" PrimaryButtonText="Close" Background="{StaticResource AppTitleBarBrush}" d:IsHidden="True">
+        <ContentDialog x:Name="ChangelogWindow" Title="Changelog - Version 3.1.0.267" PrimaryButtonText="Close" Background="{StaticResource AppTitleBarBrush}" d:IsHidden="True">
             <Grid Margin="-24,-63,-24,-105" Background="{StaticResource AppTitleBarBrush}">
                 <Grid Background="{StaticResource AppBackgroundBrush}"/>
-                <TextBlock TextWrapping="Wrap" Text="Changelog - Version 3.1.0.263" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{ThemeResource SubtitleTextBlockStyle}" Margin="25,24,0,0"/>
+                <TextBlock TextWrapping="Wrap" Text="Changelog - Version 3.1.0.267" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{ThemeResource SubtitleTextBlockStyle}" Margin="25,24,0,0"/>
                 <StackPanel Margin="24,63,24,105">
                     <TextBlock TextWrapping="Wrap"><Run Text="New features:"/><LineBreak/><Run Text="- Add icons to the buttons in the View tab of the Ribbon"/><LineBreak/><Run Text="- Add links to Rebound News"/><LineBreak/></TextBlock>
                 </StackPanel>
