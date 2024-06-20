@@ -24,7 +24,10 @@ using System.Threading.Tasks;
 //Windows components usings
 using Windows.ApplicationModel.Activation;
 using Windows.ApplicationModel.Core;
+using Windows.ApplicationModel.DataTransfer;
 using Windows.Devices.Input;
+using Windows.Foundation;
+using Windows.Graphics.Printing;
 using Windows.Media.SpeechSynthesis;
 using Windows.Security.Cryptography.Core;
 using Windows.Storage;
@@ -59,6 +62,8 @@ namespace IviriusTextEditor.Pages
         readonly DispatcherTimer DTSave = new();
         public bool IsCloseRequestComplete = false;
         string RestartArgs;
+        public bool TemplateBlankClicked = false;
+        public bool TemplateClicked = false;
 
         #region Page
 
@@ -76,6 +81,8 @@ namespace IviriusTextEditor.Pages
                 LoadingScreen.Visibility = Visibility.Collapsed;
                 REBOpenAnimation.Begin();
             }
+
+            ShareSourceLoad();
         }
 
         public TabbedMainPage()
@@ -484,7 +491,6 @@ namespace IviriusTextEditor.Pages
                 if ((string)LocalSettings.Values["News"] == "On")
                 {
                     NewsItem.Visibility = Visibility.Visible;
-                    StoreItem.Visibility = Visibility.Visible;
                     WebsiteItem.Visibility = Visibility.Visible;
                     BugItem.Visibility = Visibility.Visible;
                     YoutubeItem.Visibility = Visibility.Visible;
@@ -492,7 +498,6 @@ namespace IviriusTextEditor.Pages
                 if ((string)LocalSettings.Values["News"] == "Off")
                 {
                     NewsItem.Visibility = Visibility.Collapsed;
-                    StoreItem.Visibility = Visibility.Collapsed;
                     WebsiteItem.Visibility = Visibility.Collapsed;
                     BugItem.Visibility = Visibility.Collapsed;
                     YoutubeItem.Visibility = Visibility.Collapsed;
@@ -502,7 +507,6 @@ namespace IviriusTextEditor.Pages
             {
                 LocalSettings.Values["News"] = "On";
                 NewsItem.Visibility = Visibility.Visible;
-                StoreItem.Visibility = Visibility.Visible;
                 WebsiteItem.Visibility = Visibility.Visible;
                 BugItem.Visibility = Visibility.Visible;
                 YoutubeItem.Visibility = Visibility.Visible;
@@ -590,6 +594,8 @@ namespace IviriusTextEditor.Pages
             SizeBox.Items.Add("Letter");
             SizeBox.Items.Add("Tabloid");
             SizeBox.SelectedItem = "A4";
+
+            HomeNav.SelectedItem = HomeNavItem;
 
             #endregion Components
         }
@@ -881,9 +887,14 @@ namespace IviriusTextEditor.Pages
         public async Task EraseFile()
         {
             TXTFile = null;
-            var TempTXT = await StorageFile.GetFileFromApplicationUriAsync(new Uri(overrideFile));
-            var RAStream = await TempTXT.OpenAsync(FileAccessMode.Read);
-            REB.Document.LoadFromStream(TextSetOptions.FormatRtf, RAStream);
+            if (TemplateBlankClicked != true)
+            {
+                var TempTXT = await StorageFile.GetFileFromApplicationUriAsync(new Uri(overrideFile));
+                var RAStream = await TempTXT.OpenAsync(FileAccessMode.Read);
+                REB.Document.LoadFromStream(TextSetOptions.FormatRtf, RAStream);
+            } else {
+                REB.Document.SetText(TextSetOptions.FormatRtf, "");
+            }
         }
 
         private async void NewFile_Click(object Sender, RoutedEventArgs EvArgs)
@@ -2760,29 +2771,7 @@ namespace IviriusTextEditor.Pages
 
         private void SizeBox_SelectionChanged(object Sender, SelectionChangedEventArgs EvArgs)
         {
-            //Set A4 size
-            if ((string)SizeBox.SelectedItem == "A4")
-            {
-                REB.Width = 744;
-                REB.Height = 1052.4;
-                PP.MediaSize = Windows.Graphics.Printing.PrintMediaSize.IsoA4;
-            }
-
-            //Set Letter size
-            if ((string)SizeBox.SelectedItem == "Letter")
-            {
-                REB.Width = 765;
-                REB.Height = 990;
-                PP.MediaSize = Windows.Graphics.Printing.PrintMediaSize.NorthAmericaLetter;
-            }
-
-            //Set Tabloid size
-            if ((string)SizeBox.SelectedItem == "Tabloid")
-            {
-                REB.Width = 990;
-                REB.Height = 1530;
-                PP.MediaSize = Windows.Graphics.Printing.PrintMediaSize.NorthAmericaTabloid;
-            }
+            CheckPageSize();
         }
 
         private void ZoomSlider_ValueChanged(object Sender, Windows.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventArgs EvArgs)
@@ -3479,7 +3468,7 @@ namespace IviriusTextEditor.Pages
 
         private async void MenuFlyoutItem_Click_7(object Sender, RoutedEventArgs EvArgs)
         {
-            _ = await Launcher.LaunchUriAsync(new Uri("https://errortek-news.vercel.app"));
+            _ = await Launcher.LaunchUriAsync(new Uri("https://rebound-news-fluent.vercel.app"));
         }
 
         private async void MenuFlyoutItem_Click_8(object Sender, RoutedEventArgs EvArgs)
@@ -3918,11 +3907,11 @@ namespace IviriusTextEditor.Pages
             }
             if ((string)args.SelectedItem == "View modes")
             {
-                _ = ToolbarOptionsButton.Focus(FocusState.Keyboard);
+                //_ = ToolbarOptionsButton.Focus(FocusState.Keyboard);
             }
             if ((string)args.SelectedItem == "Tablet writing")
             {
-                _ = HandButton.Focus(FocusState.Keyboard);
+                //_ = HandButton.Focus(FocusState.Keyboard);
             }
             if ((string)args.SelectedItem == "Undo")
             {
@@ -4307,16 +4296,20 @@ namespace IviriusTextEditor.Pages
         {
             TextCmdBar.Visibility = Visibility.Visible;
             InsertCmdBar.Visibility = Visibility.Collapsed;
+            ViewCmdBar.Visibility = Visibility.Collapsed;
             EditButton.IsChecked = true;
             InsertButton.IsChecked = false;
+            TextBoxViewButton.IsChecked = false;
         }
 
         private void Button_Click_34(object sender, RoutedEventArgs e)
         {
             TextCmdBar.Visibility = Visibility.Collapsed;
             InsertCmdBar.Visibility = Visibility.Visible;
+            ViewCmdBar.Visibility = Visibility.Collapsed;
             EditButton.IsChecked = false;
             InsertButton.IsChecked = true;
+            TextBoxViewButton.IsChecked = false;
         }
 
         private void FindAndRepButton_Click(object sender, RoutedEventArgs e)
@@ -4563,5 +4556,160 @@ namespace IviriusTextEditor.Pages
         {
             URIHelper.LaunchURI("https://apps.microsoft.com/detail/9N4T9H9182J5?hl=en-US&gl=US");
         }
+
+        private async void BlankFIle(object sender, RoutedEventArgs e)
+        {
+            await SaveBoxLoad();
+
+        }
+
+        public async Task SaveBoxLoad()
+        {
+            MainPage mp = new MainPage();
+            await mp.showunsaveddialog();
+        }
+
+        public void CloseWarningBox2_SecondButtonTemplateClick(object sender, RoutedEventArgs e)
+        {
+            REB.TextDocument.SetText(TextSetOptions.FormatRtf, "");
+        }
+
+        private void HomeItem_Click(object sender, RoutedEventArgs e)
+        {
+            HomePage.Visibility = Visibility.Visible;
+        }
+
+        private async void InsertBlank(object sender, RoutedEventArgs e)
+        {
+            TemplateBlankClicked = true;
+            overrideFile = "";
+            await NewFile();
+        }
+
+        private void NavigationView_SelectionChanged(Microsoft.UI.Xaml.Controls.NavigationView sender, Microsoft.UI.Xaml.Controls.NavigationViewSelectionChangedEventArgs args)
+        {
+            if (HomePage.Visibility == Visibility.Visible)
+            {
+                if (HomeNav.SelectedItem != null)
+                {
+                    if (HomeNav.SelectedItem == HomeNavItem)
+                    {
+                        HomePanel.Visibility = Visibility.Visible;
+                    } else {
+                        if (HomePanel != null) {
+                            HomePanel.Visibility = Visibility.Collapsed;
+                        }
+
+                    }
+                    if (HomeNav.SelectedItem == NewNavItem)
+                    {
+                        NewPanel.Visibility = Visibility.Visible;
+                    }
+                    else
+                    {
+                        if (NewPanel != null)
+                        {
+                            NewPanel.Visibility = Visibility.Collapsed;
+                        }
+
+                    }
+                    if (HomeNav.SelectedItem == AccountNavItem)
+                    {
+                        UserText.Text = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+                        AccountsStackPanel.Visibility = Visibility.Visible;
+                    }
+                    else
+                    {
+                        if (AccountsStackPanel != null)
+                        {
+                            AccountsStackPanel.Visibility = Visibility.Collapsed;
+                        }
+
+                    }
+                    if (args.IsSettingsSelected)
+                    {
+                        SettingsFrame.Navigate(typeof(SettingsPage));
+                        SettingsFrame.Visibility = Visibility.Visible;
+                    } else {
+                        if (SettingsFrame != null)
+                        {
+                            SettingsFrame.Visibility = Visibility.Collapsed;
+                        }
+                    }
+
+                } else {
+                    HomeNav.SelectedItem = HomeNavItem;
+                }
+            }
+        }
+
+            private void ViewToggle_Click(object sender, RoutedEventArgs e)
+            {
+                TextCmdBar.Visibility = Visibility.Collapsed;
+                InsertCmdBar.Visibility = Visibility.Collapsed;
+                ViewCmdBar.Visibility = Visibility.Visible;
+                EditButton.IsChecked = false;
+                InsertButton.IsChecked = false;
+                TextBoxViewButton.IsChecked = true;
+            }
+
+            private void PrintMode_Click(object sender, RoutedEventArgs e)
+            {
+                SizeBox.IsEnabled = true;
+                CheckPageSize();
+            }
+
+            private void WebMode_Click(object sender, RoutedEventArgs e)
+            {
+                REB.Width = REBPanel.Width;
+                SizeBox.IsEnabled = false;
+            }
+
+            private void CheckPageSize()
+            {
+                //Set A4 size
+                if ((string)SizeBox.SelectedItem == "A4")
+                {
+                    REB.Width = 744;
+                    REB.Height = 1052.4;
+                    PP.MediaSize = PrintMediaSize.IsoA4;
+                }
+
+                //Set Letter size
+                if ((string)SizeBox.SelectedItem == "Letter")
+                {
+                    REB.Width = 765;
+                    REB.Height = 990;
+                    PP.MediaSize = PrintMediaSize.NorthAmericaLetter;
+                }
+
+                //Set Tabloid size
+                if ((string)SizeBox.SelectedItem == "Tabloid")
+                {
+                    REB.Width = 990;
+                    REB.Height = 1530;
+                    PP.MediaSize = PrintMediaSize.NorthAmericaTabloid;
+                }
+            }
+
+        private void ShareButton_Click(object sender, RoutedEventArgs e)
+        {
+            ShareSourceLoad();
+            DataTransferManager.ShowShareUI();
+        }
+
+        private void ShareSourceLoad()
+        {
+            DataTransferManager dataTransferManager = DataTransferManager.GetForCurrentView();
+            dataTransferManager.DataRequested += new TypedEventHandler<DataTransferManager, DataRequestedEventArgs>(this.DataRequested);
+        }
+
+        private void DataRequested(DataTransferManager sender, DataRequestedEventArgs e)
+        {
+            DataRequest request = e.Request;
+            request.Data.Properties.Title = "Ivirius Share Service";
+            request.Data.Properties.Description = "Text sharing for Ivirius Text Editor";
+            request.Data.SetText(REB.TextDocument.ToString());
+        }
     }
-}
+    }

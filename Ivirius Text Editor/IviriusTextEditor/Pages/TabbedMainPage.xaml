@@ -3452,11 +3452,17 @@
                                                 <PathIcon Data="M 20 6.875 L 20 13.125 C 20 13.372396 19.952799 13.611654 19.858398 13.842773 C 19.763996 14.073894 19.628906 14.277344 19.453125 14.453125 C 19.277344 14.628906 19.073893 14.763998 18.842773 14.858398 C 18.611652 14.9528 18.372395 15 18.125 15 L 16.25 15 L 16.25 16.875 C 16.25 17.128906 16.201172 17.369791 16.103516 17.597656 C 16.005859 17.825521 15.870768 18.025717 15.698242 18.198242 C 15.525715 18.370768 15.32552 18.505859 15.097656 18.603516 C 14.869791 18.701172 14.628906 18.75 14.375 18.75 L 5.625 18.75 C 5.371094 18.75 5.130208 18.701172 4.902344 18.603516 C 4.674479 18.505859 4.474284 18.370768 4.301758 18.198242 C 4.129231 18.025717 3.99414 17.825521 3.896484 17.597656 C 3.798828 17.369791 3.75 17.128906 3.75 16.875 L 3.75 15 L 1.875 15 C 1.627604 15 1.388346 14.9528 1.157227 14.858398 C 0.926107 14.763998 0.722656 14.628906 0.546875 14.453125 C 0.371094 14.277344 0.236003 14.073894 0.141602 13.842773 C 0.047201 13.611654 0 13.372396 0 13.125 L 0 6.875 C 0 6.445313 0.08138 6.04004 0.244141 5.65918 C 0.406901 5.278321 0.629883 4.94629 0.913086 4.663086 C 1.196289 4.379884 1.52832 4.156902 1.90918 3.994141 C 2.290039 3.831381 2.695312 3.75 3.125 3.75 L 3.75 3.75 L 3.75 3.125 C 3.75 2.864584 3.798828 2.620443 3.896484 2.392578 C 3.99414 2.164715 4.127604 1.966146 4.296875 1.796875 C 4.466146 1.627605 4.664713 1.494141 4.892578 1.396484 C 5.120442 1.298828 5.364583 1.25 5.625 1.25 L 14.375 1.25 C 14.635416 1.25 14.879557 1.298828 15.107422 1.396484 C 15.335286 1.494141 15.533854 1.627605 15.703125 1.796875 C 15.872396 1.966146 16.005859 2.164715 16.103516 2.392578 C 16.201172 2.620443 16.25 2.864584 16.25 3.125 L 16.25 3.75 L 16.875 3.75 C 17.304688 3.75 17.709961 3.831381 18.09082 3.994141 C 18.47168 4.156902 18.803711 4.379884 19.086914 4.663086 C 19.370117 4.94629 19.593098 5.278321 19.755859 5.65918 C 19.918619 6.04004 20 6.445313 20 6.875 Z M 5 3.75 L 15 3.75 L 15 3.125 C 14.999999 2.95573 14.93815 2.809246 14.814453 2.685547 C 14.690755 2.56185 14.544271 2.5 14.375 2.5 L 5.625 2.5 C 5.455729 2.5 5.309245 2.56185 5.185547 2.685547 C 5.061849 2.809246 5 2.95573 5 3.125 Z M 18.75 6.875 C 18.75 6.614584 18.701172 6.370443 18.603516 6.142578 C 18.505859 5.914714 18.372395 5.716146 18.203125 5.546875 C 18.033854 5.377605 17.835285 5.244142 17.607422 5.146484 C 17.379557 5.048829 17.135416 5.000001 16.875 5 L 3.125 5 C 2.864583 5.000001 2.620443 5.048829 2.392578 5.146484 C 2.164713 5.244142 1.966146 5.377605 1.796875 5.546875 C 1.627604 5.716146 1.494141 5.914714 1.396484 6.142578 C 1.298828 6.370443 1.25 6.614584 1.25 6.875 L 1.25 13.125 C 1.25 13.294271 1.311849 13.440756 1.435547 13.564453 C 1.559245 13.688151 1.705729 13.75 1.875 13.75 L 3.75 13.75 L 3.75 11.875 C 3.75 11.621094 3.798828 11.380209 3.896484 11.152344 C 3.99414 10.924479 4.129231 10.724284 4.301758 10.551758 C 4.474284 10.379232 4.674479 10.244141 4.902344 10.146484 C 5.130208 10.048828 5.371094 10 5.625 10 L 14.375 10 C 14.628906 10 14.869791 10.048828 15.097656 10.146484 C 15.32552 10.244141 15.525715 10.379232 15.698242 10.551758 C 15.870768 10.724284 16.005859 10.924479 16.103516 11.152344 C 16.201172 11.380209 16.25 11.621094 16.25 11.875 L 16.25 13.75 L 18.125 13.75 C 18.29427 13.75 18.440754 13.688151 18.564453 13.564453 C 18.68815 13.440756 18.75 13.294271 18.75 13.125 Z M 15 11.875 C 14.999999 11.705729 14.93815 11.559245 14.814453 11.435547 C 14.690755 11.31185 14.544271 11.25 14.375 11.25 L 5.625 11.25 C 5.455729 11.25 5.309245 11.31185 5.185547 11.435547 C 5.061849 11.559245 5 11.705729 5 11.875 L 5 16.875 C 5 17.044271 5.061849 17.190756 5.185547 17.314453 C 5.309245 17.43815 5.455729 17.5 5.625 17.5 L 14.375 17.5 C 14.544271 17.5 14.690755 17.43815 14.814453 17.314453 C 14.93815 17.190756 14.999999 17.044271 15 16.875 Z "/>
                                             </MenuFlyoutItem.Icon>
                                         </MenuFlyoutItem>
+                                        <MenuFlyoutItem Text="Home" Click="HomeItem_Click">
+                                            <MenuFlyoutItem.Icon>
+                                                <SymbolIcon Symbol="Home"/>
+                                            </MenuFlyoutItem.Icon>
+                                        </MenuFlyoutItem>
                                     </MenuFlyout>
                                 </Button.Flyout>
                             </Button>
                             <ToggleButton x:Name="EditButton" Content="{x:Bind Strings:StringTable.RibbonEdit}" Background="#00000000" BorderBrush="{x:Null}" BorderThickness="0,0,0,0" Height="32" Click="Button_Click_33" Style="{StaticResource CrimsonToolbarToggleButton}" Padding="11,6,11,4"/>
                             <ToggleButton x:Name="InsertButton" Content="{x:Bind Strings:StringTable.RibbonInsert}" Background="#00000000" BorderBrush="{x:Null}" BorderThickness="0,0,0,0" Height="32" Click="Button_Click_34" Style="{StaticResource CrimsonToolbarToggleButton}" Padding="11,6,11,4"/>
+                            <ToggleButton x:Name="TextBoxViewButton" Content="View" Background="#00000000" BorderBrush="{x:Null}" BorderThickness="0,0,0,0" Height="32" Click="ViewToggle_Click" Style="{StaticResource CrimsonToolbarToggleButton}" Padding="11,6,11,4"/>
                             <Custom:MenuBar x:Name="FullToolbar" Margin="-4,0,0,0">
 
                                 <Custom:MenuBarItem Title="{x:Bind Strings:StringTable.RibbonTools}" Style="{StaticResource CrimsonMenuBarItem}" Height="32">
@@ -3485,11 +3491,6 @@
                                     <MenuFlyoutItem x:Name="WebsiteItem" Text="{x:Bind Strings:StringTable.Website}" Click="Button_Click">
                                         <MenuFlyoutItem.Icon>
                                             <FontIcon FontFamily="{StaticResource CustomFont}" Glyph="&#xF6FA;"/>
-                                        </MenuFlyoutItem.Icon>
-                                    </MenuFlyoutItem>
-                                    <MenuFlyoutItem x:Name="StoreItem" Text="{x:Bind Strings:StringTable.Store}" Click="Button_Click_3">
-                                        <MenuFlyoutItem.Icon>
-                                            <FontIcon FontFamily="{StaticResource CustomFont}" Glyph="&#xE14D;"/>
                                         </MenuFlyoutItem.Icon>
                                     </MenuFlyoutItem>
                                     <MenuFlyoutItem x:Name="BugItem" Text="{x:Bind Strings:StringTable.Bug}" Click="Button_Click_1">
@@ -3666,40 +3667,18 @@
                                 </TextBlock.Foreground>
                             </TextBlock>
                             <TextBlock x:FieldModifier="public" x:Name="FileNameTextBlock" TextWrapping="Wrap" Text="Untitled" VerticalAlignment="Center" Margin="0,0,5,3" Visibility="Collapsed"/>
-                            <Button x:Name="ChangelogButton" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="35" Height="35" Click="ChangelogButton_Click" FontFamily="{StaticResource CustomFont}" FontSize="16" Padding="2,2,2,2" ToolTipService.ToolTip="{x:Bind Strings:StringTable.Changelog}" CornerRadius="4,4,4,4" Background="{x:Null}" BorderBrush="{x:Null}">
-                                <TextBlock HorizontalAlignment="Stretch" Margin="0,0,0,0" TextWrapping="Wrap" Text="&#xF0E3;" VerticalAlignment="Stretch"/>
+                            <Button x:Name="ChangelogButton" Click="ChangelogButton_Click" ToolTipService.ToolTip="{x:Bind Strings:StringTable.Changelog}">
+                                <StackPanel Spacing="4" Orientation="Horizontal">
+                                    <TextBlock FontFamily="{ThemeResource CustomFont}" Text="&#xF0E3;" VerticalAlignment="Center"/>
+                                    <TextBlock Text="{x:Bind Strings:StringTable.Changelog}"/>
+                                </StackPanel>
                             </Button>
-                            <Button x:Name="ToolbarOptionsButton" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="35" Height="35" FontFamily="{StaticResource CustomFont}" FontSize="16" Padding="2,2,2,2" ToolTipService.ToolTip="{x:Bind Strings:StringTable.ViewModes}" CornerRadius="4,4,4,4" Background="{x:Null}" BorderBrush="{x:Null}">
-                                <Button.Flyout>
-                                    <MenuFlyout>
-                                        <MenuFlyoutItem Text="View all" Click="MenuFlyoutItem_Click_6">
-                                            <MenuFlyoutItem.Icon>
-                                                <FontIcon FontFamily="{StaticResource CustomFont}" Glyph="&#xE75A;"/>
-                                            </MenuFlyoutItem.Icon>
-                                        </MenuFlyoutItem>
-                                        <MenuFlyoutItem Text="Hide toolbar" Click="MenuFlyoutItem_Click_19">
-                                            <MenuFlyoutItem.Icon>
-                                                <FontIcon FontFamily="{StaticResource CustomFont}" Glyph="&#xE75B;"/>
-                                            </MenuFlyoutItem.Icon>
-                                        </MenuFlyoutItem>
-                                        <MenuFlyoutItem Text="Show workspace only" Click="MenuFlyoutItem_Click_21">
-                                            <MenuFlyoutItem.Icon>
-                                                <FontIcon FontFamily="{StaticResource CustomFont}" Glyph="&#xE70A;"/>
-                                            </MenuFlyoutItem.Icon>
-                                        </MenuFlyoutItem>
-                                    </MenuFlyout>
-                                </Button.Flyout>
-                                <TextBlock HorizontalAlignment="Stretch" Margin="0,0,0,0" TextWrapping="Wrap" Text="&#xE161;" VerticalAlignment="Stretch"/>
-                            </Button>
-                            <Border BorderThickness="1" Width="3" Background="{StaticResource DividerStrokeColorDefaultBrush}" Height="27"/>
-                            <Button x:Name="HandButton" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="35" Height="35" FontFamily="{StaticResource CustomFont}" FontSize="16" Padding="2,2,2,2" ToolTipService.ToolTip="{x:Bind Strings:StringTable.TabletMode}" Click="HandButton_Click" CornerRadius="4,4,4,4" Background="{x:Null}" BorderBrush="{x:Null}">
-                                <Grid Width="24" Height="24" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,0">
-                                    <TextBlock TextWrapping="Wrap" FontFamily="{StaticResource CustomFont}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Width="16" RenderTransformOrigin="0.5,0.5" Text="&#xE70A;">
-                                        <TextBlock.RenderTransform>
-                                            <CompositeTransform ScaleX="1"/>
-                                        </TextBlock.RenderTransform></TextBlock>
-                                </Grid>
-                            </Button>
+                            <Button x:Name="ShareButton" Style="{StaticResource AccentButtonStyle}" Click="ShareButton_Click">
+                                <StackPanel Orientation="Horizontal" Spacing="4">
+                                    <FontIcon Glyph="&#xE72D;" FontSize="12"/>
+                                    <TextBlock Text="Share"/>
+                                </StackPanel>
+                            </Button> 
                         </StackPanel>
                     </Grid>
                     <Grid x:Name="TopMid" RelativePanel.Above="RulerGrid" RelativePanel.AlignTopWithPanel="True">
@@ -4235,7 +4214,7 @@
                                                     <Grid Width="30" Height="45" Margin="0,2,0,0">
                                                         <TextBlock TextWrapping="Wrap" Text="&#xE14E;" FontFamily="{StaticResource CustomFont}" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="16"/>
                                                         <TextBlock TextWrapping="Wrap" Text="&#xE79D;" FontFamily="{StaticResource CustomFont}" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="16" Foreground="#FFEDFF82"/>
-                                                        <TextBlock FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" Margin="0,20,0,0" Width="30" Text="{x:Bind Strings:StringTable.SelectAll}"/>
+                                                        <TextBlock FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" Margin="0,20,0,0" Width="30" Text="{x:Bind Strings:StringTable.SelectAll}" TextWrapping="WrapWholeWords"/>
                                                     </Grid>
                                                 </Button>
                                                 <Button x:Name="FindAndRepButton" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="40" Height="53" Click="FindAndRepButton_Click" FontFamily="{StaticResource CustomFont}" FontSize="10" Padding="2,2,2,2" ToolTipService.ToolTip="{x:Bind Strings:StringTable.FindAndReplace}" Margin="190,18,0,0" VerticalAlignment="Top" BorderBrush="#00000000" Background="Transparent" CornerRadius="4,4,4,4">
@@ -4246,7 +4225,7 @@
                                                                 <CompositeTransform TranslateX="1.9" ScaleX="1.55" ScaleY="1.55" TranslateY="1.6"/>
                                                             </Border.RenderTransform>
                                                         </Border>
-                                                        <TextBlock FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" Margin="0,20,0,0" Width="40" Text="{x:Bind Strings:StringTable.FindAndReplace}"/>
+                                                        <TextBlock FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" Margin="0,20,0,0" Width="40" Text="{x:Bind Strings:StringTable.FindAndReplace}" TextWrapping="WrapWholeWords"/>
                                                     </Grid>
                                                 </Button>
                                                 <TextBlock Text="{x:Bind Strings:StringTable.Document}" TextWrapping="Wrap" HorizontalAlignment="Center" FontSize="12" VerticalAlignment="Bottom" Opacity="0.8" Margin="0,0,0,12"/>
@@ -4308,6 +4287,67 @@
                                                             <PathIcon Data="M 3 5 C 3 4 4 3 5 3 L 15 3 C 16 3 17 4 17 5 L 17 12 L 16 12 L 16 5 C 16 4.5 15.5 4 15 4 L 5 4 C 4.5 4 4 4.5 4 5 L 4 15 C 4 15.5 4.5 16 5 16 L 12 16 L 12 17 L 5 17 C 4 17 3 16 3 15 M 16.5 13 A 1 1 0 0 0 16.5 20 A 1 1 0 0 0 16.5 13 M 16.5 14 A 1 1 0 0 1 16.5 19 A 1 1 0 0 1 16.5 14 M 17 17 C 16 17 16 17 16 16 L 16 15.5 C 16 14.5 17 14.5 17 15.5 L 17 16 L 17.5 16 C 18.5 16 18.5 17 17.5 17 L 17 17 M 6 7 A 1 1 0 0 0 6 5 A 1 1 0 0 0 6 7 M 10 7 A 1 1 0 0 0 10 5 A 1 1 0 0 0 10 7 M 14 7 A 1 1 0 0 0 14 5 A 1 1 0 0 0 14 7 M 5 8 L 15 8 L 15 9 L 5 9 M 5 10 L 9 10 L 9 11 L 5 11 M 11 10 L 15 10 L 15 11 L 11 11 M 5 12 L 9 12 L 9 13 L 5 13 M 11 12 L 15 12 C 14.18 12.008 13.393 12.538 13 13 L 11 13 M 5 14 L 9 14 L 9 15 L 5 15 M 11 14 L 12.434 14.001 C 12.062 14.47 12 15 12 15 L 11 15" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Top" />
                                                             <PathIcon Data="M 3 5 M 16.5 13 A 1 1 0 0 0 16.5 20 A 1 1 0 0 0 16.5 13 M 16.5 14 A 1 1 0 0 1 16.5 19 A 1 1 0 0 1 16.5 14 M 17 17 C 16 17 16 17 16 16 L 16 15.5 C 16 14.5 17 14.5 17 15.5 L 17 16 L 17.5 16 C 18.5 16 18.5 17 17.5 17 L 17 17" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="#FF5AFF00" />
                                                         </Grid>
+                                                    </Button>
+                                                </StackPanel>
+                                            </Grid>
+                                        </RelativePanel>
+                                    </Grid>
+                                </ScrollViewer>
+                                <ScrollViewer x:Name="ViewCmdBar" HorizontalScrollBarVisibility="Visible" HorizontalScrollMode="Enabled" VerticalScrollMode="Disabled" VerticalScrollBarVisibility="Hidden" Height="128" VerticalAlignment="Top" Margin="3,3,3,3" SizeChanged="TextCmdBar_SizeChanged" d:IsHidden="True">
+                                    <Grid VerticalAlignment="Top" Height="130" HorizontalAlignment="Left">
+                                        <RelativePanel Height="132">
+                                            <Grid x:Name="View" Height="132">
+                                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,27,0,0" Spacing="10">
+                                                    <Button x:Name="PrintViewMode" FontFamily="{StaticResource CustomFont}" Width="40" Height="53" FontSize="22" Click="PrintMode_Click" ToolTipService.ToolTip="Insert image" CornerRadius="4,4,4,4" VerticalAlignment="Center" Padding="0,0,0,0" Style="{StaticResource CrimsonToolbarButton}" Background="Transparent" BorderBrush="{x:Null}">
+                                                        <Grid Height="48" Margin="0,-6,0,0">
+                                                            <Grid Height="55" HorizontalAlignment="Center" VerticalAlignment="Top" Width="55" RenderTransformOrigin="0.5,0.5">
+                                                                <Grid.RenderTransform>
+                                                                    <CompositeTransform ScaleX="0.5" ScaleY="0.5"/>
+                                                                </Grid.RenderTransform>
+                                                            </Grid>
+                                                            <TextBlock FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Bottom" TextAlignment="Center" Margin="0,0,0,1"><Run Text="Print"/><LineBreak/><Run Text="Mode"/></TextBlock>
+                                                            <FontIcon FontSize="16" Glyph="&#xE7C3;" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Top" />
+                                                        </Grid>
+                                                    </Button>
+                                                    <Button x:Name="WebViewMode" FontFamily="{StaticResource CustomFont}" Width="40" Height="53" FontSize="22" Click="WebMode_Click" ToolTipService.ToolTip="Web mode" Padding="0,0,0,0" Margin="0,1,0,0" Style="{StaticResource CrimsonToolbarButton}" Background="Transparent" BorderBrush="#00000000" CornerRadius="4,4,4,4">
+
+                                                        <Grid Width="30" Height="45" Margin="4,1,4,-1">
+                                                            <TextBlock FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" Margin="0,20,0,0" Width="30"><Run Text="Web"/><LineBreak/><Run Text="Mode"/></TextBlock>
+                                                            <FontIcon FontSize="16" Glyph="&#xE9A6;" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Top" />
+                                                        </Grid>
+                                                    </Button>
+                                                    <Button x:Name="TabletViewMode" FontFamily="{StaticResource CustomFont}" Height="53" FontSize="22" Click="HandButton_Click" ToolTipService.ToolTip="Tablet writing mode" Padding="0,0,0,0" Margin="0,1,0,0" Style="{StaticResource CrimsonToolbarButton}" Background="Transparent" BorderBrush="#00000000" CornerRadius="4,4,4,4">
+
+                                                        <Grid Height="45" Margin="4,1,4,-1">
+                                                            <TextBlock FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" Margin="0,20,0,0"><Run Text="Tablet"/><LineBreak/><Run Text="writing mode"/></TextBlock>
+                                                            <FontIcon FontSize="16" Glyph="&#xE70A;" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Top" />
+                                                        </Grid>
+                                                    </Button>
+                                                    <Button x:Name="RibbonViewMode" FontFamily="{StaticResource CustomFont}" Height="53" FontSize="22" ToolTipService.ToolTip="Ribbon view modes" Padding="0,0,0,0" Margin="0,1,0,0" Style="{StaticResource CrimsonToolbarButton}" Background="Transparent" BorderBrush="#00000000" CornerRadius="4,4,4,4">
+
+                                                        <Grid Height="45" Margin="4,1,4,-1">
+                                                            <TextBlock FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" Margin="0,20,0,0"><Run Text="Ribbon"/><LineBreak/><Run Text="view modes"/></TextBlock>
+                                                            <FontIcon FontSize="16" Glyph="&#xE70A;" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Top" />
+                                                        </Grid>
+                                                        <Button.Flyout>
+                                                            <MenuFlyout>
+                                                                <MenuFlyoutItem Text="View all" Click="MenuFlyoutItem_Click_6">
+                                                                    <MenuFlyoutItem.Icon>
+                                                                        <FontIcon FontFamily="{StaticResource CustomFont}" Glyph="&#xE75A;"/>
+                                                                    </MenuFlyoutItem.Icon>
+                                                                </MenuFlyoutItem>
+                                                                <MenuFlyoutItem Text="Hide toolbar" Click="MenuFlyoutItem_Click_19">
+                                                                    <MenuFlyoutItem.Icon>
+                                                                        <FontIcon FontFamily="{StaticResource CustomFont}" Glyph="&#xE75B;"/>
+                                                                    </MenuFlyoutItem.Icon>
+                                                                </MenuFlyoutItem>
+                                                                <MenuFlyoutItem Text="Show workspace only" Click="MenuFlyoutItem_Click_21">
+                                                                    <MenuFlyoutItem.Icon>
+                                                                        <FontIcon FontFamily="{StaticResource CustomFont}" Glyph="&#xE70A;"/>
+                                                                    </MenuFlyoutItem.Icon>
+                                                                </MenuFlyoutItem>
+                                                            </MenuFlyout>
+                                                        </Button.Flyout>
                                                     </Button>
                                                 </StackPanel>
                                             </Grid>
@@ -4744,8 +4784,8 @@
             </Button>
         </Grid>
         <RichEditBox x:Name="RTB" Style="{StaticResource RichEditBoxStyle1}" x:FieldModifier="public" HorizontalAlignment="Center" VerticalAlignment="Center" Width="0" Height="0" RequestedTheme="Light"/>
-        <Border x:Name="HomePage" Background="#59000000" d:IsHidden="True">
-            <Border BorderBrush="#FF777777" BorderThickness="1" CornerRadius="8,8,8,8" MaxWidth="825" MaxHeight="775" Margin="15,15,15,15" Background="{StaticResource AppBackgroundBrush}">
+        <Border x:Name="HomePage" Background="#59000000" d:IsHidden="False">
+            <Border BorderBrush="#FF777777" BorderThickness="1" CornerRadius="8,8,8,8" Margin="15,15,15,15" Background="{StaticResource AppBackgroundBrush}">
                 <Grid x:FieldModifier="public" Background="{Binding Background, ElementName=PageTitleBar}">
                     <Border x:Name="HomeAccentBackground" BorderThickness="0,0,0,0" Visibility="{Binding Visibility, ElementName=AccentBackground}">
                         <Border.Background>
@@ -4763,37 +4803,141 @@
                     <Grid Margin="25,0,0,20" VerticalAlignment="Bottom">
                         <Image Height="100" Width="100" Source="/Assets/AppIcons/AppIcon.png" HorizontalAlignment="Left"/>
                         <TextBlock TextWrapping="Wrap" Text="Ivirius Text Editor" Margin="120,0,0,40" VerticalAlignment="Center" FontSize="18"/>
-                        <TextBlock TextWrapping="Wrap" Text="Create and edit rich text files - © Ivirius Text Editor 2021 - 2023 - made by Ivirius" Margin="120,10,0,0" VerticalAlignment="Center" FontSize="12"/>
+                        <TextBlock TextWrapping="Wrap" Text="Create and edit rich text files - © Ivirius Text Editor 2021 - 2024 - made by Ivirius" Margin="120,10,0,0" VerticalAlignment="Center" FontSize="12"/>
                         <HyperlinkButton x:Name="hyperlinkButton" Content="https://ivirius.vercel.app/" Margin="120,50,0,0" NavigateUri="https://ivirius.vercel.app/" Padding="0,0,0,0" FontSize="11"/>
                     </Grid>
-                    <Border Width="50" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top" CornerRadius="4,4,4,4" Margin="15,64,0,0" Background="#268E8E8E"/>
-                    <Border Background="{Binding Foreground, ElementName=LeftInd}" Height="24" CornerRadius="1.5,1.5,1.5,1.5" Width="3" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,77,0,0"/>
-                    <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,120,0,0" Spacing="5">
-                        <Button Background="Transparent" BorderThickness="0,0,0,0" Width="50" Height="50" Click="OB_Click" ToolTipService.ToolTip="Open">
-                            <TextBlock Text="&#xE1A5;" FontFamily="{StaticResource CustomFont}" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Button>
-                        <Button Background="Transparent" BorderThickness="0,0,0,0" Width="50" Height="50" Click="MenuFlyoutItem_Click_35" ToolTipService.ToolTip="Open multiple files">
-                            <TextBlock Text="&#xE1A5;" FontFamily="{StaticResource CustomFont}" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{Binding Foreground, ElementName=LeftInd}"/>
-                        </Button>
-                        <Button Background="Transparent" BorderThickness="0,0,0,0" Width="50" Height="50" Click="SB_Click" ToolTipService.ToolTip="Save">
-                            <TextBlock Text="&#xE105;" FontFamily="{StaticResource CustomFont}" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Button>
-                        <Button Background="Transparent" BorderThickness="0,0,0,0" Width="50" Height="50" Click="SAsB_Click" ToolTipService.ToolTip="Save as">
-                            <TextBlock Text="&#xEA35;" FontFamily="{StaticResource CustomFont}" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Button>
-                        <Button Background="Transparent" BorderThickness="0,0,0,0" Width="50" Height="50" Click="DelB_Click" ToolTipService.ToolTip="Delete">
-                            <TextBlock Text="&#xE107;" FontFamily="{StaticResource CustomFont}" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Button>
-                        <Button Background="Transparent" BorderThickness="0,0,0,0" Width="50" Height="50" Click="PntB_Click" ToolTipService.ToolTip="Print (BETA)" Padding="0,0,0,0">
-                            <Grid>
-                                <TextBlock Text="&#xF56D;" FontFamily="{StaticResource CustomFont}" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FFDC5454" Margin="0,0,2,0"/>
+                    <Custom:NavigationView HorizontalAlignment="Left" Width="320" Height="Auto" SelectedItem="HomeNavItem" PaneDisplayMode="Left" x:Name="HomeNav" VerticalAlignment="Stretch" Margin="15,50,0,135" SelectionChanged="NavigationView_SelectionChanged" IsPaneToggleButtonVisible="False" IsBackButtonVisible="Collapsed">
+                        <Custom:NavigationView.MenuItems>
+                            <Custom:NavigationViewItem Icon="Home" Content="Home" Tag="HomeNavItem" x:Name="HomeNavItem"/>
+                            <Custom:NavigationViewItem Content="New" Icon="Document" x:Name="NewNavItem"/>
+                            <Custom:NavigationViewItemSeparator/>
+                            <Custom:NavigationViewItem Icon="OpenFile" Content="Open"/>
+                            <Custom:NavigationViewItem Icon="Save" Content="Save"/>
+                            <Custom:NavigationViewItem Icon="Share" Content="Share"/>
+                            <Custom:NavigationViewItem Icon="Delete" Content="Delete"/>
+                        </Custom:NavigationView.MenuItems>
+                        <Custom:NavigationView.FooterMenuItems>
+                            <Custom:NavigationViewItem Content="Account" Icon="Contact" x:Name="AccountNavItem"/>
+                        </Custom:NavigationView.FooterMenuItems>
+                    </Custom:NavigationView>
+                    <StackPanel Margin="350,60,25,160" Spacing="10" x:Name="HomePanel">
+                        <TextBlock Text="Hey there!" FontSize="36" FontWeight="SemiBold"/>
+                        <TextBlock TextWrapping="Wrap" Text="New File" FontSize="24"/>
+                        <Button Height="135" Click="InsertBlank" Width="150" Padding="0,0,0,0">
+                            <Grid Width="148" Height="133">
+                                <Border CornerRadius="3,3,0,0" Margin="0,0,0,35" Height="NaN" Width="188" HorizontalAlignment="Center" Background="White"/>
+                                <Border VerticalAlignment="Bottom" CornerRadius="0,0,3,3" Height="35">
+                                    <Border.Background>
+                                        <LinearGradientBrush>
+                                            <GradientStop Color="#FF4B5BB3"/>
+                                            <GradientStop Color="#FF65A7FF" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+                                    <TextBlock TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="{StaticResource CustomFont}" Padding="0,0,0,0" FontSize="14" Margin="10,0,0,2" Text="Blank" Foreground="White"/>
+                                </Border>
                             </Grid>
                         </Button>
+                        <TextBlock TextWrapping="Wrap" Text="Templates" FontSize="24" Margin="0,15,0,0"/>
+                        <StackPanel Orientation="Horizontal">
+                            <Button Height="135" Click="Button_Click_21" Width="150" Padding="0,0,0,0" VerticalAlignment="Top">
+                                <Grid Width="148" Height="133">
+                                    <Image Source="/IviriusTextEditor/Templates/EssayTemp.png" Stretch="UniformToFill" VerticalAlignment="Top" Width="148" HorizontalAlignment="Left" Height="125"/>
+                                    <Border CornerRadius="3,3,0,0" Margin="0,0,0,35" Height="NaN" Width="188" HorizontalAlignment="Center"/>
+                                    <Border VerticalAlignment="Bottom" CornerRadius="0,0,3,3" Height="35">
+                                        <Border.Background>
+                                            <LinearGradientBrush>
+                                                <GradientStop Color="#FF4B5BB3"/>
+                                                <GradientStop Color="#FF65A7FF" Offset="1"/>
+                                            </LinearGradientBrush>
+                                        </Border.Background>
+                                        <TextBlock TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="{StaticResource CustomFont}" Padding="0,0,0,0" FontSize="14" Margin="10,0,0,2" Text="Essay" Foreground="White"/>
+                                    </Border>
+                                </Grid>
+                            </Button>
+                            <Button Height="135" Click="Button_Click_22" Width="150" Padding="0,0,0,0" VerticalAlignment="Top">
+                                <Grid Width="148" Height="133">
+                                    <Image Source="/IviriusTextEditor/Templates/ResumeTemp.png" Stretch="UniformToFill" VerticalAlignment="Top" Width="148" HorizontalAlignment="Left" Height="125"/>
+                                    <Border CornerRadius="3,3,0,0" Margin="0,0,0,35" Height="NaN" Width="188" HorizontalAlignment="Center"/>
+                                    <Border VerticalAlignment="Bottom" CornerRadius="0,0,3,3" Height="35">
+                                        <Border.Background>
+                                            <LinearGradientBrush>
+                                                <GradientStop Color="#FF4B5BB3"/>
+                                                <GradientStop Color="#FF65A7FF" Offset="1"/>
+                                            </LinearGradientBrush>
+                                        </Border.Background>
+                                        <TextBlock TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="{StaticResource CustomFont}" Padding="0,0,0,0" FontSize="14" Margin="10,0,0,2" Text="Resume" Foreground="White"/>
+                                    </Border>
+                                </Grid>
+                            </Button>
+                            <Button Height="135" Click="Button_Click_23" Width="150" Padding="0,0,0,0" VerticalAlignment="Top">
+                                <Grid Width="148" Height="133">
+                                    <Image Source="/IviriusTextEditor/Templates/CreditsTemp.png" Stretch="UniformToFill" VerticalAlignment="Top" Width="148" HorizontalAlignment="Left" Height="125"/>
+                                    <Border CornerRadius="3,3,0,0" Margin="0,0,0,35" Height="NaN" Width="188" HorizontalAlignment="Center"/>
+                                    <Border VerticalAlignment="Bottom" CornerRadius="0,0,3,3" Height="35">
+                                        <Border.Background>
+                                            <LinearGradientBrush>
+                                                <GradientStop Color="#FF4B5BB3"/>
+                                                <GradientStop Color="#FF65A7FF" Offset="1"/>
+                                            </LinearGradientBrush>
+                                        </Border.Background>
+                                        <TextBlock TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="{StaticResource CustomFont}" Padding="0,0,0,0" FontSize="14" Margin="10,0,0,2" Text="Credits" Foreground="White"/>
+                                    </Border>
+                                </Grid>
+                            </Button>
+                            <Button Height="135" Click="Button_Click_23" Width="150" Padding="0,0,0,0" VerticalAlignment="Top">
+                                <Grid Width="148" Height="133">
+                                    <Image Stretch="UniformToFill" VerticalAlignment="Top" Width="148" HorizontalAlignment="Left" Height="125" Source="/IviriusTextEditor/Templates/ImageEssayTemp.png"/>
+                                    <Border CornerRadius="3,3,0,0" Margin="0,0,0,35" Height="NaN" Width="188" HorizontalAlignment="Center"/>
+                                    <Border VerticalAlignment="Bottom" CornerRadius="0,0,3,3" Height="35">
+                                        <Border.Background>
+                                            <LinearGradientBrush>
+                                                <GradientStop Color="#FF4B5BB3"/>
+                                                <GradientStop Color="#FF65A7FF" Offset="1"/>
+                                            </LinearGradientBrush>
+                                        </Border.Background>
+                                        <TextBlock TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="{StaticResource CustomFont}" Padding="0,0,0,0" FontSize="14" Margin="10,0,0,2" Text="Image Essay" Foreground="White"/>
+                                    </Border>
+                                </Grid>
+                            </Button>
+                            <Button Height="135" Click="Button_Click_25" Width="150" Padding="0,0,0,0" VerticalAlignment="Top">
+                                <Grid Width="148" Height="133">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="111*"/>
+                                        <RowDefinition Height="22*"/>
+                                    </Grid.RowDefinitions>
+                                    <Image Stretch="UniformToFill" VerticalAlignment="Top" Width="148" HorizontalAlignment="Center" Height="125" Source="/IviriusTextEditor/Templates/ImageGalleryTemp.png" Grid.RowSpan="2"/>
+                                    <Border CornerRadius="3,3,0,0" Margin="0,0,0,13" Height="NaN" Width="188" HorizontalAlignment="Center"/>
+                                    <Border VerticalAlignment="Top" CornerRadius="0,0,3,3" Height="35" Margin="0,98,0,0" Grid.RowSpan="2">
+                                        <Border.Background>
+                                            <LinearGradientBrush>
+                                                <GradientStop Color="#FF4B5BB3"/>
+                                                <GradientStop Color="#FF65A7FF" Offset="1"/>
+                                            </LinearGradientBrush>
+                                        </Border.Background>
+                                        <TextBlock TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="{StaticResource CustomFont}" Padding="0,0,0,0" FontSize="14" Margin="10,0,0,2" Text="Image Gallery" Foreground="White"/>
+                                    </Border>
+                                </Grid>
+                            </Button>
+                            <Button Height="135" Click="Button_Click_26" Width="150" Padding="0,0,0,0" VerticalAlignment="Top">
+                                <Grid Width="148" Height="133">
+                                    <Image Stretch="UniformToFill" VerticalAlignment="Top" Width="148" HorizontalAlignment="Left" Height="125" Source="/IviriusTextEditor/Templates/NewspaperTemp.png"/>
+                                    <Border CornerRadius="3,3,0,0" Margin="0,0,0,35" Height="NaN" Width="188" HorizontalAlignment="Center"/>
+                                    <Border VerticalAlignment="Bottom" CornerRadius="0,0,3,3" Height="35">
+                                        <Border.Background>
+                                            <LinearGradientBrush>
+                                                <GradientStop Color="#FF4B5BB3"/>
+                                                <GradientStop Color="#FF65A7FF" Offset="1"/>
+                                            </LinearGradientBrush>
+                                        </Border.Background>
+                                        <TextBlock TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="{StaticResource CustomFont}" Padding="0,0,0,0" FontSize="14" Margin="10,0,0,2" Text="Newspaper" Foreground="White"/>
+                                    </Border>
+                                </Grid>
+                            </Button>
+                        </StackPanel>
                     </StackPanel>
-                    <TextBlock Text="&#xE130;" FontFamily="{StaticResource CustomFont}" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="28,75,0,0"/>
-                    <StackPanel Margin="100,60,25,160" Spacing="10">
+                    <StackPanel Margin="350,60,25,160" Spacing="10" x:Name="NewPanel" Visibility="Collapsed">
                         <TextBlock TextWrapping="Wrap" Text="New File" FontSize="24"/>
-                        <Button Height="135" Click="NewFile_Click" Width="150" Padding="0,0,0,0">
+                        <Button Height="135" Click="InsertBlank" Width="150" Padding="0,0,0,0">
                             <Grid Width="148" Height="133">
                                 <Border CornerRadius="3,3,0,0" Margin="0,0,0,35" Height="NaN" Width="188" HorizontalAlignment="Center" Background="White"/>
                                 <Border VerticalAlignment="Bottom" CornerRadius="0,0,3,3" Height="35">
@@ -4901,6 +5045,61 @@
                             </Button>
                         </Grid>
                     </StackPanel>
+                    <Grid x:Name="AccountsStackPanel" Margin="350,60,25,160" Visibility="Collapsed">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.5*"/>
+                            <ColumnDefinition Width="0.5*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="0" Orientation="Vertical" Width="Auto">
+                            <TextBlock Text="Account" Style="{ThemeResource BodyStrongTextBlockStyle}"/>
+                            <StackPanel Orientation="Horizontal" Spacing="10">
+                                <Custom:PersonPicture/>
+                                <TextBlock x:Name="UserText" Text="User" TextAlignment="Center" VerticalAlignment="Center" HorizontalTextAlignment="Center" FontSize="24" FontWeight="SemiBold"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Grid.Column="1" Orientation="Vertical" Width="Auto">
+                            <TextBlock Text="About Ivirius Text Editor" Style="{ThemeResource BodyStrongTextBlockStyle}"/>
+                            <StackPanel Orientation="Horizontal" Spacing="10">
+                                <Image Height="150" Width="150" Source="/Assets/AppIcons/01.png"/>
+                                <TextBlock Text="Ivirius Text Editor" Style="{ThemeResource TitleLargeTextBlockStyle}" VerticalAlignment="Center" TextAlignment="Center">
+                                    <TextBlock.Foreground>
+                                        <LinearGradientBrush>
+                                            <GradientStop Color="#FF4B5BB3"/>
+                                            <GradientStop Color="#FF65A7FF" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </TextBlock.Foreground>
+                                </TextBlock>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Spacing="10">
+                                <Button Click="AboutItem_Click" Width="150">
+                                    <StackPanel Orientation="Vertical">
+                                        <IconSourceElement>
+                                            <SymbolIconSource Symbol="Help"/>
+                                        </IconSourceElement>
+                                        <TextBlock Text="About"/>
+                                    </StackPanel>
+                                </Button>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="Version 3.1.0.267"/>
+                                    <TextBlock Text="Dev Channel"/>
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Spacing="10">
+                                <Button Click="ChangelogButton_Click" Width="150">
+                                    <StackPanel Orientation="Vertical">
+                                        <IconSourceElement>
+                                            <FontIconSource Glyph="&#xF0E3;"/>
+                                        </IconSourceElement>
+                                        <TextBlock Text="Changelog"/>
+                                    </StackPanel>
+                                </Button>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="Find out what's new in this update" TextWrapping="WrapWholeWords"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+                    <Frame x:Name="SettingsFrame" Margin="350,60,25,160" Visibility="Collapsed"/>
                 </Grid>
             </Border>
         </Border>
@@ -4909,7 +5108,7 @@
                 <Grid Margin="10,-115,10,0">
                     <Image HorizontalAlignment="Left" Height="100" Margin="5,125,0,0" VerticalAlignment="Top" Width="100" Source="/Assets/AppIcons/AppIcon.png"/>
                     <TextBlock HorizontalAlignment="Left" Margin="120,140,0,0" TextWrapping="Wrap" Text="Ivirius Text Editor" VerticalAlignment="Top" FontSize="16"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="120,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="11"><Run Text="Version 3.0.4.0 (2312R3.1400) - Full release"/><LineBreak/><Run Text="Copyright © Ivirius Text Editor 2021 - 2024 "/><LineBreak/><Run Text="Compiled May 19, 2024"/><LineBreak/><Run Text="GitHub release - UWP"/><LineBreak/><Run/></TextBlock>
+                    <TextBlock HorizontalAlignment="Left" Margin="120,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="11"><Run Text="Version 3.1.0.267 - Full release"/><LineBreak/><Run Text="Copyright © Ivirius Text Editor 2021 - 2024 "/><LineBreak/><Run Text="Compiled June 19, 2024"/><LineBreak/><Run Text="GitHub release - UWP"/><LineBreak/><Run/></TextBlock>
                     <StackPanel Margin="0,235,0,0">
                         <HyperlinkButton Content="WinUI 2" Click="HyperlinkButton_Click_4" Padding="11,6,11,7"/>
                         <HyperlinkButton Content="Windows Community Toolkit" Click="HyperlinkButton_Click_4" Padding="11,6,11,7"/>
@@ -5141,12 +5340,12 @@
             <Image Height="100" Width="100" Margin="0,0,0,50" Source="/Assets/AppIcons/AppIcon.png"/>
             <Custom:ProgressRing IsActive="True" Width="25" Height="25" Margin="0,175,0,0"/>
         </Grid>
-        <ContentDialog x:Name="ChangelogWindow" Title="Changelog - Version 3.0.4.0" PrimaryButtonText="Close" Background="{StaticResource AppTitleBarBrush}" d:IsHidden="True">
+        <ContentDialog x:Name="ChangelogWindow" Title="Changelog - Version 3.1.0.267" PrimaryButtonText="Close" Background="{StaticResource AppTitleBarBrush}" d:IsHidden="True">
             <Grid Margin="-24,-63,-24,-105" Background="{StaticResource AppTitleBarBrush}">
                 <Grid Background="{StaticResource AppBackgroundBrush}"/>
-                <TextBlock TextWrapping="Wrap" Text="Changelog - Version 3.0.4.0" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{ThemeResource SubtitleTextBlockStyle}" Margin="25,24,0,0"/>
+                <TextBlock TextWrapping="Wrap" Text="Changelog - Version 3.1.0.267" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{ThemeResource SubtitleTextBlockStyle}" Margin="25,24,0,0"/>
                 <StackPanel Margin="24,63,24,105">
-                    <TextBlock TextWrapping="Wrap"><Run Text="New features:"/><LineBreak/><Run Text="- Make Find/Replace work properly"/><LineBreak/></TextBlock>
+                    <TextBlock TextWrapping="Wrap"><Run Text="New features:"/><LineBreak/><Run Text="- Add a Velocity IDs UI and GitHub repo link in Settings"/><LineBreak/><Run Text="- Dependency updates"/><LineBreak/></TextBlock>
                 </StackPanel>
             </Grid>
         </ContentDialog>

@@ -178,6 +178,28 @@
                                     </Toolkit:SettingsCard>
                                 </Toolkit:SettingsExpander.Items>
                             </Toolkit:SettingsExpander>
+                            <Toolkit:SettingsCard
+                               ActionIconToolTip="Open GitHub repo in browser"
+                               Description="Go there to submit issues, view pull requests, and check out the code!!"
+                               Header="GitHub repo"
+                               IsClickEnabled="True"
+                               IsEnabled="True"
+                            Click="GH_Navigate">
+                                <Toolkit:SettingsCard.ActionIcon>
+                                    <FontIcon Glyph="&#xE8A7;"/>
+                                </Toolkit:SettingsCard.ActionIcon>
+                                <Toolkit:SettingsCard.HeaderIcon>
+                                    <FontIcon Glyph="&#xE943;"/>
+                                </Toolkit:SettingsCard.HeaderIcon>
+                            </Toolkit:SettingsCard>
+                            <Toolkit:SettingsCard x:Name="vidsblock"
+Header="Velocity IDs"
+IsClickEnabled="True"
+Click="VIDsButton_Click">
+                                <Toolkit:SettingsCard.HeaderIcon>
+                                    <FontIcon Glyph="&#xEC7A;"/>
+                                </Toolkit:SettingsCard.HeaderIcon>
+                            </Toolkit:SettingsCard>
                             <Toolkit:SettingsCard BorderThickness="1" CornerRadius="4,4,4,4" Margin="0,0,0,25">
                                 <StackPanel Orientation="Horizontal" Spacing="10">
                                     <Button Click="SSButton_Click_1" Content="{x:Bind Strings:StringTable.ResetSettings}" HorizontalAlignment="Right"/>

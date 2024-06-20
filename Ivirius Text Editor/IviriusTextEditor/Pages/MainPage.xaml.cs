@@ -1,4 +1,5 @@
-﻿using IviriusTextEditor.Core.Helpers;
+﻿using Ivirius_Text_Editor.IviriusTextEditor.Pages;
+using IviriusTextEditor.Core.Helpers;
 using IviriusTextEditor.Languages;
 using MicaForUWP.Media;
 using Microsoft.UI.Xaml.Controls;
@@ -360,6 +361,22 @@ namespace IviriusTextEditor.Pages
             TabbedView.SelectedIndex = TabbedView.TabItems.Count - 1;
         }
 
+        public void LaunchVIDsTab()
+        {
+            var RF = new Frame();
+            _ = RF.Navigate(typeof(VelocityIDsPage));
+
+            var NewTabItem = new TabViewItem
+            {
+                IconSource = new Microsoft.UI.Xaml.Controls.FontIconSource() { Glyph = "\uEC7A" },
+                Content = RF,
+                Header = "VelocityIDs"
+            };
+
+            TabbedView.TabItems.Add(NewTabItem);
+            TabbedView.SelectedIndex = TabbedView.TabItems.Count - 1;
+        }
+
         public void BeginFullHelpForNewTab()
         {
             var RF = new Frame();
@@ -604,6 +621,33 @@ namespace IviriusTextEditor.Pages
         private void Grid_SizeChanged(object sender, SizeChangedEventArgs e)
         {
 
+        }
+
+        private void showinsiderinfo(object sender, RoutedEventArgs e)
+        {
+            ToggleThemeTeachingTip1.IsOpen = true;
+        }
+
+        public async Task showunsaveddialog()
+        {
+            SysSender = TabbedView;
+            var TabItem = (TabViewItem)SysSender.TabItems[0];
+            if ((TabItem.Content as Frame).Content is TabbedMainPage)
+            {
+                if (((TabItem.Content as Frame).Content as TabbedMainPage).isWorkSaved == false)
+                {
+                    TabbedMainPage tmp = new TabbedMainPage();
+                    CloseWarningBox2.Open();
+                    CloseWarningBox2.Title = "Ivirius Text Editor";
+                    CloseWarningBox2.SecondButtonClick += tmp.CloseWarningBox2_SecondButtonTemplateClick;
+                    CWFContent2.Text = "Do you want to save your file?";
+                }
+                else
+                {
+                    TabbedView.TabItems.Clear();
+                    Shutdown();
+                }
+            }
         }
     }
 }
