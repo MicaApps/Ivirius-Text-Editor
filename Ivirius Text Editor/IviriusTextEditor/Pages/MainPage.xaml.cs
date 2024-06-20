@@ -1,4 +1,5 @@
-﻿using IviriusTextEditor.Core.Helpers;
+﻿using Ivirius_Text_Editor.IviriusTextEditor.Pages;
+using IviriusTextEditor.Core.Helpers;
 using IviriusTextEditor.Languages;
 using MicaForUWP.Media;
 using Microsoft.UI.Xaml.Controls;
@@ -354,6 +355,22 @@ namespace IviriusTextEditor.Pages
                 IconSource = new Microsoft.UI.Xaml.Controls.SymbolIconSource() { Symbol = Symbol.Setting },
                 Content = RF,
                 Header = "Settings"
+            };
+
+            TabbedView.TabItems.Add(NewTabItem);
+            TabbedView.SelectedIndex = TabbedView.TabItems.Count - 1;
+        }
+
+        public void LaunchVIDsTab()
+        {
+            var RF = new Frame();
+            _ = RF.Navigate(typeof(VelocityIDsPage));
+
+            var NewTabItem = new TabViewItem
+            {
+                IconSource = new Microsoft.UI.Xaml.Controls.FontIconSource() { Glyph = "\uEC7A" },
+                Content = RF,
+                Header = "VelocityIDs"
             };
 
             TabbedView.TabItems.Add(NewTabItem);

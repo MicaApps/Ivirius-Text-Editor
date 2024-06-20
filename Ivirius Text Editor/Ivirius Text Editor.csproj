@@ -149,6 +149,9 @@
     <Compile Include="IviriusTextEditor\Pages\TabbedMainPage.xaml.cs">
       <DependentUpon>TabbedMainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="IviriusTextEditor\Pages\VelocityIDsPage.xaml.cs">
+      <DependentUpon>VelocityIDsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -315,6 +318,10 @@
     <Page Include="IviriusTextEditor\Pages\TabbedMainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="IviriusTextEditor\Pages\VelocityIDsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Generic.xaml">
       <Generator>MSBuild:Compile</Generator>

@@ -1,5 +1,7 @@
-﻿using IviriusTextEditor.Core.Helpers;
+﻿using Ivirius_Text_Editor.IviriusTextEditor.Pages;
+using IviriusTextEditor.Core.Helpers;
 using IviriusTextEditor.Languages;
+using Microsoft.UI.Xaml.Controls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -697,6 +699,37 @@ namespace IviriusTextEditor.Pages
                 LS.Values.Remove(item.Key);
             }
             _ = await CoreApplication.RequestRestartAsync(RestartArgs);
+        }
+
+        private async void GH_Navigate(object sender, RoutedEventArgs e)
+        {
+            // The URI to launch
+            string uriToLaunch = @"https://github.com/IviriusMain/Ivirius-Text-Editor";
+
+            // Create a Uri object from a URI string 
+            var uri = new Uri(uriToLaunch);
+
+            // Launch the URI
+            async void DefaultLaunch()
+            {
+                // Launch the URI
+                var success = await Windows.System.Launcher.LaunchUriAsync(uri);
+
+                if (success)
+                {
+                    // URI launched
+                }
+                else
+                {
+                    // URI launch failed
+                }
+            }
+            DefaultLaunch();
+        }
+
+        private void VIDsButton_Click(object sender, RoutedEventArgs e)
+        {
+            ((Window.Current.Content as Frame).Content as MainPage).LaunchVIDsTab();
         }
     }
 }
