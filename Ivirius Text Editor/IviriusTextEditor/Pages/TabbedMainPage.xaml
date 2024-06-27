@@ -4298,14 +4298,10 @@
                                         <RelativePanel Height="132">
                                             <Grid x:Name="View" Height="132">
                                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,27,0,0" Spacing="10">
-                                                    <Button x:Name="PrintViewMode" FontFamily="{StaticResource CustomFont}" Width="40" Height="53" FontSize="22" Click="PrintMode_Click" ToolTipService.ToolTip="Insert image" CornerRadius="4,4,4,4" VerticalAlignment="Center" Padding="0,0,0,0" Style="{StaticResource CrimsonToolbarButton}" Background="Transparent" BorderBrush="{x:Null}">
-                                                        <Grid Height="48" Margin="0,-6,0,0">
-                                                            <Grid Height="55" HorizontalAlignment="Center" VerticalAlignment="Top" Width="55" RenderTransformOrigin="0.5,0.5">
-                                                                <Grid.RenderTransform>
-                                                                    <CompositeTransform ScaleX="0.5" ScaleY="0.5"/>
-                                                                </Grid.RenderTransform>
-                                                            </Grid>
-                                                            <TextBlock FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Bottom" TextAlignment="Center" Margin="0,0,0,1"><Run Text="Print"/><LineBreak/><Run Text="Mode"/></TextBlock>
+                                                    <Button x:Name="PrintViewMode" FontFamily="{StaticResource CustomFont}" Width="40" Height="53" FontSize="22" Click="PrintMode_Click" ToolTipService.ToolTip="Print mode" Padding="0,0,0,0" Margin="0,1,0,0" Style="{StaticResource CrimsonToolbarButton}" Background="Transparent" BorderBrush="#00000000" CornerRadius="4,4,4,4">
+
+                                                        <Grid Width="30" Height="45" Margin="4,1,4,-1">
+                                                            <TextBlock FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" Margin="0,20,0,0" Width="30"><Run Text="Print"/><LineBreak/><Run Text="Mode"/></TextBlock>
                                                             <FontIcon FontSize="16" Glyph="&#xE7C3;" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Top" />
                                                         </Grid>
                                                     </Button>
