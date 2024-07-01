@@ -5081,7 +5081,7 @@
                                 </Button>
                                 <StackPanel Orientation="Vertical">
                                     <TextBlock Text="Version 3.1.0.295"/>
-                                    <TextBlock Text="Dev Channel"/>
+                                    <TextBlock Text="Stable Channel"/>
                                 </StackPanel>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Spacing="10">
@@ -5345,7 +5345,7 @@
                 <Grid Background="{StaticResource AppBackgroundBrush}"/>
                 <TextBlock TextWrapping="Wrap" Text="Changelog - Version 3.1.0.295" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{ThemeResource SubtitleTextBlockStyle}" Margin="25,24,0,0"/>
                 <StackPanel Margin="24,63,24,105">
-                    <TextBlock TextWrapping="Wrap"><Run Text="New features:"/><LineBreak/><Run Text="- Add a Velocity IDs UI and GitHub repo link in Settings"/><LineBreak/><Run Text="- Dependency updates"/><LineBreak/></TextBlock>
+                    <TextBlock TextWrapping="Wrap"><Run Text="New features:"/><LineBreak/><Run Text="- Retarget the app onto the Windows 11, version 24H2 SDK"/><LineBreak/><Run Text="- Dependency updates"/><LineBreak/></TextBlock>
                 </StackPanel>
             </Grid>
         </ContentDialog>
