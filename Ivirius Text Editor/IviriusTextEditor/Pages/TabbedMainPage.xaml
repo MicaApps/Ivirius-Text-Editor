@@ -4356,6 +4356,24 @@
                                     <Custom:InfoBar x:Name="FileNotSavedInfoBar" BorderThickness="0,0,0,0" CornerRadius="0,0,0,0" Severity="Error"/>
                                     <Custom:InfoBar x:Name="PrintingSuccessBar" BorderThickness="0,0,0,0" CornerRadius="0,0,0,0" Severity="Success" Title="Printing has succeded for the current document"/>
                                     <Custom:InfoBar x:Name="PrintingFailBar" BorderThickness="0,0,0,0" CornerRadius="0,0,0,0" Severity="Error" Title="Printing has failed or aborted for the current document"/>
+                                    <Custom:InfoBar Title="Dev Channel" Severity="Informational" Message="You are using a Dev Channel build of Ivirius Text Editor." IsOpen="True">
+                                        <Custom:InfoBar.Resources>
+                                            <ResourceDictionary Source="ms-appx:///Microsoft.UI.Xaml/DensityStyles/Compact.xaml" />
+                                        </Custom:InfoBar.Resources>
+                                        <Custom:InfoBar.ActionButton>
+                                            <Button Style="{StaticResource AccentButtonStyle}" Content="More information" Click="ShowInsiderInfo"/>
+                                        </Custom:InfoBar.ActionButton>
+                                        <Custom:InfoBar.IconSource>
+                                            <Custom:FontIconSource  Glyph="&#xF1AD;"/>
+                                        </Custom:InfoBar.IconSource>
+                                    </Custom:InfoBar>
+                                    <Custom:TeachingTip x:Name="ToggleThemeTeachingTip1"
+    Title="Dev Channel"
+    Subtitle="The Dev Channel is the Insider Channel that receives builds with the latest features and may contain features that may not get released to the public. Beware, as these builds may be buggy or crash!">
+                                        <Custom:TeachingTip.IconSource>
+                                            <Custom:FontIconSource  Glyph="&#xF1AD;"/>
+                                        </Custom:TeachingTip.IconSource>
+                                    </Custom:TeachingTip>
                                 </StackPanel>
                             </Grid>
                         </Border>

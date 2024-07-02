@@ -705,21 +705,6 @@
                     <Grid x:Name="ShellTitlebarInset" Background="Transparent">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/Assets/AppIcons/AppIcon.png" Width="18" Height="18" Margin="12,0,8,0"/>
-                        <Grid x:Name="InsiderGrid">
-                            <Button Background="#FFFFC225" Width="50" Height="25" Padding="0" CornerRadius="8" Click="showinsiderinfo">
-                                <Grid>
-                                    <TextBlock Text="DEV" TextAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"></TextBlock>
-                                </Grid>
-                            </Button>
-                            <Custom:TeachingTip x:Name="ToggleThemeTeachingTip1"
-Target="{x:Bind InsiderGrid}"
-Title="{x:Bind Strings:StringTable.InsiderTitle}"
-Subtitle="{x:Bind Strings:StringTable.InsiderContent}">
-                                <Custom:TeachingTip.IconSource>
-                                    <Custom:FontIconSource  Glyph="&#xF1AD;"/>
-                                </Custom:TeachingTip.IconSource>
-                            </Custom:TeachingTip>
-                        </Grid>
                         </StackPanel>
                     </Grid>
                 </Custom:TabView.TabStripHeader>

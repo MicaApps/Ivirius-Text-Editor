@@ -4663,5 +4663,10 @@ namespace IviriusTextEditor.Pages
             request.Data.Properties.Description = "Text sharing for Ivirius Text Editor";
             request.Data.SetText(REB.TextDocument.ToString());
         }
+
+        private void ShowInsiderInfo(object sender, RoutedEventArgs e)
+        {
+            ToggleThemeTeachingTip1.IsOpen = true;
+        }
     }
     }

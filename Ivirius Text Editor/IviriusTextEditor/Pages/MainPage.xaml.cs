@@ -623,11 +623,6 @@ namespace IviriusTextEditor.Pages
 
         }
 
-        private void showinsiderinfo(object sender, RoutedEventArgs e)
-        {
-            ToggleThemeTeachingTip1.IsOpen = true;
-        }
-
         public async Task showunsaveddialog()
         {
             SysSender = TabbedView;
