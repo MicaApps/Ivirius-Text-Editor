@@ -4567,7 +4567,7 @@ namespace IviriusTextEditor.Pages
                     }
                     if (HomeNav.SelectedItem == AccountNavItem)
                     {
-                        UserText.Text = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+                        UserText.Text = Environment.UserName;
                         AccountsStackPanel.Visibility = Visibility.Visible;
                     }
                     else
