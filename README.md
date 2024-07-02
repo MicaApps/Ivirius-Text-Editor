@@ -58,7 +58,7 @@ Fork this repository to build your own text editor, but remember to change the b
 
 `Bluesky` - https://bsky.app/profile/ivirius-official.bsky.social
 
-`Discord` -
+`Discord`
 
 - `Ivirius Official Server`: https://discord.com/invite/uasSwW5U2B
 
