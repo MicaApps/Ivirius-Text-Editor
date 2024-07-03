@@ -280,6 +280,7 @@
     <None Include="IviriusTextEditor\Templates\ResumeTemp.rtf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="jpbAppCert24.pfx" />
     <None Include="Resources\Arrow.cur" />
     <None Include="Package.StoreAssociation.xml" />
     <Content Include="Assets\AppIcons\OpenIcon.png" />
