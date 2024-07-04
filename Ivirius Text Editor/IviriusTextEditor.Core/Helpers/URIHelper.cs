@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.Windows.System;
+using Windows.System;
 
 namespace IviriusTextEditor.Core.Helpers
 {

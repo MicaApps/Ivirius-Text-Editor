@@ -1,14 +1,13 @@
 ﻿//MicaForUWP
 using IviriusTextEditor.Core.Helpers;
 using IviriusTextEditor.Languages;
-using MicaForUWP.Media;
+
 //Microsoft toolkit usings
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Crashes;
 using Microsoft.Graphics.Canvas.Text;
-using Microsoft.Toolkit.Uwp.Helpers;
-using Microsoft.Toolkit.Uwp.Notifications;
-using Microsoft.Toolkit.Uwp.UI.Helpers;
+using CommunityToolkit.WinUI.Notifications;
+using CommunityToolkit.WinUI.Helpers;
 
 //WinUI namespaces
 using Microsoft.UI.Xaml.Controls;
@@ -49,9 +48,9 @@ using Microsoft.UI.Xaml.Navigation;
 //Clarification namespaces and classes
 using Color = Windows.UI.Color;
 using ColorChangedEventArgs = Microsoft.UI.Xaml.Controls.ColorChangedEventArgs;
-using ColorHelper = Microsoft.Toolkit.Uwp.Helpers.ColorHelper;
-using Frame = Windows.UI.Xaml.Controls.Frame;
-using Run = Windows.UI.Xaml.Documents.Run;
+using Windows.System;
+using Ivirius_Text_Editor;
+using Microsoft.UI;
 
 namespace IviriusTextEditor.Pages
 {
@@ -580,7 +579,7 @@ namespace IviriusTextEditor.Pages
             //Document config
             REB.Document.Selection.CharacterFormat.Size = (float)10.5;
             RTB.Document.Selection.CharacterFormat.Size = (float)10.5;
-            BackPicker.Color = Color.FromArgb(0, 255, 255, 255);
+            //BackPicker.Color = Color.FromArgb(0, 255, 255, 255);
 
             //Title bar config
             AppCoreTitleBar.ExtendViewIntoTitleBar = true;
@@ -736,7 +735,7 @@ namespace IviriusTextEditor.Pages
             }
             else
             {
-                ActionErrorMessage.Text = "There is no file associated with this document";
+                //ActionErrorMessage.Text = "There is no file associated with this document";
             }
         }
 
@@ -759,76 +758,70 @@ namespace IviriusTextEditor.Pages
 
         private async void MenuFlyoutItem_Click_24(object sender, RoutedEventArgs e)
         {
-/*
-    TODO You should replace 'App.WindowHandle' with the your window's handle (HWND) 
-    Read more on retrieving window handle here: https://docs.microsoft.com/en-us/windows/apps/develop/ui-input/retrieve-hwnd
-*/
-            var FSP = InitializeWithWindow(new FileSavePicker(),App.WindowHandle);
-            ApplicationDataContainer LocalSettings = ApplicationData.Current.LocalSettings;
-            //File dialog configuration
-            FSP.FileTypeChoices.Add("Plain Ivirius Text", new List<string>() { ".ivrtxt" });
-            FSP.FileTypeChoices.Add("Universal Plain Text", new List<string>() { ".txt" });
-            if (!(LocalSettings.Values["DEV"] == null))
-            {
-                if ((string)LocalSettings.Values["DEV"] == "On")
-                {
-                    FSP.FileTypeChoices.Add("HTML", new List<string>() { ".html" });
-                    FSP.FileTypeChoices.Add("XML", new List<string>() { ".xml" });
-                    FSP.FileTypeChoices.Add("CSS", new List<string>() { ".css" });
-                }
-                if ((string)LocalSettings.Values["DEV"] == "Off")
-                {
-                }
-            }
-            else
-            {
-                LocalSettings.Values["DEV"] = "Off";
-            }
-            FSP.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
-            FSP.SuggestedFileName = "New Plain Text File";
-            //Set file content
-            TXTFile = await FSP.PickSaveFileAsync();
-            if (!(TXTFile == null))
-            {
-                try
-                {
-                    IRandomAccessStream RAS = await TXTFile.OpenAsync(FileAccessMode.ReadWrite);
-                    REB.Document.SaveToStream(TextGetOptions.None, RAS);
-                    RTB.Document.LoadFromStream(TextSetOptions.None, RAS);
-                    RAS.Dispose();
-                    FileUpdateStatus Stats = await CachedFileManager.CompleteUpdatesAsync(TXTFile);
-                    if (Stats == FileUpdateStatus.Complete)
-                    {
-                        //Confirm file saving without close
-                        new ToastContentBuilder()
-                        .SetToastScenario(ToastScenario.Reminder)
-                        .AddText($"Your file has been succesfully saved at {TXTFile.Path}")
-                        .AddButton(new ToastButton()
-                            .SetDismissActivation().SetContent("Close"))
-                        .Show();
-                        CheckForSaving();
-                    }
-                    if (!(Stats == FileUpdateStatus.Complete))
-                    {
-                        //File failed to save message
-                        FileNotSavedInfoBar.Title = "File couldn't be saved";
-                        FileNotSavedInfoBar.IsOpen = true;
-                        CheckForSaving();
-                    }
-                }
-                catch
-                {
-                    FileNotSavedInfoBar.Title = "The file is currently in use either by the autosave option or another app";
-                    FileNotSavedInfoBar.IsOpen = true;
-                    CheckForSaving();
-                }
-            }
-        }
-
-        private static FileSavePicker InitializeWithWindow(FileSavePicker obj, IntPtr windowHandle)
-        {
-            WinRT.Interop.InitializeWithWindow.Initialize(obj, windowHandle);
-            return obj;
+            /*
+                TODO You should replace 'App.WindowHandle' with the your window's handle (HWND) 
+                Read more on retrieving window handle here: https://docs.microsoft.com/en-us/windows/apps/develop/ui-input/retrieve-hwnd
+            */
+            //var FSP = InitializeWithWindow(new FileSavePicker(), App.WindowHandle);
+            //ApplicationDataContainer LocalSettings = ApplicationData.Current.LocalSettings;
+            ////File dialog configuration
+            //FSP.FileTypeChoices.Add("Plain Ivirius Text", new List<string>() { ".ivrtxt" });
+            //FSP.FileTypeChoices.Add("Universal Plain Text", new List<string>() { ".txt" });
+            //if (!(LocalSettings.Values["DEV"] == null))
+            //{
+            //    if ((string)LocalSettings.Values["DEV"] == "On")
+            //    {
+            //        FSP.FileTypeChoices.Add("HTML", new List<string>() { ".html" });
+            //        FSP.FileTypeChoices.Add("XML", new List<string>() { ".xml" });
+            //        FSP.FileTypeChoices.Add("CSS", new List<string>() { ".css" });
+            //    }
+            //    if ((string)LocalSettings.Values["DEV"] == "Off")
+            //    {
+            //    }
+            //}
+            //else
+            //{
+            //    LocalSettings.Values["DEV"] = "Off";
+            //}
+            //FSP.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
+            //FSP.SuggestedFileName = "New Plain Text File";
+            ////Set file content
+            //TXTFile = await FSP.PickSaveFileAsync();
+            //if (!(TXTFile == null))
+            //{
+            //    try
+            //    {
+            //        IRandomAccessStream RAS = await TXTFile.OpenAsync(FileAccessMode.ReadWrite);
+            //        REB.Document.SaveToStream(TextGetOptions.None, RAS);
+            //        RTB.Document.LoadFromStream(TextSetOptions.None, RAS);
+            //        RAS.Dispose();
+            //        FileUpdateStatus Stats = await CachedFileManager.CompleteUpdatesAsync(TXTFile);
+            //        if (Stats == FileUpdateStatus.Complete)
+            //        {
+            //            //Confirm file saving without close
+            //            new ToastContentBuilder()
+            //            .SetToastScenario(ToastScenario.Reminder)
+            //            .AddText($"Your file has been succesfully saved at {TXTFile.Path}")
+            //            .AddButton(new ToastButton()
+            //                .SetDismissActivation().SetContent("Close"))
+            //            .Show();
+            //            CheckForSaving();
+            //        }
+            //        if (!(Stats == FileUpdateStatus.Complete))
+            //        {
+            //            //File failed to save message
+            //            FileNotSavedInfoBar.Title = "File couldn't be saved";
+            //            FileNotSavedInfoBar.IsOpen = true;
+            //            CheckForSaving();
+            //        }
+            //    }
+            //    catch
+            //    {
+            //        FileNotSavedInfoBar.Title = "The file is currently in use either by the autosave option or another app";
+            //        FileNotSavedInfoBar.IsOpen = true;
+            //        CheckForSaving();
+            //    }
+            //}
         }
 
         private async void SNFYesToFull_Click(object Sender, RoutedEventArgs EvArgs)
@@ -874,7 +867,7 @@ namespace IviriusTextEditor.Pages
             {
                 if (FileNotSaved.Visibility == Visibility.Visible)
                 {
-                    NewFileBox.Open();
+                    //NewFileBox.Open();
                 }
                 else
                 {
@@ -885,7 +878,7 @@ namespace IviriusTextEditor.Pages
             {
                 if (FileNotSaved.Visibility == Visibility.Visible)
                 {
-                    NewFileBox.Open();
+                    //NewFileBox.Open();
                 }
                 else
                 {
@@ -923,9 +916,9 @@ namespace IviriusTextEditor.Pages
                     FileNotSavedInfoBar.IsOpen = true;
                     CheckForSaving();
                 }
-                ActionWarningBox.Open();
-                ActionWarningMessage.Text = "Are you sure you want to delete this file?";
-                ActionWarningBox.FirstButtonClick += ED2_PrimaryButtonClick;
+                //ActionWarningBox.Open();
+                //ActionWarningMessage.Text = "Are you sure you want to delete this file?";
+                //ActionWarningBox.FirstButtonClick += ED2_PrimaryButtonClick;
                 void ED2_PrimaryButtonClick(object Sender, RoutedEventArgs EvArgs)
                 {
                     try
@@ -935,7 +928,7 @@ namespace IviriusTextEditor.Pages
                             _ = TXTFile.DeleteAsync();
                             TXTFile = null;
                             CheckForSaving();
-                            ActionWarningBox.FirstButtonClick -= ED2_PrimaryButtonClick;
+                            //ActionWarningBox.FirstButtonClick -= ED2_PrimaryButtonClick;
                         }
                         else
                         {
@@ -946,7 +939,7 @@ namespace IviriusTextEditor.Pages
                             .AddButton(new ToastButton()
                                 .SetDismissActivation().SetContent("Close"))
                             .Show();
-                            ActionWarningBox.FirstButtonClick -= ED2_PrimaryButtonClick;
+                            //ActionWarningBox.FirstButtonClick -= ED2_PrimaryButtonClick;
                         }
                     }
                     catch (Exception Ex)
@@ -964,11 +957,11 @@ namespace IviriusTextEditor.Pages
                             .SetProtocolActivation(new Uri("https://ivirius.vercel.app/contact/")).SetContent("Send bug report"))
                             .Show();
                             CheckForSaving();
-                            ActionWarningBox.FirstButtonClick -= ED2_PrimaryButtonClick;
+                            //ActionWarningBox.FirstButtonClick -= ED2_PrimaryButtonClick;
                         }
                         catch
                         {
-                            ActionWarningBox.FirstButtonClick -= ED2_PrimaryButtonClick;
+                            //ActionWarningBox.FirstButtonClick -= ED2_PrimaryButtonClick;
                         }
                         return;
                     }
@@ -993,133 +986,133 @@ namespace IviriusTextEditor.Pages
             else
             {
                 //Remember the user to save the file
-                FileSaveBox.FirstButtonClick += ED2_PrimaryButtonClick;
-                FileSaveBox.SecondButtonClick += ED2_SecondaryButtonClick;
-                FileSaveBox.CancelButtonClick += ED2_CloseButtonClick;
-                try { FileSaveBox.Open(); } catch { }
+                //FileSaveBox.FirstButtonClick += ED2_PrimaryButtonClick;
+                //FileSaveBox.SecondButtonClick += ED2_SecondaryButtonClick;
+                //FileSaveBox.CancelButtonClick += ED2_CloseButtonClick;
+                //try { FileSaveBox.Open(); } catch { }
                 async void ED2_PrimaryButtonClick(object SenderSec, RoutedEventArgs DialogEvArgs)
                 {
-                    if (TXTFile != null) await SaveFile(true, false, false, false); else await SaveFile(false, false, false, false);
-                    FileSaveBox.Close();
-                    FileSaveBox.FirstButtonClick -= ED2_PrimaryButtonClick;
-                    FileSaveBox.SecondButtonClick -= ED2_SecondaryButtonClick;
-                    FileSaveBox.CancelButtonClick -= ED2_CloseButtonClick;
+                    //if (TXTFile != null) await SaveFile(true, false, false, false); else await SaveFile(false, false, false, false);
+                    //FileSaveBox.Close();
+                    //FileSaveBox.FirstButtonClick -= ED2_PrimaryButtonClick;
+                    //FileSaveBox.SecondButtonClick -= ED2_SecondaryButtonClick;
+                    //FileSaveBox.CancelButtonClick -= ED2_CloseButtonClick;
                 }
                 async void ED2_SecondaryButtonClick(object SenderSec, RoutedEventArgs DialogEvArgs)
                 {
                     await Open();
-                    FileSaveBox.Close();
-                    FileSaveBox.FirstButtonClick -= ED2_PrimaryButtonClick;
-                    FileSaveBox.SecondButtonClick -= ED2_SecondaryButtonClick;
-                    FileSaveBox.CancelButtonClick -= ED2_CloseButtonClick;
+                    //FileSaveBox.Close();
+                    //FileSaveBox.FirstButtonClick -= ED2_PrimaryButtonClick;
+                    //FileSaveBox.SecondButtonClick -= ED2_SecondaryButtonClick;
+                    //FileSaveBox.CancelButtonClick -= ED2_CloseButtonClick;
                 }
                 void ED2_CloseButtonClick(object SenderSec, RoutedEventArgs DialogEvArgs)
                 {
-                    FileSaveBox.Close();
-                    FileSaveBox.FirstButtonClick -= ED2_PrimaryButtonClick;
-                    FileSaveBox.SecondButtonClick -= ED2_SecondaryButtonClick;
-                    FileSaveBox.CancelButtonClick -= ED2_CloseButtonClick;
+                    //FileSaveBox.Close();
+                    //FileSaveBox.FirstButtonClick -= ED2_PrimaryButtonClick;
+                    //FileSaveBox.SecondButtonClick -= ED2_SecondaryButtonClick;
+                    //FileSaveBox.CancelButtonClick -= ED2_CloseButtonClick;
                 }
             }
         }
 
         public async void Print()
         {
-            int workingComponents = 0;
+            //int workingComponents = 0;
 
-            try
-            {
-                StorageFolder desktop = await StorageFolder.GetFolderFromPathAsync(Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory));
-                StorageFile TempFile;
-                try
-                {
-                    TempFile = await desktop.CreateFileAsync("IviriusTextEditorPrinterCachedDocument.ivrprintingservice");
-                    CachedFileManager.DeferUpdates(TempFile);
-                    using (IRandomAccessStream RAS = await TempFile.OpenAsync(FileAccessMode.ReadWrite))
-                    {
-                        REB.Document.SaveToStream(TextGetOptions.FormatRtf, RAS);
-                        if (await CachedFileManager.CompleteUpdatesAsync(TempFile) is FileUpdateStatus.Complete)
-                        {
-                            workingComponents++;
-                        }
-                        else
-                        {
-                            //File failed to check for saving
-                            FileNotSavedInfoBar.Title = "An unexpected error occured. Please manually delete the cached printer file from your desktop and try again.";
-                            FileNotSavedInfoBar.IsOpen = true;
-                        }
-                    }
-                    if (await CachedFileManager.CompleteUpdatesAsync(TempFile) is FileUpdateStatus.Complete)
-                    {
-                        //Confirm file saving without close
-                        CheckForSaving();
-                    }
-                    else
-                    {
-                        //File failed to save message
-                        FileNotSavedInfoBar.Title = "Printer file couldn't be saved.";
-                        FileNotSavedInfoBar.IsOpen = true;
-                        CheckForSaving();
-                    }
+            //try
+            //{
+            //    StorageFolder desktop = await StorageFolder.GetFolderFromPathAsync(Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory));
+            //    StorageFile TempFile;
+            //    try
+            //    {
+            //        TempFile = await desktop.CreateFileAsync("IviriusTextEditorPrinterCachedDocument.ivrprintingservice");
+            //        CachedFileManager.DeferUpdates(TempFile);
+            //        using (IRandomAccessStream RAS = await TempFile.OpenAsync(FileAccessMode.ReadWrite))
+            //        {
+            //            REB.Document.SaveToStream(TextGetOptions.FormatRtf, RAS);
+            //            if (await CachedFileManager.CompleteUpdatesAsync(TempFile) is FileUpdateStatus.Complete)
+            //            {
+            //                workingComponents++;
+            //            }
+            //            else
+            //            {
+            //                //File failed to check for saving
+            //                FileNotSavedInfoBar.Title = "An unexpected error occured. Please manually delete the cached printer file from your desktop and try again.";
+            //                FileNotSavedInfoBar.IsOpen = true;
+            //            }
+            //        }
+            //        if (await CachedFileManager.CompleteUpdatesAsync(TempFile) is FileUpdateStatus.Complete)
+            //        {
+            //            //Confirm file saving without close
+            //            CheckForSaving();
+            //        }
+            //        else
+            //        {
+            //            //File failed to save message
+            //            FileNotSavedInfoBar.Title = "Printer file couldn't be saved.";
+            //            FileNotSavedInfoBar.IsOpen = true;
+            //            CheckForSaving();
+            //        }
 
-                }
-                catch
-                {
-                    try
-                    {
-                        TempFile = await desktop.GetFileAsync("IviriusTextEditorPrinterCachedDocument.ivrprintingservice");
-                        await TempFile.DeleteAsync();
-                        TempFile = await desktop.CreateFileAsync("IviriusTextEditorPrinterCachedDocument.ivrprintingservice");
-                        CachedFileManager.DeferUpdates(TempFile);
-                        using (IRandomAccessStream RAS = await TempFile.OpenAsync(FileAccessMode.ReadWrite))
-                        {
-                            REB.Document.SaveToStream(TextGetOptions.FormatRtf, RAS);
-                            if (await CachedFileManager.CompleteUpdatesAsync(TempFile) is FileUpdateStatus.Complete)
-                            {
-                                workingComponents++;
-                            }
-                            else
-                            {
-                                //File failed to check for saving
-                                FileNotSavedInfoBar.Title = "An unexpected error occured. Please manually delete the cached printer file from your desktop and try again.";
-                                FileNotSavedInfoBar.IsOpen = true;
-                            }
-                        }
-                        if (await CachedFileManager.CompleteUpdatesAsync(TempFile) is FileUpdateStatus.Complete)
-                        {
-                            //Confirm file saving without close
-                            CheckForSaving();
-                        }
-                        else
-                        {
-                            //File failed to save message
-                            FileNotSavedInfoBar.Title = "Printer file couldn't be saved.";
-                            FileNotSavedInfoBar.IsOpen = true;
-                            CheckForSaving();
-                        }
-                    }
-                    catch
-                    {
-                        ActionWarningMessage.Text = "The printing file cannot be deleted. Please manually delete it from yuor desktop and try again.";
-                        ActionWarningBox.Open();
-                    }
-                }
-            }
-            catch
-            {
-                PrintingInfoBox.Open();
-                CheckForSaving();
-            }
+            //    }
+            //    catch
+            //    {
+            //        try
+            //        {
+            //            TempFile = await desktop.GetFileAsync("IviriusTextEditorPrinterCachedDocument.ivrprintingservice");
+            //            await TempFile.DeleteAsync();
+            //            TempFile = await desktop.CreateFileAsync("IviriusTextEditorPrinterCachedDocument.ivrprintingservice");
+            //            CachedFileManager.DeferUpdates(TempFile);
+            //            using (IRandomAccessStream RAS = await TempFile.OpenAsync(FileAccessMode.ReadWrite))
+            //            {
+            //                REB.Document.SaveToStream(TextGetOptions.FormatRtf, RAS);
+            //                if (await CachedFileManager.CompleteUpdatesAsync(TempFile) is FileUpdateStatus.Complete)
+            //                {
+            //                    workingComponents++;
+            //                }
+            //                else
+            //                {
+            //                    //File failed to check for saving
+            //                    FileNotSavedInfoBar.Title = "An unexpected error occured. Please manually delete the cached printer file from your desktop and try again.";
+            //                    FileNotSavedInfoBar.IsOpen = true;
+            //                }
+            //            }
+            //            if (await CachedFileManager.CompleteUpdatesAsync(TempFile) is FileUpdateStatus.Complete)
+            //            {
+            //                //Confirm file saving without close
+            //                CheckForSaving();
+            //            }
+            //            else
+            //            {
+            //                //File failed to save message
+            //                FileNotSavedInfoBar.Title = "Printer file couldn't be saved.";
+            //                FileNotSavedInfoBar.IsOpen = true;
+            //                CheckForSaving();
+            //            }
+            //        }
+            //        catch
+            //        {
+            //            ActionWarningMessage.Text = "The printing file cannot be deleted. Please manually delete it from yuor desktop and try again.";
+            //            ActionWarningBox.Open();
+            //        }
+            //    }
+            //}
+            //catch
+            //{
+            //    PrintingInfoBox.Open();
+            //    CheckForSaving();
+            //}
 
-            if (workingComponents == 1)
-            {
-                await Launcher.LaunchUriAsync(new Uri("ivirrtf2x:///"));
-            }
+            //if (workingComponents == 1)
+            //{
+            //    await Launcher.LaunchUriAsync(new Uri("ivirrtf2x:///"));
+            //}
 
-            else
-            {
-                PrintingInfoBox.Open();
-            }
+            //else
+            //{
+            //    PrintingInfoBox.Open();
+            //}
         }
 
         private void PntB_Click(object Sender, RoutedEventArgs EvArgs)
@@ -1141,42 +1134,42 @@ namespace IviriusTextEditor.Pages
 
         public async Task AutosaveWritingToFile()
         {
-            try
-            {
-                FileSaveBox.Close();
-                var RAS = await TXTFile.OpenAsync(FileAccessMode.ReadWrite);
-                REB.Document.SaveToStream(TextGetOptions.FormatRtf, RAS);
-                try
-                {
-                    RTB.Document.LoadFromStream(TextSetOptions.FormatRtf, RAS);
-                }
-                catch (AccessViolationException)
-                {
-                    ActionErrorMessage.Text = "The file you are trying to edit cannot be checked for saving";
-                    ActionErrorBox.Open();
-                    isFileLinked = false;
-                }
-                RAS.Dispose();
-                var Stats = await CachedFileManager.CompleteUpdatesAsync(TXTFile);
-                if (Stats == FileUpdateStatus.Complete)
-                {
-                    //Confirm file saving without close
-                    CheckForSaving();
-                }
-                if (Stats != FileUpdateStatus.Complete)
-                {
-                    //File failed to save message
-                    FileNotSavedInfoBar.Title = "File couldn't be saved";
-                    FileNotSavedInfoBar.IsOpen = true;
-                    isFileLinked = false;
-                    CheckForSaving();
-                }
-                isFileLinked = true;
-            }
-            catch
-            {
-                return;
-            }
+            //try
+            //{
+            //    FileSaveBox.Close();
+            //    var RAS = await TXTFile.OpenAsync(FileAccessMode.ReadWrite);
+            //    REB.Document.SaveToStream(TextGetOptions.FormatRtf, RAS);
+            //    try
+            //    {
+            //        RTB.Document.LoadFromStream(TextSetOptions.FormatRtf, RAS);
+            //    }
+            //    catch (AccessViolationException)
+            //    {
+            //        ActionErrorMessage.Text = "The file you are trying to edit cannot be checked for saving";
+            //        ActionErrorBox.Open();
+            //        isFileLinked = false;
+            //    }
+            //    RAS.Dispose();
+            //    var Stats = await CachedFileManager.CompleteUpdatesAsync(TXTFile);
+            //    if (Stats == FileUpdateStatus.Complete)
+            //    {
+            //        //Confirm file saving without close
+            //        CheckForSaving();
+            //    }
+            //    if (Stats != FileUpdateStatus.Complete)
+            //    {
+            //        //File failed to save message
+            //        FileNotSavedInfoBar.Title = "File couldn't be saved";
+            //        FileNotSavedInfoBar.IsOpen = true;
+            //        isFileLinked = false;
+            //        CheckForSaving();
+            //    }
+            //    isFileLinked = true;
+            //}
+            //catch
+            //{
+            //    return;
+            //}
         }
 
         private bool AutosaveDT = false;
@@ -1220,58 +1213,52 @@ namespace IviriusTextEditor.Pages
 
         public async Task SaveAsLog()
         {
-/*
-    TODO You should replace 'App.WindowHandle' with the your window's handle (HWND) 
-    Read more on retrieving window handle here: https://docs.microsoft.com/en-us/windows/apps/develop/ui-input/retrieve-hwnd
-*/
-            var FSP = InitializeWithWindow(new FileSavePicker(),App.WindowHandle);
-            //File dialog configuration
-            FSP.FileTypeChoices.Add("Log File", new List<string>() { ".log" });
-            FSP.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
-            FSP.SuggestedFileName = "New Log File";
-            //Set file content
-            TXTFile = await FSP.PickSaveFileAsync();
-            if (!(TXTFile == null))
-            {
-                try
-                {
-                    IRandomAccessStream RAS = await TXTFile.OpenAsync(FileAccessMode.ReadWrite);
-                    REB.Document.SaveToStream(TextGetOptions.None, RAS);
-                    RTB.Document.LoadFromStream(TextSetOptions.None, RAS);
-                    RAS.Dispose();
-                    FileUpdateStatus Stats = await CachedFileManager.CompleteUpdatesAsync(TXTFile);
-                    if (Stats == FileUpdateStatus.Complete)
-                    {
-                        //Confirm file saving without close
-                        CheckForSaving();
-                        new ToastContentBuilder()
-                        .SetToastScenario(ToastScenario.Reminder)
-                        .AddText($"Your file has been succesfully saved at {TXTFile.Path}")
-                        .AddButton(new ToastButton()
-                            .SetDismissActivation().SetContent("Close"))
-                        .Show();
-                    }
-                    if (!(Stats == FileUpdateStatus.Complete))
-                    {
-                        //File failed to save message
-                        FileNotSavedInfoBar.Title = "File couldn't be saved";
-                        FileNotSavedInfoBar.IsOpen = true;
-                        CheckForSaving();
-                    }
-                }
-                catch
-                {
-                    FileNotSavedInfoBar.Title = "The file is currently in use either by the autosave option or another app";
-                    FileNotSavedInfoBar.IsOpen = true;
-                    CheckForSaving();
-                }
-            }
-        }
-
-        private static FileSavePicker InitializeWithWindow(FileSavePicker obj, IntPtr windowHandle)
-        {
-            WinRT.Interop.InitializeWithWindow.Initialize(obj, windowHandle);
-            return obj;
+            /*
+                TODO You should replace 'App.WindowHandle' with the your window's handle (HWND) 
+                Read more on retrieving window handle here: https://docs.microsoft.com/en-us/windows/apps/develop/ui-input/retrieve-hwnd
+            */
+            //var FSP = InitializeWithWindow(new FileSavePicker(),App.WindowHandle);
+            ////File dialog configuration
+            //FSP.FileTypeChoices.Add("Log File", new List<string>() { ".log" });
+            //FSP.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
+            //FSP.SuggestedFileName = "New Log File";
+            ////Set file content
+            //TXTFile = await FSP.PickSaveFileAsync();
+            //if (!(TXTFile == null))
+            //{
+            //    try
+            //    {
+            //        IRandomAccessStream RAS = await TXTFile.OpenAsync(FileAccessMode.ReadWrite);
+            //        REB.Document.SaveToStream(TextGetOptions.None, RAS);
+            //        RTB.Document.LoadFromStream(TextSetOptions.None, RAS);
+            //        RAS.Dispose();
+            //        FileUpdateStatus Stats = await CachedFileManager.CompleteUpdatesAsync(TXTFile);
+            //        if (Stats == FileUpdateStatus.Complete)
+            //        {
+            //            //Confirm file saving without close
+            //            CheckForSaving();
+            //            new ToastContentBuilder()
+            //            .SetToastScenario(ToastScenario.Reminder)
+            //            .AddText($"Your file has been succesfully saved at {TXTFile.Path}")
+            //            .AddButton(new ToastButton()
+            //                .SetDismissActivation().SetContent("Close"))
+            //            .Show();
+            //        }
+            //        if (!(Stats == FileUpdateStatus.Complete))
+            //        {
+            //            //File failed to save message
+            //            FileNotSavedInfoBar.Title = "File couldn't be saved";
+            //            FileNotSavedInfoBar.IsOpen = true;
+            //            CheckForSaving();
+            //        }
+            //    }
+            //    catch
+            //    {
+            //        FileNotSavedInfoBar.Title = "The file is currently in use either by the autosave option or another app";
+            //        FileNotSavedInfoBar.IsOpen = true;
+            //        CheckForSaving();
+            //    }
+            //}
         }
 
         public void RequestClose()
@@ -1285,34 +1272,34 @@ namespace IviriusTextEditor.Pages
             else
             {
                 //Remember the user to save the file
-                FileSaveBox.FirstButtonClick += ED2_PrimaryButtonClick;
-                FileSaveBox.SecondButtonClick += ED2_SecondaryButtonClick;
-                FileSaveBox.CancelButtonClick += ED2_CloseButtonClick;
-                try { FileSaveBox.Open(); } catch { }
+                //FileSaveBox.FirstButtonClick += ED2_PrimaryButtonClick;
+                //FileSaveBox.SecondButtonClick += ED2_SecondaryButtonClick;
+                //FileSaveBox.CancelButtonClick += ED2_CloseButtonClick;
+                //try { FileSaveBox.Open(); } catch { }
                 async void ED2_PrimaryButtonClick(object SenderSec, RoutedEventArgs DialogEvArgs)
                 {
                     if (TXTFile != null) await SaveFile(true, true, false, false);
                     else await SaveFile(false, true, false, false);
                     HomePage.Visibility = Visibility.Collapsed;
-                    FileSaveBox.Close();
-                    FileSaveBox.FirstButtonClick -= ED2_PrimaryButtonClick;
-                    FileSaveBox.SecondButtonClick -= ED2_SecondaryButtonClick;
-                    FileSaveBox.CancelButtonClick -= ED2_CloseButtonClick;
+                    //FileSaveBox.Close();
+                    //FileSaveBox.FirstButtonClick -= ED2_PrimaryButtonClick;
+                    //FileSaveBox.SecondButtonClick -= ED2_SecondaryButtonClick;
+                    //FileSaveBox.CancelButtonClick -= ED2_CloseButtonClick;
                 }
                 void ED2_SecondaryButtonClick(object SenderSec, RoutedEventArgs DialogEvArgs)
                 {
                     IsCloseRequestComplete = true;
-                    FileSaveBox.Close();
-                    FileSaveBox.FirstButtonClick -= ED2_PrimaryButtonClick;
-                    FileSaveBox.SecondButtonClick -= ED2_SecondaryButtonClick;
-                    FileSaveBox.CancelButtonClick -= ED2_CloseButtonClick;
+                    //FileSaveBox.Close();
+                    //FileSaveBox.FirstButtonClick -= ED2_PrimaryButtonClick;
+                    //FileSaveBox.SecondButtonClick -= ED2_SecondaryButtonClick;
+                    //FileSaveBox.CancelButtonClick -= ED2_CloseButtonClick;
                 }
                 void ED2_CloseButtonClick(object SenderSec, RoutedEventArgs DialogEvArgs)
                 {
-                    FileSaveBox.Close();
-                    FileSaveBox.FirstButtonClick -= ED2_PrimaryButtonClick;
-                    FileSaveBox.SecondButtonClick -= ED2_SecondaryButtonClick;
-                    FileSaveBox.CancelButtonClick -= ED2_CloseButtonClick;
+                    //FileSaveBox.Close();
+                    //FileSaveBox.FirstButtonClick -= ED2_PrimaryButtonClick;
+                    //FileSaveBox.SecondButtonClick -= ED2_SecondaryButtonClick;
+                    //FileSaveBox.CancelButtonClick -= ED2_CloseButtonClick;
                 }
             }
             return;
@@ -1416,529 +1403,495 @@ namespace IviriusTextEditor.Pages
 
             if (Background == false && Close == false && Erase == false && NoFile == false)
             {
-/*
-    TODO You should replace 'App.WindowHandle' with the your window's handle (HWND) 
-    Read more on retrieving window handle here: https://docs.microsoft.com/en-us/windows/apps/develop/ui-input/retrieve-hwnd
-*/
+                /*
+                    TODO You should replace 'App.WindowHandle' with the your window's handle (HWND) 
+                    Read more on retrieving window handle here: https://docs.microsoft.com/en-us/windows/apps/develop/ui-input/retrieve-hwnd
+                */
                 //File dialog configuration
-                var FSP = InitializeWithWindow(new FileSavePicker(),App.WindowHandle);
+                //                var FSP = InitializeWithWindow(new FileSavePicker(),App.WindowHandle);
 
-                FSP.FileTypeChoices.Add("Rich Ivirius Text", new List<string>() { ".ivrtext" });
-                FSP.FileTypeChoices.Add("Universal Rich Text", new List<string>() { ".rtf" });
-                FSP.FileTypeChoices.Add("Rich Text", new List<string>() { ".richtxtformat" });
-                FSP.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
-                FSP.SuggestedFileName = "New Rich Text File";
+                //                FSP.FileTypeChoices.Add("Rich Ivirius Text", new List<string>() { ".ivrtext" });
+                //                FSP.FileTypeChoices.Add("Universal Rich Text", new List<string>() { ".rtf" });
+                //                FSP.FileTypeChoices.Add("Rich Text", new List<string>() { ".richtxtformat" });
+                //                FSP.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
+                //                FSP.SuggestedFileName = "New Rich Text File";
 
-                //Set file content
-                TXTFile = await FSP.PickSaveFileAsync();
-                if (TXTFile != null)
-                {
-                    try
-                    {
-                        CachedFileManager.DeferUpdates(TXTFile);
-                        using (IRandomAccessStream RAS = await TXTFile.OpenAsync(FileAccessMode.ReadWrite))
-                        {
-                            REB.Document.SaveToStream(TextGetOptions.FormatRtf, RAS);
-                            if (await CachedFileManager.CompleteUpdatesAsync(TXTFile) is FileUpdateStatus.Complete)
-                            {
-                                RTB.Document.LoadFromStream(TextSetOptions.FormatRtf, RAS);
-                            }
-                            else
-                            {
-                                //File failed to check for saving
-                                FileNotSavedInfoBar.Title = "An unexpected error occured while syncing your file. Please reopen the file in a new tab to proceed, and close the current tab.";
-                                FileNotSavedInfoBar.IsOpen = true;
-                            }
-                        }
-                        FileUpdateStatus Stats = await CachedFileManager.CompleteUpdatesAsync(TXTFile);
-                        if (await CachedFileManager.CompleteUpdatesAsync(TXTFile) is FileUpdateStatus.Complete)
-                        {
-                            //Confirm file saving without close
-                            ToastBuilder.BuildToastForFileSave(TXTFile.Path);
-                            CheckForSaving();
-                        }
-                        else
-                        {
-                            //File failed to save message
-                            FileNotSavedInfoBar.Title = "File couldn't be saved.";
-                            FileNotSavedInfoBar.IsOpen = true;
-                            CheckForSaving();
-                        }
-                    }
-                    catch
-                    {
-                        FileNotSavedInfoBar.Title = "The file is currently in use.";
-                        FileNotSavedInfoBar.IsOpen = true;
-                        CheckForSaving();
-                    }
-                }
+                //                //Set file content
+                //                TXTFile = await FSP.PickSaveFileAsync();
+                //                if (TXTFile != null)
+                //                {
+                //                    try
+                //                    {
+                //                        CachedFileManager.DeferUpdates(TXTFile);
+                //                        using (IRandomAccessStream RAS = await TXTFile.OpenAsync(FileAccessMode.ReadWrite))
+                //                        {
+                //                            REB.Document.SaveToStream(TextGetOptions.FormatRtf, RAS);
+                //                            if (await CachedFileManager.CompleteUpdatesAsync(TXTFile) is FileUpdateStatus.Complete)
+                //                            {
+                //                                RTB.Document.LoadFromStream(TextSetOptions.FormatRtf, RAS);
+                //                            }
+                //                            else
+                //                            {
+                //                                //File failed to check for saving
+                //                                FileNotSavedInfoBar.Title = "An unexpected error occured while syncing your file. Please reopen the file in a new tab to proceed, and close the current tab.";
+                //                                FileNotSavedInfoBar.IsOpen = true;
+                //                            }
+                //                        }
+                //                        FileUpdateStatus Stats = await CachedFileManager.CompleteUpdatesAsync(TXTFile);
+                //                        if (await CachedFileManager.CompleteUpdatesAsync(TXTFile) is FileUpdateStatus.Complete)
+                //                        {
+                //                            //Confirm file saving without close
+                //                            ToastBuilder.BuildToastForFileSave(TXTFile.Path);
+                //                            CheckForSaving();
+                //                        }
+                //                        else
+                //                        {
+                //                            //File failed to save message
+                //                            FileNotSavedInfoBar.Title = "File couldn't be saved.";
+                //                            FileNotSavedInfoBar.IsOpen = true;
+                //                            CheckForSaving();
+                //                        }
+                //                    }
+                //                    catch
+                //                    {
+                //                        FileNotSavedInfoBar.Title = "The file is currently in use.";
+                //                        FileNotSavedInfoBar.IsOpen = true;
+                //                        CheckForSaving();
+                //                    }
+                //                }
+                //            }
+
+                //            //----------Save Background Close----------
+
+                //            if (Background == true && Close == true && Erase == false && NoFile == false)
+                //            {
+                //                if (TXTFile == null)
+                //                {
+                //                    await SaveFile(false, true, false, false);
+                //                }
+                //                else if (TXTFile != null)
+                //                {
+                //                    try
+                //                    {
+                //                        CachedFileManager.DeferUpdates(TXTFile);
+                //                        using (IRandomAccessStream RAS = await TXTFile.OpenAsync(FileAccessMode.ReadWrite))
+                //                        {
+                //                            REB.Document.SaveToStream(TextGetOptions.FormatRtf, RAS);
+                //                            if (await CachedFileManager.CompleteUpdatesAsync(TXTFile) is FileUpdateStatus.Complete)
+                //                            {
+                //                                RTB.Document.LoadFromStream(TextSetOptions.FormatRtf, RAS);
+                //                            }
+                //                            else
+                //                            {
+                //                                //File failed to check for saving
+                //                                FileNotSavedInfoBar.Title = "An unexpected error occured while syncing your file. Please reopen the file in a new tab to proceed, and close the current tab.";
+                //                                FileNotSavedInfoBar.IsOpen = true;
+                //                            }
+                //                        }
+                //                        FileUpdateStatus Stats = await CachedFileManager.CompleteUpdatesAsync(TXTFile);
+                //                        if (await CachedFileManager.CompleteUpdatesAsync(TXTFile) is FileUpdateStatus.Complete)
+                //                        {
+                //                            //Confirm file saving without close
+                //                            IsCloseRequestComplete = true;
+                //                            ToastBuilder.BuildToastForFileSave(TXTFile.Path);
+                //                            CheckForSaving();
+                //                        }
+                //                        else
+                //                        {
+                //                            //File failed to save message
+                //                            FileNotSavedInfoBar.Title = "File couldn't be saved.";
+                //                            FileNotSavedInfoBar.IsOpen = true;
+                //                            CheckForSaving();
+                //                        }
+                //                    }
+                //                    catch
+                //                    {
+                //                        FileNotSavedInfoBar.Title = "The file is currently in use.";
+                //                        FileNotSavedInfoBar.IsOpen = true;
+                //                        CheckForSaving();
+                //                    }
+                //                }
+                //            }
+
+                //            //----------Save Close----------
+
+                //            if (Background == false && Close == true && Erase == false && NoFile == false)
+                //            {
+                ///*
+                //    TODO You should replace 'App.WindowHandle' with the your window's handle (HWND) 
+                //    Read more on retrieving window handle here: https://docs.microsoft.com/en-us/windows/apps/develop/ui-input/retrieve-hwnd
+                //*/
+                //                var FSP = InitializeWithWindow(new FileSavePicker(),App.WindowHandle);
+
+                //                FSP.FileTypeChoices.Add("Rich Ivirius Text", new List<string>() { ".ivrtext" });
+                //                FSP.FileTypeChoices.Add("Universal Rich Text", new List<string>() { ".rtf" });
+                //                FSP.FileTypeChoices.Add("Rich Text", new List<string>() { ".richtxtformat" });
+                //                FSP.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
+                //                FSP.SuggestedFileName = "New Rich Text File";
+
+                //                //Set file content
+                //                TXTFile = await FSP.PickSaveFileAsync();
+                //                if (TXTFile != null)
+                //                {
+                //                    try
+                //                    {
+                //                        CachedFileManager.DeferUpdates(TXTFile);
+                //                        using (IRandomAccessStream RAS = await TXTFile.OpenAsync(FileAccessMode.ReadWrite))
+                //                        {
+                //                            REB.Document.SaveToStream(TextGetOptions.FormatRtf, RAS);
+                //                            if (await CachedFileManager.CompleteUpdatesAsync(TXTFile) is FileUpdateStatus.Complete)
+                //                            {
+                //                                RTB.Document.LoadFromStream(TextSetOptions.FormatRtf, RAS);
+                //                            }
+                //                            else
+                //                            {
+                //                                //File failed to check for saving
+                //                                FileNotSavedInfoBar.Title = "An unexpected error occured while syncing your file. Please reopen the file in a new tab to proceed, and close the current tab.";
+                //                                FileNotSavedInfoBar.IsOpen = true;
+                //                            }
+                //                        }
+                //                        FileUpdateStatus Stats = await CachedFileManager.CompleteUpdatesAsync(TXTFile);
+                //                        if (await CachedFileManager.CompleteUpdatesAsync(TXTFile) is FileUpdateStatus.Complete)
+                //                        {
+                //                            //Confirm file saving without close
+                //                            IsCloseRequestComplete = true;
+                //                            ToastBuilder.BuildToastForFileSave(TXTFile.Path);
+                //                            CheckForSaving();
+                //                        }
+                //                        else
+                //                        {
+                //                            //File failed to save message
+                //                            FileNotSavedInfoBar.Title = "File couldn't be saved.";
+                //                            FileNotSavedInfoBar.IsOpen = true;
+                //                            CheckForSaving();
+                //                        }
+                //                    }
+                //                    catch
+                //                    {
+                //                        FileNotSavedInfoBar.Title = "The file is currently in use.";
+                //                        FileNotSavedInfoBar.IsOpen = true;
+                //                        CheckForSaving();
+                //                    }
+                //                }
+                //            }
+
+                //            //----------Save Background Erase----------
+
+                //            if (Background == true && Close == false && Erase == true && NoFile == false)
+                //            {
+                //                if (TXTFile == null)
+                //                {
+                //                    await SaveFile(false, false, true, false);
+                //                }
+                //                else if (TXTFile != null)
+                //                {
+                //                    try
+                //                    {
+                //                        CachedFileManager.DeferUpdates(TXTFile);
+                //                        using (IRandomAccessStream RAS = await TXTFile.OpenAsync(FileAccessMode.ReadWrite))
+                //                        {
+                //                            REB.Document.SaveToStream(TextGetOptions.FormatRtf, RAS);
+                //                            if (await CachedFileManager.CompleteUpdatesAsync(TXTFile) is FileUpdateStatus.Complete)
+                //                            {
+                //                                RTB.Document.LoadFromStream(TextSetOptions.FormatRtf, RAS);
+                //                            }
+                //                            else
+                //                            {
+                //                                //File failed to check for saving
+                //                                FileNotSavedInfoBar.Title = "An unexpected error occured while syncing your file. Please reopen the file in a new tab to proceed, and close the current tab.";
+                //                                FileNotSavedInfoBar.IsOpen = true;
+                //                            }
+                //                        }
+
+                //                        TXTFile = null;
+
+                //                        var Options = TextSetOptions.FormatRtf | TextSetOptions.ApplyRtfDocumentDefaults;
+                //                        RTB.Document.SetText(Options, string.Empty);
+                //                        REB.Document.SetText(Options, string.Empty);
+
+                //                        if (overrideFile != "")
+                //                        {
+                //                            await EraseFile();
+                //                        }
+
+                //                        FileUpdateStatus Stats = await CachedFileManager.CompleteUpdatesAsync(TXTFile);
+                //                        if (await CachedFileManager.CompleteUpdatesAsync(TXTFile) is FileUpdateStatus.Complete)
+                //                        {
+                //                            //Confirm file saving without close
+                //                            IsCloseRequestComplete = true;
+                //                            ToastBuilder.BuildToastForFileSave(TXTFile.Path);
+                //                            CheckForSaving();
+                //                        }
+                //                        else
+                //                        {
+                //                            //File failed to save message
+                //                            FileNotSavedInfoBar.Title = "File couldn't be saved.";
+                //                            FileNotSavedInfoBar.IsOpen = true;
+                //                            CheckForSaving();
+                //                        }
+                //                    }
+                //                    catch
+                //                    {
+                //                        FileNotSavedInfoBar.Title = "The file is currently in use.";
+                //                        FileNotSavedInfoBar.IsOpen = true;
+                //                        CheckForSaving();
+                //                    }
+                //                }
+                //            }
+
+                //            //----------Save Erase----------
+
+                //            if (Background == false && Close == false && Erase == true && NoFile == false)
+                //            {
+                ///*
+                //    TODO You should replace 'App.WindowHandle' with the your window's handle (HWND) 
+                //    Read more on retrieving window handle here: https://docs.microsoft.com/en-us/windows/apps/develop/ui-input/retrieve-hwnd
+                //*/
+                //                //File dialog configuration
+                //                var FSP = InitializeWithWindow(new FileSavePicker(),App.WindowHandle);
+
+                //                FSP.FileTypeChoices.Add("Rich Ivirius Text", new List<string>() { ".ivrtext" });
+                //                FSP.FileTypeChoices.Add("Universal Rich Text", new List<string>() { ".rtf" });
+                //                FSP.FileTypeChoices.Add("Rich Text", new List<string>() { ".richtxtformat" });
+                //                FSP.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
+                //                FSP.SuggestedFileName = "New Rich Text File";
+
+                //                //Set file content
+                //                TXTFile = await FSP.PickSaveFileAsync();
+                //                if (TXTFile != null)
+                //                {
+                //                    try
+                //                    {
+                //                        CachedFileManager.DeferUpdates(TXTFile);
+                //                        using (IRandomAccessStream RAS = await TXTFile.OpenAsync(FileAccessMode.ReadWrite))
+                //                        {
+                //                            REB.Document.SaveToStream(TextGetOptions.FormatRtf, RAS);
+                //                            if (await CachedFileManager.CompleteUpdatesAsync(TXTFile) is FileUpdateStatus.Complete)
+                //                            {
+                //                                RTB.Document.LoadFromStream(TextSetOptions.FormatRtf, RAS);
+                //                            }
+                //                            else
+                //                            {
+                //                                //File failed to check for saving
+                //                                FileNotSavedInfoBar.Title = "An unexpected error occured while syncing your file. Please reopen the file in a new tab to proceed, and close the current tab.";
+                //                                FileNotSavedInfoBar.IsOpen = true;
+                //                            }
+                //                        }
+
+                //                        TXTFile = null;
+
+                //                        var Options = TextSetOptions.FormatRtf | TextSetOptions.ApplyRtfDocumentDefaults;
+                //                        RTB.Document.SetText(Options, string.Empty);
+                //                        REB.Document.SetText(Options, string.Empty);
+
+                //                        if (overrideFile != "")
+                //                        {
+                //                            await EraseFile();
+                //                        }
+
+                //                        FileUpdateStatus Stats = await CachedFileManager.CompleteUpdatesAsync(TXTFile);
+                //                        if (await CachedFileManager.CompleteUpdatesAsync(TXTFile) is FileUpdateStatus.Complete)
+                //                        {
+                //                            //Confirm file saving without close
+                //                            IsCloseRequestComplete = true;
+                //                            ToastBuilder.BuildToastForFileSave(TXTFile.Path);
+                //                            CheckForSaving();
+                //                        }
+                //                        else
+                //                        {
+                //                            //File failed to save message
+                //                            FileNotSavedInfoBar.Title = "File couldn't be saved.";
+                //                            FileNotSavedInfoBar.IsOpen = true;
+                //                            CheckForSaving();
+                //                        }
+                //                    }
+                //                    catch
+                //                    {
+                //                        FileNotSavedInfoBar.Title = "The file is currently in use.";
+                //                        FileNotSavedInfoBar.IsOpen = true;
+                //                        CheckForSaving();
+                //                    }
+                //                }
+                //            }
             }
-
-            //----------Save Background Close----------
-
-            if (Background == true && Close == true && Erase == false && NoFile == false)
-            {
-                if (TXTFile == null)
-                {
-                    await SaveFile(false, true, false, false);
-                }
-                else if (TXTFile != null)
-                {
-                    try
-                    {
-                        CachedFileManager.DeferUpdates(TXTFile);
-                        using (IRandomAccessStream RAS = await TXTFile.OpenAsync(FileAccessMode.ReadWrite))
-                        {
-                            REB.Document.SaveToStream(TextGetOptions.FormatRtf, RAS);
-                            if (await CachedFileManager.CompleteUpdatesAsync(TXTFile) is FileUpdateStatus.Complete)
-                            {
-                                RTB.Document.LoadFromStream(TextSetOptions.FormatRtf, RAS);
-                            }
-                            else
-                            {
-                                //File failed to check for saving
-                                FileNotSavedInfoBar.Title = "An unexpected error occured while syncing your file. Please reopen the file in a new tab to proceed, and close the current tab.";
-                                FileNotSavedInfoBar.IsOpen = true;
-                            }
-                        }
-                        FileUpdateStatus Stats = await CachedFileManager.CompleteUpdatesAsync(TXTFile);
-                        if (await CachedFileManager.CompleteUpdatesAsync(TXTFile) is FileUpdateStatus.Complete)
-                        {
-                            //Confirm file saving without close
-                            IsCloseRequestComplete = true;
-                            ToastBuilder.BuildToastForFileSave(TXTFile.Path);
-                            CheckForSaving();
-                        }
-                        else
-                        {
-                            //File failed to save message
-                            FileNotSavedInfoBar.Title = "File couldn't be saved.";
-                            FileNotSavedInfoBar.IsOpen = true;
-                            CheckForSaving();
-                        }
-                    }
-                    catch
-                    {
-                        FileNotSavedInfoBar.Title = "The file is currently in use.";
-                        FileNotSavedInfoBar.IsOpen = true;
-                        CheckForSaving();
-                    }
-                }
-            }
-
-            //----------Save Close----------
-
-            if (Background == false && Close == true && Erase == false && NoFile == false)
-            {
-/*
-    TODO You should replace 'App.WindowHandle' with the your window's handle (HWND) 
-    Read more on retrieving window handle here: https://docs.microsoft.com/en-us/windows/apps/develop/ui-input/retrieve-hwnd
-*/
-                var FSP = InitializeWithWindow(new FileSavePicker(),App.WindowHandle);
-
-                FSP.FileTypeChoices.Add("Rich Ivirius Text", new List<string>() { ".ivrtext" });
-                FSP.FileTypeChoices.Add("Universal Rich Text", new List<string>() { ".rtf" });
-                FSP.FileTypeChoices.Add("Rich Text", new List<string>() { ".richtxtformat" });
-                FSP.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
-                FSP.SuggestedFileName = "New Rich Text File";
-
-                //Set file content
-                TXTFile = await FSP.PickSaveFileAsync();
-                if (TXTFile != null)
-                {
-                    try
-                    {
-                        CachedFileManager.DeferUpdates(TXTFile);
-                        using (IRandomAccessStream RAS = await TXTFile.OpenAsync(FileAccessMode.ReadWrite))
-                        {
-                            REB.Document.SaveToStream(TextGetOptions.FormatRtf, RAS);
-                            if (await CachedFileManager.CompleteUpdatesAsync(TXTFile) is FileUpdateStatus.Complete)
-                            {
-                                RTB.Document.LoadFromStream(TextSetOptions.FormatRtf, RAS);
-                            }
-                            else
-                            {
-                                //File failed to check for saving
-                                FileNotSavedInfoBar.Title = "An unexpected error occured while syncing your file. Please reopen the file in a new tab to proceed, and close the current tab.";
-                                FileNotSavedInfoBar.IsOpen = true;
-                            }
-                        }
-                        FileUpdateStatus Stats = await CachedFileManager.CompleteUpdatesAsync(TXTFile);
-                        if (await CachedFileManager.CompleteUpdatesAsync(TXTFile) is FileUpdateStatus.Complete)
-                        {
-                            //Confirm file saving without close
-                            IsCloseRequestComplete = true;
-                            ToastBuilder.BuildToastForFileSave(TXTFile.Path);
-                            CheckForSaving();
-                        }
-                        else
-                        {
-                            //File failed to save message
-                            FileNotSavedInfoBar.Title = "File couldn't be saved.";
-                            FileNotSavedInfoBar.IsOpen = true;
-                            CheckForSaving();
-                        }
-                    }
-                    catch
-                    {
-                        FileNotSavedInfoBar.Title = "The file is currently in use.";
-                        FileNotSavedInfoBar.IsOpen = true;
-                        CheckForSaving();
-                    }
-                }
-            }
-
-            //----------Save Background Erase----------
-
-            if (Background == true && Close == false && Erase == true && NoFile == false)
-            {
-                if (TXTFile == null)
-                {
-                    await SaveFile(false, false, true, false);
-                }
-                else if (TXTFile != null)
-                {
-                    try
-                    {
-                        CachedFileManager.DeferUpdates(TXTFile);
-                        using (IRandomAccessStream RAS = await TXTFile.OpenAsync(FileAccessMode.ReadWrite))
-                        {
-                            REB.Document.SaveToStream(TextGetOptions.FormatRtf, RAS);
-                            if (await CachedFileManager.CompleteUpdatesAsync(TXTFile) is FileUpdateStatus.Complete)
-                            {
-                                RTB.Document.LoadFromStream(TextSetOptions.FormatRtf, RAS);
-                            }
-                            else
-                            {
-                                //File failed to check for saving
-                                FileNotSavedInfoBar.Title = "An unexpected error occured while syncing your file. Please reopen the file in a new tab to proceed, and close the current tab.";
-                                FileNotSavedInfoBar.IsOpen = true;
-                            }
-                        }
-
-                        TXTFile = null;
-
-                        var Options = TextSetOptions.FormatRtf | TextSetOptions.ApplyRtfDocumentDefaults;
-                        RTB.Document.SetText(Options, string.Empty);
-                        REB.Document.SetText(Options, string.Empty);
-
-                        if (overrideFile != "")
-                        {
-                            await EraseFile();
-                        }
-
-                        FileUpdateStatus Stats = await CachedFileManager.CompleteUpdatesAsync(TXTFile);
-                        if (await CachedFileManager.CompleteUpdatesAsync(TXTFile) is FileUpdateStatus.Complete)
-                        {
-                            //Confirm file saving without close
-                            IsCloseRequestComplete = true;
-                            ToastBuilder.BuildToastForFileSave(TXTFile.Path);
-                            CheckForSaving();
-                        }
-                        else
-                        {
-                            //File failed to save message
-                            FileNotSavedInfoBar.Title = "File couldn't be saved.";
-                            FileNotSavedInfoBar.IsOpen = true;
-                            CheckForSaving();
-                        }
-                    }
-                    catch
-                    {
-                        FileNotSavedInfoBar.Title = "The file is currently in use.";
-                        FileNotSavedInfoBar.IsOpen = true;
-                        CheckForSaving();
-                    }
-                }
-            }
-
-            //----------Save Erase----------
-
-            if (Background == false && Close == false && Erase == true && NoFile == false)
-            {
-/*
-    TODO You should replace 'App.WindowHandle' with the your window's handle (HWND) 
-    Read more on retrieving window handle here: https://docs.microsoft.com/en-us/windows/apps/develop/ui-input/retrieve-hwnd
-*/
-                //File dialog configuration
-                var FSP = InitializeWithWindow(new FileSavePicker(),App.WindowHandle);
-
-                FSP.FileTypeChoices.Add("Rich Ivirius Text", new List<string>() { ".ivrtext" });
-                FSP.FileTypeChoices.Add("Universal Rich Text", new List<string>() { ".rtf" });
-                FSP.FileTypeChoices.Add("Rich Text", new List<string>() { ".richtxtformat" });
-                FSP.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
-                FSP.SuggestedFileName = "New Rich Text File";
-
-                //Set file content
-                TXTFile = await FSP.PickSaveFileAsync();
-                if (TXTFile != null)
-                {
-                    try
-                    {
-                        CachedFileManager.DeferUpdates(TXTFile);
-                        using (IRandomAccessStream RAS = await TXTFile.OpenAsync(FileAccessMode.ReadWrite))
-                        {
-                            REB.Document.SaveToStream(TextGetOptions.FormatRtf, RAS);
-                            if (await CachedFileManager.CompleteUpdatesAsync(TXTFile) is FileUpdateStatus.Complete)
-                            {
-                                RTB.Document.LoadFromStream(TextSetOptions.FormatRtf, RAS);
-                            }
-                            else
-                            {
-                                //File failed to check for saving
-                                FileNotSavedInfoBar.Title = "An unexpected error occured while syncing your file. Please reopen the file in a new tab to proceed, and close the current tab.";
-                                FileNotSavedInfoBar.IsOpen = true;
-                            }
-                        }
-
-                        TXTFile = null;
-
-                        var Options = TextSetOptions.FormatRtf | TextSetOptions.ApplyRtfDocumentDefaults;
-                        RTB.Document.SetText(Options, string.Empty);
-                        REB.Document.SetText(Options, string.Empty);
-
-                        if (overrideFile != "")
-                        {
-                            await EraseFile();
-                        }
-
-                        FileUpdateStatus Stats = await CachedFileManager.CompleteUpdatesAsync(TXTFile);
-                        if (await CachedFileManager.CompleteUpdatesAsync(TXTFile) is FileUpdateStatus.Complete)
-                        {
-                            //Confirm file saving without close
-                            IsCloseRequestComplete = true;
-                            ToastBuilder.BuildToastForFileSave(TXTFile.Path);
-                            CheckForSaving();
-                        }
-                        else
-                        {
-                            //File failed to save message
-                            FileNotSavedInfoBar.Title = "File couldn't be saved.";
-                            FileNotSavedInfoBar.IsOpen = true;
-                            CheckForSaving();
-                        }
-                    }
-                    catch
-                    {
-                        FileNotSavedInfoBar.Title = "The file is currently in use.";
-                        FileNotSavedInfoBar.IsOpen = true;
-                        CheckForSaving();
-                    }
-                }
-            }
-        }
-
-        private static FileSavePicker InitializeWithWindow(FileSavePicker obj, IntPtr windowHandle)
-        {
-            WinRT.Interop.InitializeWithWindow.Initialize(obj, windowHandle);
-            return obj;
-        }
-
-        private static FileSavePicker InitializeWithWindow(FileSavePicker obj, IntPtr windowHandle)
-        {
-            WinRT.Interop.InitializeWithWindow.Initialize(obj, windowHandle);
-            return obj;
-        }
-
-        private static FileSavePicker InitializeWithWindow(FileSavePicker obj, IntPtr windowHandle)
-        {
-            WinRT.Interop.InitializeWithWindow.Initialize(obj, windowHandle);
-            return obj;
         }
 
         public async Task Open()
         {
             ApplicationDataContainer LocalSettings = ApplicationData.Current.LocalSettings;
-/*
-    TODO You should replace 'App.WindowHandle' with the your window's handle (HWND) 
-    Read more on retrieving window handle here: https://docs.microsoft.com/en-us/windows/apps/develop/ui-input/retrieve-hwnd
-*/
+            /*
+                TODO You should replace 'App.WindowHandle' with the your window's handle (HWND) 
+                Read more on retrieving window handle here: https://docs.microsoft.com/en-us/windows/apps/develop/ui-input/retrieve-hwnd
+            */
 
             //File dialog configuration
-            var FOP = InitializeWithWindow(new FileOpenPicker(),App.WindowHandle);
-            FOP.FileTypeFilter.Add(".ivrtext");
-            FOP.FileTypeFilter.Add(".rtf");
-            FOP.FileTypeFilter.Add(".richtxtformat");
-            FOP.SuggestedStartLocation = PickerLocationId.Desktop;
+            //var FOP = InitializeWithWindow(new FileOpenPicker(),App.WindowHandle);
+            //FOP.FileTypeFilter.Add(".ivrtext");
+            //FOP.FileTypeFilter.Add(".rtf");
+            //FOP.FileTypeFilter.Add(".richtxtformat");
+            //FOP.SuggestedStartLocation = PickerLocationId.Desktop;
 
-            //Set file content
-            TXTFile = await FOP.PickSingleFileAsync();
-            if (TXTFile != null)
-            {
-                try
-                {
-                    //Set RichEditBox content
-                    using (IRandomAccessStream RAS = await TXTFile.OpenAsync(FileAccessMode.ReadWrite))
-                    {
-                        IsRTF = true;
-                        REB.Document.LoadFromStream(TextSetOptions.FormatRtf, RAS);
-                        RTB.Document.LoadFromStream(TextSetOptions.FormatRtf, RAS);
-                        var s = await FileIO.ReadTextAsync(TXTFile);
-                        if (s != string.Empty)
-                        {
-                            if (GetText(RTB).Contains("rtf1") == true && s.Contains("rtf1") == true)
-                            {
-                                AutoSaveSwitch.IsEnabled = true;
-                                if (!(LocalSettings.Values["Autosave"] == null))
-                                {
-                                    if ((string)LocalSettings.Values["Autosave"] == "On")
-                                    {
-                                        AutoSaveSwitch.IsOn = true;
-                                    }
-                                    if ((string)LocalSettings.Values["Autosave"] == "Off")
-                                    {
-                                        AutoSaveSwitch.IsOn = false;
-                                    }
-                                }
-                                else
-                                {
-                                    LocalSettings.Values["Autosave"] = "On";
-                                    AutoSaveSwitch.IsOn = true;
-                                }
-                                AutoSaveSwitch.OffContent = "Autosave: Off";
-                                FileIntactBlock.Visibility = Visibility.Collapsed;
-                            }
-                            else
-                            {
-                                AutoSaveSwitch.IsEnabled = false;
-                                AutoSaveSwitch.IsOn = false;
-                                AutoSaveSwitch.OffContent = "Corrupt or not rich text file. Autosave has been turned off for safety reasons.";
-                                FileIntactBlock.Visibility = Visibility.Visible;
-                            }
-                        }
-                        else
-                        {
-                            AutoSaveSwitch.IsEnabled = true;
-                            if (!(LocalSettings.Values["Autosave"] == null))
-                            {
-                                if ((string)LocalSettings.Values["Autosave"] == "On")
-                                {
-                                    AutoSaveSwitch.IsOn = true;
-                                }
-                                if ((string)LocalSettings.Values["Autosave"] == "Off")
-                                {
-                                    AutoSaveSwitch.IsOn = false;
-                                }
-                            }
-                            else
-                            {
-                                LocalSettings.Values["Autosave"] = "On";
-                                AutoSaveSwitch.IsOn = true;
-                            }
-                            AutoSaveSwitch.OffContent = "Autosave: Off";
-                            FileIntactBlock.Visibility = Visibility.Collapsed;
-                        }
-                    }
-                    HomePage.Visibility = Visibility.Collapsed;
-                    CheckForSaving();
-                    _ = REB.Focus(FocusState.Programmatic);
-                }
-                catch
-                {
-                    FileNotSavedInfoBar.Title = "This file is currently in use or has been recently closed. Any changes you make in the current document must be saved separately. Try again later";
-                    FileNotSavedInfoBar.IsOpen = true;
-                    CheckForSaving();
-                    return;
-                }
-            }
-            AutoSaveSwitch.IsEnabled = true;
-            if (!(LocalSettings.Values["Autosave"] == null))
-            {
-                if ((string)LocalSettings.Values["Autosave"] == "On")
-                {
-                    AutoSaveSwitch.IsOn = true;
-                }
-                if ((string)LocalSettings.Values["Autosave"] == "Off")
-                {
-                    AutoSaveSwitch.IsOn = false;
-                }
-            }
-            else
-            {
-                LocalSettings.Values["Autosave"] = "On";
-                AutoSaveSwitch.IsOn = true;
-            }
-            AutoSaveSwitch.OffContent = "Autosave: Off";
-            FileIntactBlock.Visibility = Visibility.Collapsed;
+            ////Set file content
+            //TXTFile = await FOP.PickSingleFileAsync();
+            //if (TXTFile != null)
+            //{
+            //    try
+            //    {
+            //        //Set RichEditBox content
+            //        using (IRandomAccessStream RAS = await TXTFile.OpenAsync(FileAccessMode.ReadWrite))
+            //        {
+            //            IsRTF = true;
+            //            REB.Document.LoadFromStream(TextSetOptions.FormatRtf, RAS);
+            //            RTB.Document.LoadFromStream(TextSetOptions.FormatRtf, RAS);
+            //            var s = await FileIO.ReadTextAsync(TXTFile);
+            //            if (s != string.Empty)
+            //            {
+            //                if (GetText(RTB).Contains("rtf1") == true && s.Contains("rtf1") == true)
+            //                {
+            //                    AutoSaveSwitch.IsEnabled = true;
+            //                    if (!(LocalSettings.Values["Autosave"] == null))
+            //                    {
+            //                        if ((string)LocalSettings.Values["Autosave"] == "On")
+            //                        {
+            //                            AutoSaveSwitch.IsOn = true;
+            //                        }
+            //                        if ((string)LocalSettings.Values["Autosave"] == "Off")
+            //                        {
+            //                            AutoSaveSwitch.IsOn = false;
+            //                        }
+            //                    }
+            //                    else
+            //                    {
+            //                        LocalSettings.Values["Autosave"] = "On";
+            //                        AutoSaveSwitch.IsOn = true;
+            //                    }
+            //                    AutoSaveSwitch.OffContent = "Autosave: Off";
+            //                    FileIntactBlock.Visibility = Visibility.Collapsed;
+            //                }
+            //                else
+            //                {
+            //                    AutoSaveSwitch.IsEnabled = false;
+            //                    AutoSaveSwitch.IsOn = false;
+            //                    AutoSaveSwitch.OffContent = "Corrupt or not rich text file. Autosave has been turned off for safety reasons.";
+            //                    FileIntactBlock.Visibility = Visibility.Visible;
+            //                }
+            //            }
+            //            else
+            //            {
+            //                AutoSaveSwitch.IsEnabled = true;
+            //                if (!(LocalSettings.Values["Autosave"] == null))
+            //                {
+            //                    if ((string)LocalSettings.Values["Autosave"] == "On")
+            //                    {
+            //                        AutoSaveSwitch.IsOn = true;
+            //                    }
+            //                    if ((string)LocalSettings.Values["Autosave"] == "Off")
+            //                    {
+            //                        AutoSaveSwitch.IsOn = false;
+            //                    }
+            //                }
+            //                else
+            //                {
+            //                    LocalSettings.Values["Autosave"] = "On";
+            //                    AutoSaveSwitch.IsOn = true;
+            //                }
+            //                AutoSaveSwitch.OffContent = "Autosave: Off";
+            //                FileIntactBlock.Visibility = Visibility.Collapsed;
+            //            }
+            //        }
+            //        HomePage.Visibility = Visibility.Collapsed;
+            //        CheckForSaving();
+            //        _ = REB.Focus(FocusState.Programmatic);
+            //    }
+            //    catch
+            //    {
+            //        FileNotSavedInfoBar.Title = "This file is currently in use or has been recently closed. Any changes you make in the current document must be saved separately. Try again later";
+            //        FileNotSavedInfoBar.IsOpen = true;
+            //        CheckForSaving();
+            //        return;
+            //    }
+            //}
+            //AutoSaveSwitch.IsEnabled = true;
+            //if (!(LocalSettings.Values["Autosave"] == null))
+            //{
+            //    if ((string)LocalSettings.Values["Autosave"] == "On")
+            //    {
+            //        AutoSaveSwitch.IsOn = true;
+            //    }
+            //    if ((string)LocalSettings.Values["Autosave"] == "Off")
+            //    {
+            //        AutoSaveSwitch.IsOn = false;
+            //    }
+            //}
+            //else
+            //{
+            //    LocalSettings.Values["Autosave"] = "On";
+            //    AutoSaveSwitch.IsOn = true;
+            //}
+            //AutoSaveSwitch.OffContent = "Autosave: Off";
+            //FileIntactBlock.Visibility = Visibility.Collapsed;
         }
 
-        private static FileOpenPicker InitializeWithWindow(FileOpenPicker obj, IntPtr windowHandle)
-        {
-            WinRT.Interop.InitializeWithWindow.Initialize(obj, windowHandle);
-            return obj;
-        }
 
         public async Task OpenRecent(StorageFile file)
         {
-/*
-    TODO You should replace 'App.WindowHandle' with the your window's handle (HWND) 
-    Read more on retrieving window handle here: https://docs.microsoft.com/en-us/windows/apps/develop/ui-input/retrieve-hwnd
-*/
+            /*
+                TODO You should replace 'App.WindowHandle' with the your window's handle (HWND) 
+                Read more on retrieving window handle here: https://docs.microsoft.com/en-us/windows/apps/develop/ui-input/retrieve-hwnd
+            */
             //File dialog configuration
-            var FOP = InitializeWithWindow(new FileOpenPicker(),App.WindowHandle);
-            FOP.FileTypeFilter.Add(".ivrtext");
-            FOP.FileTypeFilter.Add(".rtf");
-            FOP.FileTypeFilter.Add(".richtxtformat");
-            FOP.SuggestedStartLocation = PickerLocationId.Desktop;
+            //var FOP = InitializeWithWindow(new FileOpenPicker(),App.WindowHandle);
+            //FOP.FileTypeFilter.Add(".ivrtext");
+            //FOP.FileTypeFilter.Add(".rtf");
+            //FOP.FileTypeFilter.Add(".richtxtformat");
+            //FOP.SuggestedStartLocation = PickerLocationId.Desktop;
 
-            //Set file content
-            TXTFile = file;
-            if (TXTFile != null)
-            {
-                try
-                {
-                    //Set RichEditBox content
-                    using (IRandomAccessStream RAS = await TXTFile.OpenAsync(FileAccessMode.ReadWrite))
-                    {
-                        IsRTF = true;
-                        REB.Document.LoadFromStream(TextSetOptions.FormatRtf, RAS);
-                        RTB.Document.LoadFromStream(TextSetOptions.FormatRtf, RAS);
-                    }
-                    HomePage.Visibility = Visibility.Collapsed;
-                    CheckForSaving();
-                    _ = REB.Focus(FocusState.Programmatic);
-                }
-                catch
-                {
-                    FileNotSavedInfoBar.Title = "This file is currently in use or has been recently closed. Any changes you make in the current document must be saved separately. Try again later";
-                    FileNotSavedInfoBar.IsOpen = true;
-                    CheckForSaving();
-                    return;
-                }
-            }
-        }
-
-        private static FileOpenPicker InitializeWithWindow(FileOpenPicker obj, IntPtr windowHandle)
-        {
-            WinRT.Interop.InitializeWithWindow.Initialize(obj, windowHandle);
-            return obj;
+            ////Set file content
+            //TXTFile = file;
+            //if (TXTFile != null)
+            //{
+            //    try
+            //    {
+            //        //Set RichEditBox content
+            //        using (IRandomAccessStream RAS = await TXTFile.OpenAsync(FileAccessMode.ReadWrite))
+            //        {
+            //            IsRTF = true;
+            //            REB.Document.LoadFromStream(TextSetOptions.FormatRtf, RAS);
+            //            RTB.Document.LoadFromStream(TextSetOptions.FormatRtf, RAS);
+            //        }
+            //        HomePage.Visibility = Visibility.Collapsed;
+            //        CheckForSaving();
+            //        _ = REB.Focus(FocusState.Programmatic);
+            //    }
+            //    catch
+            //    {
+            //        FileNotSavedInfoBar.Title = "This file is currently in use or has been recently closed. Any changes you make in the current document must be saved separately. Try again later";
+            //        FileNotSavedInfoBar.IsOpen = true;
+            //        CheckForSaving();
+            //        return;
+            //    }
+            //}
         }
 
         public async Task OpenMultiple()
         {
-/*
-    TODO You should replace 'App.WindowHandle' with the your window's handle (HWND) 
-    Read more on retrieving window handle here: https://docs.microsoft.com/en-us/windows/apps/develop/ui-input/retrieve-hwnd
-*/
+            /*
+                TODO You should replace 'App.WindowHandle' with the your window's handle (HWND) 
+                Read more on retrieving window handle here: https://docs.microsoft.com/en-us/windows/apps/develop/ui-input/retrieve-hwnd
+            */
             //File dialog configuration
-            var FOP = InitializeWithWindow(new FileOpenPicker(),App.WindowHandle);
-            FOP.FileTypeFilter.Add(".ivrtext");
-            FOP.FileTypeFilter.Add(".rtf");
-            FOP.FileTypeFilter.Add(".richtxtformat");
-            FOP.SuggestedStartLocation = PickerLocationId.Desktop;
+            //var FOP = InitializeWithWindow(new FileOpenPicker(),App.WindowHandle);
+            //FOP.FileTypeFilter.Add(".ivrtext");
+            //FOP.FileTypeFilter.Add(".rtf");
+            //FOP.FileTypeFilter.Add(".richtxtformat");
+            //FOP.SuggestedStartLocation = PickerLocationId.Desktop;
 
-            //Set file content
-            var List = await FOP.PickMultipleFilesAsync();
-            foreach (var file in List)
-            {
-                await ((App.Window.Content as Frame).Content as MainPage).AddTabForFile(file);
-            }
-        }
-
-        private static FileOpenPicker InitializeWithWindow(FileOpenPicker obj, IntPtr windowHandle)
-        {
-            WinRT.Interop.InitializeWithWindow.Initialize(obj, windowHandle);
-            return obj;
+            ////Set file content
+            //var List = await FOP.PickMultipleFilesAsync();
+            //foreach (var file in List)
+            //{
+            //    await ((App.Window.Content as Frame).Content as MainPage).AddTabForFile(file);
+            //}
         }
 
         public async Task ReadFile(StorageFile file)
@@ -2173,7 +2126,7 @@ namespace IviriusTextEditor.Pages
             {
                 ITextCharacterFormat CF = ST.CharacterFormat;
                 CF.Bold = FormatEffect.Undefined;
-                CF.FontStretch = FontStretch.Undefined;
+
                 CF.Italic = FormatEffect.Undefined;
                 CF.Name = null;
                 FontBox.SelectedItem = null;
@@ -2421,11 +2374,11 @@ namespace IviriusTextEditor.Pages
             ITextSelection ST = REB.Document.Selection;
             if (!(ST == null))
             {
-                _ = ST.CharacterFormat.ForegroundColor;
-                var Br = new SolidColorBrush(ColPicker.Color);
-                Color CF = ColPicker.Color;
-                FontAccent.Foreground = Br;
-                ST.CharacterFormat.ForegroundColor = CF;
+                //_ = ST.CharacterFormat.ForegroundColor;
+                //var Br = new SolidColorBrush(ColPicker.Color);
+                //Color CF = ColPicker.Color;
+                //FontAccent.Foreground = Br;
+                //ST.CharacterFormat.ForegroundColor = CF;
             }
         }
 
@@ -2437,11 +2390,11 @@ namespace IviriusTextEditor.Pages
                 ITextSelection ST = REB.Document.Selection;
                 if (!(ST == null))
                 {
-                    _ = ST.CharacterFormat;
-                    var Br = new SolidColorBrush(BackPicker.Color);
-                    Color CF = BackPicker.Color;
-                    if (BackAccent != null) BackAccent.Foreground = Br;
-                    ST.CharacterFormat.BackgroundColor = CF;
+                    //_ = ST.CharacterFormat;
+                    //var Br = new SolidColorBrush(BackPicker.Color);
+                    //Color CF = BackPicker.Color;
+                    //if (BackAccent != null) BackAccent.Foreground = Br;
+                    //ST.CharacterFormat.BackgroundColor = CF;
                 }
             }
         }
@@ -2655,12 +2608,12 @@ namespace IviriusTextEditor.Pages
 
         private async void Image_Insert_Click(object Sender, RoutedEventArgs EvArgs)
         {
-/*
-    TODO You should replace 'App.WindowHandle' with the your window's handle (HWND) 
-    Read more on retrieving window handle here: https://docs.microsoft.com/en-us/windows/apps/develop/ui-input/retrieve-hwnd
-*/
+            /*
+                TODO You should replace 'App.WindowHandle' with the your window's handle (HWND) 
+                Read more on retrieving window handle here: https://docs.microsoft.com/en-us/windows/apps/develop/ui-input/retrieve-hwnd
+            */
             //File dialog configuration
-            var FOP = InitializeWithWindow(new FileOpenPicker(),App.WindowHandle);
+            var FOP = InitializeWithWindow(new FileOpenPicker(), App.WindowHandle);
             FOP.FileTypeFilter.Add(".png");
             FOP.FileTypeFilter.Add(".jpg");
             FOP.FileTypeFilter.Add(".jpeg");
@@ -2679,8 +2632,8 @@ namespace IviriusTextEditor.Pages
                 }
                 catch (Exception Ex)
                 {
-                    FatalExceptionMessage.Text = $"{Ex.HResult} ===== {Ex.Message}";
-                    FatalExceptionBox.Open();
+                    //FatalExceptionMessage.Text = $"{Ex.HResult} ===== {Ex.Message}";
+                    //FatalExceptionBox.Open();
                 }
             }
         }
@@ -2697,25 +2650,23 @@ namespace IviriusTextEditor.Pages
 
         #region Doc
 
-        HandwritingView HWV;
-
         #region TextToSpeech
 
-        // TODO Microsoft.UI.Xaml.Controls.MediaElement is not yet supported in WindowsAppSDK. For more details see https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/what-is-supported
-                MediaElement ME;
+        // TODO Microsoft.UI.Xaml.Controls.MediaPlayerElement is not yet supported in WindowsAppSDK. For more details see https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/what-is-supported
+        MediaPlayerElement ME;
 
         SpeechSynthesizer Synth;
 
         private async void ReadButton_Click(object Sender, RoutedEventArgs EvArgs)
         {
             //Configuring the sppech synthesizer
-            // TODO Microsoft.UI.Xaml.Controls.MediaElement is not yet supported in WindowsAppSDK. For more details see https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/what-is-supported
-                        ME = new MediaElement();
+            // TODO Microsoft.UI.Xaml.Controls.MediaPlayerElement is not yet supported in WindowsAppSDK. For more details see https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/what-is-supported
+            ME = new MediaPlayerElement();
             Synth = new SpeechSynthesizer();
             SpeechSynthesisStream Str = await Synth.SynthesizeTextToStreamAsync(REB.Document.Selection.Text.ToString());
-            ME.SetSource(Str, Str.ContentType);
-            ME.Play();
-            ME.MediaEnded += ME_MediaEnded;
+            //ME.SetSource(Str, Str.ContentType);
+            //ME.Play();
+            //ME.MediaEnded += ME_MediaEnded;
             KeepReadButton.IsEnabled = true;
             PauseReadButton.IsEnabled = true;
             StopReadButton.IsEnabled = true;
@@ -2732,15 +2683,15 @@ namespace IviriusTextEditor.Pages
         private void StopReadButton_Click(object Sender, RoutedEventArgs EvArgs)
         {
             //Stops the reading process
-            ME.Stop();
+            //ME.Stop();
             KeepReadButton.IsEnabled = false;
             PauseReadButton.IsEnabled = false;
             StopReadButton.IsEnabled = false;
         }
 
-        private void PauseReadButton_Click(object Sender, RoutedEventArgs EvArgs) => ME.Pause();
+        private void PauseReadButton_Click(object Sender, RoutedEventArgs EvArgs) {}
 
-        private void KeepReadButton_Click(object Sender, RoutedEventArgs EvArgs) => ME.Play();
+        private void KeepReadButton_Click(object Sender, RoutedEventArgs EvArgs) { }
 
         #endregion TextToSpeech
 
@@ -2751,8 +2702,8 @@ namespace IviriusTextEditor.Pages
             var CF = ST.CharacterFormat;
 
             //Colors
-            if (BackPicker != null) BackPicker.Color = CF.BackgroundColor;
-            if (ColPicker != null) ColPicker.Color = CF.ForegroundColor;
+            //if (BackPicker != null) BackPicker.Color = CF.BackgroundColor;
+            //if (ColPicker != null) ColPicker.Color = CF.ForegroundColor;
             if (CF.BackgroundColor == Colors.White || CF.BackgroundColor == Colors.Transparent)
             {
                 BackAccent.Foreground = new SolidColorBrush(Colors.Transparent);
@@ -2866,7 +2817,7 @@ namespace IviriusTextEditor.Pages
             CheckPageSize();
         }
 
-        private void ZoomSlider_ValueChanged(object Sender, Windows.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventArgs EvArgs)
+        private void ZoomSlider_ValueChanged(object Sender, Microsoft.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventArgs EvArgs)
         {
             //Changes the zoom amount
             if (SCR != null && ZoomText != null)
@@ -2901,12 +2852,12 @@ namespace IviriusTextEditor.Pages
 
         bool isTextSelectionChanging;
 
-        private void LeftInd_ValueChanged(object Sender, Windows.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventArgs EvArgs)
+        private void LeftInd_ValueChanged(object Sender, Microsoft.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventArgs EvArgs)
         {
             if (isTextSelectionChanging == false) SetParagraphIndents((float)LeftInd.Value, (float)RightInd.Value, (float)TabIndent.Value, true);
         }
 
-        private void RightInd_ValueChanged(object Sender, Windows.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventArgs EvArgs)
+        private void RightInd_ValueChanged(object Sender, Microsoft.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventArgs EvArgs)
         {
             if (isTextSelectionChanging == false) SetParagraphIndents((float)LeftInd.Value, (float)RightInd.Value, (float)TabIndent.Value, true);
         }
@@ -2914,56 +2865,56 @@ namespace IviriusTextEditor.Pages
         private void SetParagraphIndents(float leftIndent, float rightIndent, float firstLineIndent, bool applyToSelectionOnly = true)
         {
             // Get the ITextDocument interface for the RichEditBox's document
-            ITextDocument document = REB.Document;
+            //ITextDocument document = REB.Document;
 
-            // Get the current selection's start and end positions
-            int start = document.Selection.StartPosition;
-            int end = document.Selection.EndPosition;
+            //// Get the current selection's start and end positions
+            //int start = document.Selection.StartPosition;
+            //int end = document.Selection.EndPosition;
 
-            // If applyToSelectionOnly is true, check if there's any selected text in the RichEditBox
-            if (applyToSelectionOnly && start == end)
-            {
-                //return;
-            }
+            //// If applyToSelectionOnly is true, check if there's any selected text in the RichEditBox
+            //if (applyToSelectionOnly && start == end)
+            //{
+            //    //return;
+            //}
 
-            // Get the ITextRange interface for the selection or the entire document
-            ITextRange textRange;
-            if (applyToSelectionOnly)
-            {
-                textRange = document.Selection;
-            }
-            else
-            {
-                textRange = document.GetRange(0, GetText(REB).Length);
-            }
+            //// Get the ITextRange interface for the selection or the entire document
+            //ITextRange textRange;
+            //if (applyToSelectionOnly)
+            //{
+            //    textRange = document.Selection;
+            //}
+            //else
+            //{
+            //    textRange = document.GetRange(0, GetText(REB).Length);
+            //}
 
-            // Get the ITextParagraphFormat interface for the text range
-            ITextParagraphFormat paragraphFormat = textRange.ParagraphFormat;
+            //// Get the ITextParagraphFormat interface for the text range
+            //ITextParagraphFormat paragraphFormat = textRange.ParagraphFormat;
 
-            // Set the left and right indents for the current selection's paragraph(s)
-            try
-            {
-                if (document.Selection.Length != 0)
-                {
-                    paragraphFormat.SetIndents(firstLineIndent, leftIndent, rightIndent);
-                }
-                else
-                {
-                    document.GetRange(document.Selection.StartPosition, document.Selection.EndPosition + 1);
-                    paragraphFormat.SetIndents(firstLineIndent, leftIndent, rightIndent);
-                }
-            }
-            catch
-            {
+            //// Set the left and right indents for the current selection's paragraph(s)
+            //try
+            //{
+            //    if (document.Selection.Length != 0)
+            //    {
+            //        paragraphFormat.SetIndents(firstLineIndent, leftIndent, rightIndent);
+            //    }
+            //    else
+            //    {
+            //        document.GetRange(document.Selection.StartPosition, document.Selection.EndPosition + 1);
+            //        paragraphFormat.SetIndents(firstLineIndent, leftIndent, rightIndent);
+            //    }
+            //}
+            //catch
+            //{
 
-            }
+            //}
 
-            // Apply the new paragraph format to the current selection or the entire document
-            textRange.ParagraphFormat = paragraphFormat;
+            //// Apply the new paragraph format to the current selection or the entire document
+            //textRange.ParagraphFormat = paragraphFormat;
 
-            LeftIndent.Text = leftIndent.ToString();
+            //LeftIndent.Text = leftIndent.ToString();
 
-            RightIndent.Text = rightIndent.ToString();
+            //RightIndent.Text = rightIndent.ToString();
         }
 
         private Task CheckIndent()
@@ -2984,17 +2935,17 @@ namespace IviriusTextEditor.Pages
         private void HandButton_Click(object Sender, RoutedEventArgs EvArgs)
         {
             //Configure the handwriting dialog
-            REB.IsHandwritingViewEnabled = true;
-            HWV = REB.HandwritingView;
-            switch (HWV.IsOpen)
-            {
-                case false:
-                    _ = HWV.TryOpen();
-                    break;
-                case true:
-                    _ = HWV.TryClose();
-                    break;
-            }
+            //REB.IsHandwritingViewEnabled = true;
+            //HWV = REB.HandwritingView;
+            //switch (HWV.IsOpen)
+            //{
+            //    case false:
+            //        _ = HWV.TryOpen();
+            //        break;
+            //    case true:
+            //        _ = HWV.TryClose();
+            //        break;
+            //}
         }
 
         private void ZoomIn_Click(object Sender, RoutedEventArgs EvArgs)
@@ -3021,7 +2972,7 @@ namespace IviriusTextEditor.Pages
             {
                 ITextCharacterFormat CF = ST.CharacterFormat;
                 CF.Bold = FormatEffect.Off;
-                CF.FontStretch = FontStretch.Undefined;
+                
                 CF.Italic = FormatEffect.Off;
                 CF.Name = "Segoe UI";
                 FontBox.SelectedItem = "Segoe UI";
@@ -3044,7 +2995,7 @@ namespace IviriusTextEditor.Pages
                 ITextParagraphFormat PF = ST.ParagraphFormat;
                 PF.Alignment = ParagraphAlignment.Center;
                 CF.Bold = FormatEffect.Off;
-                CF.FontStretch = FontStretch.Undefined;
+                
                 CF.Italic = FormatEffect.Off;
                 CF.Name = "Segoe UI";
                 FontBox.SelectedItem = "Segoe UI";
@@ -3067,7 +3018,7 @@ namespace IviriusTextEditor.Pages
                 ITextParagraphFormat PF = ST.ParagraphFormat;
                 PF.Alignment = ParagraphAlignment.Center;
                 CF.Bold = FormatEffect.Off;
-                CF.FontStretch = FontStretch.Undefined;
+                
                 CF.Italic = FormatEffect.Off;
                 CF.Name = "Segoe UI";
                 FontBox.SelectedItem = "Segoe UI";
@@ -3088,7 +3039,7 @@ namespace IviriusTextEditor.Pages
             {
                 ITextCharacterFormat CF = ST.CharacterFormat;
                 CF.Bold = FormatEffect.On;
-                CF.FontStretch = FontStretch.Undefined;
+                
                 CF.Italic = FormatEffect.On;
                 CF.Name = "Segoe UI";
                 FontBox.SelectedItem = "Segoe UI";
@@ -3109,7 +3060,7 @@ namespace IviriusTextEditor.Pages
             {
                 ITextCharacterFormat CF = ST.CharacterFormat;
                 CF.Bold = FormatEffect.Off;
-                CF.FontStretch = FontStretch.Undefined;
+                
                 CF.Italic = FormatEffect.Off;
                 CF.Name = "Segoe UI";
                 FontBox.SelectedItem = "Segoe UI";
@@ -3130,7 +3081,7 @@ namespace IviriusTextEditor.Pages
             {
                 ITextCharacterFormat CF = ST.CharacterFormat;
                 CF.Bold = FormatEffect.Off;
-                CF.FontStretch = FontStretch.Undefined;
+                
                 CF.Italic = FormatEffect.Off;
                 CF.Name = "Segoe UI";
                 FontBox.SelectedItem = "Segoe UI";
@@ -3151,7 +3102,7 @@ namespace IviriusTextEditor.Pages
             {
                 ITextCharacterFormat CF = ST.CharacterFormat;
                 CF.Bold = FormatEffect.Off;
-                CF.FontStretch = FontStretch.Undefined;
+                
                 CF.Italic = FormatEffect.Off;
                 CF.Name = "Segoe UI";
                 FontBox.SelectedItem = "Segoe UI";
@@ -3172,7 +3123,7 @@ namespace IviriusTextEditor.Pages
             {
                 ITextCharacterFormat CF = ST.CharacterFormat;
                 CF.Bold = FormatEffect.On;
-                CF.FontStretch = FontStretch.Undefined;
+                
                 CF.Italic = FormatEffect.Off;
                 CF.Name = "Segoe UI";
                 FontBox.SelectedItem = "Segoe UI";
@@ -3193,7 +3144,7 @@ namespace IviriusTextEditor.Pages
             {
                 ITextCharacterFormat CF = ST.CharacterFormat;
                 CF.Bold = FormatEffect.Off;
-                CF.FontStretch = FontStretch.Undefined;
+                
                 CF.Italic = FormatEffect.Off;
                 CF.Name = "Segoe UI";
                 FontBox.SelectedItem = "Segoe UI";
@@ -3214,7 +3165,7 @@ namespace IviriusTextEditor.Pages
             {
                 ITextCharacterFormat CF = ST.CharacterFormat;
                 CF.Bold = FormatEffect.Off;
-                CF.FontStretch = FontStretch.Undefined;
+                
                 CF.Italic = FormatEffect.On;
                 CF.Name = "Segoe UI";
                 FontBox.SelectedItem = "Segoe UI";
@@ -3235,7 +3186,7 @@ namespace IviriusTextEditor.Pages
             {
                 ITextCharacterFormat CF = ST.CharacterFormat;
                 CF.Bold = FormatEffect.On;
-                CF.FontStretch = FontStretch.Undefined;
+                
                 CF.Italic = FormatEffect.Off;
                 CF.Name = "Segoe UI";
                 FontBox.SelectedItem = "Segoe UI";
@@ -3256,7 +3207,7 @@ namespace IviriusTextEditor.Pages
             {
                 ITextCharacterFormat CF = ST.CharacterFormat;
                 CF.Bold = FormatEffect.Off;
-                CF.FontStretch = FontStretch.Undefined;
+                
                 CF.Italic = FormatEffect.On;
                 CF.Name = "Segoe UI";
                 FontBox.SelectedItem = "Segoe UI";
@@ -3278,18 +3229,18 @@ namespace IviriusTextEditor.Pages
         {
             if (ReplaceBox.Text == FindTextBox.Text)
             {
-                ActionErrorBox.Open();
-                ActionErrorMessage.Text = "Usage of identical characters for Find and Replace is not allowed";
+                //ActionErrorBox.Open();
+                //ActionErrorMessage.Text = "Usage of identical characters for Find and Replace is not allowed";
             }
             else if (ReplaceBox.Text.ToLower() == FindTextBox.Text.ToLower() && CaseSensBox.IsChecked == true && FullWordsBox.IsChecked == true)
             {
-                ActionErrorBox.Open();
-                ActionErrorMessage.Text = "Usage of too similar characters for Find and Replace. Please uncheck the \"Match words\" box to proceed";
+                //ActionErrorBox.Open();
+                //ActionErrorMessage.Text = "Usage of too similar characters for Find and Replace. Please uncheck the \"Match words\" box to proceed";
             }
             else if (ReplaceBox.Text.ToLower() == FindTextBox.Text.ToLower() && CaseSensBox.IsChecked != true)
             {
-                ActionErrorBox.Open();
-                ActionErrorMessage.Text = "Usage of too similar characters for Find and Replace. Please check the \"Case Sensitive\" box to proceed";
+                //ActionErrorBox.Open();
+                //ActionErrorMessage.Text = "Usage of too similar characters for Find and Replace. Please check the \"Case Sensitive\" box to proceed";
             }
             else
             {
@@ -3488,8 +3439,7 @@ namespace IviriusTextEditor.Pages
             ApplicationDataContainer LS = ApplicationData.Current.LocalSettings;
             if (LS.Values["Password"] == null || (string)LS.Values["Password"] == "" || (string)LS.Values["Password"] == "args:passwordNullOrEmpty" || LS != null)
             {
-                ActionErrorMessage.Text = "The current user doesn't have a password and can't be logged out";
-                ActionErrorBox.Open();
+               
             }
             if (LS.Values["Password"] != null || (string)LS.Values["Password"] != "" || LS != null)
             {
@@ -3499,8 +3449,7 @@ namespace IviriusTextEditor.Pages
             }
             else
             {
-                ActionErrorMessage.Text = "The current user doesn't have a password and can't be logged out";
-                ActionErrorBox.Open();
+              
             }
         }
 
@@ -3522,7 +3471,7 @@ namespace IviriusTextEditor.Pages
 
         private void AboutItem_Click(object Sender, RoutedEventArgs EvArgs)
         {
-            AboutBox.Open();
+            //AboutBox.Open();
         }
 
         #endregion About
@@ -3607,9 +3556,6 @@ namespace IviriusTextEditor.Pages
 
         private void DTHW_Tick(object sender, object e)
         {
-            _ = REB.HandwritingView.TryOpen();
-            _ = REB.HandwritingView.TryClose();
-            _ = REB.HandwritingView.TryOpen();
             DTHW.Stop();
         }
 
@@ -3701,7 +3647,7 @@ namespace IviriusTextEditor.Pages
 
         private void Button_Click_8(object Sender, RoutedEventArgs EvArgs)
         {
-            AboutBox.Open();
+            //AboutBox.Open();
         }
 
         private void SNFCancel_Click(object Sender, RoutedEventArgs EvArgs)
@@ -4241,7 +4187,7 @@ namespace IviriusTextEditor.Pages
 
         private void Button_Click_32(object sender, RoutedEventArgs e)
         {
-            FontColorBox.Open();
+            //FontColorBox.Open();
             CPDDB.Flyout.Hide();
         }
 
@@ -4251,17 +4197,17 @@ namespace IviriusTextEditor.Pages
             var ST = REB.Document.Selection;
             if (!(ST == null))
             {
-                _ = ST.CharacterFormat.ForegroundColor;
-                var Br = new SolidColorBrush(ColPicker.Color);
-                var CF = ColPicker.Color;
-                FontAccent.Foreground = Br;
-                ST.CharacterFormat.ForegroundColor = CF;
+                //_ = ST.CharacterFormat.ForegroundColor;
+                //var Br = new SolidColorBrush(ColPicker.Color);
+                //var CF = ColPicker.Color;
+                //FontAccent.Foreground = Br;
+                //ST.CharacterFormat.ForegroundColor = CF;
             }
         }
 
         private void Button_Click_30(object sender, RoutedEventArgs e)
         {
-            AboutBox.Close();
+            //AboutBox.Close();
         }
 
         private async void HyperlinkButton_Click_4(object sender, RoutedEventArgs e)
@@ -4361,7 +4307,7 @@ namespace IviriusTextEditor.Pages
             FindFlyout.ShowAt(FindAndRepButton);
         }
 
-        private void TabIndent_ValueChanged(object sender, Windows.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventArgs e)
+        private void TabIndent_ValueChanged(object sender, Microsoft.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventArgs e)
         {
             if (isTextSelectionChanging == false) SetParagraphIndents((float)LeftInd.Value, (float)RightInd.Value, (float)TabIndent.Value, true);
         }
@@ -4428,7 +4374,7 @@ namespace IviriusTextEditor.Pages
         {
         }
 
-        private void FSizeBar_ValueChanged(object sender, Windows.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventArgs e)
+        private void FSizeBar_ValueChanged(object sender, Microsoft.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventArgs e)
         {
 
         }
@@ -4474,17 +4420,17 @@ namespace IviriusTextEditor.Pages
 
 
 
-            var FSP = InitializeWithWindow(new FileSavePicker(),App.WindowHandle);
+            //var FSP = InitializeWithWindow(new FileSavePicker(),App.WindowHandle);
 
-            FSP.FileTypeChoices.Add("Ivirius Printing Bridge File", new List<string>() { ".ivrprintingservice" });
-            FSP.SuggestedStartLocation = PickerLocationId.Desktop;
-            FSP.SuggestedFileName = "IviriusTextEditorPrinterCachedDocument";
+            //FSP.FileTypeChoices.Add("Ivirius Printing Bridge File", new List<string>() { ".ivrprintingservice" });
+            //FSP.SuggestedStartLocation = PickerLocationId.Desktop;
+            //FSP.SuggestedFileName = "IviriusTextEditorPrinterCachedDocument";
 
-            var TempFile = await FSP.PickSaveFileAsync();
+            //var TempFile = await FSP.PickSaveFileAsync();
 
-            Windows.Storage.AccessCache.StorageApplicationPermissions.FutureAccessList.Add(TempFile);
+            //Windows.Storage.AccessCache.StorageApplicationPermissions.FutureAccessList.Add(TempFile);
 
-            PrintingInfoBox.Close();
+            //PrintingInfoBox.Close();
         }
 
         private static FileSavePicker InitializeWithWindow(FileSavePicker obj, IntPtr windowHandle)
@@ -4510,19 +4456,13 @@ namespace IviriusTextEditor.Pages
     TODO You should replace 'App.WindowHandle' with the your window's handle (HWND) 
     Read more on retrieving window handle here: https://docs.microsoft.com/en-us/windows/apps/develop/ui-input/retrieve-hwnd
 */
-            var FSP = InitializeWithWindow(new FileSavePicker(),App.WindowHandle);
+            //var FSP = InitializeWithWindow(new FileSavePicker(),App.WindowHandle);
 
-            FSP.FileTypeChoices.Add("Ivirius Printing Bridge File", new List<string>() { ".ivrprintingservice" });
-            FSP.SuggestedStartLocation = PickerLocationId.Desktop;
-            FSP.SuggestedFileName = "IviriusTextEditorPrinterCachedDocument";
+            //FSP.FileTypeChoices.Add("Ivirius Printing Bridge File", new List<string>() { ".ivrprintingservice" });
+            //FSP.SuggestedStartLocation = PickerLocationId.Desktop;
+            //FSP.SuggestedFileName = "IviriusTextEditorPrinterCachedDocument";
 
-            var TempFile = await FSP.PickSaveFileAsync();
-        }
-
-        private static FileSavePicker InitializeWithWindow(FileSavePicker obj, IntPtr windowHandle)
-        {
-            WinRT.Interop.InitializeWithWindow.Initialize(obj, windowHandle);
-            return obj;
+            //var TempFile = await FSP.PickSaveFileAsync();
         }
 
         private void LeftIndent_TextChanged(object sender, TextChangedEventArgs e)
@@ -4550,7 +4490,7 @@ namespace IviriusTextEditor.Pages
 
         private void Button_Click_37(object sender, RoutedEventArgs e)
         {
-            BackColorBox.Open();
+            //BackColorBox.Open();
         }
 
         private async void ScreenshotButton_Click(object sender, RoutedEventArgs e)
@@ -4589,19 +4529,19 @@ namespace IviriusTextEditor.Pages
 
         private void DialogWindow_FirstButtonClick(object sender, RoutedEventArgs e)
         {
-            SettingsHelper.SetSetting("ZippyAPIKey", ZippyAPIKey.Password.ToString());
-            ZippyKeyWindow.Close();
+            //SettingsHelper.SetSetting("ZippyAPIKey", ZippyAPIKey.Password.ToString());
+            //ZippyKeyWindow.Close();
         }
 
         private void DialogWindow_SecondButtonClick(object sender, RoutedEventArgs e)
         {
             URIHelper.LaunchURI("https://platform.openai.com/api-keys");
-            ZippyKeyWindow.Close();
+            //ZippyKeyWindow.Close();
         }
 
         private void APIButton_Click(object sender, RoutedEventArgs e)
         {
-            ZippyKeyWindow.Open();
+            //ZippyKeyWindow.Open();
         }
 
         private void DiscordItem_Click(object sender, RoutedEventArgs e)

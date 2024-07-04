@@ -1,7 +1,7 @@
 ﻿using Ivirius_Text_Editor.IviriusTextEditor.Pages;
 using IviriusTextEditor.Core.Helpers;
 using IviriusTextEditor.Languages;
-using MicaForUWP.Media;
+
 using Microsoft.UI.Xaml.Controls;
 using System;
 using System.Collections.Generic;
@@ -19,7 +19,10 @@ using Windows.UI.ViewManagement;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
-using AcrylicBrush = Windows.UI.Xaml.Media.AcrylicBrush;
+using AcrylicBrush = Microsoft.UI.Xaml.Media.AcrylicBrush;
+using Microsoft.UI;
+using Ivirius_Text_Editor;
+using Windows.System;
 
 namespace IviriusTextEditor.Pages
 {
@@ -132,27 +135,27 @@ namespace IviriusTextEditor.Pages
                 AppTB.ButtonPressedForegroundColor = Colors.Black;
 
                 //TitleBar color
-                Application.Current.Resources["AppTitleBarBrush"] = new BackdropMicaBrush()
-                {
-                    LuminosityOpacity = 0.8F,
-                    TintOpacity = 0F,
-                    BackgroundSource = BackgroundSource.WallpaperBackdrop,
-                    Opacity = 1,
-                    TintColor = Color.FromArgb(255, 230, 230, 230),
-                    FallbackColor = Color.FromArgb(255, 230, 230, 230)
-                };
-                MainPageComponent.Background = (Brush)Application.Current.Resources["AppTitleBarBrush"];
+                //Application.Current.Resources["AppTitleBarBrush"] = new BackdropMicaBrush()
+                //{
+                //    LuminosityOpacity = 0.8F,
+                //    TintOpacity = 0F,
+                //    BackgroundSource = BackgroundSource.WallpaperBackdrop,
+                //    Opacity = 1,
+                //    TintColor = Color.FromArgb(255, 230, 230, 230),
+                //    FallbackColor = Color.FromArgb(255, 230, 230, 230)
+                //};
+                //MainPageComponent.Background = (Brush)Application.Current.Resources["AppTitleBarBrush"];
 
-                //Tab color
-                Application.Current.Resources["AppBackgroundBrush"] = new BackdropMicaBrush()
-                {
-                    LuminosityOpacity = 0.9F,
-                    TintOpacity = 0F,
-                    BackgroundSource = BackgroundSource.WallpaperBackdrop,
-                    Opacity = 1,
-                    TintColor = Color.FromArgb(255, 255, 255, 255),
-                    FallbackColor = Color.FromArgb(255, 255, 255, 255)
-                };
+                ////Tab color
+                //Application.Current.Resources["AppBackgroundBrush"] = new BackdropMicaBrush()
+                //{
+                //    LuminosityOpacity = 0.9F,
+                //    TintOpacity = 0F,
+                //    BackgroundSource = BackgroundSource.WallpaperBackdrop,
+                //    Opacity = 1,
+                //    TintColor = Color.FromArgb(255, 255, 255, 255),
+                //    FallbackColor = Color.FromArgb(255, 255, 255, 255)
+                //};
 
                 Application.Current.Resources["TabViewItemHeaderBackgroundSelected"] = Application.Current.Resources["AppBackgroundBrush"];
 
@@ -174,27 +177,27 @@ namespace IviriusTextEditor.Pages
                 AppTB.ButtonPressedForegroundColor = Colors.White;
 
                 //TitleBar color
-                Application.Current.Resources["AppTitleBarBrush"] = new BackdropMicaBrush()
-                {
-                    LuminosityOpacity = 1F,
-                    TintOpacity = 0.3F,
-                    BackgroundSource = BackgroundSource.WallpaperBackdrop,
-                    Opacity = 1,
-                    TintColor = Color.FromArgb(255, 13, 13, 13),
-                    FallbackColor = Color.FromArgb(255, 13, 13, 13)
-                };
-                MainPageComponent.Background = (Brush)Application.Current.Resources["AppTitleBarBrush"];
+                //Application.Current.Resources["AppTitleBarBrush"] = new BackdropMicaBrush()
+                //{
+                //    LuminosityOpacity = 1F,
+                //    TintOpacity = 0.3F,
+                //    BackgroundSource = BackgroundSource.WallpaperBackdrop,
+                //    Opacity = 1,
+                //    TintColor = Color.FromArgb(255, 13, 13, 13),
+                //    FallbackColor = Color.FromArgb(255, 13, 13, 13)
+                //};
+                //MainPageComponent.Background = (Brush)Application.Current.Resources["AppTitleBarBrush"];
 
-                //Tab color
-                Application.Current.Resources["AppBackgroundBrush"] = new BackdropMicaBrush()
-                {
-                    LuminosityOpacity = 1F,
-                    TintOpacity = 0.8F,
-                    BackgroundSource = BackgroundSource.WallpaperBackdrop,
-                    Opacity = 1,
-                    TintColor = Color.FromArgb(255, 33, 33, 33),
-                    FallbackColor = Color.FromArgb(255, 33, 33, 33)
-                };
+                ////Tab color
+                //Application.Current.Resources["AppBackgroundBrush"] = new BackdropMicaBrush()
+                //{
+                //    LuminosityOpacity = 1F,
+                //    TintOpacity = 0.8F,
+                //    BackgroundSource = BackgroundSource.WallpaperBackdrop,
+                //    Opacity = 1,
+                //    TintColor = Color.FromArgb(255, 33, 33, 33),
+                //    FallbackColor = Color.FromArgb(255, 33, 33, 33)
+                //};
 
                 Application.Current.Resources["TabViewItemHeaderBackgroundSelected"] = Application.Current.Resources["AppBackgroundBrush"];
 
@@ -231,9 +234,9 @@ namespace IviriusTextEditor.Pages
 
             if (TabbedView.TabItems.Count > 1)
             {
-                CloseWarningBox1.Open();
-                CloseWarningBox1.Title = "Ivirius Text Editor";
-                CWFContent1.Text = "Are you sure you want to close?";
+                //CloseWarningBox1.Open();
+                //CloseWarningBox1.Title = "Ivirius Text Editor";
+                //CWFContent1.Text = "Are you sure you want to close?";
             }
             if (TabbedView.TabItems.Count == 1)
             {
@@ -243,9 +246,9 @@ namespace IviriusTextEditor.Pages
                 {
                     if (((TabItem.Content as Frame).Content as TabbedMainPage).isWorkSaved == false)
                     {
-                        CloseWarningBox2.Open();
-                        CloseWarningBox2.Title = "Ivirius Text Editor";
-                        CWFContent2.Text = "Do you want to save your file?";
+                        //CloseWarningBox2.Open();
+                        //CloseWarningBox2.Title = "Ivirius Text Editor";
+                        //CWFContent2.Text = "Do you want to save your file?";
                     }
                     else
                     {
@@ -266,9 +269,9 @@ namespace IviriusTextEditor.Pages
             {
                 if (((SysArgs.Tab.Content as Frame).Content as TabbedMainPage).isWorkSaved == false)
                 {
-                    CloseWarningBox3.Open();
-                    CloseWarningBox3.Title = "Ivirius Text Editor";
-                    CWFContent3.Text = "Do you want to save your file?";
+                    //CloseWarningBox3.Open();
+                    //CloseWarningBox3.Title = "Ivirius Text Editor";
+                    //CWFContent3.Text = "Do you want to save your file?";
                 }
                 else
                 {
@@ -285,9 +288,9 @@ namespace IviriusTextEditor.Pages
 
         private void Button_Click_19(object sender, RoutedEventArgs e)
         {
-            CloseWarningBox1.Close();
-            CloseWarningBox2.Close();
-            CloseWarningBox3.Close();
+            //CloseWarningBox1.Close();
+            //CloseWarningBox2.Close();
+            //CloseWarningBox3.Close();
         }
 
         private void CoreTitleBar_LayoutMetricsChanged(CoreApplicationViewTitleBar sender, object args)
@@ -580,7 +583,7 @@ namespace IviriusTextEditor.Pages
 
         private void Button_Click_20(object sender, RoutedEventArgs e)
         {
-            SetupCloseBox.Open();
+            //SetupCloseBox.Open();
         }
 
         private async void SetupCloseBox_FirstButtonClick(object sender, RoutedEventArgs e)
@@ -594,26 +597,26 @@ namespace IviriusTextEditor.Pages
         {
             // TODO Windows.UI.ViewManagement.ApplicationView is no longer supported. Use Microsoft.UI.Windowing.AppWindow instead. For more details see https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/guides/windowing
             _ = await ApplicationView.GetForCurrentView().TryConsolidateAsync();
-            CloseWarningBox1.Close();
+            //CloseWarningBox1.Close();
         }
 
         private async void CloseWarningBox2_FirstButtonClick(object sender, RoutedEventArgs e)
         {
             await (((TabbedView.SelectedItem as TabViewItem).Content as Frame).Content as TabbedMainPage).SaveFile(false, false, false, false);
-            CloseWarningBox2.Close();
+            //CloseWarningBox2.Close();
         }
 
         private async void CloseWarningBox2_SecondButtonClick(object sender, RoutedEventArgs e)
         {
             // TODO Windows.UI.ViewManagement.ApplicationView is no longer supported. Use Microsoft.UI.Windowing.AppWindow instead. For more details see https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/guides/windowing
             _ = await ApplicationView.GetForCurrentView().TryConsolidateAsync();
-            CloseWarningBox2.Close();
+            //CloseWarningBox2.Close();
         }
 
         private async void CloseWarningBox3_FirstButtonClick(object sender, RoutedEventArgs e)
         {
             await ((SysArgs.Tab.Content as Frame).Content as TabbedMainPage).SaveFile(false, false, false, false);
-            CloseWarningBox3.Close();
+            //CloseWarningBox3.Close();
         }
 
         private async void CloseWarningBox3_SecondButtonClick(object sender, RoutedEventArgs e)
@@ -621,7 +624,7 @@ namespace IviriusTextEditor.Pages
             _ = SysSender.TabItems.Remove(SysArgs.Tab);
             if (TabbedView.TabItems.Count == 0) // TODO Windows.UI.ViewManagement.ApplicationView is no longer supported. Use Microsoft.UI.Windowing.AppWindow instead. For more details see https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/guides/windowing
 _ = await ApplicationView.GetForCurrentView().TryConsolidateAsync();
-            CloseWarningBox3.Close();
+            //CloseWarningBox3.Close();
         }
 
         private void MainPageComponent_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -643,10 +646,10 @@ _ = await ApplicationView.GetForCurrentView().TryConsolidateAsync();
                 if (((TabItem.Content as Frame).Content as TabbedMainPage).isWorkSaved == false)
                 {
                     TabbedMainPage tmp = new TabbedMainPage();
-                    CloseWarningBox2.Open();
-                    CloseWarningBox2.Title = "Ivirius Text Editor";
-                    CloseWarningBox2.SecondButtonClick += tmp.CloseWarningBox2_SecondButtonTemplateClick;
-                    CWFContent2.Text = "Do you want to save your file?";
+                    //CloseWarningBox2.Open();
+                    //CloseWarningBox2.Title = "Ivirius Text Editor";
+                    //CloseWarningBox2.SecondButtonClick += tmp.CloseWarningBox2_SecondButtonTemplateClick;
+                    //CWFContent2.Text = "Do you want to save your file?";
                 }
                 else
                 {

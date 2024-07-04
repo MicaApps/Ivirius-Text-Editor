@@ -2,8 +2,8 @@
 using Humanizer;
 using IviriusTextEditor.Core.Helpers;
 using Microsoft.AppCenter;
-using Microsoft.Toolkit.Uwp.UI.Controls.TextToolbarSymbols;
-using Microsoft.Toolkit.Uwp.UI.Triggers;
+using CommunityToolkit.WinUI.UI.Controls.TextToolbarSymbols;
+using CommunityToolkit.WinUI.UI.Triggers;
 using Windows.Devices.Custom;
 using Windows.Perception.Spatial;
 using Microsoft.UI.Input;

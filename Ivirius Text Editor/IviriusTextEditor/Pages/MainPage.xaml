@@ -5,8 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:Custom="using:Microsoft.UI.Xaml.Controls" 
-    xmlns:mica="using:MicaForUWP.Media"
-    xmlns:ToolkitControls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:ToolkitControls="using:CommunityToolkit.WinUI.UI.Controls"
     x:Name="MainPageComponent"
     x:Class="IviriusTextEditor.Pages.MainPage"
     mc:Ignorable="d"
@@ -658,7 +657,7 @@
         <Grid x:Name="BackgroundGrid">
             <Border x:Name="AccentBorder" BorderThickness="0,0,0,0" Visibility="Collapsed" Opacity="0.5">
                 <Border.Background>
-                    <AcrylicBrush BackgroundSource="HostBackdrop" TintColor="{ThemeResource SystemAccentColor}" TintOpacity="0.35" FallbackColor="{ThemeResource SystemAccentColor}"/>
+                    <AcrylicBrush  TintColor="{ThemeResource SystemAccentColor}" TintOpacity="0.35" FallbackColor="{ThemeResource SystemAccentColor}"/>
                 </Border.Background>
             </Border>
         </Grid>
@@ -820,31 +819,5 @@
         </Button>
         <Border x:Name="GetSysThemeBorder" BorderBrush="Black" Visibility="Collapsed" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
-        <IviriusWindowingToolkit:DialogWindowContainer>
-            <IviriusWindowingToolkit:DialogWindow x:Name="SetupCloseBox" Title="Ivirius Text Editor" CloseButtonStyle="Win32" FirstButtonClick="SetupCloseBox_FirstButtonClick" RememberPosition="False" Backdrop="MicaAlt" HasIcon="True" Icon="/Assets/AppIcons/AppIcon.png" d:IsHidden="True">
-                <Grid>
-                    <Image Height="75" Width="75" Source="/Assets/Glyphs/Warning.png" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,20,0,0"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" Margin="108,35,0,0" Text="Are you sure you want&#xA;to close?"/>
-                </Grid>
-            </IviriusWindowingToolkit:DialogWindow>
-            <IviriusWindowingToolkit:DialogWindow x:Name="CloseWarningBox1" DialogAppWindowWidth="400" RememberPosition="False" PlaySound="True" FirstButtonClick="CloseWarningBox1_FirstButtonClick" Backdrop="MicaAlt" HasIcon="True" Icon="/Assets/AppIcons/AppIcon.png" d:IsHidden="True">
-                <Grid>
-                    <Image HorizontalAlignment="Left" Height="50" Margin="20,25,0,0" VerticalAlignment="Top" Width="50" Source="/Assets/Glyphs/Question.png"/>
-                    <TextBlock x:Name="CWFContent1" TextWrapping="Wrap" FontSize="16" Margin="100,20,25,30" Text="Empty"/>
-                </Grid>
-            </IviriusWindowingToolkit:DialogWindow>
-            <IviriusWindowingToolkit:DialogWindow x:Name="CloseWarningBox2" DialogAppWindowWidth="400" RememberPosition="False" PlaySound="True" FirstButtonClick="CloseWarningBox2_FirstButtonClick" SecondButtonClick="CloseWarningBox2_SecondButtonClick" Backdrop="MicaAlt" HasIcon="True" Icon="/Assets/AppIcons/AppIcon.png" d:IsHidden="True">
-                <Grid>
-                    <Image HorizontalAlignment="Left" Height="50" Margin="20,25,0,0" VerticalAlignment="Top" Width="50" Source="/Assets/Glyphs/Question.png"/>
-                    <TextBlock x:Name="CWFContent2" TextWrapping="Wrap" FontSize="16" Margin="100,20,25,30" Text="Empty"/>
-                </Grid>
-            </IviriusWindowingToolkit:DialogWindow>
-            <IviriusWindowingToolkit:DialogWindow x:Name="CloseWarningBox3" DialogAppWindowWidth="400" RememberPosition="False" PlaySound="True" FirstButtonClick="CloseWarningBox3_FirstButtonClick" SecondButtonClick="CloseWarningBox3_SecondButtonClick" Backdrop="MicaAlt" Icon="/Assets/AppIcons/AppIcon.png" HasIcon="True" d:IsHidden="True">
-                <Grid>
-                    <Image HorizontalAlignment="Left" Height="50" Margin="20,25,0,0" VerticalAlignment="Top" Width="50" Source="/Assets/Glyphs/Question.png"/>
-                    <TextBlock x:Name="CWFContent3" TextWrapping="Wrap" FontSize="16" Margin="100,20,25,30" Text="Empty"/>
-                </Grid>
-            </IviriusWindowingToolkit:DialogWindow>
-        </IviriusWindowingToolkit:DialogWindowContainer>
     </Grid>
 </Page>

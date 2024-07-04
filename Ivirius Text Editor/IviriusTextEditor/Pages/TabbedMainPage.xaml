@@ -3,12 +3,11 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:IviriusWindowingToolkit="using:Ivirius.UI.Windowing"
     xmlns:Custom="using:Microsoft.UI.Xaml.Controls"
-    xmlns:ToolkitControls="using:Microsoft.Toolkit.Uwp.UI.Controls"
-    xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
+    xmlns:ToolkitControls="using:CommunityToolkit.WinUI.UI.Controls"
+    xmlns:ui="using:CommunityToolkit.WinUI"
     xmlns:Custom1="using:Windows.Globalization.NumberFormatting"
-    xmlns:Strings="using:IviriusTextEditor.Languages"
+    xmlns:Strings="using:IviriusTextEditor.Languages" xmlns:ToolkitControls1="using:CommunityToolkit.WinUI.UI.Controls"
     x:Class="IviriusTextEditor.Pages.TabbedMainPage"
     mc:Ignorable="d" KeyDown="Page_KeyDown" KeyUp="Page_KeyUp">
     <Page.Resources>
@@ -603,8 +602,6 @@
         <Style x:Key="RichEditBoxStyle1" TargetType="RichEditBox">
             <Setter Property="Foreground" Value="{ThemeResource TextControlForeground}"/>
             <Setter Property="Background" Value="{ThemeResource TextControlBackground}"/>
-            <Setter Property="ContentLinkForegroundColor" Value="{ThemeResource ContentLinkForegroundColor}"/>
-            <Setter Property="ContentLinkBackgroundColor" Value="{ThemeResource ContentLinkBackgroundColor}"/>
             <Setter Property="SelectionHighlightColor" Value="{ThemeResource TextControlSelectionHighlightColor}"/>
             <Setter Property="BorderBrush" Value="{ThemeResource TextControlBorderBrush}"/>
             <Setter Property="BorderThickness" Value="{ThemeResource TextControlBorderThemeThickness}"/>
@@ -3367,12 +3364,12 @@
         <Grid x:Name="PageTitleBar">
             <Border x:Name="AccentBorder" BorderThickness="0,0,0,0" VerticalAlignment="Top" Height="0" CornerRadius="0,0,10,10" Visibility="Collapsed" HorizontalAlignment="Left">
                 <Border.Background>
-                    <AcrylicBrush BackgroundSource="HostBackdrop" TintColor="{ThemeResource SystemAccentColor}" TintOpacity="0.8" FallbackColor="{ThemeResource SystemAccentColor}"/>
+                    <AcrylicBrush  TintColor="{ThemeResource SystemAccentColor}" TintOpacity="0.8" FallbackColor="{ThemeResource SystemAccentColor}"/>
                 </Border.Background>
             </Border>
             <Border x:Name="AccentBackground" VerticalAlignment="Stretch" Visibility="Collapsed">
                 <Border.Background>
-                    <AcrylicBrush BackgroundSource="HostBackdrop" TintColor="{ThemeResource SystemAccentColor}" TintOpacity="0.35" FallbackColor="{ThemeResource SystemAccentColor}"/>
+                    <AcrylicBrush  TintColor="{ThemeResource SystemAccentColor}" TintOpacity="0.35" FallbackColor="{ThemeResource SystemAccentColor}"/>
                 </Border.Background>
             </Border>
             <Border x:Name="ToolbarAccent" BorderThickness="0,0,0,0" VerticalAlignment="Top" Height="0" Width="0">
@@ -3380,7 +3377,7 @@
                     <AcrylicBrush TintColor="#FF9599B6"/>
                 </Border.BorderBrush>
                 <Border.Background>
-                    <AcrylicBrush TintColor="White" TintOpacity="0.975" BackgroundSource="HostBackdrop" FallbackColor="#26FFFFFF"/>
+                    <AcrylicBrush TintColor="White" TintOpacity="0.975"  FallbackColor="#26FFFFFF"/>
                 </Border.Background>
             </Border>
         </Grid>
@@ -4804,7 +4801,7 @@
                     <Border x:Name="HomeAccentBackground" BorderThickness="0,0,0,0" Visibility="{Binding Visibility, ElementName=AccentBackground}">
                         <Border.Background>
 
-                            <AcrylicBrush BackgroundSource="HostBackdrop" TintColor="{ThemeResource SystemAccentColor}" TintOpacity="0.35" FallbackColor="{ThemeResource SystemAccentColor}"/>
+                            <AcrylicBrush  TintColor="{ThemeResource SystemAccentColor}" TintOpacity="0.35" FallbackColor="{ThemeResource SystemAccentColor}"/>
                         </Border.Background>
                     </Border>
                     <Border BorderThickness="0,1,0,0" Height="135" Background="{ThemeResource SystemControlBackgroundAltMediumLowBrush}" BorderBrush="#338A8A8A" VerticalAlignment="Bottom"/>
@@ -4946,239 +4943,6 @@
                 </Grid>
             </Border>
         </Border>
-        <IviriusWindowingToolkit:ChildAppWindowContainer>
-            <IviriusWindowingToolkit:ChildAppWindow Backdrop="MicaAlt" CanMinimize="False" CanMaximize="False" x:Name="AboutBox" Title="About" RememberPosition="False" AppWindowHeight="520" AppWindowWidth="400" CloseButtonStyle="Win32" MaximizeButtonVisibility="Collapsed" MinimizeButtonVisibility="Collapsed" IsMaximizeRestoreButtonEnabled="False" TitleBarStyle="Transparent" d:IsHidden="True">
-                <Grid Margin="10,-115,10,0">
-                    <Image HorizontalAlignment="Left" Height="100" Margin="5,125,0,0" VerticalAlignment="Top" Width="100" Source="/Assets/AppIcons/AppIcon.png"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="120,140,0,0" TextWrapping="Wrap" Text="Ivirius Text Editor" VerticalAlignment="Top" FontSize="16"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="120,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="11"><Run Text="Version 3.2.0.329 - Full release"/><LineBreak/><Run Text="Copyright © Ivirius Text Editor 2021 - 2024 "/><LineBreak/><Run Text="Compiled July 2, 2024"/><LineBreak/><Run Text="GitHub release - UWP"/><LineBreak/><Run/></TextBlock>
-                    <StackPanel Margin="0,235,0,0">
-                        <HyperlinkButton Content="WinUI 2" Click="HyperlinkButton_Click_4" Padding="11,6,11,7"/>
-                        <HyperlinkButton Content="Windows Community Toolkit" Click="HyperlinkButton_Click_4" Padding="11,6,11,7"/>
-                        <HyperlinkButton Content="Win2D" Click="HyperlinkButton_Click_4" Padding="11,6,11,7"/>
-                    </StackPanel>
-                    <StackPanel HorizontalAlignment="Right" Margin="0,235,0,0">
-                        <HyperlinkButton Content="Humanizer" Click="HyperlinkButton_Click_4" Padding="11,6,11,7"/>
-                        <HyperlinkButton Content="MicaUWP" Click="HyperlinkButton_Click_4" Padding="11,6,11,7"/>
-                    </StackPanel>
-                    <StackPanel VerticalAlignment="Top" Margin="15,350,15,0" Spacing="15">
-                        <TextBlock TextWrapping="Wrap" Text="Developers:" Style="{ThemeResource SubtitleTextBlockStyle}"/>
-                        <Grid>
-                            <PersonPicture Width="50" Height="50" HorizontalAlignment="Left" ProfilePicture="/Assets/ProfilePictures/Ivirius.png"/>
-                            <TextBlock TextWrapping="Wrap" Text="Ivirius" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="65,0,0,0" FontSize="16"/>
-                        </Grid>
-                        <Grid>
-                            <PersonPicture Width="50" Height="50" HorizontalAlignment="Left" ProfilePicture="/Assets/ProfilePictures/jpbErrortek.png"/>
-                            <TextBlock TextWrapping="Wrap" Text="ErrorTek" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="65,0,0,0" FontSize="16"/>
-                        </Grid>
-                    </StackPanel>
-                    <Border BorderThickness="0,1,0,0" Height="70" Background="{ThemeResource SystemControlBackgroundAltMediumLowBrush}" BorderBrush="#338A8A8A" VerticalAlignment="Bottom" Margin="-10,0,-10,0"/>
-                    <Button Content="OK" Width="80" Style="{StaticResource AccentButtonStyle}" Click="Button_Click_30" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,10,20"/>
-                    <Border BorderThickness="0,1,0,0" BorderBrush="#728A8A8A" VerticalAlignment="Top" Margin="-10,116,-10,0" Visibility="Collapsed"/>
-                </Grid>
-            </IviriusWindowingToolkit:ChildAppWindow>
-            <IviriusWindowingToolkit:DialogWindow x:Name="FontColorBox" Title="Font color" FirstButtonText="Close" CloseButtonStyle="UWP" DialogAppWindowHeight="625" DialogAppWindowWidth="565" Backdrop="MicaAlt" IsSingleButton="True" d:IsHidden="True">
-                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
-                    <Grid Margin="10,0,0,0">
-                        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top">
-                            <StackPanel Orientation="Horizontal">
-                                <Button Foreground="DarkRed" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                                <Button Foreground="Red" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                                <Button Foreground="OrangeRed" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                                <Button Foreground="IndianRed" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <Button Foreground="DarkGreen" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                                <Button Foreground="DarkOliveGreen" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                                <Button Foreground="Green" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                                <Button Foreground="ForestGreen" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <Button Foreground="PaleVioletRed" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                                <Button Foreground="HotPink" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                                <Button Foreground="Pink" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                                <Button Foreground="LightPink" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <Button Foreground="LimeGreen" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                                <Button Foreground="Lime" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                                <Button Foreground="SpringGreen" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                                <Button Foreground="GreenYellow" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <Button Foreground="DarkBlue" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                                <Button Foreground="DarkSlateBlue" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                                <Button Foreground="Blue" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                                <Button Foreground="CornflowerBlue" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <Button Foreground="DodgerBlue" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                                <Button Foreground="DeepSkyBlue" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                                <Button Foreground="LightSkyBlue" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                                <Button Foreground="LightBlue" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <Button Foreground="DarkOrange" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                                <Button Foreground="Orange" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                                <Button Foreground="Yellow" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                                <Button Foreground="AntiqueWhite" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <Button Foreground="LightGoldenrodYellow" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                                <Button Foreground="LightYellow" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                                <Button Foreground="WhiteSmoke" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                                <Button Foreground="FloralWhite" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <Button Foreground="Black" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                                <Button Foreground="DimGray" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                                <Button Foreground="DarkGray" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                                <Button Foreground="Gray" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <Button Foreground="LightSlateGray" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                                <Button Foreground="LightGray" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                                <Button Foreground="White" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="ForegroundButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                                <Button Foreground="Transparent" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Click="NullForegroundButton_Click" BorderBrush="{x:Null}" Background="#00000000">
-                                    <Border BorderBrush="Red" BorderThickness="1" Width="39" RenderTransformOrigin="0.5,0.5">
-                                        <Border.RenderTransform>
-                                            <CompositeTransform Rotation="46.118"/>
-                                        </Border.RenderTransform>
-                                    </Border>
-                                </Button>
-                            </StackPanel>
-                        </StackPanel>
-                    </Grid>
-                    <Custom:ColorPicker x:Name="ColPicker" ColorChanged="ColorPicker_ColorChanged" Margin="20,0,0,0"/>
-                </StackPanel>
-            </IviriusWindowingToolkit:DialogWindow>
-            <IviriusWindowingToolkit:DialogWindow x:Name="BackColorBox" Title="Highlight color" FirstButtonText="Close" CloseButtonStyle="UWP" DialogAppWindowHeight="625" DialogAppWindowWidth="565" Backdrop="MicaAlt" IsSingleButton="True" d:IsHidden="True">
-                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
-                    <Grid Margin="10,0,0,0">
-                        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top">
-                            <StackPanel Orientation="Horizontal">
-                                <Button Foreground="DarkRed" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="HighlightButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                                <Button Foreground="Red" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="HighlightButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                                <Button Foreground="OrangeRed" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="HighlightButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                                <Button Foreground="IndianRed" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="HighlightButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <Button Foreground="DarkGreen" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="HighlightButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                                <Button Foreground="DarkOliveGreen" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="HighlightButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                                <Button Foreground="Green" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="HighlightButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                                <Button Foreground="ForestGreen" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="HighlightButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <Button Foreground="PaleVioletRed" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="HighlightButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                                <Button Foreground="HotPink" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="HighlightButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                                <Button Foreground="Pink" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="HighlightButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                                <Button Foreground="LightPink" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="HighlightButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <Button Foreground="LimeGreen" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="HighlightButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                                <Button Foreground="Lime" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="HighlightButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                                <Button Foreground="SpringGreen" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="HighlightButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                                <Button Foreground="GreenYellow" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="HighlightButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <Button Foreground="DarkBlue" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="HighlightButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                                <Button Foreground="DarkSlateBlue" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="HighlightButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                                <Button Foreground="Blue" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="HighlightButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                                <Button Foreground="CornflowerBlue" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="HighlightButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <Button Foreground="DodgerBlue" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="HighlightButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                                <Button Foreground="DeepSkyBlue" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="HighlightButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                                <Button Foreground="LightSkyBlue" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="HighlightButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                                <Button Foreground="LightBlue" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="HighlightButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <Button Foreground="DarkOrange" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="HighlightButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                                <Button Foreground="Orange" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="HighlightButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                                <Button Foreground="Yellow" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="HighlightButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                                <Button Foreground="AntiqueWhite" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="HighlightButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <Button Foreground="LightGoldenrodYellow" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="HighlightButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                                <Button Foreground="LightYellow" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="HighlightButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                                <Button Foreground="WhiteSmoke" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="HighlightButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                                <Button Foreground="FloralWhite" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="HighlightButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <Button Foreground="Black" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="HighlightButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                                <Button Foreground="DimGray" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="HighlightButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                                <Button Foreground="DarkGray" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="HighlightButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                                <Button Foreground="Gray" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="HighlightButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <Button Foreground="LightSlateGray" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="HighlightButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                                <Button Foreground="LightGray" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="HighlightButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                                <Button Foreground="White" Content="&#xE002;" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Style="{StaticResource DisabledButtonStyle}" Click="HighlightButton_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
-                                <Button Foreground="Transparent" Width="50" Height="50" FontFamily="{StaticResource CustomFont}" FontSize="36" Padding="0,0,0,0" Click="NullHighlightButton_Click" BorderBrush="{x:Null}" Background="#00000000">
-                                    <Border BorderBrush="Red" BorderThickness="1" Width="39" RenderTransformOrigin="0.5,0.5">
-                                        <Border.RenderTransform>
-                                            <CompositeTransform Rotation="46.118"/>
-                                        </Border.RenderTransform>
-                                    </Border>
-                                </Button>
-                            </StackPanel>
-                        </StackPanel>
-                    </Grid>
-                    <Custom:ColorPicker x:Name="BackPicker" ColorChanged="BackPicker_ColorChanged" Color="#00000000" Margin="20,0,0,0"/>
-                </StackPanel>
-            </IviriusWindowingToolkit:DialogWindow>
-            <IviriusWindowingToolkit:DialogWindow x:Name="ZippyKeyWindow" FirstButtonText="Apply" SecondButtonText="Get key" DialogAppWindowWidth="450" Title="Zippy API key" HasIcon="True" Icon="/Assets/AppIcons/AppIcon.png" FirstButtonClick="DialogWindow_FirstButtonClick" SecondButtonClick="DialogWindow_SecondButtonClick" d:IsHidden="True">
-                <Grid>
-                    <TextBlock TextWrapping="Wrap" Text="Enter a valid OpenAI API key" Margin="15,15,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <PasswordBox x:Name="ZippyAPIKey" VerticalAlignment="Bottom" Margin="15,0,15,30" PlaceholderText="Current key is hidden for security reasons"/>
-                </Grid>
-            </IviriusWindowingToolkit:DialogWindow>
-        </IviriusWindowingToolkit:ChildAppWindowContainer>
-        <IviriusWindowingToolkit:DialogWindowContainer>
-            <IviriusWindowingToolkit:DialogWindow x:Name="ActionErrorBox" IsSingleButton="True" Title="Ivirius Text Editor" FirstButtonText="OK" DialogAppWindowWidth="400" RememberPosition="False" PlaySound="True" HasIcon="True" Icon="/Assets/AppIcons/AppIcon.png" Backdrop="MicaAlt" WindowBackground="{StaticResource AppBackgroundBrush}" d:IsHidden="True">
-                <Grid>
-                    <Image HorizontalAlignment="Left" Height="50" Margin="20,25,0,0" VerticalAlignment="Top" Width="50" Source="/Assets/Glyphs/Error.png"/>
-                    <TextBlock x:Name="ActionErrorMessage" TextWrapping="Wrap" FontSize="16" Margin="100,20,25,30"><Run Text="Error code: Unavailable"/><LineBreak/><Run Text="Empty error"/></TextBlock>
-                </Grid>
-            </IviriusWindowingToolkit:DialogWindow>
-            <IviriusWindowingToolkit:DialogWindow x:Name="FileSaveBox" DialogAppWindowHeight="200" DialogAppWindowWidth="420" PlaySound="True" Title="Ivirius Text Editor" RememberPosition="False" HasIcon="True" Icon="/Assets/AppIcons/AppIcon.png" Backdrop="MicaAlt" WindowBackground="{StaticResource AppBackgroundBrush}" d:IsHidden="True">
-                <Grid HorizontalAlignment="Left" VerticalAlignment="Top">
-                    <Image HorizontalAlignment="Left" Height="75" Margin="15,15,0,0" VerticalAlignment="Top" Width="75" Source="/Assets/Glyphs/Warning.png"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="115,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" Text="Do you want to save your file?"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="115,50,20,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14"><Run Text="Any changes you made to this file might be "/><LineBreak/><Run Text="lost if you don't save it"/></TextBlock>
-                </Grid>
-            </IviriusWindowingToolkit:DialogWindow>
-            <IviriusWindowingToolkit:DialogWindow x:Name="ActionWarningBox" DialogAppWindowWidth="350" Title="Ivirius Text Editor" PlaySound="True" RememberPosition="False" HasIcon="True" Icon="/Assets/AppIcons/AppIcon.png" Backdrop="MicaAlt" WindowBackground="{StaticResource AppBackgroundBrush}" d:IsHidden="True">
-                <Grid MaxWidth="320">
-                    <Image HorizontalAlignment="Left" Height="60" Margin="5,0,0,15" VerticalAlignment="Center" Width="60" Source="/Assets/Glyphs/Warning.png"/>
-                    <TextBlock x:Name="ActionWarningMessage" TextWrapping="Wrap" FontSize="18" Text="Warning" Margin="85,20,25,0" VerticalAlignment="Top"/>
-                </Grid>
-            </IviriusWindowingToolkit:DialogWindow>
-            <IviriusWindowingToolkit:DialogWindow x:Name="ActionCompleteBox" IsSingleButton="True" Title="Ivirius Text Editor" FirstButtonText="OK" DialogAppWindowWidth="400" RememberPosition="False" PlaySound="True" HasIcon="True" Icon="/Assets/AppIcons/AppIcon.png" Backdrop="MicaAlt" WindowBackground="{StaticResource AppBackgroundBrush}" d:IsHidden="True">
-                <Grid>
-                    <Image HorizontalAlignment="Left" Height="50" Margin="20,25,0,0" VerticalAlignment="Top" Width="50" Source="/Assets/Glyphs/Check.png"/>
-                    <TextBlock x:Name="ActionCompleteMessage" TextWrapping="Wrap" FontSize="16" Margin="100,20,25,30"><Run Text="Error code: Unavailable"/><LineBreak/><Run Text="Empty error"/></TextBlock>
-                </Grid>
-            </IviriusWindowingToolkit:DialogWindow>
-            <IviriusWindowingToolkit:DialogWindow x:Name="FatalExceptionBox" IsSingleButton="True" Title="Ivirius Text Editor" FirstButtonText="OK" DialogAppWindowWidth="400" RememberPosition="False" PlaySound="True" Backdrop="MicaAlt" d:IsHidden="True">
-                <Grid>
-                    <Image HorizontalAlignment="Left" Height="50" Margin="20,25,0,0" VerticalAlignment="Top" Width="50" Source="/Assets/Glyphs/Error.png"/>
-                    <TextBlock x:Name="FatalExceptionMessage" TextWrapping="Wrap" FontSize="16" Margin="100,20,25,30"><Run Text="Error code: Unavailable"/><LineBreak/><Run Text="Empty error"/></TextBlock>
-                </Grid>
-            </IviriusWindowingToolkit:DialogWindow>
-            <IviriusWindowingToolkit:DialogWindow x:Name="PrintingInfoBox" DialogAppWindowWidth="700" Title="Ivirius Text Editor" PlaySound="True" RememberPosition="False" HasIcon="True" Icon="/Assets/Glyphs/Warning.png" Backdrop="MicaAlt" HorizontalContentAlignment="Left" DialogAppWindowHeight="270" IsSingleButton="True" FirstButtonText="Proceed" FirstButtonClick="PrintingInfoBox_FirstButtonClick" d:IsHidden="True">
-                <Grid Margin="15,0,15,0">
-                    <Image HorizontalAlignment="Left" Height="60" Margin="5,30,0,15" VerticalAlignment="Top" Width="60" Source="/Assets/Glyphs/Warning.png"/>
-                    <TextBlock TextWrapping="Wrap" FontSize="18" Text="In order for printing to proceed, you must allow Ivirius Text Editor access to your desktop for creating a temporary bridge file between the app and the printing service. Please press the &quot;Save&quot; and &quot;Select folder&quot; (Please select your desktop on the 2nd dialog) buttons when the file creation dialog appears to allow printing in the future." Margin="85,20,25,0" VerticalAlignment="Top"/>
-                </Grid>
-            </IviriusWindowingToolkit:DialogWindow>
-            <IviriusWindowingToolkit:DialogWindow x:Name="NewFileBox" DialogAppWindowWidth="350" Title="Ivirius Text Editor" PlaySound="True" RememberPosition="False" HasIcon="True" Icon="/Assets/AppIcons/AppIcon.png" Backdrop="MicaAlt" WindowBackground="{StaticResource AppBackgroundBrush}" d:IsHidden="True" FirstButtonClick="NewFileBox_FirstButtonClick">
-                <Grid MaxWidth="320">
-                    <Image HorizontalAlignment="Left" Height="60" Margin="5,0,0,15" VerticalAlignment="Center" Width="60" Source="/Assets/Glyphs/Warning.png"/>
-                    <TextBlock x:Name="ActionWarningMessage1" TextWrapping="Wrap" FontSize="18" Text="Do you want to save your current file before creating a new one?" Margin="85,20,25,0" VerticalAlignment="Top"/>
-                </Grid>
-            </IviriusWindowingToolkit:DialogWindow>
-        </IviriusWindowingToolkit:DialogWindowContainer>
         <Grid x:Name="LoadingScreen" Background="{StaticResource AppBackgroundBrush}" d:IsHidden="True">
             <Image Height="100" Width="100" Margin="0,0,0,50" Source="/Assets/AppIcons/AppIcon.png"/>
             <Custom:ProgressRing IsActive="True" Width="25" Height="25" Margin="0,175,0,0"/>

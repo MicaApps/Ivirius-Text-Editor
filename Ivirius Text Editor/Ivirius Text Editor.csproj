@@ -220,19 +220,23 @@
     <Content Include="SegoeFluentIcons2.ttf" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="CommunityToolkit.WinUI.UI.Controls" Version="7.1.2" />
     <PackageReference Include="Humanizer.Core">
       <Version>3.0.0-beta.54</Version>
     </PackageReference>
+	  <PackageReference Include="Ivirius.UI.Controls">
+		  <Version>0.1.1-prerelease</Version>
+	  </PackageReference>
     <PackageReference Include="Microsoft.AppCenter.Crashes">
       <Version>5.0.5</Version>
     </PackageReference>
     <PackageReference Include="CommunityToolkit.WinUI.Notifications">
       <Version>7.1.2</Version>
     </PackageReference>
-	  <PackageReference Include="CommunityToolkit.WinUI.SettingsControls">
+	  <PackageReference Include="CommunityToolkit.WinUI.Controls.SettingsControls">
 		  <Version>8.1.240606-rc</Version>
 	  </PackageReference>
-	  <PackageReference Include="CommunityToolkit.WinUI.Segmented">
+	  <PackageReference Include="CommunityToolkit.WinUI.Controls.Segmented">
 		  <Version>8.1.240606-rc</Version>
 	  </PackageReference>
     <PackageReference Include="Microsoft.NETCore.Platforms" Version="8.0.0-preview.7.23375.6" />
@@ -242,10 +246,5 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Ivirius Text Editor_TemporaryKey.pfx" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Remove="Ivirius_Text_Editor\Pages\MainPage.xaml.cs" />
-    <Compile Remove="Ivirius_Text_Editor\Pages\SettingsPage.xaml.cs" />
-    <Compile Remove="Ivirius_Text_Editor\Pages\TabbedMainPage.xaml.cs" />
   </ItemGroup>
 </Project>

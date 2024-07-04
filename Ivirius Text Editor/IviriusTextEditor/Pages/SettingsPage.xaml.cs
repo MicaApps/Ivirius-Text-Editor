@@ -10,7 +10,7 @@ using Windows.Storage;
 using Windows.UI;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Media;
-using ColorHelper = Microsoft.Toolkit.Uwp.Helpers.ColorHelper;
+using Ivirius_Text_Editor;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -392,7 +392,7 @@ namespace IviriusTextEditor.Pages
 
         private void SSButton_Click_1(object Sender, RoutedEventArgs EvArgs)
         {
-            ActionWarningBox.Open();
+            //ActionWarningBox.Open();
         }
 
         string RestartArgs;
