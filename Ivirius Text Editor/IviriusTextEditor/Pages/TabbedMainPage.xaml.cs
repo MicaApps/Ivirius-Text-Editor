@@ -107,8 +107,8 @@ namespace IviriusTextEditor.Pages
             //Variables
             ApplicationDataContainer LocalSettings = ApplicationData.Current.LocalSettings;
             // TODO Windows.UI.ViewManagement.ApplicationView is no longer supported. Use Microsoft.UI.Windowing.AppWindow instead. For more details see https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/guides/windowing
-            ApplicationViewTitleBar AppTitleBar = ApplicationView.GetForCurrentView().TitleBar;
-            CoreApplicationViewTitleBar AppCoreTitleBar = CoreApplication.GetCurrentView().TitleBar;
+            //ApplicationViewTitleBar AppTitleBar = ApplicationView.GetForCurrentView().TitleBar;
+            //CoreApplicationViewTitleBar AppCoreTitleBar = CoreApplication.GetCurrentView().TitleBar;
 
             #endregion Miscellaneous
 
@@ -582,7 +582,7 @@ namespace IviriusTextEditor.Pages
             //BackPicker.Color = Color.FromArgb(0, 255, 255, 255);
 
             //Title bar config
-            AppCoreTitleBar.ExtendViewIntoTitleBar = true;
+            //AppCoreTitleBar.ExtendViewIntoTitleBar = true;
 
             //Fonts config
             var Fonts = CanvasTextFormat.GetSystemFontFamilies().OrderBy(Font => Font).ToList();
@@ -601,13 +601,13 @@ namespace IviriusTextEditor.Pages
 
         private void WindowSizeChanged(object sender, SizeChangedEventArgs e)
         {
-            if (((Frame)App.Window.Content).ActualWidth < 900)
-            {
-                PlusButton.Visibility = Visibility.Collapsed;
-            } else
-            {
-                PlusButton.Visibility = Visibility.Visible;
-            }
+            //if (((Frame)App.Window.Content).ActualWidth < 900)
+            //{
+            //    PlusButton.Visibility = Visibility.Collapsed;
+            //} else
+            //{
+            //    PlusButton.Visibility = Visibility.Visible;
+            //}
         }
 
         #region Crashes
@@ -4708,14 +4708,14 @@ namespace IviriusTextEditor.Pages
 
         private void ShareButton_Click(object sender, RoutedEventArgs e)
         {
-            ShareSourceLoad();
-            Windows.ApplicationModel.DataTransfer.DataTransferManager.As<UWPToWinAppSDKUpgradeHelpers.IDataTransferManagerInterop>().ShowShareUIForWindow(App.WindowHandle);
+            //ShareSourceLoad();
+            //Windows.ApplicationModel.DataTransfer.DataTransferManager.As<UWPToWinAppSDKUpgradeHelpers.IDataTransferManagerInterop>().ShowShareUIForWindow(App.WindowHandle);
         }
 
         private void ShareSourceLoad()
         {
-            DataTransferManager dataTransferManager = DataTransferManager.GetForCurrentView();
-            dataTransferManager.DataRequested += new TypedEventHandler<DataTransferManager, DataRequestedEventArgs>(this.DataRequested);
+            //DataTransferManager dataTransferManager = DataTransferManager.GetForCurrentView();
+            //dataTransferManager.DataRequested += new TypedEventHandler<DataTransferManager, DataRequestedEventArgs>(this.DataRequested);
         }
 
         private void DataRequested(DataTransferManager sender, DataRequestedEventArgs e)

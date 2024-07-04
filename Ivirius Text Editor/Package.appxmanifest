@@ -67,5 +67,6 @@
     <rescap:Capability Name="confirmAppClose" />
     <rescap:Capability Name="documentsLibrary" />
     <uap:Capability Name="picturesLibrary" />
+	  <rescap:Capability Name="runFullTrust"/>
   </Capabilities>
 </Package>

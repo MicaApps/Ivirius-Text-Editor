@@ -37,22 +37,22 @@ namespace IviriusTextEditor.Pages
             InitializeComponent();
 
             //Variables
-            var CoreTB = CoreApplication.GetCurrentView().TitleBar;
-            // TODO Windows.UI.ViewManagement.ApplicationView is no longer supported. Use Microsoft.UI.Windowing.AppWindow instead. For more details see https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/guides/windowing
-            var AppTB = ApplicationView.GetForCurrentView().TitleBar;
+            //var CoreTB = CoreApplication.GetCurrentView().TitleBar;
+            //// TODO Windows.UI.ViewManagement.ApplicationView is no longer supported. Use Microsoft.UI.Windowing.AppWindow instead. For more details see https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/guides/windowing
+            //var AppTB = ApplicationView.GetForCurrentView().TitleBar;
             var LocalSettings = ApplicationData.Current.LocalSettings;
 
             //Title bar
-            CoreTB.ExtendViewIntoTitleBar = true;
-            CoreTB.LayoutMetricsChanged += CoreTitleBar_LayoutMetricsChanged;
-            AppTB.ButtonBackgroundColor = Colors.Transparent;
-            AppTB.ButtonInactiveBackgroundColor = Colors.Transparent;
-            AppTB.ButtonInactiveForegroundColor = Color.FromArgb(255, 125, 125, 125);
-            CoreApplication.GetCurrentView().TitleBar.ExtendViewIntoTitleBar = true;
-            SystemNavigationManagerPreview.GetForCurrentView().CloseRequested += MainPage_CloseRequested;
+            //CoreTB.ExtendViewIntoTitleBar = true;
+            //CoreTB.LayoutMetricsChanged += CoreTitleBar_LayoutMetricsChanged;
+            //AppTB.ButtonBackgroundColor = Colors.Transparent;
+            //AppTB.ButtonInactiveBackgroundColor = Colors.Transparent;
+            //AppTB.ButtonInactiveForegroundColor = Color.FromArgb(255, 125, 125, 125);
+            //CoreApplication.GetCurrentView().TitleBar.ExtendViewIntoTitleBar = true;
+            //SystemNavigationManagerPreview.GetForCurrentView().CloseRequested += MainPage_CloseRequested;
             // TODO Windows.UI.ViewManagement.ApplicationView is no longer supported. Use Microsoft.UI.Windowing.AppWindow instead. For more details see https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/guides/windowing
-            ApplicationView.GetForCurrentView().SetPreferredMinSize(new Windows.Foundation.Size(800, 400));
-            App.Window.SetTitleBar(CustomDragRegion);
+            //ApplicationView.GetForCurrentView().SetPreferredMinSize(new Windows.Foundation.Size(800, 400));
+            //App.Window.SetTitleBar(CustomDragRegion);
 
             //Others
             try
@@ -128,11 +128,11 @@ namespace IviriusTextEditor.Pages
                 Application.Current.Resources["AppTextBrush"] = Application.Current.Resources["TextFillColorPrimaryBrush"];
 
                 //TitleBar buttons
-                AppTB.ButtonForegroundColor = Colors.Black;
-                AppTB.ButtonHoverBackgroundColor = Color.FromArgb(25, 0, 0, 0);
-                AppTB.ButtonPressedBackgroundColor = Color.FromArgb(65, 0, 0, 0);
-                AppTB.ButtonHoverForegroundColor = Colors.Black;
-                AppTB.ButtonPressedForegroundColor = Colors.Black;
+                //AppTB.ButtonForegroundColor = Colors.Black;
+                //AppTB.ButtonHoverBackgroundColor = Color.FromArgb(25, 0, 0, 0);
+                //AppTB.ButtonPressedBackgroundColor = Color.FromArgb(65, 0, 0, 0);
+                //AppTB.ButtonHoverForegroundColor = Colors.Black;
+                //AppTB.ButtonPressedForegroundColor = Colors.Black;
 
                 //TitleBar color
                 //Application.Current.Resources["AppTitleBarBrush"] = new BackdropMicaBrush()
@@ -170,11 +170,11 @@ namespace IviriusTextEditor.Pages
                 Application.Current.Resources["AppTextBrush"] = Application.Current.Resources["TextFillColorPrimaryBrush"];
 
                 //TitleBar buttons
-                AppTB.ButtonForegroundColor = Colors.White;
-                AppTB.ButtonHoverBackgroundColor = Color.FromArgb(25, 0, 0, 0);
-                AppTB.ButtonPressedBackgroundColor = Color.FromArgb(65, 0, 0, 0);
-                AppTB.ButtonHoverForegroundColor = Colors.White;
-                AppTB.ButtonPressedForegroundColor = Colors.White;
+                //AppTB.ButtonForegroundColor = Colors.White;
+                //AppTB.ButtonHoverBackgroundColor = Color.FromArgb(25, 0, 0, 0);
+                //AppTB.ButtonPressedBackgroundColor = Color.FromArgb(65, 0, 0, 0);
+                //AppTB.ButtonHoverForegroundColor = Colors.White;
+                //AppTB.ButtonPressedForegroundColor = Colors.White;
 
                 //TitleBar color
                 //Application.Current.Resources["AppTitleBarBrush"] = new BackdropMicaBrush()
