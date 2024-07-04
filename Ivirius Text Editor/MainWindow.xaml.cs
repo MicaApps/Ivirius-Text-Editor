@@ -34,6 +34,11 @@ namespace Ivirius_Text_Editor
         {
             this.InitializeComponent();
 
+            SystemBackdrop = new MicaBackdrop()
+            {
+                Kind = Microsoft.UI.Composition.SystemBackdrops.MicaKind.BaseAlt
+            };
+
             m_AppWindow = GetAppWindowForCurrentWindow();
 
             // Check to see if customization is supported.
@@ -42,11 +47,6 @@ namespace Ivirius_Text_Editor
             {
                 var titleBar = m_AppWindow.TitleBar;
                 titleBar.ExtendsContentIntoTitleBar = true;
-                AppTitleBar.Loaded += AppTitleBar_Loaded;
-                AppTitleBar.SizeChanged += AppTitleBar_SizeChanged;
-
-                BackButton.Click += OnBackClicked;
-                BackButton.Visibility = Visibility.Collapsed;
             }
             else
             {
@@ -59,11 +59,9 @@ namespace Ivirius_Text_Editor
             }
         }
 
-        public Button BackButton => AppTitleBarBackButton;
 
         private void AppTitleBar_Loaded(object sender, RoutedEventArgs e)
         {
-            SetTitleBar(AppTitleBar);
             // TODO Raname MainPage in case your app Main Page has a different name
             PageFrame.Navigate(typeof(MainPage));
             if (AppWindowTitleBar.IsCustomizationSupported())
@@ -104,18 +102,8 @@ namespace Ivirius_Text_Editor
             {
                 double scaleAdjustment = GetScaleAdjustment();
 
-                RightPaddingColumn.Width = new GridLength(appWindow.TitleBar.RightInset / scaleAdjustment);
-                LeftPaddingColumn.Width = new GridLength(appWindow.TitleBar.LeftInset / scaleAdjustment);
-
                 List<Windows.Graphics.RectInt32> dragRectsList = new();
 
-                Windows.Graphics.RectInt32 dragRectL;
-                dragRectL.X = (int)((LeftPaddingColumn.ActualWidth + IconColumn.ActualWidth) * scaleAdjustment);
-                dragRectL.Y = 0;
-                dragRectL.Height = (int)((AppTitleBar.ActualHeight) * scaleAdjustment);
-                dragRectL.Width = (int)((TitleColumn.ActualWidth
-                                        + DragColumn.ActualWidth) * scaleAdjustment);
-                dragRectsList.Add(dragRectL);
 
                 Windows.Graphics.RectInt32[] dragRects = dragRectsList.ToArray();
                 appWindow.TitleBar.SetDragRectangles(dragRects);
