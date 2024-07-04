@@ -39,6 +39,9 @@ namespace Ivirius_Text_Editor
                 Kind = Microsoft.UI.Composition.SystemBackdrops.MicaKind.BaseAlt
             };
 
+            PageFrame.Navigate(typeof(MainPage));
+            
+
             m_AppWindow = GetAppWindowForCurrentWindow();
 
             // Check to see if customization is supported.
@@ -46,6 +49,7 @@ namespace Ivirius_Text_Editor
             if (AppWindowTitleBar.IsCustomizationSupported())
             {
                 var titleBar = m_AppWindow.TitleBar;
+                titleBar.ButtonBackgroundColor = Colors.Transparent;
                 titleBar.ExtendsContentIntoTitleBar = true;
             }
             else
