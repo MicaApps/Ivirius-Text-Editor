@@ -6,9 +6,9 @@ using Microsoft.Toolkit.Uwp.UI.Controls.TextToolbarSymbols;
 using Microsoft.Toolkit.Uwp.UI.Triggers;
 using Windows.Devices.Custom;
 using Windows.Perception.Spatial;
-using Windows.UI.Input;
+using Microsoft.UI.Input;
 using Windows.UI.ViewManagement;
-using Windows.UI.Xaml.Automation;
+using Microsoft.UI.Xaml.Automation;
 
 namespace IviriusTextEditor.Languages
 {

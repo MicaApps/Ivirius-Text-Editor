@@ -34,19 +34,18 @@ using Windows.Storage;
 using Windows.Storage.Pickers;
 using Windows.Storage.Provider;
 using Windows.Storage.Streams;
-using Windows.System;
+using Microsoft.Windows.System;
 using Windows.UI;
 using Windows.UI.Input.Preview.Injection;
-using Windows.UI.Text;
+using Microsoft.UI.Text;
 using Windows.UI.ViewManagement;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Documents;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Media.Imaging;
-using Windows.UI.Xaml.Navigation;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls.Primitives;
+using Microsoft.UI.Xaml.Documents;
+using Microsoft.UI.Xaml.Input;
+using Microsoft.UI.Xaml.Media;
+using Microsoft.UI.Xaml.Media.Imaging;
+using Microsoft.UI.Xaml.Navigation;
 //Clarification namespaces and classes
 using Color = Windows.UI.Color;
 using ColorChangedEventArgs = Microsoft.UI.Xaml.Controls.ColorChangedEventArgs;
@@ -108,6 +107,7 @@ namespace IviriusTextEditor.Pages
 
             //Variables
             ApplicationDataContainer LocalSettings = ApplicationData.Current.LocalSettings;
+            // TODO Windows.UI.ViewManagement.ApplicationView is no longer supported. Use Microsoft.UI.Windowing.AppWindow instead. For more details see https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/guides/windowing
             ApplicationViewTitleBar AppTitleBar = ApplicationView.GetForCurrentView().TitleBar;
             CoreApplicationViewTitleBar AppCoreTitleBar = CoreApplication.GetCurrentView().TitleBar;
 
@@ -602,7 +602,7 @@ namespace IviriusTextEditor.Pages
 
         private void WindowSizeChanged(object sender, SizeChangedEventArgs e)
         {
-            if (((Frame)Window.Current.Content).ActualWidth < 900)
+            if (((Frame)App.Window.Content).ActualWidth < 900)
             {
                 PlusButton.Visibility = Visibility.Collapsed;
             } else
@@ -759,7 +759,11 @@ namespace IviriusTextEditor.Pages
 
         private async void MenuFlyoutItem_Click_24(object sender, RoutedEventArgs e)
         {
-            var FSP = new FileSavePicker();
+/*
+    TODO You should replace 'App.WindowHandle' with the your window's handle (HWND) 
+    Read more on retrieving window handle here: https://docs.microsoft.com/en-us/windows/apps/develop/ui-input/retrieve-hwnd
+*/
+            var FSP = InitializeWithWindow(new FileSavePicker(),App.WindowHandle);
             ApplicationDataContainer LocalSettings = ApplicationData.Current.LocalSettings;
             //File dialog configuration
             FSP.FileTypeChoices.Add("Plain Ivirius Text", new List<string>() { ".ivrtxt" });
@@ -819,6 +823,12 @@ namespace IviriusTextEditor.Pages
                     CheckForSaving();
                 }
             }
+        }
+
+        private static FileSavePicker InitializeWithWindow(FileSavePicker obj, IntPtr windowHandle)
+        {
+            WinRT.Interop.InitializeWithWindow.Initialize(obj, windowHandle);
+            return obj;
         }
 
         private async void SNFYesToFull_Click(object Sender, RoutedEventArgs EvArgs)
@@ -1210,7 +1220,11 @@ namespace IviriusTextEditor.Pages
 
         public async Task SaveAsLog()
         {
-            var FSP = new FileSavePicker();
+/*
+    TODO You should replace 'App.WindowHandle' with the your window's handle (HWND) 
+    Read more on retrieving window handle here: https://docs.microsoft.com/en-us/windows/apps/develop/ui-input/retrieve-hwnd
+*/
+            var FSP = InitializeWithWindow(new FileSavePicker(),App.WindowHandle);
             //File dialog configuration
             FSP.FileTypeChoices.Add("Log File", new List<string>() { ".log" });
             FSP.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
@@ -1252,6 +1266,12 @@ namespace IviriusTextEditor.Pages
                     CheckForSaving();
                 }
             }
+        }
+
+        private static FileSavePicker InitializeWithWindow(FileSavePicker obj, IntPtr windowHandle)
+        {
+            WinRT.Interop.InitializeWithWindow.Initialize(obj, windowHandle);
+            return obj;
         }
 
         public void RequestClose()
@@ -1311,12 +1331,12 @@ namespace IviriusTextEditor.Pages
             }
             else
             {
-                if (GetText(REB) == GetText(RTB) && TXTFile != null && ((Window.Current.Content as Frame).Content as MainPage).TabbedView.SelectedItem != null)
+                if (GetText(REB) == GetText(RTB) && TXTFile != null && ((App.Window.Content as Frame).Content as MainPage).TabbedView.SelectedItem != null)
                 {
                     FileNotSaved.Visibility = Visibility.Visible;
                     isWorkSaved = false;
                     FileNameTextBlock.Text = TXTFile.DisplayName;
-                    (((Window.Current.Content as Frame).Content as MainPage).TabbedView.SelectedItem as TabViewItem).Header = TXTFile.DisplayName;
+                    (((App.Window.Content as Frame).Content as MainPage).TabbedView.SelectedItem as TabViewItem).Header = TXTFile.DisplayName;
                 }
                 if (GetText(REB) != GetText(RTB) || TXTFile == null)
                 {
@@ -1396,8 +1416,12 @@ namespace IviriusTextEditor.Pages
 
             if (Background == false && Close == false && Erase == false && NoFile == false)
             {
+/*
+    TODO You should replace 'App.WindowHandle' with the your window's handle (HWND) 
+    Read more on retrieving window handle here: https://docs.microsoft.com/en-us/windows/apps/develop/ui-input/retrieve-hwnd
+*/
                 //File dialog configuration
-                var FSP = new FileSavePicker();
+                var FSP = InitializeWithWindow(new FileSavePicker(),App.WindowHandle);
 
                 FSP.FileTypeChoices.Add("Rich Ivirius Text", new List<string>() { ".ivrtext" });
                 FSP.FileTypeChoices.Add("Universal Rich Text", new List<string>() { ".rtf" });
@@ -1506,7 +1530,11 @@ namespace IviriusTextEditor.Pages
 
             if (Background == false && Close == true && Erase == false && NoFile == false)
             {
-                var FSP = new FileSavePicker();
+/*
+    TODO You should replace 'App.WindowHandle' with the your window's handle (HWND) 
+    Read more on retrieving window handle here: https://docs.microsoft.com/en-us/windows/apps/develop/ui-input/retrieve-hwnd
+*/
+                var FSP = InitializeWithWindow(new FileSavePicker(),App.WindowHandle);
 
                 FSP.FileTypeChoices.Add("Rich Ivirius Text", new List<string>() { ".ivrtext" });
                 FSP.FileTypeChoices.Add("Universal Rich Text", new List<string>() { ".rtf" });
@@ -1628,8 +1656,12 @@ namespace IviriusTextEditor.Pages
 
             if (Background == false && Close == false && Erase == true && NoFile == false)
             {
+/*
+    TODO You should replace 'App.WindowHandle' with the your window's handle (HWND) 
+    Read more on retrieving window handle here: https://docs.microsoft.com/en-us/windows/apps/develop/ui-input/retrieve-hwnd
+*/
                 //File dialog configuration
-                var FSP = new FileSavePicker();
+                var FSP = InitializeWithWindow(new FileSavePicker(),App.WindowHandle);
 
                 FSP.FileTypeChoices.Add("Rich Ivirius Text", new List<string>() { ".ivrtext" });
                 FSP.FileTypeChoices.Add("Universal Rich Text", new List<string>() { ".rtf" });
@@ -1696,12 +1728,34 @@ namespace IviriusTextEditor.Pages
             }
         }
 
+        private static FileSavePicker InitializeWithWindow(FileSavePicker obj, IntPtr windowHandle)
+        {
+            WinRT.Interop.InitializeWithWindow.Initialize(obj, windowHandle);
+            return obj;
+        }
+
+        private static FileSavePicker InitializeWithWindow(FileSavePicker obj, IntPtr windowHandle)
+        {
+            WinRT.Interop.InitializeWithWindow.Initialize(obj, windowHandle);
+            return obj;
+        }
+
+        private static FileSavePicker InitializeWithWindow(FileSavePicker obj, IntPtr windowHandle)
+        {
+            WinRT.Interop.InitializeWithWindow.Initialize(obj, windowHandle);
+            return obj;
+        }
+
         public async Task Open()
         {
             ApplicationDataContainer LocalSettings = ApplicationData.Current.LocalSettings;
+/*
+    TODO You should replace 'App.WindowHandle' with the your window's handle (HWND) 
+    Read more on retrieving window handle here: https://docs.microsoft.com/en-us/windows/apps/develop/ui-input/retrieve-hwnd
+*/
 
             //File dialog configuration
-            var FOP = new FileOpenPicker();
+            var FOP = InitializeWithWindow(new FileOpenPicker(),App.WindowHandle);
             FOP.FileTypeFilter.Add(".ivrtext");
             FOP.FileTypeFilter.Add(".rtf");
             FOP.FileTypeFilter.Add(".richtxtformat");
@@ -1808,10 +1862,20 @@ namespace IviriusTextEditor.Pages
             FileIntactBlock.Visibility = Visibility.Collapsed;
         }
 
+        private static FileOpenPicker InitializeWithWindow(FileOpenPicker obj, IntPtr windowHandle)
+        {
+            WinRT.Interop.InitializeWithWindow.Initialize(obj, windowHandle);
+            return obj;
+        }
+
         public async Task OpenRecent(StorageFile file)
         {
+/*
+    TODO You should replace 'App.WindowHandle' with the your window's handle (HWND) 
+    Read more on retrieving window handle here: https://docs.microsoft.com/en-us/windows/apps/develop/ui-input/retrieve-hwnd
+*/
             //File dialog configuration
-            var FOP = new FileOpenPicker();
+            var FOP = InitializeWithWindow(new FileOpenPicker(),App.WindowHandle);
             FOP.FileTypeFilter.Add(".ivrtext");
             FOP.FileTypeFilter.Add(".rtf");
             FOP.FileTypeFilter.Add(".richtxtformat");
@@ -1844,10 +1908,20 @@ namespace IviriusTextEditor.Pages
             }
         }
 
+        private static FileOpenPicker InitializeWithWindow(FileOpenPicker obj, IntPtr windowHandle)
+        {
+            WinRT.Interop.InitializeWithWindow.Initialize(obj, windowHandle);
+            return obj;
+        }
+
         public async Task OpenMultiple()
         {
+/*
+    TODO You should replace 'App.WindowHandle' with the your window's handle (HWND) 
+    Read more on retrieving window handle here: https://docs.microsoft.com/en-us/windows/apps/develop/ui-input/retrieve-hwnd
+*/
             //File dialog configuration
-            var FOP = new FileOpenPicker();
+            var FOP = InitializeWithWindow(new FileOpenPicker(),App.WindowHandle);
             FOP.FileTypeFilter.Add(".ivrtext");
             FOP.FileTypeFilter.Add(".rtf");
             FOP.FileTypeFilter.Add(".richtxtformat");
@@ -1857,8 +1931,14 @@ namespace IviriusTextEditor.Pages
             var List = await FOP.PickMultipleFilesAsync();
             foreach (var file in List)
             {
-                await ((Window.Current.Content as Frame).Content as MainPage).AddTabForFile(file);
+                await ((App.Window.Content as Frame).Content as MainPage).AddTabForFile(file);
             }
+        }
+
+        private static FileOpenPicker InitializeWithWindow(FileOpenPicker obj, IntPtr windowHandle)
+        {
+            WinRT.Interop.InitializeWithWindow.Initialize(obj, windowHandle);
+            return obj;
         }
 
         public async Task ReadFile(StorageFile file)
@@ -2575,8 +2655,12 @@ namespace IviriusTextEditor.Pages
 
         private async void Image_Insert_Click(object Sender, RoutedEventArgs EvArgs)
         {
+/*
+    TODO You should replace 'App.WindowHandle' with the your window's handle (HWND) 
+    Read more on retrieving window handle here: https://docs.microsoft.com/en-us/windows/apps/develop/ui-input/retrieve-hwnd
+*/
             //File dialog configuration
-            var FOP = new FileOpenPicker();
+            var FOP = InitializeWithWindow(new FileOpenPicker(),App.WindowHandle);
             FOP.FileTypeFilter.Add(".png");
             FOP.FileTypeFilter.Add(".jpg");
             FOP.FileTypeFilter.Add(".jpeg");
@@ -2601,6 +2685,12 @@ namespace IviriusTextEditor.Pages
             }
         }
 
+        private static FileOpenPicker InitializeWithWindow(FileOpenPicker obj, IntPtr windowHandle)
+        {
+            WinRT.Interop.InitializeWithWindow.Initialize(obj, windowHandle);
+            return obj;
+        }
+
         private void LinkInsert_Click(object Sender, RoutedEventArgs EvArgs) => LinkInsert.Flyout.ShowAt(LinkInsert);
 
         #endregion Insert
@@ -2611,14 +2701,16 @@ namespace IviriusTextEditor.Pages
 
         #region TextToSpeech
 
-        MediaElement ME;
+        // TODO Microsoft.UI.Xaml.Controls.MediaElement is not yet supported in WindowsAppSDK. For more details see https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/what-is-supported
+                MediaElement ME;
 
         SpeechSynthesizer Synth;
 
         private async void ReadButton_Click(object Sender, RoutedEventArgs EvArgs)
         {
             //Configuring the sppech synthesizer
-            ME = new MediaElement();
+            // TODO Microsoft.UI.Xaml.Controls.MediaElement is not yet supported in WindowsAppSDK. For more details see https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/what-is-supported
+                        ME = new MediaElement();
             Synth = new SpeechSynthesizer();
             SpeechSynthesisStream Str = await Synth.SynthesizeTextToStreamAsync(REB.Document.Selection.Text.ToString());
             ME.SetSource(Str, Str.ContentType);
@@ -3375,7 +3467,7 @@ namespace IviriusTextEditor.Pages
 
         private async void MenuFlyoutItem_Click_22(object sender, RoutedEventArgs e)
         {
-            var X = (Window.Current.Content as Frame).Content as MainPage;
+            var X = (App.Window.Content as Frame).Content as MainPage;
             await X.AddExternalTabAsync();
         }
 
@@ -3389,7 +3481,7 @@ namespace IviriusTextEditor.Pages
             _ = await CoreApplication.RequestRestartAsync(RestartArgs);
         }
 
-        private void SettingsButton_Click(object Sender, RoutedEventArgs EvArgs) => ((Window.Current.Content as Frame).Content as MainPage).LaunchSettingsTab();
+        private void SettingsButton_Click(object Sender, RoutedEventArgs EvArgs) => ((App.Window.Content as Frame).Content as MainPage).LaunchSettingsTab();
 
         private async void MenuFlyoutItem_Click_20(object Sender, RoutedEventArgs EvArgs)
         {
@@ -4363,7 +4455,11 @@ namespace IviriusTextEditor.Pages
 
         private async void PrintingInfoBox_FirstButtonClick(object sender, RoutedEventArgs e)
         {
-            var FSP2 = new FolderPicker();
+/*
+    TODO You should replace 'App.WindowHandle' with the your window's handle (HWND) 
+    Read more on retrieving window handle here: https://docs.microsoft.com/en-us/windows/apps/develop/ui-input/retrieve-hwnd
+*/
+            var FSP2 = InitializeWithWindow(new FolderPicker(),App.WindowHandle);
 
             FSP2.CommitButtonText = "Select folder";
             FSP2.SuggestedStartLocation = PickerLocationId.Desktop;
@@ -4371,10 +4467,14 @@ namespace IviriusTextEditor.Pages
             var TempFolder = await FSP2.PickSingleFolderAsync();
 
             Windows.Storage.AccessCache.StorageApplicationPermissions.FutureAccessList.Add(TempFolder);
+/*
+    TODO You should replace 'App.WindowHandle' with the your window's handle (HWND) 
+    Read more on retrieving window handle here: https://docs.microsoft.com/en-us/windows/apps/develop/ui-input/retrieve-hwnd
+*/
 
 
 
-            var FSP = new FileSavePicker();
+            var FSP = InitializeWithWindow(new FileSavePicker(),App.WindowHandle);
 
             FSP.FileTypeChoices.Add("Ivirius Printing Bridge File", new List<string>() { ".ivrprintingservice" });
             FSP.SuggestedStartLocation = PickerLocationId.Desktop;
@@ -4387,6 +4487,18 @@ namespace IviriusTextEditor.Pages
             PrintingInfoBox.Close();
         }
 
+        private static FileSavePicker InitializeWithWindow(FileSavePicker obj, IntPtr windowHandle)
+        {
+            WinRT.Interop.InitializeWithWindow.Initialize(obj, windowHandle);
+            return obj;
+        }
+
+        private static FolderPicker InitializeWithWindow(FolderPicker obj, IntPtr windowHandle)
+        {
+            WinRT.Interop.InitializeWithWindow.Initialize(obj, windowHandle);
+            return obj;
+        }
+
         private async void Button_Click_36(object sender, RoutedEventArgs e)
         {
             await Launcher.LaunchUriAsync(new Uri("elevatewpf-full:///"));
@@ -4394,13 +4506,23 @@ namespace IviriusTextEditor.Pages
 
         public async void hell()
         {
-            var FSP = new FileSavePicker();
+/*
+    TODO You should replace 'App.WindowHandle' with the your window's handle (HWND) 
+    Read more on retrieving window handle here: https://docs.microsoft.com/en-us/windows/apps/develop/ui-input/retrieve-hwnd
+*/
+            var FSP = InitializeWithWindow(new FileSavePicker(),App.WindowHandle);
 
             FSP.FileTypeChoices.Add("Ivirius Printing Bridge File", new List<string>() { ".ivrprintingservice" });
             FSP.SuggestedStartLocation = PickerLocationId.Desktop;
             FSP.SuggestedFileName = "IviriusTextEditorPrinterCachedDocument";
 
             var TempFile = await FSP.PickSaveFileAsync();
+        }
+
+        private static FileSavePicker InitializeWithWindow(FileSavePicker obj, IntPtr windowHandle)
+        {
+            WinRT.Interop.InitializeWithWindow.Initialize(obj, windowHandle);
+            return obj;
         }
 
         private void LeftIndent_TextChanged(object sender, TextChangedEventArgs e)
@@ -4647,7 +4769,7 @@ namespace IviriusTextEditor.Pages
         private void ShareButton_Click(object sender, RoutedEventArgs e)
         {
             ShareSourceLoad();
-            DataTransferManager.ShowShareUI();
+            Windows.ApplicationModel.DataTransfer.DataTransferManager.As<UWPToWinAppSDKUpgradeHelpers.IDataTransferManagerInterop>().ShowShareUIForWindow(App.WindowHandle);
         }
 
         private void ShareSourceLoad()

@@ -11,15 +11,14 @@ using System.Threading.Tasks;
 using Windows.ApplicationModel.Activation;
 using Windows.ApplicationModel.Core;
 using Windows.Storage;
-using Windows.System;
+using Microsoft.Windows.System;
 using Windows.UI;
-using Windows.UI.Composition;
+using Microsoft.UI.Composition;
 using Windows.UI.Core.Preview;
 using Windows.UI.ViewManagement;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Media;
+using Microsoft.UI.Xaml.Navigation;
 using AcrylicBrush = Windows.UI.Xaml.Media.AcrylicBrush;
 
 namespace IviriusTextEditor.Pages
@@ -36,6 +35,7 @@ namespace IviriusTextEditor.Pages
 
             //Variables
             var CoreTB = CoreApplication.GetCurrentView().TitleBar;
+            // TODO Windows.UI.ViewManagement.ApplicationView is no longer supported. Use Microsoft.UI.Windowing.AppWindow instead. For more details see https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/guides/windowing
             var AppTB = ApplicationView.GetForCurrentView().TitleBar;
             var LocalSettings = ApplicationData.Current.LocalSettings;
 
@@ -47,8 +47,9 @@ namespace IviriusTextEditor.Pages
             AppTB.ButtonInactiveForegroundColor = Color.FromArgb(255, 125, 125, 125);
             CoreApplication.GetCurrentView().TitleBar.ExtendViewIntoTitleBar = true;
             SystemNavigationManagerPreview.GetForCurrentView().CloseRequested += MainPage_CloseRequested;
+            // TODO Windows.UI.ViewManagement.ApplicationView is no longer supported. Use Microsoft.UI.Windowing.AppWindow instead. For more details see https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/guides/windowing
             ApplicationView.GetForCurrentView().SetPreferredMinSize(new Windows.Foundation.Size(800, 400));
-            Window.Current.SetTitleBar(CustomDragRegion);
+            App.Window.SetTitleBar(CustomDragRegion);
 
             //Others
             try
@@ -220,6 +221,7 @@ namespace IviriusTextEditor.Pages
 
         public async void Shutdown()
         {
+            // TODO Windows.UI.ViewManagement.ApplicationView is no longer supported. Use Microsoft.UI.Windowing.AppWindow instead. For more details see https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/guides/windowing
             await ApplicationView.GetForCurrentView().TryConsolidateAsync();
         }
 
@@ -532,6 +534,7 @@ namespace IviriusTextEditor.Pages
             CloseWarningFlyoutHost.Flyout.Hide();
             CWFBtn4.Visibility = Visibility.Collapsed;
             CWFBtn2.Click -= XClick2;
+            // TODO Windows.UI.ViewManagement.ApplicationView is no longer supported. Use Microsoft.UI.Windowing.AppWindow instead. For more details see https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/guides/windowing
             _ = await ApplicationView.GetForCurrentView().TryConsolidateAsync();
         }
 
@@ -547,18 +550,22 @@ namespace IviriusTextEditor.Pages
             CloseWarningFlyoutHost.Flyout.Hide();
             CWFBtn4.Visibility = Visibility.Collapsed;
             CWFBtn4.Click -= XClick4;
+            // TODO Windows.UI.ViewManagement.ApplicationView is no longer supported. Use Microsoft.UI.Windowing.AppWindow instead. For more details see https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/guides/windowing
             _ = await ApplicationView.GetForCurrentView().TryConsolidateAsync();
         }
 
         private void Button_Click_13(object sender, RoutedEventArgs e)
         {
+            // TODO Windows.UI.ViewManagement.ApplicationView is no longer supported. Use Microsoft.UI.Windowing.AppWindow instead. For more details see https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/guides/windowing
             bool FS = ApplicationView.GetForCurrentView().IsFullScreenMode;
             switch (FS)
             {
                 case false:
+                    // TODO Windows.UI.ViewManagement.ApplicationView is no longer supported. Use Microsoft.UI.Windowing.AppWindow instead. For more details see https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/guides/windowing
                     _ = ApplicationView.GetForCurrentView().TryEnterFullScreenMode();
                     break;
                 default:
+                    // TODO Windows.UI.ViewManagement.ApplicationView is no longer supported. Use Microsoft.UI.Windowing.AppWindow instead. For more details see https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/guides/windowing
                     ApplicationView.GetForCurrentView().ExitFullScreenMode();
                     break;
             }
@@ -578,12 +585,14 @@ namespace IviriusTextEditor.Pages
 
         private async void SetupCloseBox_FirstButtonClick(object sender, RoutedEventArgs e)
         {
+            // TODO Windows.UI.ViewManagement.ApplicationView is no longer supported. Use Microsoft.UI.Windowing.AppWindow instead. For more details see https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/guides/windowing
             var Win = ApplicationView.GetForCurrentView();
             await Win.TryConsolidateAsync();
         }
 
         private async void CloseWarningBox1_FirstButtonClick(object sender, RoutedEventArgs e)
         {
+            // TODO Windows.UI.ViewManagement.ApplicationView is no longer supported. Use Microsoft.UI.Windowing.AppWindow instead. For more details see https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/guides/windowing
             _ = await ApplicationView.GetForCurrentView().TryConsolidateAsync();
             CloseWarningBox1.Close();
         }
@@ -596,6 +605,7 @@ namespace IviriusTextEditor.Pages
 
         private async void CloseWarningBox2_SecondButtonClick(object sender, RoutedEventArgs e)
         {
+            // TODO Windows.UI.ViewManagement.ApplicationView is no longer supported. Use Microsoft.UI.Windowing.AppWindow instead. For more details see https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/guides/windowing
             _ = await ApplicationView.GetForCurrentView().TryConsolidateAsync();
             CloseWarningBox2.Close();
         }
@@ -609,13 +619,14 @@ namespace IviriusTextEditor.Pages
         private async void CloseWarningBox3_SecondButtonClick(object sender, RoutedEventArgs e)
         {
             _ = SysSender.TabItems.Remove(SysArgs.Tab);
-            if (TabbedView.TabItems.Count == 0) _ = await ApplicationView.GetForCurrentView().TryConsolidateAsync();
+            if (TabbedView.TabItems.Count == 0) // TODO Windows.UI.ViewManagement.ApplicationView is no longer supported. Use Microsoft.UI.Windowing.AppWindow instead. For more details see https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/guides/windowing
+_ = await ApplicationView.GetForCurrentView().TryConsolidateAsync();
             CloseWarningBox3.Close();
         }
 
         private void MainPageComponent_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            Window.Current.SetTitleBar(CustomDragRegion);
+            App.Window.SetTitleBar(CustomDragRegion);
         }
 
         private void Grid_SizeChanged(object sender, SizeChangedEventArgs e)

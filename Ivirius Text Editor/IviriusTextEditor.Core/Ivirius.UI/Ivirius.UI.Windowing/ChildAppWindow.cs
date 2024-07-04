@@ -11,19 +11,19 @@ using Windows.Media.Core;
 using Windows.Media.Playback;
 using Windows.UI.Core;
 using Windows.UI;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls.Primitives;
+using Microsoft.UI.Xaml.Data;
+using Microsoft.UI.Xaml.Input;
+using Microsoft.UI.Xaml.Media;
+using Microsoft.UI.Xaml.Navigation;
 using Windows.Storage;
-using Windows.UI.Xaml.Hosting;
+using Microsoft.UI.Xaml.Hosting;
 using Color = Windows.UI.Color;
 using Border = Windows.UI.Xaml.Controls.Border;
 using static Ivirius.UI.Windowing.DialogWindow;
-using Windows.UI.Xaml.Media.Animation;
+using Microsoft.UI.Xaml.Media.Animation;
 using MicaForUWP.Media;
 using Microsoft.Toolkit.Uwp.UI;
 
@@ -1099,22 +1099,22 @@ namespace Ivirius.UI.Windowing
         {
             (sender as Border).ReleasePointerCapture(e.Pointer);
             displayResizer = false;
-            if (displayResizer != true) Window.Current.CoreWindow.PointerCursor = new CoreCursor(CoreCursorType.Arrow, e.Pointer.PointerId);
+            if (displayResizer != true) App.Window.CoreWindow.PointerCursor = new CoreCursor(CoreCursorType.Arrow, e.Pointer.PointerId);
         }
 
         private void RBCorner_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
-            if (IsMaximizeRestoreButtonEnabled == true && IsMaximized == false) Window.Current.CoreWindow.PointerCursor = new CoreCursor(CoreCursorType.SizeNorthwestSoutheast, e.Pointer.PointerId);
+            if (IsMaximizeRestoreButtonEnabled == true && IsMaximized == false) App.Window.CoreWindow.PointerCursor = new CoreCursor(CoreCursorType.SizeNorthwestSoutheast, e.Pointer.PointerId);
         }
 
         private void RBCorner_PointerExited(object sender, PointerRoutedEventArgs e)
         {
-            if (displayResizer != true) Window.Current.CoreWindow.PointerCursor = new CoreCursor(CoreCursorType.Arrow, e.Pointer.PointerId);
+            if (displayResizer != true) App.Window.CoreWindow.PointerCursor = new CoreCursor(CoreCursorType.Arrow, e.Pointer.PointerId);
         }
 
         private void Border_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
-            Window.Current.CoreWindow.PointerCursor = new CoreCursor(CoreCursorType.SizeNorthwestSoutheast, e.Pointer.PointerId);
+            App.Window.CoreWindow.PointerCursor = new CoreCursor(CoreCursorType.SizeNorthwestSoutheast, e.Pointer.PointerId);
             canResize = true;
         }
 
@@ -1165,12 +1165,12 @@ namespace Ivirius.UI.Windowing
 
         private void LeftResizeCorner_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
-            if (IsMaximizeRestoreButtonEnabled == true && IsMaximized == false) Window.Current.CoreWindow.PointerCursor = new CoreCursor(CoreCursorType.SizeNortheastSouthwest, e.Pointer.PointerId);
+            if (IsMaximizeRestoreButtonEnabled == true && IsMaximized == false) App.Window.CoreWindow.PointerCursor = new CoreCursor(CoreCursorType.SizeNortheastSouthwest, e.Pointer.PointerId);
         }
 
         private void LeftResizeCorner_PointerExited(object sender, PointerRoutedEventArgs e)
         {
-            if (displayResizer != true) Window.Current.CoreWindow.PointerCursor = new CoreCursor(CoreCursorType.Arrow, e.Pointer.PointerId);
+            if (displayResizer != true) App.Window.CoreWindow.PointerCursor = new CoreCursor(CoreCursorType.Arrow, e.Pointer.PointerId);
         }
 
         private void LeftResizeCorner_PointerMoved(object sender, PointerRoutedEventArgs e)
@@ -1215,7 +1215,7 @@ namespace Ivirius.UI.Windowing
         {
             (sender as Border).ReleasePointerCapture(e.Pointer);
             displayResizer = false;
-            if (displayResizer != true) Window.Current.CoreWindow.PointerCursor = new CoreCursor(CoreCursorType.Arrow, e.Pointer.PointerId);
+            if (displayResizer != true) App.Window.CoreWindow.PointerCursor = new CoreCursor(CoreCursorType.Arrow, e.Pointer.PointerId);
         }
 
         Point oldTBPos;
@@ -1232,12 +1232,12 @@ namespace Ivirius.UI.Windowing
 
         private void TopResizeCorner_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
-            if (IsMaximizeRestoreButtonEnabled == true && IsMaximized == false) Window.Current.CoreWindow.PointerCursor = new CoreCursor(CoreCursorType.SizeNorthwestSoutheast, e.Pointer.PointerId);
+            if (IsMaximizeRestoreButtonEnabled == true && IsMaximized == false) App.Window.CoreWindow.PointerCursor = new CoreCursor(CoreCursorType.SizeNorthwestSoutheast, e.Pointer.PointerId);
         }
 
         private void TopResizeCorner_PointerExited(object sender, PointerRoutedEventArgs e)
         {
-            if (displayResizer != true) Window.Current.CoreWindow.PointerCursor = new CoreCursor(CoreCursorType.Arrow, e.Pointer.PointerId);
+            if (displayResizer != true) App.Window.CoreWindow.PointerCursor = new CoreCursor(CoreCursorType.Arrow, e.Pointer.PointerId);
         }
 
         private void TopResizeCorner_PointerMoved(object sender, PointerRoutedEventArgs e)
@@ -1283,17 +1283,17 @@ namespace Ivirius.UI.Windowing
         {
             (sender as Border).ReleasePointerCapture(e.Pointer);
             displayResizer = false;
-            if (displayResizer != true) Window.Current.CoreWindow.PointerCursor = new CoreCursor(CoreCursorType.Arrow, e.Pointer.PointerId);
+            if (displayResizer != true) App.Window.CoreWindow.PointerCursor = new CoreCursor(CoreCursorType.Arrow, e.Pointer.PointerId);
         }
 
         private void RSide_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
-            if (IsMaximizeRestoreButtonEnabled == true && IsMaximized == false) Window.Current.CoreWindow.PointerCursor = new CoreCursor(CoreCursorType.SizeWestEast, e.Pointer.PointerId);
+            if (IsMaximizeRestoreButtonEnabled == true && IsMaximized == false) App.Window.CoreWindow.PointerCursor = new CoreCursor(CoreCursorType.SizeWestEast, e.Pointer.PointerId);
         }
 
         private void RSide_PointerExited(object sender, PointerRoutedEventArgs e)
         {
-            if (displayResizer != true) Window.Current.CoreWindow.PointerCursor = new CoreCursor(CoreCursorType.Arrow, e.Pointer.PointerId);
+            if (displayResizer != true) App.Window.CoreWindow.PointerCursor = new CoreCursor(CoreCursorType.Arrow, e.Pointer.PointerId);
         }
 
         private void RSide_PointerMoved(object sender, PointerRoutedEventArgs e)
@@ -1330,17 +1330,17 @@ namespace Ivirius.UI.Windowing
         {
             (sender as Border).ReleasePointerCapture(e.Pointer);
             displayResizer = false;
-            if (displayResizer != true) Window.Current.CoreWindow.PointerCursor = new CoreCursor(CoreCursorType.Arrow, e.Pointer.PointerId);
+            if (displayResizer != true) App.Window.CoreWindow.PointerCursor = new CoreCursor(CoreCursorType.Arrow, e.Pointer.PointerId);
         }
 
         private void DSide_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
-            if (IsMaximizeRestoreButtonEnabled == true && IsMaximized == false) Window.Current.CoreWindow.PointerCursor = new CoreCursor(CoreCursorType.SizeNorthSouth, e.Pointer.PointerId);
+            if (IsMaximizeRestoreButtonEnabled == true && IsMaximized == false) App.Window.CoreWindow.PointerCursor = new CoreCursor(CoreCursorType.SizeNorthSouth, e.Pointer.PointerId);
         }
 
         private void DSide_PointerExited(object sender, PointerRoutedEventArgs e)
         {
-            if (displayResizer != true) Window.Current.CoreWindow.PointerCursor = new CoreCursor(CoreCursorType.Arrow, e.Pointer.PointerId);
+            if (displayResizer != true) App.Window.CoreWindow.PointerCursor = new CoreCursor(CoreCursorType.Arrow, e.Pointer.PointerId);
         }
 
         private void DSide_PointerMoved(object sender, PointerRoutedEventArgs e)
@@ -1377,17 +1377,17 @@ namespace Ivirius.UI.Windowing
         {
             (sender as Border).ReleasePointerCapture(e.Pointer);
             displayResizer = false;
-            if (displayResizer != true) Window.Current.CoreWindow.PointerCursor = new CoreCursor(CoreCursorType.Arrow, e.Pointer.PointerId);
+            if (displayResizer != true) App.Window.CoreWindow.PointerCursor = new CoreCursor(CoreCursorType.Arrow, e.Pointer.PointerId);
         }
 
         private void LSide_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
-            if (IsMaximizeRestoreButtonEnabled == true && IsMaximized == false) Window.Current.CoreWindow.PointerCursor = new CoreCursor(CoreCursorType.SizeWestEast, e.Pointer.PointerId);
+            if (IsMaximizeRestoreButtonEnabled == true && IsMaximized == false) App.Window.CoreWindow.PointerCursor = new CoreCursor(CoreCursorType.SizeWestEast, e.Pointer.PointerId);
         }
 
         private void LSide_PointerExited(object sender, PointerRoutedEventArgs e)
         {
-            if (displayResizer != true) Window.Current.CoreWindow.PointerCursor = new CoreCursor(CoreCursorType.Arrow, e.Pointer.PointerId);
+            if (displayResizer != true) App.Window.CoreWindow.PointerCursor = new CoreCursor(CoreCursorType.Arrow, e.Pointer.PointerId);
         }
 
         private void LSide_PointerMoved(object sender, PointerRoutedEventArgs e)
@@ -1425,17 +1425,17 @@ namespace Ivirius.UI.Windowing
         {
             (sender as Border).ReleasePointerCapture(e.Pointer);
             displayResizer = false;
-            if (displayResizer != true) Window.Current.CoreWindow.PointerCursor = new CoreCursor(CoreCursorType.Arrow, e.Pointer.PointerId);
+            if (displayResizer != true) App.Window.CoreWindow.PointerCursor = new CoreCursor(CoreCursorType.Arrow, e.Pointer.PointerId);
         }
 
         private void TSide_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
-            if (IsMaximizeRestoreButtonEnabled == true && IsMaximized == false) Window.Current.CoreWindow.PointerCursor = new CoreCursor(CoreCursorType.SizeNorthSouth, e.Pointer.PointerId);
+            if (IsMaximizeRestoreButtonEnabled == true && IsMaximized == false) App.Window.CoreWindow.PointerCursor = new CoreCursor(CoreCursorType.SizeNorthSouth, e.Pointer.PointerId);
         }
 
         private void TSide_PointerExited(object sender, PointerRoutedEventArgs e)
         {
-            if (displayResizer != true) Window.Current.CoreWindow.PointerCursor = new CoreCursor(CoreCursorType.Arrow, e.Pointer.PointerId);
+            if (displayResizer != true) App.Window.CoreWindow.PointerCursor = new CoreCursor(CoreCursorType.Arrow, e.Pointer.PointerId);
         }
 
         private void TSide_PointerMoved(object sender, PointerRoutedEventArgs e)
@@ -1473,7 +1473,7 @@ namespace Ivirius.UI.Windowing
         {
             (sender as Border).ReleasePointerCapture(e.Pointer);
             displayResizer = false;
-            if (displayResizer != true) Window.Current.CoreWindow.PointerCursor = new CoreCursor(CoreCursorType.Arrow, e.Pointer.PointerId);
+            if (displayResizer != true) App.Window.CoreWindow.PointerCursor = new CoreCursor(CoreCursorType.Arrow, e.Pointer.PointerId);
         }
     }
 }

@@ -8,9 +8,8 @@ using System.Linq;
 using Windows.ApplicationModel.Core;
 using Windows.Storage;
 using Windows.UI;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Media;
 using ColorHelper = Microsoft.Toolkit.Uwp.Helpers.ColorHelper;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -729,7 +728,7 @@ namespace IviriusTextEditor.Pages
 
         private void VIDsButton_Click(object sender, RoutedEventArgs e)
         {
-            ((Window.Current.Content as Frame).Content as MainPage).LaunchVIDsTab();
+            ((App.Window.Content as Frame).Content as MainPage).LaunchVIDsTab();
         }
     }
 }
