@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window
+    x:Class="Ivirius_Text_Editor.IviriusTextEditor.Windows.AboutWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Ivirius_Text_Editor.IviriusTextEditor.Windows"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Margin="10,-115,10,0">
+        <Image HorizontalAlignment="Left" Height="100" Margin="5,125,0,0" VerticalAlignment="Top" Width="100" Source="/Assets/icon.png"/>
+        <TextBlock x:Name="AppNameTextBlock" HorizontalAlignment="Left" Margin="120,140,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="16"/>
+        <TextBlock HorizontalAlignment="Left" Margin="120,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="11"><Run x:Name="version" Text=""/><LineBreak/><Run Text="Copyright © Ivirius Text Editor 2021 - 2024 "/><LineBreak/><Run Text="Compiled July 4, 2024"/><LineBreak/><Run Text="GitHub release - WASDK"/><LineBreak/><Run/></TextBlock>
+        <StackPanel Margin="0,235,0,0">
+            <HyperlinkButton Content="WinUI 2" Click="HyperlinkButton_Click_4" Padding="11,6,11,7"/>
+            <HyperlinkButton Content="Windows Community Toolkit" Click="HyperlinkButton_Click_4" Padding="11,6,11,7"/>
+            <HyperlinkButton Content="Win2D" Click="HyperlinkButton_Click_4" Padding="11,6,11,7"/>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Right" Margin="0,235,0,0">
+            <HyperlinkButton Content="Humanizer" Click="HyperlinkButton_Click_4" Padding="11,6,11,7"/>
+            <HyperlinkButton Content="MicaUWP" Click="HyperlinkButton_Click_4" Padding="11,6,11,7"/>
+        </StackPanel>
+        <StackPanel VerticalAlignment="Top" Margin="15,350,15,0" Spacing="15">
+            <TextBlock TextWrapping="Wrap" Text="Developers:" Style="{ThemeResource SubtitleTextBlockStyle}"/>
+            <Grid>
+                <PersonPicture Width="50" Height="50" HorizontalAlignment="Left" ProfilePicture="/Assets/ProfilePictures/Ivirius.png"/>
+                <TextBlock TextWrapping="Wrap" Text="Ivirius" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="65,0,0,0" FontSize="16"/>
+            </Grid>
+            <Grid>
+                <PersonPicture Width="50" Height="50" HorizontalAlignment="Left" ProfilePicture="/Assets/ProfilePictures/jpbErrortek.png"/>
+                <TextBlock TextWrapping="Wrap" Text="ErrorTek" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="65,0,0,0" FontSize="16"/>
+            </Grid>
+        </StackPanel>
+        <Border BorderThickness="0,1,0,0" Height="70" Background="{ThemeResource SystemControlBackgroundAltMediumLowBrush}" BorderBrush="#338A8A8A" VerticalAlignment="Bottom" Margin="-10,0,-10,0"/>
+        <Button Content="OK" Width="80" Style="{StaticResource AccentButtonStyle}" Click="Button_Click_30" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,10,20"/>
+        <Border BorderThickness="0,1,0,0" BorderBrush="#728A8A8A" VerticalAlignment="Top" Margin="-10,116,-10,0" Visibility="Collapsed"/>
+    </Grid>
+</Window>

@@ -51,6 +51,7 @@ using ColorChangedEventArgs = Microsoft.UI.Xaml.Controls.ColorChangedEventArgs;
 using Windows.System;
 using Ivirius_Text_Editor;
 using Microsoft.UI;
+using Ivirius_Text_Editor.IviriusTextEditor.Windows;
 
 namespace IviriusTextEditor.Pages
 {
@@ -3471,7 +3472,8 @@ namespace IviriusTextEditor.Pages
 
         private void AboutItem_Click(object Sender, RoutedEventArgs EvArgs)
         {
-            //AboutBox.Open();
+            AboutWindow window = new AboutWindow();
+            window.Activate();
         }
 
         #endregion About

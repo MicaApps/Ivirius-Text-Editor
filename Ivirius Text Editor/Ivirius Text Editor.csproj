@@ -24,6 +24,10 @@
     <EnablePreviewMsixTooling>true</EnablePreviewMsixTooling>
     <RuntimeIdentifiers>win-x86;win-x64;win-arm64</RuntimeIdentifiers>
     <PublishProfile>win-$(Platform).pubxml</PublishProfile>
+    <Version>4.0.0.84</Version>
+    <Company>Ivirius</Company>
+    <Authors>Ivirius</Authors>
+    <Copyright>©️ 2020-2024 Ivirius. Licensed under the MIT License.</Copyright>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <OutputPath>bin\x86\Debug\</OutputPath>
@@ -78,6 +82,9 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
   </PropertyGroup>
+  <ItemGroup>
+    <None Remove="IviriusTextEditor\Windows\AboutWindow.xaml" />
+  </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
@@ -204,6 +211,9 @@
     <None Update="IviriusTextEditor\Templates\ResumeTemp.rtf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <Page Update="IviriusTextEditor\Windows\AboutWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <None Include="jpbAppCert24.pfx" />
     <None Include="Resources\Arrow.cur" />
     <None Include="Package.StoreAssociation.xml" />
@@ -243,6 +253,11 @@
     <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.5.240607001" />
     <PackageReference Include="Microsoft.Graphics.Win2D" Version="1.2.0" />
     <PackageReference Include="Microsoft.Windows.Compatibility" Version="8.0.6" />
+    <PackageReference Include="WinUICommunity.Components" Version="6.9.0" />
+    <PackageReference Include="WinUICommunity.Core" Version="6.9.0" />
+    <PackageReference Include="WinUICommunity.LandingPages" Version="6.9.0" />
+    <PackageReference Include="WinUICommunity.Win2D" Version="6.9.0" />
+    <PackageReference Include="WinUIEx" Version="2.3.4" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Ivirius Text Editor_TemporaryKey.pfx" />
