@@ -229,6 +229,11 @@
     <Content Include="Assets\AppIcons\SaveIcon.png" />
     <Content Include="SegoeFluentIcons2.ttf" />
   </ItemGroup>
+	<ItemGroup>
+		<AssemblyAttribute Include="Ivirius_Text_Editor.BuildDateAttribute">
+			<_Parameter1>$([System.DateTime]::UtcNow.ToString("yyyyMMddHHmmss"))</_Parameter1>
+		</AssemblyAttribute>
+	</ItemGroup>
   <ItemGroup>
     <PackageReference Include="CommunityToolkit.WinUI.UI.Controls" Version="7.1.2" />
     <PackageReference Include="Humanizer.Core">

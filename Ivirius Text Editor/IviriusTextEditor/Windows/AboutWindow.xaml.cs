@@ -10,10 +10,12 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using WinUIEx;
+using Ivirius_Text_Editor;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -40,6 +42,7 @@ namespace Ivirius_Text_Editor.IviriusTextEditor.Windows
             };
             version.Text = $"Version {App.Current.AppVersion} - Full release";
             AppNameTextBlock.Text = $"{App.Current.AppName}";
+            CompileDate.Text = "Compilation date " + GetBuildDate(Assembly.GetExecutingAssembly());
         }
 
         private void HyperlinkButton_Click_4(object sender, RoutedEventArgs e)
@@ -50,6 +53,13 @@ namespace Ivirius_Text_Editor.IviriusTextEditor.Windows
         private void Button_Click_30(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private static DateTime GetBuildDate(Assembly assembly)
+        {
+            //var attribute = assembly.GetCustomAttribute<BuildDateAttribute>();
+            //return attribute != null ? attribute.DateTime : default(DateTime);
+            return DateTime.Now;
         }
     }
 }
