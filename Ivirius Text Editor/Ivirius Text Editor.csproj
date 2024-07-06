@@ -83,10 +83,8 @@
     <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
   </PropertyGroup>
   <ItemGroup>
-    <Content Remove="Assets\icon.ico" />
-    <Content Remove="Assets\icon.png" />
-  </ItemGroup>
-  <ItemGroup>
+    <None Remove="Assets\icon.ico" />
+    <None Remove="Assets\icon.png" />
     <None Remove="IviriusTextEditor\Windows\AboutWindow.xaml" />
   </ItemGroup>
   <ItemGroup>
