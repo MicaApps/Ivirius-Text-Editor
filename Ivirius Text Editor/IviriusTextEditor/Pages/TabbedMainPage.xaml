@@ -4914,7 +4914,7 @@
                                     </StackPanel>
                                 </Button>
                                 <StackPanel Orientation="Vertical">
-                                    <TextBlock Text="Version 3.2.0.329"/>
+                                    <TextBlock Text="Version 4.0.0.84"/>
                                     <TextBlock Text="Dev Channel"/>
                                 </StackPanel>
                             </StackPanel>
@@ -4941,10 +4941,10 @@
             <Image Height="100" Width="100" Margin="0,0,0,50" Source="/Assets/AppIcons/AppIcon.png"/>
             <Custom:ProgressRing IsActive="True" Width="25" Height="25" Margin="0,175,0,0"/>
         </Grid>
-        <ContentDialog x:Name="ChangelogWindow" Title="Changelog - Version 3.2.0.329" PrimaryButtonText="Close" d:IsHidden="True">
+        <ContentDialog x:Name="ChangelogWindow" Title="Changelog - Version 4.0.0.84" PrimaryButtonText="Close" d:IsHidden="True">
             <Grid Margin="-24,-63,-24,-105">
                 <Grid/>
-                <TextBlock TextWrapping="Wrap" Text="Changelog - Version 3.2.0.329" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{ThemeResource SubtitleTextBlockStyle}" Margin="25,24,0,0"/>
+                <TextBlock TextWrapping="Wrap" Text="Changelog - Version 4.0.0.84" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{ThemeResource SubtitleTextBlockStyle}" Margin="25,24,0,0"/>
                 <StackPanel Margin="24,63,24,105">
                     <TextBlock TextWrapping="Wrap"><Run Text="New features:"/><LineBreak/><Run Text="- Retarget the app onto the Windows 11, version 24H2 SDK"/><LineBreak/><Run Text="- Remove the Dev badge on the titlebar and replace it with an InfoBar"/><LineBreak/><Run Text="- Only show the username in the Account section of the Home menu, not the domain name"/><LineBreak/></TextBlock>
                 </StackPanel>
