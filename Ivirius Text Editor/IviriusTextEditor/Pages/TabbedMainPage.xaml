@@ -4797,13 +4797,7 @@
         <RichEditBox x:Name="RTB" Style="{StaticResource RichEditBoxStyle1}" x:FieldModifier="public" HorizontalAlignment="Center" VerticalAlignment="Center" Width="0" Height="0" RequestedTheme="Light"/>
         <Border x:Name="HomePage" d:IsHidden="False">
             <Border BorderBrush="#FF777777" BorderThickness="1" CornerRadius="8,8,8,8" Margin="15,15,15,15" Background="{StaticResource AppBackgroundBrush}">
-                <Grid x:FieldModifier="public" Background="{Binding Background, ElementName=PageTitleBar}">
-                    <Border x:Name="HomeAccentBackground" BorderThickness="0,0,0,0" Visibility="{Binding Visibility, ElementName=AccentBackground}">
-                        <Border.Background>
-
-                            <AcrylicBrush  TintColor="{ThemeResource SystemAccentColor}" TintOpacity="0.35" FallbackColor="{ThemeResource SystemAccentColor}"/>
-                        </Border.Background>
-                    </Border>
+                <Grid x:FieldModifier="public" Background="{ThemeResource SystemControlBackgroundAltHighBrush}">
                     <Border BorderThickness="0,1,0,0" Height="135" Background="{ThemeResource SystemControlBackgroundAltMediumLowBrush}" BorderBrush="#338A8A8A" VerticalAlignment="Bottom"/>
                     <TextBlock TextWrapping="Wrap" Text="Home" Margin="55,18,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                     <Button x:Name="HideHome" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="45" Height="45" Click="HideHome_Click" FontFamily="{StaticResource CustomFont}" FontSize="10" Background="{x:Null}" BorderBrush="{x:Null}" ToolTipService.ToolTip="Go to workspace" VerticalAlignment="Top" HorizontalAlignment="Right" Padding="0,0,0,0" BorderThickness="0,0,0,0" CornerRadius="0,7,0,0" Style="{StaticResource CloseButtonStyle}">
