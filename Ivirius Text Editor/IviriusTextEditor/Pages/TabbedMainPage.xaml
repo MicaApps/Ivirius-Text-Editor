@@ -4817,7 +4817,7 @@
                     <Grid Margin="25,0,0,20" VerticalAlignment="Bottom">
                         <Image Height="100" Width="100" Source="/Assets/AppIcons/AppIcon.png" HorizontalAlignment="Left"/>
                         <TextBlock TextWrapping="Wrap" Text="Ivirius Text Editor" Margin="120,0,0,40" VerticalAlignment="Center" FontSize="18"/>
-                        <TextBlock TextWrapping="Wrap" Text="Create and edit rich text files - © Ivirius Text Editor 2021 - 2024 - made by Ivirius" Margin="120,10,0,0" VerticalAlignment="Center" FontSize="12"/>
+                        <TextBlock TextWrapping="Wrap" Text="Create and edit rich text files - © 2020-2024 Ivirius" Margin="120,10,0,0" VerticalAlignment="Center" FontSize="12"/>
                         <HyperlinkButton x:Name="hyperlinkButton" Content="https://ivirius.vercel.app/" Margin="120,50,0,0" NavigateUri="https://ivirius.vercel.app/" Padding="0,0,0,0" FontSize="11"/>
                     </Grid>
                     <Custom:NavigationView HorizontalAlignment="Left" Width="320" Height="Auto" SelectedItem="HomeNavItem" PaneDisplayMode="Left" x:Name="HomeNav" VerticalAlignment="Stretch" Margin="15,50,0,135" SelectionChanged="NavigationView_SelectionChanged" IsPaneToggleButtonVisible="False" IsBackButtonVisible="Collapsed">
