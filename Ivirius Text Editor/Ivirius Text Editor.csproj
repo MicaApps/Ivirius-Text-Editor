@@ -28,6 +28,7 @@
     <Copyright>©️ 2020-2024 Ivirius. Licensed under the MIT License.</Copyright>
     <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
     <AppxSymbolPackageEnabled>False</AppxSymbolPackageEnabled>
+    <WindowsSdkPackageVersion>10.0.22621.35-preview</WindowsSdkPackageVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <OutputPath>bin\x86\Debug\</OutputPath>
