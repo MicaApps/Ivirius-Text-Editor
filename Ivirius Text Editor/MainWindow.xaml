@@ -1,12 +1,13 @@
-<Window
+<winuiex:WindowEx
     x:Class="Ivirius_Text_Editor.MainWindow"
     xmlns:local="using:Ivirius_Text_Editor"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:winuiex="using:WinUIEx"
     mc:Ignorable="d">
     <!-- Your pages will be loaded in this Frame -->
         <Frame Height="Auto" x:Name="PageFrame" />
 
-</Window>
+</winuiex:WindowEx>

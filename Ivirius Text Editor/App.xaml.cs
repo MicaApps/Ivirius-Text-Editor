@@ -18,6 +18,7 @@ using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Ivirius_Text_Editor;
 using WinUICommunity;
+using WinUIEx;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -34,7 +35,7 @@ namespace Ivirius_Text_Editor
         /// executed, and as such is the logical equivalent of main() or WinMain().
         /// </summary>
         /// 
-
+        public static WindowEx MainWindow { get; } = new MainWindow();
         public new static App Current => (App)Application.Current;
         public string AppVersion { get; set; } = AssemblyInfoHelper.GetAssemblyVersion();
         public string AppName { get; set; } = "Ivirius Text Editor";

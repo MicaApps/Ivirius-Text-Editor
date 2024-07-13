@@ -52,6 +52,7 @@ using Windows.System;
 using Ivirius_Text_Editor;
 using Microsoft.UI;
 using Ivirius_Text_Editor.IviriusTextEditor.Windows;
+using WinUIEx;
 
 namespace IviriusTextEditor.Pages
 {
@@ -763,66 +764,66 @@ namespace IviriusTextEditor.Pages
                 TODO You should replace 'App.WindowHandle' with the your window's handle (HWND) 
                 Read more on retrieving window handle here: https://docs.microsoft.com/en-us/windows/apps/develop/ui-input/retrieve-hwnd
             */
-            //var FSP = InitializeWithWindow(new FileSavePicker(), App.WindowHandle);
-            //ApplicationDataContainer LocalSettings = ApplicationData.Current.LocalSettings;
-            ////File dialog configuration
-            //FSP.FileTypeChoices.Add("Plain Ivirius Text", new List<string>() { ".ivrtxt" });
-            //FSP.FileTypeChoices.Add("Universal Plain Text", new List<string>() { ".txt" });
-            //if (!(LocalSettings.Values["DEV"] == null))
-            //{
-            //    if ((string)LocalSettings.Values["DEV"] == "On")
-            //    {
-            //        FSP.FileTypeChoices.Add("HTML", new List<string>() { ".html" });
-            //        FSP.FileTypeChoices.Add("XML", new List<string>() { ".xml" });
-            //        FSP.FileTypeChoices.Add("CSS", new List<string>() { ".css" });
-            //    }
-            //    if ((string)LocalSettings.Values["DEV"] == "Off")
-            //    {
-            //    }
-            //}
-            //else
-            //{
-            //    LocalSettings.Values["DEV"] = "Off";
-            //}
-            //FSP.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
-            //FSP.SuggestedFileName = "New Plain Text File";
-            ////Set file content
-            //TXTFile = await FSP.PickSaveFileAsync();
-            //if (!(TXTFile == null))
-            //{
-            //    try
-            //    {
-            //        IRandomAccessStream RAS = await TXTFile.OpenAsync(FileAccessMode.ReadWrite);
-            //        REB.Document.SaveToStream(TextGetOptions.None, RAS);
-            //        RTB.Document.LoadFromStream(TextSetOptions.None, RAS);
-            //        RAS.Dispose();
-            //        FileUpdateStatus Stats = await CachedFileManager.CompleteUpdatesAsync(TXTFile);
-            //        if (Stats == FileUpdateStatus.Complete)
-            //        {
-            //            //Confirm file saving without close
-            //            new ToastContentBuilder()
-            //            .SetToastScenario(ToastScenario.Reminder)
-            //            .AddText($"Your file has been succesfully saved at {TXTFile.Path}")
-            //            .AddButton(new ToastButton()
-            //                .SetDismissActivation().SetContent("Close"))
-            //            .Show();
-            //            CheckForSaving();
-            //        }
-            //        if (!(Stats == FileUpdateStatus.Complete))
-            //        {
-            //            //File failed to save message
-            //            FileNotSavedInfoBar.Title = "File couldn't be saved";
-            //            FileNotSavedInfoBar.IsOpen = true;
-            //            CheckForSaving();
-            //        }
-            //    }
-            //    catch
-            //    {
-            //        FileNotSavedInfoBar.Title = "The file is currently in use either by the autosave option or another app";
-            //        FileNotSavedInfoBar.IsOpen = true;
-            //        CheckForSaving();
-            //    }
-            //}
+            FileSavePicker FSP = App.MainWindow.CreateSaveFilePicker();
+            ApplicationDataContainer LocalSettings = ApplicationData.Current.LocalSettings;
+            //File dialog configuration
+            FSP.FileTypeChoices.Add("Plain Ivirius Text", new List<string>() { ".ivrtxt" });
+            FSP.FileTypeChoices.Add("Universal Plain Text", new List<string>() { ".txt" });
+            if (!(LocalSettings.Values["DEV"] == null))
+            {
+                if ((string)LocalSettings.Values["DEV"] == "On")
+                {
+                    FSP.FileTypeChoices.Add("HTML", new List<string>() { ".html" });
+                    FSP.FileTypeChoices.Add("XML", new List<string>() { ".xml" });
+                    FSP.FileTypeChoices.Add("CSS", new List<string>() { ".css" });
+                }
+                if ((string)LocalSettings.Values["DEV"] == "Off")
+                {
+                }
+            }
+            else
+            {
+                LocalSettings.Values["DEV"] = "Off";
+            }
+            FSP.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
+            FSP.SuggestedFileName = "New Plain Text File";
+            //Set file content
+            TXTFile = await FSP.PickSaveFileAsync();
+            if (!(TXTFile == null))
+            {
+                try
+                {
+                    IRandomAccessStream RAS = await TXTFile.OpenAsync(FileAccessMode.ReadWrite);
+                    REB.Document.SaveToStream(TextGetOptions.None, RAS);
+                    RTB.Document.LoadFromStream(TextSetOptions.None, RAS);
+                    RAS.Dispose();
+                    FileUpdateStatus Stats = await CachedFileManager.CompleteUpdatesAsync(TXTFile);
+                    if (Stats == FileUpdateStatus.Complete)
+                    {
+                        //Confirm file saving without close
+                        new ToastContentBuilder()
+                        .SetToastScenario(ToastScenario.Reminder)
+                        .AddText($"Your file has been succesfully saved at {TXTFile.Path}")
+                        .AddButton(new ToastButton()
+                            .SetDismissActivation().SetContent("Close"))
+                        .Show();
+                        CheckForSaving();
+                    }
+                    if (!(Stats == FileUpdateStatus.Complete))
+                    {
+                        //File failed to save message
+                        FileNotSavedInfoBar.Title = "File couldn't be saved";
+                        FileNotSavedInfoBar.IsOpen = true;
+                        CheckForSaving();
+                    }
+                }
+                catch
+                {
+                    FileNotSavedInfoBar.Title = "The file is currently in use either by the autosave option or another app";
+                    FileNotSavedInfoBar.IsOpen = true;
+                    CheckForSaving();
+                }
+            }
         }
 
         private async void SNFYesToFull_Click(object Sender, RoutedEventArgs EvArgs)
