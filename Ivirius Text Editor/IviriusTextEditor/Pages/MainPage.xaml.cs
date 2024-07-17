@@ -157,7 +157,7 @@ namespace IviriusTextEditor.Pages
                 //    FallbackColor = Color.FromArgb(255, 255, 255, 255)
                 //};
 
-                Application.Current.Resources["TabViewItemHeaderBackgroundSelected"] = Application.Current.Resources["AppBackgroundBrush"];
+                //Application.Current.Resources["TabViewItemHeaderBackgroundSelected"] = Application.Current.Resources["AppBackgroundBrush"];
 
                 //Final settings
                 RequestedTheme = ElementTheme.Light;
