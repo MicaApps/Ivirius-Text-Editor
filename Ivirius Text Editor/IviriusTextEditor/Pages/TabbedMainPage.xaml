@@ -4960,7 +4960,7 @@
                 <Grid/>
                 <TextBlock TextWrapping="Wrap" Text="Changelog - Version 4.0.0.264" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{ThemeResource SubtitleTextBlockStyle}" Margin="25,24,0,0"/>
                 <StackPanel Margin="24,63,24,105">
-                    <TextBlock TextWrapping="Wrap"><Run Text="New features:"/><LineBreak/><Run Text="- Readd the Blank template to the Home Menu"/><LineBreak/><Run Text="- UI fixes to the Home Menu"/><LineBreak/><Run Text="- Update copyright dates"/><LineBreak/></TextBlock>
+                    <TextBlock TextWrapping="Wrap"><Run Text="New features:"/><LineBreak/><Run Text="- Initial stable release of Ivirius Text Editor v4"/></TextBlock>
                 </StackPanel>
             </Grid>
         </ContentDialog>
