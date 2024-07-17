@@ -28,7 +28,7 @@ And more!
   </tr>
   <tr>
     <td width="70%">
-      <b>Download the latest release from GitHub.</b>
+      <b>Download the latest stable release from GitHub*</b>
     </td>
     <td width="30%">
       <a href="https://github.com/IviriusMain/Ivirius-Text-Editor/releases/latest"><img src="https://i.imgur.com/ydZp1wW.png"/></a>
@@ -43,6 +43,8 @@ And more!
     </td>
   </tr>
 </table>
+
+*NOTE: Releases starting in 3.x are UWP-based, while releases starting in 4.x are Windows App SDK-based
 
 ## 🛠️ Open source code
 
