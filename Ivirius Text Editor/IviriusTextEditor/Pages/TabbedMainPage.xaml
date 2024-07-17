@@ -4928,7 +4928,7 @@
                                     </StackPanel>
                                 </Button>
                                 <StackPanel Orientation="Vertical">
-                                    <TextBlock Text="Version 4.0.0.153"/>
+                                    <TextBlock Text="Version 4.0.0.264"/>
                                     <TextBlock Text="Dev Channel"/>
                                 </StackPanel>
                             </StackPanel>
@@ -4955,10 +4955,10 @@
             <Image Height="100" Width="100" Margin="0,0,0,50" Source="/Assets/AppIcons/AppIcon.png"/>
             <Custom:ProgressRing IsActive="True" Width="25" Height="25" Margin="0,175,0,0"/>
         </Grid>
-        <ContentDialog x:Name="ChangelogWindow" Title="Changelog - Version 4.0.0.153" PrimaryButtonText="Close" d:IsHidden="True">
+        <ContentDialog x:Name="ChangelogWindow" Title="Changelog - Version 4.0.0.264" PrimaryButtonText="Close" d:IsHidden="True">
             <Grid Margin="-24,-63,-24,-105">
                 <Grid/>
-                <TextBlock TextWrapping="Wrap" Text="Changelog - Version 4.0.0.153" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{ThemeResource SubtitleTextBlockStyle}" Margin="25,24,0,0"/>
+                <TextBlock TextWrapping="Wrap" Text="Changelog - Version 4.0.0.264" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{ThemeResource SubtitleTextBlockStyle}" Margin="25,24,0,0"/>
                 <StackPanel Margin="24,63,24,105">
                     <TextBlock TextWrapping="Wrap"><Run Text="New features:"/><LineBreak/><Run Text="- Readd the Blank template to the Home Menu"/><LineBreak/><Run Text="- UI fixes to the Home Menu"/><LineBreak/><Run Text="- Update copyright dates"/><LineBreak/></TextBlock>
                 </StackPanel>

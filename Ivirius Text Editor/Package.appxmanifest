@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities" IgnorableNamespaces="uap mp rescap">
-  <Identity Name="464IviriusCompany.IviriusTextEditor" Publisher="CN=jpb" Version="4.0.0.153" />
+  <Identity Name="464IviriusCompany.IviriusTextEditor" Publisher="CN=jpb" Version="4.0.0.264" />
   <Properties>
     <DisplayName>Ivirius Text Editor</DisplayName>
     <PublisherDisplayName>Ivirius</PublisherDisplayName>
