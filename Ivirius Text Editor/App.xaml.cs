@@ -1,109 +1,89 @@
-﻿//System usings
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls.Primitives;
+using Microsoft.UI.Xaml.Data;
+using Microsoft.UI.Xaml.Input;
+using Microsoft.UI.Xaml.Media;
+using Microsoft.UI.Xaml.Navigation;
+using Microsoft.UI.Xaml.Shapes;
+using Microsoft.Windows.AppLifecycle;
 using System;
-
-//Windows usings
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
-using Windows.ApplicationModel.Core;
-using Windows.Storage;
-using Windows.UI;
-using Windows.UI.ViewManagement;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
-using IviriusTextEditor.Pages;
+using Windows.Foundation;
+using Windows.Foundation.Collections;
+using Ivirius_Text_Editor;
+
+// To learn more about WinUI, the WinUI project structure,
+// and more about our project templates, see: http://aka.ms/winui-project-info.
 
 namespace Ivirius_Text_Editor
 {
-    sealed partial class App : Application
+    /// <summary>
+    /// Provides application-specific behavior to supplement the default Application class.
+    /// </summary>
+    public partial class App : Application
     {
+        /// <summary>
+        /// Initializes the singleton application object.  This is the first line of authored code
+        /// executed, and as such is the logical equivalent of main() or WinMain().
+        /// </summary>
         public App()
         {
-            InitializeComponent();
-            Suspending += OnSuspending;
+            this.InitializeComponent();
         }
 
-        protected override void OnLaunched(LaunchActivatedEventArgs Args)
+        /// <summary>
+        /// Invoked when the application is launched normally by the end user.  Other entry points
+        /// will be used such as when the application is launched to open a specific file.
+        /// </summary>
+        /// <param name="args">Details about the launch request and process.</param>
+        protected override async void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs e)
         {
-            var LocalSettings = ApplicationData.Current.LocalSettings;
-            if ((string)LocalSettings.Values["Theme"] == "Slate Green")
-            {
-                var brush = new SolidColorBrush(Color.FromArgb(255, 92, 255, 138));
-                Application.Current.Resources["SystemAccentColor"] = Color.FromArgb(255, 92, 255, 138);
-                Application.Current.Resources["SystemAccentColorDark1"] = Color.FromArgb(255, 92, 255, 138);
-                Application.Current.Resources["SystemAccentColorDark2"] = Color.FromArgb(255, 92, 255, 138);
-                Application.Current.Resources["SystemAccentColorLight1"] = Color.FromArgb(255, 92, 255, 138);
-                Application.Current.Resources["SystemAccentColorLight2"] = Color.FromArgb(255, 92, 255, 138);
-            }
-            //Configuring the title bar
-            var TB = ApplicationView.GetForCurrentView().TitleBar;
-            var CTB = CoreApplication.GetCurrentView().TitleBar;
-            TB.ButtonInactiveBackgroundColor = Colors.Transparent;
-            TB.ButtonBackgroundColor = Colors.Transparent;
-            CTB.ExtendViewIntoTitleBar = true;
+            // TODO This code defaults the app to a single instance app. If you need multi instance app, remove this part.
+            // Read: https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/guides/applifecycle#single-instancing-in-applicationonlaunched
+            // If this is the first instance launched, then register it as the "main" instance.
+            // If this isn't the first instance launched, then "main" will already be registered,
+            // so retrieve it.
+            var mainInstance = Microsoft.Windows.AppLifecycle.AppInstance.FindOrRegisterForKey("main");
+            var activatedEventArgs = Microsoft.Windows.AppLifecycle.AppInstance.GetCurrent().GetActivatedEventArgs();
 
-            if (!(Window.Current.Content is Frame RF))
+            // If the instance that's executing the OnLaunched handler right now
+            // isn't the "main" instance.
+            if (!mainInstance.IsCurrent)
             {
-                //Sets the window content
-                RF = new Frame();
-                RF.NavigationFailed += OnNavigationFailed;
-                if (Args.PreviousExecutionState == ApplicationExecutionState.Terminated) { }
-                Window.Current.Content = RF;
+                // Redirect the activation (and args) to the "main" instance, and exit.
+                await mainInstance.RedirectActivationToAsync(activatedEventArgs);
+                System.Diagnostics.Process.GetCurrentProcess().Kill();
+                return;
             }
 
-            if (Args.PrelaunchActivated == false)
+            // TODO This code handles app activation types. Add any other activation kinds you want to handle.
+            // Read: https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/guides/applifecycle#file-type-association
+            if (activatedEventArgs.Kind == ExtendedActivationKind.File)
             {
-                if (RF.Content == null) { _ = RF.Navigate(typeof(MainPage), Args.Arguments); }
-                Window.Current.Activate();
+                OnFileActivated(activatedEventArgs);
             }
+
+            // Initialize MainWindow here
+            Window = new MainWindow();
+            Window.Activate();
+            WindowHandle = WinRT.Interop.WindowNative.GetWindowHandle(Window);
         }
 
-        void OnNavigationFailed(object Sender, NavigationFailedEventArgs Args)
+        // TODO This is an example method for the case when app is activated through a file.
+        // Feel free to remove this if you do not need this.
+        public void OnFileActivated(AppActivationArguments activatedEventArgs)
         {
-            throw new Exception($"Failed to load page {Args.SourcePageType.FullName}. Please report this bug as soon as possible");
+
         }
 
-        private void OnSuspending(object Sender, SuspendingEventArgs Args)
-        {
-            try { var MP = new MainPage(); }
-            finally
-            {
-                var Deff = Args.SuspendingOperation.GetDeferral();
-                Deff.Complete();
-            }
-        }
+        public static MainWindow Window { get; private set; }
 
-        protected override void OnFileActivated(FileActivatedEventArgs Args)
-        {
-            base.OnFileActivated(Args);
-            if (Window.Current.Content is Frame RF)
-            {
-                var X = RF.Content as MainPage;
-                X.AddTabForFile(Args);
-            }
-            else
-            {
-                RF = new Frame();
-                Window.Current.Content = RF;
-                _ = RF.Navigate(typeof(MainPage), Args);
-                Window.Current.Activate();
-            }
-        }
-
-        protected override void OnActivated(IActivatedEventArgs Args)
-        {
-            if (Args.Kind == ActivationKind.Protocol)
-            {
-                if (!(Window.Current.Content is Frame))
-                {
-                    var RF = new Frame();
-                    Window.Current.Content = RF;
-                    _ = RF.Navigate(typeof(MainPage), Args);
-                    Window.Current.Activate();
-                }
-                else { }
-            }
-        }
+        public static IntPtr WindowHandle { get; private set; }
     }
 }
